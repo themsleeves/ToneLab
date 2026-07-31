@@ -1,86 +1,30 @@
 Chapitre 02
 
-Pourquoi le Brunetti XL R-EVO II est difficile à classer
+Pourquoi le Brunetti est difficile à classer
 
-«Comprendre pourquoi un même amplificateur peut évoquer un Marshall, un Mesa Boogie, un Diezel ou un EVH sans être la copie d'aucun d'entre eux.»
+«Comprendre pourquoi un même amplificateur peut être comparé à plusieurs références sans être la copie d'aucune.»
 
 ---
 
-Objectif du chapitre
+Présentation
 
-Ce chapitre constitue l'une des fondations du ToneLab.
+Ce chapitre analyse les raisons qui conduisent les guitaristes à rapprocher le Brunetti XL R-EVO II de différentes familles d'amplificateurs (Marshall, Mesa Boogie, Diezel, EVH...).
 
-Avant de construire des profils sonores inspirés de différents amplificateurs, il est indispensable de comprendre pourquoi le Brunetti XL R-EVO II est si souvent comparé à plusieurs références pourtant très différentes.
-
-L'objectif n'est pas de déterminer quel amplificateur il copie le mieux.
-
-L'objectif est de comprendre quelles caractéristiques de son architecture expliquent ces rapprochements.
+L'objectif est d'identifier les caractéristiques qui expliquent ces comparaisons et d'établir une méthode d'analyse pour les chapitres suivants.
 
 ---
 
 Sommaire
 
-Partie 1 — Les comparaisons
-
-- ✅ "Partie 1 — Pourquoi autant de comparaisons ?" (part1.md)
-
-Présentation du problème, premières hypothèses et méthodologie d'analyse du ToneLab.
-
----
-
-Partie 2 — Marshall
-
-- 📋 À venir
-
-Pourquoi certains utilisateurs parlent immédiatement d'un Marshall.
-
----
-
-Partie 3 — Mesa Boogie
-
-- 📋 À venir
-
-Pourquoi le XL R-EVO II peut évoquer un Dual Rectifier dans certaines configurations.
-
----
-
-Partie 4 — Diezel
-
-- 📋 À venir
-
-Précision, définition et comportement moderne.
-
----
-
-Partie 5 — EVH
-
-- 📋 À venir
-
-Le registre high gain contemporain.
-
----
-
-Partie 6 — Synthèse documentaire
-
-- 📋 À venir
-
-Croisement des documentations, des retours utilisateurs et des observations du ToneLab.
-
----
-
-Partie 7 — Analyse ToneLab
-
-- 📋 À venir
-
-Construction d'une hypothèse globale expliquant la polyvalence du Brunetti.
-
----
-
-Partie 8 — Conclusion
-
-- 📋 À venir
-
-Conséquences pratiques pour les chapitres suivants.
+État| Partie
+✅| "Partie 1 — Les comparaisons" (part1.md)
+📋| Partie 2 — Marshall
+📋| Partie 3 — Mesa Boogie
+📋| Partie 4 — Diezel
+📋| Partie 5 — EVH
+📋| Partie 6 — Synthèse documentaire
+📋| Partie 7 — Analyse ToneLab
+📋| Partie 8 — Conclusion
 
 ---
 
@@ -100,8 +44,8 @@ Partie 8| 📋
 
 Navigation
 
-⬅️ "01 – Le Brunetti XL R-EVO II" (../01-le-brunetti-xl-r-evo-ii.md)
+⬅️ "01 — Le Brunetti XL R-EVO II" (../01-le-brunetti-xl-r-evo-ii.md)
 
-🏠 "Retour au sommaire du Volume I" (../index.md)
+🏠 "Retour au Volume I" (../index.md)
 
-➡️ Partie suivante (à venir)
+➡️ "Partie 1" (part1.md)
