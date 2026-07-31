@@ -29,7 +29,7 @@ Les analyses reposent sur :
 | État | Chapitre                                                                                                |
 | :--: | ------------------------------------------------------------------------------------------------------- |
 |   ✅  | [01 – Le Brunetti XL R-EVO II](01-le-brunetti-xl-r-evo-ii.md)                                           |
-|  ✍️  | [02 – Pourquoi le Brunetti est difficile à classer](02-pourquoi-le-brunetti-est-difficile-a-classer.md) |
+|  ✍️  | [02 – Pourquoi le Brunetti est difficile à classer](02-pourquoi-le-brunetti/index.md) |
 |  📋  | 03 – Philosophie de conception                                                                          |
 |  📋  | 04 – Architecture générale                                                                              |
 
