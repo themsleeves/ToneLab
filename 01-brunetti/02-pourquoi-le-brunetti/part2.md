@@ -1,204 +1,257 @@
----
+# Chapitre 02
 
-title: Pourquoi le Brunetti est difficile à classer
-volume: I
-chapter: 02
-part: 2
-version: 0.1
-status: En rédaction
-tone_lab: true
+# Pourquoi le Brunetti est difficile à classer
 
-Partie 2 — Le territoire Marshall
+## Partie 2 — Le territoire Marshall
 
-«Le Brunetti ne copie pas un Marshall. Pourtant, dans certaines configurations, il peut rappeler plusieurs générations d'amplificateurs britanniques. Comprendre pourquoi est la première étape vers la construction d'un véritable profil Marshall.»
+**Volume :** I  
+**Version du document :** 0.2  
+**Statut :** En rédaction
 
 ---
 
-Introduction
-
-Parmi toutes les comparaisons rencontrées au cours des recherches, celle avec Marshall est probablement la plus ancienne.
-
-De nombreux utilisateurs décrivent le XL R-EVO II comme possédant une base britannique, notamment lorsque le gain reste modéré et que les médiums sont mis en avant.
-
-D'autres, au contraire, considèrent que cette comparaison est totalement erronée et que le Brunetti appartient clairement à une génération d'amplificateurs modernes.
-
-Ces deux points de vue semblent incompatibles.
-
-Ils ne le sont pourtant pas.
+> *Le Brunetti XL R-EVO II n'a jamais été conçu comme une copie d'un Marshall. Pourtant, une partie de son territoire sonore peut rappeler certaines des plus belles réalisations britanniques. Comprendre pourquoi est essentiel avant de chercher à reproduire un son de type Plexi ou Super Lead.*
 
 ---
 
-Que signifie réellement « son Marshall » ?
+# Objectif
 
-Avant toute comparaison, il est indispensable de préciser de quel Marshall nous parlons.
+Dans la première partie, nous avons montré que le Brunetti est régulièrement comparé à plusieurs familles d'amplificateurs.
 
-L'expression « son Marshall » recouvre en réalité plusieurs décennies d'évolution.
+Nous allons maintenant analyser l'une des comparaisons les plus fréquentes :
 
-Un JTM45 ne sonne pas comme un Plexi 1959.
+> **Pourquoi certains guitaristes entendent-ils un Marshall dans le Brunetti ?**
 
-Un Plexi Super Lead ne réagit pas comme un JCM800.
+Cette question paraît simple.
 
-Un JCM800 possède lui-même une personnalité très différente d'un JVM moderne.
-
-Lorsque quelqu'un affirme qu'un amplificateur « sonne Marshall », il est donc essentiel de demander :
-
-«Quel Marshall ?»
-
-Cette précision est souvent absente des discussions sur les forums et explique une grande partie des désaccords.
+En réalité, elle est beaucoup plus complexe qu'elle n'en a l'air.
 
 ---
 
-Les caractéristiques généralement associées à un Marshall
+# Une erreur de vocabulaire
 
-Même si chaque génération possède sa personnalité, plusieurs éléments reviennent régulièrement lorsque les guitaristes décrivent un amplificateur de tradition britannique.
+La première difficulté provient du mot **Marshall**.
 
-Parmi les plus fréquemment cités :
+Il est employé quotidiennement par les guitaristes comme s'il désignait un seul son.
 
-- une forte présence dans les médiums ;
-- une excellente réponse aux variations de l'attaque ;
-- une sensation de puissance qui augmente progressivement avec le volume ;
-- une saturation qui conserve une bonne lisibilité des accords ;
-- un caractère vivant, parfois qualifié d'« organique ».
+Or, Marshall fabrique des amplificateurs depuis plus de soixante ans.
 
-Ces caractéristiques ne constituent pas une définition absolue.
+Un JTM45 de 1962.
 
-Elles représentent plutôt un ensemble de sensations de jeu.
+Un Plexi Super Lead.
 
-C'est un point important.
+Un JMP.
 
-Les guitaristes parlent souvent davantage du ressenti sous les doigts que de la réponse en fréquence mesurée.
+Un JCM800.
 
----
+Un Silver Jubilee.
 
-Pourquoi certains pensent immédiatement à Marshall
+Un JVM.
 
-Au cours de nos recherches, plusieurs témoignages convergent vers une idée intéressante.
+Tous appartiennent à la même famille.
 
-Lorsque le canal XLead est utilisé avec un gain relativement modéré, des médiums généreux et un réglage d'Edge contenu, certains utilisateurs obtiennent un registre qui rappelle davantage un « hot-rodded Marshall » qu'un amplificateur américain moderne.
+Pourtant, aucun ne possède exactement la même personnalité.
 
-Cette observation est particulièrement intéressante, car elle rejoint également nos propres échanges.
+Dire qu'un amplificateur "sonne Marshall" n'a donc de sens que si l'on précise :
 
-Tu m'avais indiqué avoir constaté que plusieurs utilisateurs privilégiaient justement le XLead, avec :
+> **De quel Marshall parle-t-on ?**
 
-- peu de gain ;
-- beaucoup de médiums ;
-- un Edge relativement bas ;
-- un Focus intermédiaire ;
-- des graves modérés.
-
-Cette configuration ne cherche pas à reproduire un Plexi d'origine.
-
-Elle semble plutôt déplacer le Brunetti vers un territoire proche des Marshall modifiés des années 1980 et 1990.
+Cette précision est indispensable pour éviter les comparaisons approximatives.
 
 ---
 
-Une remarque importante
+# Le Marshall que nous recherchons
 
-Il est tentant de conclure :
+Dans le cadre du ToneLab, notre objectif n'est pas de reproduire fidèlement un Plexi de collection.
 
-«« Le XLead est le canal Marshall. »»
+Notre référence est beaucoup plus précise.
 
-Cette conclusion serait beaucoup trop rapide.
-
-Le manuel du Brunetti ne présente jamais le XLead comme une reproduction d'un amplificateur britannique.
-
-Il le décrit comme une évolution du canal Boost, avec un voicing plus moderne et une mise en avant des médiums supérieurs et des hautes fréquences.
-
-Autrement dit, si le XLead rappelle parfois certains Marshall, ce n'est probablement pas parce qu'il cherche à les copier.
-
-C'est parce que plusieurs caractéristiques de son voicing peuvent rejoindre celles que les guitaristes apprécient sur certains Marshall fortement modifiés.
-
----
-
-L'importance des médiums
-
-Au fil de nos discussions, une idée revient régulièrement.
-
-Le véritable point commun entre de nombreux Marshall et certaines configurations du Brunetti n'est peut-être pas le niveau de gain.
-
-C'est la manière dont les médiums structurent le son.
-
-Un médium bien placé permet :
-
-- de faire ressortir la guitare dans un mix ;
-- d'améliorer la perception des harmoniques ;
-- de donner une impression de présence sans augmenter excessivement le volume ;
-- de conserver une bonne intelligibilité des accords saturés.
-
-Cette hypothèse explique pourquoi une augmentation modérée des médiums peut parfois transformer radicalement la personnalité perçue d'un amplificateur.
-
----
-
-Notre objectif n'est pas un Plexi d'origine
-
-Il est important de rappeler l'objectif du ToneLab.
-
-Nous ne cherchons pas à reproduire fidèlement un Marshall Plexi 1959 de collection.
-
-Nous cherchons à retrouver un territoire sonore capable de servir des groupes tels que :
+Nous cherchons un territoire sonore capable de couvrir notamment :
 
 - Refused ;
 - Rage Against The Machine ;
-- certaines productions modernes inspirées des Marshall modifiés.
+- certains Marshall Super Lead fortement modifiés ;
+- certaines productions modernes inspirées du Plexi.
 
-Cette nuance est essentielle.
+Cette distinction est importante.
 
-Notre référence n'est pas uniquement un amplificateur.
+Nous cherchons un résultat musical.
 
-Notre référence est un résultat musical.
-
-C'est pourquoi il sera probablement nécessaire d'accepter certaines différences avec les amplificateurs historiques si elles permettent de mieux atteindre l'identité sonore recherchée.
-
----
-
-Hypothèse ToneLab n°2
-
-À ce stade des recherches, une hypothèse se dessine.
-
-Le canal XLead du Brunetti pourrait constituer une excellente base de travail pour construire un profil de type Marshall moderne, non pas parce qu'il imite un Plexi, mais parce que son architecture semble compatible avec les qualités recherchées :
-
-- dynamique ;
-- richesse des médiums ;
-- définition ;
-- articulation des rythmiques.
-
-Cette hypothèse devra naturellement être validée sur le matériel de référence du projet.
+Pas une reproduction historique.
 
 ---
 
-Ce que nous retenons
+# Ce qui caractérise généralement un Marshall
 
-À l'issue de cette deuxième partie, plusieurs points peuvent être considérés comme solides.
+Même si chaque génération possède sa propre personnalité, plusieurs caractéristiques reviennent très souvent.
 
-Confirmé
+## Une forte présence dans les médiums
 
-- L'expression « son Marshall » est trop imprécise pour être utilisée sans préciser le modèle de référence.
-- Une partie des comparaisons avec Marshall repose davantage sur le ressenti de jeu que sur une stricte similitude électronique.
-- Le canal XLead est régulièrement cité comme point de départ pour des registres proches de Marshall fortement modifiés.
+Le registre médium constitue probablement la signature la plus connue des Marshall.
 
-À vérifier expérimentalement
-
-- Influence exacte du réglage d'Edge sur cette perception.
-- Influence du Focus dans la sensation de présence.
-- Différences entre la Gibson Les Paul Classic DC et la Gretsch Broadkaster dans cette configuration.
-- Influence du Marshall 4×12 sur cette impression de proximité.
+C'est lui qui permet à une guitare de traverser facilement un mix sans avoir besoin d'un niveau sonore excessif.
 
 ---
 
-Suite du chapitre
+## Une attaque très réactive
 
-Dans la partie suivante, nous quitterons le territoire britannique pour étudier une comparaison encore plus fréquente :
+Le guitariste a souvent la sensation que l'amplificateur suit immédiatement la main droite.
 
-«Pourquoi le Brunetti XL R-EVO II peut-il évoquer un Mesa Boogie Dual Rectifier alors que son architecture est très différente ?»
+Le jeu paraît vivant.
 
-C'est à partir de cette analyse que commencera réellement la construction de notre futur profil Foo Fighters / Queens of the Stone Age, qui constituera l'un des objectifs majeurs du ToneLab.
+Expressif.
+
+Peu compressé.
 
 ---
 
-Navigation
+## Une saturation lisible
 
-⬅️ "Partie 1" (part1.md)
+Même lorsque le gain augmente, les accords conservent généralement une bonne définition.
 
-🏠 "Retour au chapitre" (index.md)
+Les notes restent relativement faciles à distinguer.
 
-➡️ Partie 3 — Mesa Boogie (à venir)
+---
+
+## Une dynamique importante
+
+Le potentiomètre de volume de la guitare et l'intensité de l'attaque influencent fortement la saturation.
+
+Cette interaction fait partie intégrante du plaisir de jeu.
+
+---
+
+# Pourquoi le Brunetti peut rappeler un Marshall
+
+Au cours de nos recherches, une observation revient régulièrement.
+
+Lorsque le gain reste modéré et que les médiums sont mis en avant, plusieurs utilisateurs décrivent un caractère proche des Marshall modernisés.
+
+Cette remarque est particulièrement intéressante.
+
+Elle rejoint également nos propres échanges.
+
+Tu avais notamment relevé que plusieurs utilisateurs obtenaient d'excellents résultats en utilisant :
+
+- le canal XLead ;
+- peu de gain ;
+- beaucoup de médiums ;
+- peu d'Edge ;
+- un Focus modéré.
+
+Cette configuration mérite une attention particulière.
+
+---
+
+# Le rôle du canal XLead
+
+Le manuel du Brunetti décrit le canal XLead comme une évolution du canal Boost.
+
+Il ne parle jamais d'une reproduction Marshall.
+
+Il insiste davantage sur :
+
+- un voicing plus moderne ;
+- davantage de présence dans les hauts médiums ;
+- une personnalité différente.
+
+Cette nuance est fondamentale.
+
+Le Brunetti ne cherche pas à devenir un Marshall.
+
+Il dispose simplement d'une architecture qui peut rejoindre certaines qualités recherchées sur des Marshall fortement modifiés.
+
+---
+
+# Une hypothèse importante
+
+Plus nos recherches avancent, plus une idée prend de la force.
+
+Ce qui rappelle Marshall n'est probablement pas le niveau de gain.
+
+C'est la manière dont le Brunetti organise les médiums.
+
+Lorsque ceux-ci occupent la bonne place dans le spectre :
+
+- les riffs gagnent en impact ;
+- les harmoniques ressortent davantage ;
+- les accords restent lisibles ;
+- la guitare trouve naturellement sa place dans le mix.
+
+Autrement dit :
+
+Le caractère Marshall semble davantage lié à la structure du spectre qu'à la quantité de saturation.
+
+Cette hypothèse sera testée lors des essais pratiques.
+
+---
+
+# Influence de la guitare
+
+Cette partie sera particulièrement importante dans le ToneLab.
+
+Nous utiliserons deux instruments très différents.
+
+## Gibson Les Paul Classic DC
+
+Les micros Classic '57 offrent :
+
+- davantage d'épaisseur ;
+- un registre médium naturellement riche ;
+- une compression légèrement supérieure.
+
+Il est probable qu'ils permettent d'atteindre plus rapidement un territoire proche des Marshall hot-rodded.
+
+Cette hypothèse devra être validée.
+
+---
+
+## Gretsch Broadkaster Full'Tron
+
+Les Full'Tron possèdent :
+
+- une meilleure définition ;
+- davantage d'ouverture ;
+- une attaque plus franche.
+
+Ils pourraient permettre d'obtenir un registre plus incisif et plus moderne.
+
+Il sera intéressant de comparer directement les deux guitares avec un réglage identique.
+
+---
+
+# Ce que nous retenons
+
+## Confirmé
+
+- "Marshall" ne désigne pas un seul son.
+- Plusieurs générations d'amplificateurs Marshall possèdent des caractères très différents.
+- Le Brunetti n'a jamais été conçu comme une copie d'un Marshall.
+- Le canal XLead possède néanmoins des caractéristiques qui peuvent rappeler certains Marshall fortement modifiés.
+
+## Hypothèses ToneLab
+
+- Le territoire Marshall dépend davantage de la structure des médiums que du gain.
+- La Gibson Les Paul devrait s'en approcher plus naturellement.
+- La Gretsch pourrait offrir une lecture plus moderne et plus précise de ce même territoire.
+- Le Marshall 4×12 jouera probablement un rôle majeur dans cette perception.
+
+---
+
+# Suite du chapitre
+
+Dans la prochaine partie, nous quitterons le territoire britannique pour aborder celui qui constitue probablement la comparaison la plus fréquente concernant le Brunetti :
+
+> **Le Mesa Boogie Dual Rectifier.**
+
+Nous chercherons à comprendre pourquoi ces deux amplificateurs sont souvent rapprochés alors que leur philosophie de conception est très différente.
+
+---
+
+# Navigation
+
+⬅️ [Partie 1](part1.md)
+
+🏠 [Retour au chapitre](index.md)
+
+➡️ Partie 3 — Le territoire Mesa Boogie
