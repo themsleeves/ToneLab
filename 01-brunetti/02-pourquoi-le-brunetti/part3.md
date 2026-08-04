@@ -197,6 +197,271 @@ Dans la seconde moitié de cette partie, nous étudierons :
 - les différences attendues entre la Gibson Les Paul Classic DC et la Gretsch Broadkaster Full'Tron ;
 - les premiers réglages expérimentaux que nous testerons sur le matériel de référence.
 
+Let's Go ! 
+
+Construire un territoire Mesa avec le Brunetti
+
+Nous avons vu dans la première partie de ce chapitre ce qui caractérise réellement un Mesa Boogie Dual Rectifier.
+
+La question devient maintenant beaucoup plus concrète :
+
+«Comment exploiter le Brunetti XL R-EVO II pour se rapprocher de ce territoire sonore ?»
+
+Le ToneLab ne cherche pas à reproduire un Rectifier à l'identique.
+
+Il cherche à comprendre quelles commandes permettent d'orienter progressivement le Brunetti vers cette identité sonore.
+
+---
+
+Pourquoi le canal XLead semble être le meilleur candidat
+
+Au cours de nos recherches documentaires et de l'analyse des retours d'utilisateurs, un point revient régulièrement.
+
+Le canal XLead est celui qui offre le plus grand potentiel pour atteindre un registre moderne, puissant et précis.
+
+Plusieurs éléments expliquent ce choix.
+
+Une réserve de gain importante
+
+Le XLead dispose d'une réserve de gain largement suffisante.
+
+Cela signifie que nous ne serons jamais obligés d'utiliser le gain au maximum.
+
+Or, un Rectifier convaincant n'est pas un amplificateur noyé sous la saturation.
+
+Les productions modernes montrent souvent des réglages de gain plus modérés qu'on pourrait le croire.
+
+Une saturation excessive réduit la dynamique et nuit à la définition.
+
+Notre objectif sera donc de trouver le point où :
+
+- les accords restent lisibles ;
+- les palm-mutes conservent leur impact ;
+- les harmoniques artificielles sortent facilement ;
+- le bruit de fond reste maîtrisé.
+
+---
+
+Le réglage Focus
+
+Le Focus est probablement l'une des commandes les plus intéressantes du Brunetti.
+
+Contrairement à une simple égalisation, il modifie la sensation générale de réponse de l'amplificateur.
+
+C'est pourquoi il mérite une attention particulière.
+
+À ce stade, notre hypothèse est la suivante :
+
+- un Focus trop faible risque de produire un grave plus diffus ;
+- un Focus trop élevé pourrait rendre le son plus sec et plus raide ;
+- une position intermédiaire pourrait offrir le meilleur compromis entre précision et ampleur.
+
+Cette hypothèse devra être validée expérimentalement.
+
+---
+
+Le rôle du Depth
+
+Le Depth ne doit pas être considéré comme un simple réglage de basses.
+
+Il agit davantage sur la sensation de profondeur de l'étage de puissance.
+
+Cette distinction est importante.
+
+Augmenter fortement le réglage Bass tout en laissant le Depth faible ne produira pas le même résultat que l'inverse.
+
+Notre méthode consistera donc à rechercher le point où :
+
+- les palm-mutes restent massifs ;
+- les notes graves ne deviennent jamais envahissantes ;
+- le Marshall 4×12 conserve une excellente lisibilité.
+
+---
+
+Le rôle de l'égalisation
+
+Une erreur fréquente consiste à vouloir reproduire visuellement les réglages d'un Rectifier.
+
+Cette méthode fonctionne rarement.
+
+Le Brunetti possède sa propre architecture.
+
+Il faudra donc régler l'amplificateur en fonction du résultat obtenu et non de la position des potentiomètres.
+
+Nous travaillerons progressivement autour des principes suivants :
+
+- Gain : suffisamment élevé pour obtenir de la densité, mais jamais au détriment de la définition.
+- Bass : utilisé avec modération, le Depth prenant une partie du travail.
+- Mid : conserver suffisamment de médiums pour exister dans un mix.
+- Edge : rechercher la précision sans agressivité.
+
+---
+
+Quelle guitare privilégier ?
+
+Cette question est essentielle pour notre projet.
+
+Nous disposerons de deux références très différentes.
+
+Gibson Les Paul Classic DC
+
+La Gibson représente notre point de départ naturel.
+
+Ses micros Gibson Classic '57 offrent :
+
+- un niveau de sortie adapté ;
+- des médiums riches ;
+- une excellente compatibilité avec les sons rock et hard rock.
+
+Elle sera probablement notre guitare de référence pour construire le profil Mesa.
+
+---
+
+Gretsch Broadkaster Full'Tron
+
+La Gretsch apporte une personnalité différente.
+
+Ses Full'Tron offrent davantage d'ouverture et de définition.
+
+Plutôt que de chercher à la faire sonner exactement comme la Gibson, notre objectif sera de découvrir si cette personnalité permet d'obtenir un Rectifier plus moderne, plus aéré ou plus incisif.
+
+Cette comparaison constituera une étape importante du ToneLab.
+
+---
+
+La chaîne de référence
+
+Pour les expérimentations, nous retiendrons la chaîne suivante :
+
+Guitare
+
+↓
+
+Tube Screamer Analogman Silver Mod
+
+↓
+
+Brunetti XL R-EVO II (XLead)
+
+↓
+
+Marshall 4×12
+
+Cette chaîne servira de base commune à tous les essais afin d'éviter que plusieurs variables changent simultanément.
+
+---
+
+Première stratégie de réglage
+
+Avant toute optimisation fine, nous suivrons toujours le même ordre :
+
+1. choisir la guitare ;
+2. sélectionner le canal ;
+3. régler le gain ;
+4. équilibrer Bass et Depth ;
+5. ajuster les médiums ;
+6. régler Edge ;
+7. affiner Focus ;
+8. intervenir seulement ensuite avec la MXR 6 Band.
+
+Cette méthode permettra de comprendre précisément l'effet de chaque commande.
+
+---
+
+Conséquences pratiques pour le ToneLab
+
+À l'issue de cette étude, plusieurs décisions semblent déjà se dégager.
+
+Canal de référence
+
+XLead
+
+Niveau de confiance : ★★★★★
+
+---
+
+Tube Screamer
+
+À conserver en permanence pendant les essais Mesa.
+
+Niveau de confiance : ★★★★★
+
+---
+
+Depth
+
+Commande prioritaire.
+
+Elle fera l'objet d'un chapitre spécifique.
+
+Niveau de confiance : ★★★★★
+
+---
+
+Focus
+
+Commande stratégique.
+
+Elle influencera probablement davantage le caractère Mesa que la quantité de gain.
+
+Niveau de confiance : ★★★★☆
+
+---
+
+Gibson Les Paul
+
+Premier instrument de validation.
+
+Niveau de confiance : ★★★★★
+
+---
+
+Gretsch Broadkaster
+
+Validation secondaire afin d'évaluer les différences de personnalité.
+
+Niveau de confiance : ★★★★☆
+
+---
+
+MXR 6 Band
+
+Utilisée uniquement en fin de réglage.
+
+Elle ne devra jamais servir à corriger un mauvais réglage de l'amplificateur.
+
+---
+
+Ce que nous retenons
+
+Le Brunetti XL R-EVO II ne possède pas l'architecture d'un Mesa Boogie Dual Rectifier.
+
+Pourtant, plusieurs éléments permettent de l'orienter vers un territoire sonore voisin.
+
+La réussite dépendra beaucoup moins du niveau de gain que :
+
+- du choix du canal ;
+- de l'équilibre entre Focus et Depth ;
+- de l'utilisation de la Tube Screamer ;
+- de la guitare employée ;
+- de la méthode de réglage.
+
+Cette approche est cohérente avec la philosophie du ToneLab :
+
+comprendre avant de régler.
+
+---
+
+Préparation du chapitre suivant
+
+Nous pouvons désormais quitter le territoire Mesa.
+
+Le prochain chapitre analysera un autre amplificateur souvent cité à propos du Brunetti :
+
+Le Diezel VH4.
+
+Cette comparaison nous permettra de comprendre pourquoi le Brunetti est également capable de produire des sons extrêmement précis, modernes et articulés, très différents de ceux d'un Rectifier.
+
 ---
 
 Navigation
@@ -205,4 +470,4 @@ Navigation
 
 🏠 "Retour au chapitre" (index.md)
 
-➡️ Partie 4 — Le territoire Diezel
+➡️ "Partie 4 — Le territoire Diezel" (part4.md)
