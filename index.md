@@ -1,61 +1,113 @@
 # ToneLab
 
-> Comprendre avant de régler.
+> **Comprendre, construire et maîtriser un son de guitare.**
+>
+> Ce dépôt rassemble les recherches, analyses, expérimentations et réglages réalisés autour du matériel de référence du projet ToneLab. L'objectif n'est pas seulement de conserver des réglages, mais de comprendre le rôle de chaque élément de la chaîne audio afin de pouvoir reproduire, adapter et faire évoluer un son de manière réfléchie.
 
 ---
 
-# Bienvenue
+# Sommaire
 
-Le ToneLab est une base de connaissances consacrée à la compréhension du matériel, à la conception du son et à la construction d'identités sonores.
-
-Le projet est organisé sous forme de volumes, chacun étant dédié à un domaine précis.
-
----
-
-# Commencer ici
-
-📖 [Préface](preface.md)
+- [Préface](#préface)
+- [Organisation du dépôt](#organisation-du-dépôt)
+- [Documentation principale](#documentation-principale)
+- [Ressources](#ressources)
+- [État d'avancement](#état-davancement)
 
 ---
 
-# Volumes
+# Préface
 
-## Volume I — Le Brunetti XL R-EVO II
-
-➡️ [Entrer dans le volume](01-brunetti/index.md)
+- 📖 [Préface](PREFACE.md)
 
 ---
 
-## Volumes en préparation
+# Organisation du dépôt
 
-- Volume II — Les profils sonores
-- Volume III — Les guitares
-- Volume IV — Le pedalboard
-- Volume V — Le son Xavier
+```text
+/
+├── PREFACE.md
+├── index.md
+├── ressources/
+│   └── ...
+│
+└── 01-brunetti/
+    ├── index.md
+    ├── 01-architecture/
+    ├── 02-pourquoi-le-brunetti/
+    ├── 03-canaux/
+    ├── ...
+```
 
 ---
 
-# Annexes
+# Documentation principale
 
-➡️ [Annexes](annexes/index.md)
+## 01 — Brunetti XL R-EVO II
+
+Documentation complète consacrée à l'amplificateur Brunetti XL R-EVO II.
+
+Contenu actuel :
+
+- ✅ Documentation générale
+- ✅ Architecture
+- ✅ Philosophie de conception
+- ✅ Pourquoi le Brunetti est difficile à classer
+- 🚧 Étude des territoires sonores
+- 🚧 Construction des profils sonores
+- 🚧 Réglages détaillés
+
+Accéder au chapitre :
+
+➡️ **[01-brunetti](01-brunetti/index.md)**
 
 ---
 
-# État du projet
+# Ressources
 
-| Élément | État |
+Le dossier **ressources/** regroupe les documents annexes utilisés tout au long du projet.
+
+Exemple :
+
+- contexte musical ;
+- notes diverses ;
+- documents de référence ;
+- recherches ponctuelles.
+
+---
+
+# État d'avancement
+
+## Documentation
+
+| Chapitre | État |
 |----------|------|
 | Préface | ✅ |
-| Volume I | 🚧 |
-| Volume II | ⏳ |
-| Annexes | 🚧 |
+| 01 - Brunetti | 🚧 |
+| 02 - Pourquoi le Brunetti est difficile à classer | 🚧 |
+| Documentation des réglages | ⏳ |
+| Profils sonores | ⏳ |
+| Pedalboard | ⏳ |
 
 ---
 
-# Philosophie
+# Philosophie du ToneLab
 
-Le ToneLab ne cherche pas à fournir des presets.
+Le ToneLab repose sur quatre principes.
 
-Il cherche à expliquer pourquoi un réglage fonctionne.
+- Comprendre avant de régler.
+- Justifier chaque choix technique.
+- Tester les hypothèses sur le matériel de référence.
+- Conserver un historique des découvertes afin de rendre chaque réglage reproductible.
 
-Chaque affirmation est documentée, analysée et, lorsque cela est possible, validée expérimentalement.
+Chaque chapitre doit permettre de répondre à une question pratique.
+
+> **"Qu'est-ce que cette analyse m'aide concrètement à régler sur mon matériel ?"**
+
+---
+
+# Navigation
+
+📖 [Préface](PREFACE.md)
+
+➡️ [01 - Brunetti XL R-EVO II](01-brunetti/index.md)
