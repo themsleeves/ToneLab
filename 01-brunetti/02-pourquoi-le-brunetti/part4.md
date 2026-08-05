@@ -1,242 +1,207 @@
-Chapitre 02
+# Chapitre 02
 
-Partie 4 — Le territoire Diezel
+# Partie 4 — Le territoire Diezel
 
-«Le Brunetti XL R-EVO II est parfois comparé à des amplificateurs Diezel, notamment pour la précision de son canal XLead. Cette comparaison est-elle fondée ? Quels éléments rapprochent réellement ces deux philosophies, et lesquels les distinguent ?»
-
----
-
-Fil d'Ariane
-
-"ToneLab" (../../index.md)
-
-→ "Brunetti XL R-EVO II" (../index.md)
-
-→ "Chapitre 02 – Pourquoi le Brunetti est difficile à classer" (index.md)
-
-→ Partie 4 – Le territoire Diezel
+> *Le Brunetti XL R-EVO II est parfois comparé aux amplificateurs Diezel, en particulier au VH4. Cette comparaison est surprenante, car ces amplificateurs sont issus de philosophies très différentes. Pourtant, certains utilisateurs retrouvent dans le Brunetti une précision et une articulation qui rappellent les productions de la marque allemande. Cette partie a pour objectif de comprendre pourquoi.*
 
 ---
 
-Sommaire
+## Fil d'Ariane
 
-- "Objectif" (#objectif)
-- "Qui est Diezel ?" (#qui-est-diezel-)
-- "La philosophie Diezel" (#la-philosophie-diezel)
-- "Pourquoi le Brunetti est parfois comparé à Diezel" (#pourquoi-le-brunetti-est-parfois-comparé-à-diezel)
-- "Les différences fondamentales" (#les-différences-fondamentales)
-- "Conséquences pratiques pour le ToneLab" (#conséquences-pratiques-pour-le-tonelab)
-- "Réglage provisoire" (#réglage-provisoire)
-- "Ce que nous retenons" (#ce-que-nous-retenons)
-- "Navigation" (#navigation)
+**[ToneLab](../../index.md)**
+
+→ **[Brunetti XL R-EVO II](../index.md)**
+
+→ **[Chapitre 02 – Pourquoi le Brunetti est difficile à classer](index.md)**
+
+→ **Partie 4 – Le territoire Diezel**
 
 ---
 
-Objectif
+# Sommaire
 
-Après avoir étudié les territoires Marshall et Mesa, nous abordons maintenant une famille d'amplificateurs réputée pour sa rigueur.
-
-L'objectif est de comprendre :
-
-- pourquoi certains rapprochent le Brunetti d'un Diezel ;
-- quels réglages favorisent cette sensation de précision ;
-- comment utiliser cette approche pour enrichir nos futurs profils sonores.
-
----
-
-Qui est Diezel ?
-
-Diezel est un constructeur allemand dont les amplificateurs (VH4, Herbert, Einstein...) sont devenus des références dans les univers rock moderne et metal.
-
-Leur réputation repose moins sur leur quantité de gain que sur leur capacité à rester parfaitement lisibles, même avec des saturations importantes.
-
-Un accord complexe conserve sa définition.
-
-Un palm-mute reste net.
-
-Les attaques demeurent extrêmement régulières.
-
-Cette maîtrise est l'une des signatures de la marque.
+- [Objectif](#objectif)
+- [Pourquoi Diezel ?](#pourquoi-diezel)
+- [La philosophie Diezel](#la-philosophie-diezel)
+- [Validation documentaire](#validation-documentaire)
+- [Pourquoi le Brunetti évoque parfois un Diezel](#pourquoi-le-brunetti-évoque-parfois-un-diezel)
+- [Conséquences pour le ToneLab](#conséquences-pour-le-tonelab)
+- [Réglage provisoire](#réglage-provisoire)
+- [Ce que nous retenons](#ce-que-nous-retenons)
+- [Navigation](#navigation)
 
 ---
 
-La philosophie Diezel
+# Objectif
 
-Contrairement à un Rectifier, qui donne souvent une impression de largeur et de souffle, un Diezel recherche avant tout le contrôle.
+Après avoir étudié les influences Marshall et Mesa Boogie, il est temps d'explorer un troisième territoire sonore régulièrement associé au Brunetti XL R-EVO II : celui des amplificateurs Diezel.
 
-Les caractéristiques généralement reconnues sont :
+L'objectif n'est pas de démontrer que le Brunetti est un clone d'un VH4 ou d'un Herbert.
 
-- une réponse extrêmement rapide au médiator ;
+Au contraire, cette étude cherche à comprendre quelles caractéristiques communes peuvent expliquer cette comparaison et comment elles peuvent être exploitées dans la recherche de notre propre identité sonore.
+
+---
+
+# Pourquoi Diezel ?
+
+Depuis la fin des années 1990, Diezel s'est imposé comme une référence dans les univers rock moderne et metal grâce à une approche très particulière de la saturation.
+
+Contrairement à d'autres amplificateurs high-gain, la philosophie Diezel privilégie :
+
+- la précision ;
+- la lisibilité ;
+- l'équilibre du spectre ;
+- une excellente définition des accords complexes.
+
+Même avec beaucoup de gain, chaque note reste clairement identifiable.
+
+Cette caractéristique constitue l'une des signatures de la marque.
+
+---
+
+# La philosophie Diezel
+
+Le grain Diezel ne repose pas uniquement sur une saturation importante.
+
+Il résulte d'un équilibre entre plusieurs éléments :
+
+- une attaque extrêmement rapide ;
 - une excellente séparation des notes ;
-- un grave tendu ;
-- des médiums très structurés ;
-- un haut du spectre précis sans agressivité.
+- un grave très contrôlé ;
+- des médiums présents mais parfaitement maîtrisés ;
+- un aigu précis sans devenir agressif.
 
-On parle souvent d'un son chirurgical, mais ce terme est parfois mal interprété.
+L'objectif n'est pas de produire un son massif uniquement par la quantité de saturation, mais par la qualité de son articulation.
 
-Il ne signifie pas « froid ».
+Cette philosophie explique pourquoi de nombreux guitaristes parlent d'un son « chirurgical ».
 
-Il signifie que chaque note conserve sa place, même dans un jeu très chargé.
+Il ne s'agit pas d'un son froid.
 
----
-
-Pourquoi le Brunetti est parfois comparé à Diezel ?
-
-Cette comparaison provient principalement du canal XLead.
-
-Plusieurs utilisateurs soulignent que, correctement réglé, il peut produire :
-
-- une excellente définition ;
-- une saturation dense mais lisible ;
-- un grave bien tenu ;
-- une attaque très précise.
-
-Ces qualités rappellent effectivement certains amplificateurs Diezel.
-
-Cependant, cette proximité ne signifie pas que le Brunetti reproduit un VH4.
-
-Elle signifie qu'il peut partager une partie de sa philosophie de jeu.
+Il s'agit d'un son capable de rester parfaitement lisible dans toutes les situations.
 
 ---
 
-Les différences fondamentales
+# Validation documentaire
 
-Le Brunetti conserve une personnalité plus organique.
+## ✔ Confirmé
 
-Même lorsqu'il est réglé pour obtenir une grande précision, il garde généralement :
+Les amplificateurs Diezel sont largement reconnus pour :
+
+- leur précision ;
+- leur définition ;
+- leur réponse très rapide au médiator ;
+- leur excellente tenue des graves.
+
+---
+
+## ◐ Hypothèse solide
+
+Le canal **XLead** du Brunetti partage plusieurs de ces qualités lorsqu'il est utilisé avec un gain modéré.
+
+La comparaison semble davantage concerner le comportement dynamique que le grain lui-même.
+
+---
+
+## 🧪 À valider expérimentalement
+
+Déterminer dans quelle mesure les réglages **Focus** et **Depth** influencent cette sensation de précision.
+
+Cette validation sera réalisée lors des essais sur le matériel de référence.
+
+---
+
+# Pourquoi le Brunetti évoque parfois un Diezel
+
+Au cours de nos recherches, plusieurs témoignages convergent vers une idée commune.
+
+Lorsque le canal XLead est correctement réglé, il peut produire :
+
+- une saturation dense mais parfaitement lisible ;
+- une excellente séparation des notes ;
+- des palm-mutes fermes ;
+- une sensation de contrôle très importante.
+
+Ces caractéristiques rappellent effectivement certains amplificateurs Diezel.
+
+Cependant, plusieurs différences demeurent.
+
+Le Brunetti conserve généralement :
 
 - davantage de chaleur ;
-- une compression moins marquée ;
-- une sensation de jeu un peu plus souple.
+- une compression plus naturelle ;
+- une réponse légèrement plus souple.
 
-C'est probablement ce qui explique pourquoi certains guitaristes le trouvent plus "vivant" qu'un amplificateur extrêmement clinique.
-
-Pour notre projet, cette caractéristique est intéressante.
-
-Nous ne cherchons pas à copier un Diezel.
-
-Nous cherchons à récupérer :
-
-- sa précision ;
-- sa lisibilité ;
-- sa capacité à rester propre sous un fort niveau de saturation.
-
-Tout en conservant la musicalité du Brunetti.
+Autrement dit, il emprunte certaines qualités du territoire Diezel sans en reproduire totalement le caractère.
 
 ---
 
-Conséquences pratiques pour le ToneLab
+# Conséquences pour le ToneLab
 
-Cette analyse nous conduit à plusieurs hypothèses.
+Cette étude met en évidence plusieurs pistes de travail.
 
-Canal
+Le canal **XLead** reste le meilleur candidat pour explorer ce territoire.
 
-Le XLead reste le candidat naturel.
+Le gain devra probablement être légèrement inférieur à celui utilisé pour un profil Mesa afin de préserver la lisibilité.
 
-Confiance : ★★★★★
+Le réglage **Focus** pourrait devenir l'un des paramètres les plus importants.
 
----
+Le **Depth** devra être utilisé avec modération afin de conserver un grave rapide et parfaitement contrôlé.
 
-Gain
-
-Éviter l'excès.
-
-Une saturation légèrement plus faible permet souvent d'améliorer considérablement la lisibilité.
-
-Confiance : ★★★★★
+La Tube Screamer Analogman Silver Mod pourra être utilisée principalement pour améliorer la précision de l'attaque plutôt que pour augmenter le niveau de saturation.
 
 ---
 
-Focus
+# Réglage provisoire
 
-Le Focus devient probablement un réglage majeur.
+> **Objectif : territoire Diezel moderne**
 
-Nous supposons qu'il participe fortement à la sensation de précision.
-
-Il devra faire l'objet d'essais méthodiques.
-
-Confiance : ★★★★☆
-
----
-
-Edge
-
-Un Edge trop élevé risque d'apporter une dureté inutile.
-
-L'objectif est la définition, pas l'agressivité.
-
-Confiance : ★★★★☆
+| Paramètre | Valeur provisoire | Niveau de confiance |
+|-----------|-------------------|---------------------|
+| Canal | XLead | ★★★★★ |
+| Gain | 4 à 5 | ★★★★☆ |
+| Bass | 5 | ★★★☆☆ |
+| Mid | 6 | ★★★★☆ |
+| Edge | 4 | ★★★★☆ |
+| Focus | 6 | ★★★☆☆ |
+| Depth | 4 à 5 | ★★★☆☆ |
 
 ---
 
-Depth
+# Ce que nous retenons
 
-Le grave doit rester présent, mais parfaitement contrôlé.
+Le Brunetti XL R-EVO II ne devient jamais un véritable Diezel.
 
-Une augmentation excessive pourrait éloigner le Brunetti du territoire Diezel.
+En revanche, il semble capable d'en reprendre plusieurs qualités fondamentales :
 
-Confiance : ★★★★☆
+- une excellente articulation ;
+- une réponse rapide ;
+- un grave maîtrisé ;
+- une grande lisibilité.
 
----
+Cette proximité constitue une nouvelle possibilité dans notre palette sonore.
 
-Tube Screamer
-
-Son intérêt est probablement différent de celui observé avec un Rectifier.
-
-Ici, elle pourrait être utilisée avant tout pour renforcer la netteté des attaques.
-
-Confiance : ★★★☆☆
+Elle sera particulièrement intéressante pour les profils modernes nécessitant précision, contrôle et définition sans sacrifier la musicalité naturelle du Brunetti.
 
 ---
 
-Réglage provisoire
+# Conclusion provisoire
 
-«Objectif : territoire Diezel moderne.»
+Après avoir étudié les territoires Marshall, Mesa Boogie et Diezel, une tendance commence à apparaître.
 
-Paramètre| Valeur provisoire| Confiance
-Canal| XLead| ★★★★★
-Gain| 4 à 5| ★★★★☆
-Bass| 5| ★★★☆☆
-Mid| 6| ★★★★☆
-Edge| 4| ★★★★☆
-Focus| 6| ★★★☆☆
-Depth| 4 à 5| ★★★☆☆
+Le Brunetti ne semble appartenir complètement à aucune de ces familles.
 
----
+Il emprunte à chacune certaines qualités tout en conservant une personnalité propre.
 
-Ce que nous retenons
+Cette observation préparera directement la prochaine partie, consacrée au territoire EVH, avant d'aborder la question essentielle :
 
-Le Brunetti XL R-EVO II ne devient pas un Diezel.
-
-En revanche, il semble capable d'en reprendre plusieurs qualités essentielles :
-
-- précision ;
-- définition ;
-- contrôle du grave ;
-- excellente articulation.
-
-Cette proximité constitue un nouvel outil dans notre palette sonore.
-
-Elle sera particulièrement intéressante pour les futurs profils demandant une grande lisibilité sans perdre le caractère chaleureux du Brunetti.
+**Quelle est la véritable identité sonore du Brunetti XL R-EVO II ?**
 
 ---
 
-Conséquences pour les futurs profils
+# Navigation
 
-Cette étude pourra notamment servir de base à :
+⬅️ **[Partie 3 – Le territoire Mesa Boogie](part3.md)**
 
-- Tool ;
-- certaines sonorités modernes de Foo Fighters ;
-- Biffy Clyro ;
-- Deftones ;
-- des sons metal modernes sans tomber dans une saturation excessive.
+🏠 **[Retour au chapitre](index.md)**
 
----
-
-Navigation
-
-⬅️ "Partie 3 – Le territoire Mesa Boogie" (part3.md)
-
-🏠 "Retour au chapitre" (index.md)
-
-➡️ "Partie 5 – Le territoire EVH" (part5.md)
+➡️ **[Partie 5 – Le territoire EVH](part5.md)**
