@@ -118,4 +118,134 @@ Cela comprend notamment :
 - le MXR 6 Band EQ ;
 - le reste du pedalboard.
 
-Une théorie
+Une théorie qui fonctionne ailleurs ne sera retenue que si elle fonctionne également dans notre contexte.
+
+---
+
+# Les territoires étudiés
+
+Cette série d'analyses est organisée autour de plusieurs familles d'amplificateurs.
+
+Chaque partie répond à une question précise.
+
+---
+
+## Partie 2 — Le territoire Marshall
+
+Pourquoi le Brunetti est-il souvent rapproché d'un Marshall moderne ou hot-rodded ?
+
+➡️ **[Accéder à la Partie 2](part2.md)**
+
+---
+
+## Partie 3 — Le territoire Mesa Boogie
+
+Quels éléments rapprochent réellement le Brunetti d'un Dual Rectifier ?
+
+➡️ **[Accéder à la Partie 3](part3.md)**
+
+---
+
+## Partie 4 — Le territoire Diezel
+
+Pourquoi certains utilisateurs évoquent-ils un comportement proche des amplificateurs Diezel ?
+
+➡️ **[Accéder à la Partie 4](part4.md)**
+
+---
+
+## Partie 5 — Le territoire EVH
+
+Le Brunetti peut-il retrouver certaines qualités des amplificateurs EVH modernes ?
+
+➡️ **[Accéder à la Partie 5](part5.md)**
+
+---
+
+## Partie 6 — L'identité sonore du Brunetti
+
+Après avoir étudié les influences extérieures, nous chercherons à définir ce qui fait la personnalité propre du Brunetti.
+
+*(À venir.)*
+
+---
+
+## Partie 7 — Synthèse
+
+Cette partie réunira toutes les conclusions afin de mettre en évidence les constantes observées au cours de notre étude.
+
+*(À venir.)*
+
+---
+
+## Partie 8 — Conséquences pratiques
+
+Transformation des conclusions précédentes en méthode de réglage applicable au quotidien.
+
+Cette partie servira de passerelle vers les futurs profils sonores du ToneLab.
+
+*(À venir.)*
+
+---
+
+# Progression du chapitre
+
+| Partie | Sujet | État |
+|---------|-------|------|
+| ✅ | Introduction | Terminée |
+| ✅ | Le territoire Marshall | Terminée |
+| ✅ | Le territoire Mesa Boogie | Terminée |
+| ✅ | Le territoire Diezel | Terminée |
+| ✅ | Le territoire EVH | Terminée |
+| ⏳ | L'identité sonore du Brunetti | À rédiger |
+| ⏳ | Synthèse | À rédiger |
+| ⏳ | Conséquences pratiques | À rédiger |
+
+---
+
+# Ce que cette étude doit nous apporter
+
+À la fin de ce chapitre, nous devrons être capables de répondre à plusieurs questions essentielles.
+
+- Pourquoi le Brunetti peut-il évoquer plusieurs familles d'amplificateurs ?
+- Quels réglages permettent d'orienter réellement son caractère ?
+- Quel rôle jouent le Gain, le Focus, le Depth et l'égalisation ?
+- Quelle guitare privilégier selon le territoire recherché ?
+- Quel est le rôle exact de la Tube Screamer dans chaque approche ?
+- Existe-t-il une identité sonore propre au Brunetti XL R-EVO II ?
+
+Les réponses à ces questions constitueront la base des futurs chapitres consacrés aux profils sonores et aux réglages détaillés.
+
+---
+
+# Conclusion
+
+Avant de rechercher **le meilleur réglage**, il est indispensable de comprendre **la personnalité de l'amplificateur**.
+
+Cette étude ne cherche donc pas à déterminer quel amplificateur est le meilleur.
+
+Elle cherche à comprendre ce que le Brunetti peut emprunter à chacun d'eux, tout en conservant son identité propre.
+
+C'est cette compréhension qui nous permettra ensuite de construire des profils sonores cohérents, reproductibles et adaptés à notre matériel.
+
+---
+
+# Navigation
+
+## Parties disponibles
+
+➡️ **[Partie 2 – Le territoire Marshall](part2.md)**
+
+➡️ **[Partie 3 – Le territoire Mesa Boogie](part3.md)**
+
+➡️ **[Partie 4 – Le territoire Diezel](part4.md)**
+
+➡️ **[Partie 5 – Le territoire EVH](part5.md)**
+
+---
+
+🏠 **[Retour au chapitre](index.md)**
+
+⬆️ **[Retour au Brunetti](../index.md)**
+
+⬆️ **[Retour au ToneLab](../../index.md)**
