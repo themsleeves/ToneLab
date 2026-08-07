@@ -2,160 +2,147 @@
 
 # Pourquoi le Brunetti est difficile à classer
 
-> *Le Brunetti XL R-EVO II est souvent comparé à des amplificateurs dont les philosophies sont pourtant très différentes. Cette étude a pour objectif de comprendre l'origine de ces comparaisons, de distinguer les faits des idées reçues et d'en tirer des conséquences pratiques pour construire des profils sonores adaptés à notre matériel.*
+> *Ce chapitre constitue le socle théorique du ToneLab consacré au Brunetti XL R-EVO II. Il rassemble les recherches, analyses et comparaisons ayant permis de comprendre pourquoi cet amplificateur est régulièrement rapproché de plusieurs grandes familles sonores sans appartenir totalement à aucune d'entre elles.*
 
 ---
 
-# Sommaire
+## Fil d'Ariane
 
-- [Objectif](#objectif)
-- [Organisation du chapitre](#organisation-du-chapitre)
-- [Les différentes parties](#les-différentes-parties)
-- [Progression de l'étude](#progression-de-letude)
-- [Navigation](#navigation)
+**[ToneLab](../../index.md)**
+
+→ **[Brunetti XL R-EVO II](../index.md)**
+
+→ **Chapitre 02 – Pourquoi le Brunetti est difficile à classer**
 
 ---
 
-# Objectif
+# Objectif du chapitre
 
-Avant de créer des profils sonores précis (Foo Fighters, QOTSA, Refused, RATM, etc.), il est indispensable de comprendre le territoire naturel du Brunetti.
+Avant de rechercher des réglages, il est indispensable de comprendre la philosophie du Brunetti XL R-EVO II.
 
 Ce chapitre répond notamment aux questions suivantes :
 
-- Pourquoi le Brunetti est-il comparé à un Marshall ?
-- Pourquoi est-il souvent rapproché d'un Mesa Boogie Dual Rectifier ?
-- Peut-il réellement produire un son proche d'un Diezel ?
-- Existe-t-il une identité sonore propre au Brunetti ?
-- Quels réglages permettent de s'approcher de chacun de ces territoires ?
+- Pourquoi le Brunetti est-il parfois comparé à un Marshall ?
+- Pourquoi certains utilisateurs évoquent-ils un Mesa Boogie Dual Rectifier ?
+- En quoi peut-il rappeler un Diezel ou un EVH ?
+- Existe-t-il une véritable identité sonore Brunetti ?
+- Comment utiliser ces connaissances pour construire des profils sonores cohérents ?
 
-L'objectif final n'est pas de copier un autre amplificateur, mais de savoir **comment orienter volontairement le Brunetti vers une personnalité sonore donnée**, tout en conservant ce qui fait sa richesse.
+L'objectif n'est pas de déterminer quel amplificateur le Brunetti imite le mieux.
 
----
-
-# Organisation du chapitre
-
-Cette étude est découpée en plusieurs parties indépendantes.
-
-Chaque partie analyse une famille d'amplificateurs ou un aspect particulier du territoire sonore du Brunetti.
+L'objectif est de comprendre **ce qui fait sa personnalité**, afin d'exploiter tout son potentiel dans le cadre du projet ToneLab.
 
 ---
 
-# Les différentes parties
+# Sommaire du chapitre
 
 ## ✅ Partie 1 — Introduction
 
-Présentation des objectifs de l'étude et définition de la problématique.
+Présentation de la démarche, de la méthode d'analyse et des objectifs du chapitre.
 
-📄 **Fichier :** `part1.md`
+➡️ **[Accéder à la Partie 1](part1.md)**
 
 ---
 
 ## ✅ Partie 2 — Le territoire Marshall
 
-Pourquoi certains utilisateurs rapprochent le Brunetti des Marshall modernes ou hot-rodded.
+Étude des similitudes entre le Brunetti et les différentes familles Marshall, du Plexi aux modèles hot-rodded.
 
-Sujets abordés :
-
-- les médiums ;
-- la dynamique ;
-- le canal XLead ;
-- l'influence de la Gibson et de la Gretsch ;
-- premières conséquences pratiques.
-
-📄 **Fichier :** `part2.md`
+➡️ **[Accéder à la Partie 2](part2.md)**
 
 ---
 
 ## ✅ Partie 3 — Le territoire Mesa Boogie
 
-Étude du territoire Rectifier.
+Analyse détaillée des points communs avec le Mesa Boogie Dual Rectifier et des limites de cette comparaison.
 
-Sujets abordés :
-
-- les caractéristiques réelles d'un Dual Rectifier ;
-- le rôle du canal XLead ;
-- Focus et Depth ;
-- Tube Screamer ;
-- stratégie de réglage ;
-- premières hypothèses de profil Mesa.
-
-📄 **Fichier :** `part3.md`
+➡️ **[Accéder à la Partie 3](part3.md)**
 
 ---
 
-## ⏳ Partie 4 — Le territoire Diezel
+## ✅ Partie 4 — Le territoire Diezel
 
-Analyse de la précision, de la définition et du comportement moderne des amplificateurs Diezel.
+Comprendre pourquoi certains utilisateurs rapprochent le Brunetti des amplificateurs Diezel et ce que cela implique en matière de réglages.
 
-Statut : **À rédiger**
-
----
-
-## ⏳ Partie 5 — Le territoire EVH
-
-Étude des sons modernes américains inspirés des EVH.
-
-Statut : **À rédiger**
+➡️ **[Accéder à la Partie 4](part4.md)**
 
 ---
 
-## ⏳ Partie 6 — L'identité Brunetti
+## ✅ Partie 5 — Le territoire EVH
 
-À partir des analyses précédentes, mise en évidence de la personnalité propre du XL R-EVO II.
+Analyse du comportement du Brunetti face aux caractéristiques des amplificateurs EVH modernes.
 
-Statut : **À rédiger**
-
----
-
-## ⏳ Partie 7 — Synthèse
-
-Comparaison des différents territoires sonores étudiés.
-
-Statut : **À rédiger**
+➡️ **[Accéder à la Partie 5](part5.md)**
 
 ---
 
-## ⏳ Partie 8 — Conséquences pratiques
+## ✅ Partie 6 — L'identité sonore du Brunetti
 
-Transformation des conclusions précédentes en méthode de réglage.
+Synthèse des analyses précédentes afin de définir la personnalité propre du Brunetti XL R-EVO II.
 
-Cette partie servira de passerelle vers les futurs chapitres consacrés aux profils sonores.
-
-Statut : **À rédiger**
+➡️ **[Accéder à la Partie 6](part6.md)**
 
 ---
 
-# Progression de l'étude
+## ✅ Partie 7 — Synthèse
 
-| Partie | État |
-|---------|------|
-| Introduction | ✅ |
-| Marshall | ✅ |
-| Mesa Boogie | ✅ |
-| Diezel | ⏳ |
-| EVH | ⏳ |
-| Identité Brunetti | ⏳ |
-| Synthèse | ⏳ |
-| Conséquences pratiques | ⏳ |
+Récapitulatif des enseignements des différentes parties et mise en évidence des constantes observées.
+
+➡️ **[Accéder à la Partie 7](part7.md)**
 
 ---
 
-# Ce que ce chapitre doit permettre d'obtenir
+## ✅ Partie 8 — Conséquences pratiques et méthode de réglage
 
-À la fin de cette étude, le lecteur devra être capable de répondre à trois questions essentielles :
+Transformation des conclusions théoriques en une méthode de travail reproductible pour construire des profils sonores.
 
-1. Dans quel territoire sonore souhaite-t-il orienter son Brunetti ?
-2. Quels réglages auront le plus d'influence sur cette orientation ?
-3. Quels éléments externes (guitare, Tube Screamer, égaliseur, baffle...) permettront d'accentuer cette personnalité sonore ?
+➡️ **[Accéder à la Partie 8](part8.md)**
 
-Ce chapitre constitue donc la base théorique des futurs profils sonores du ToneLab.
+---
+
+# Progression
+
+| Partie | Sujet | État |
+|:------:|--------|:----:|
+| 1 | Introduction | ✅ |
+| 2 | Territoire Marshall | ✅ |
+| 3 | Territoire Mesa Boogie | ✅ |
+| 4 | Territoire Diezel | ✅ |
+| 5 | Territoire EVH | ✅ |
+| 6 | L'identité sonore du Brunetti | ✅ |
+| 7 | Synthèse | ✅ |
+| 8 | Méthode de réglage | ✅ |
+
+---
+
+# Ce que vous aurez appris à la fin de ce chapitre
+
+À l'issue de cette lecture, vous disposerez :
+
+- d'une compréhension approfondie de la philosophie du Brunetti XL R-EVO II ;
+- d'une vision claire de ses proximités avec les grandes familles d'amplificateurs (Marshall, Mesa Boogie, Diezel, EVH) ;
+- d'une définition argumentée de son identité sonore propre ;
+- d'une méthode structurée pour créer des réglages cohérents et reproductibles ;
+- des bases nécessaires pour aborder les futurs profils sonores du ToneLab.
+
+Ce chapitre constitue la référence théorique sur laquelle reposera l'ensemble des expérimentations et des profils développés dans les chapitres suivants.
+
+---
+
+# Chapitre suivant
+
+Le **Chapitre 03** marquera un changement d'approche.
+
+Nous quitterons progressivement la phase d'analyse documentaire pour entrer dans la phase de conception des profils sonores.
+
+Les connaissances acquises dans ce chapitre serviront directement à construire des réglages adaptés à des univers musicaux précis (Foo Fighters, Queens of the Stone Age, Refused, Tool, Hermano, Rage Against The Machine, etc.), en tenant compte du matériel utilisé et de la logique de travail définie dans le ToneLab.
 
 ---
 
 # Navigation
 
-⬅️ **[Retour au chapitre Brunetti](../index.md)**
+⬆️ **[Retour au Brunetti XL R-EVO II](../index.md)**
 
-⬆️ **[Retour à l'index principal](../../index.md)**
+⬆️ **[Retour au ToneLab](../../index.md)**
 
-➡️ **[Partie 1 — Introduction](part1.md)**
+➡️ **[Chapitre 03 – Construction des profils sonores](../03-profils-sonores/index.md)** *(à créer)*
