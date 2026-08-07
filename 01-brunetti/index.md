@@ -1,182 +1,185 @@
 # Brunetti XL R-EVO II
 
-> **Comprendre avant de régler.**
->
-> Cette section constitue le cœur du ToneLab. Elle rassemble l'ensemble des recherches, analyses, essais et profils sonores réalisés autour du Brunetti XL R-EVO II 60W.
+> *Cette section constitue la documentation de référence consacrée au Brunetti XL R-EVO II dans le cadre du projet ToneLab. Elle rassemble les recherches, analyses, expérimentations et profils sonores développés tout au long du projet.*
 
 ---
 
-# Sommaire
+## Fil d'Ariane
 
-- [Objectif](#objectif)
-- [Organisation du chapitre](#organisation-du-chapitre)
-- [Documentation disponible](#documentation-disponible)
-- [Feuille de route](#feuille-de-route)
-- [Navigation](#navigation)
+**[ToneLab](../index.md)**
+
+→ **Brunetti XL R-EVO II**
 
 ---
 
 # Objectif
 
-Cette documentation poursuit quatre objectifs principaux :
+Le Brunetti XL R-EVO II est le cœur du projet ToneLab.
 
-- comprendre la conception du Brunetti XL R-EVO II ;
-- identifier les possibilités offertes par chacun de ses réglages ;
-- explorer les différents territoires sonores auxquels il peut être associé ;
-- construire des profils sonores reproductibles, argumentés et validés sur le matériel de référence du ToneLab.
+L'objectif de cette documentation est de comprendre son fonctionnement, sa philosophie et son territoire sonore, afin de construire une véritable bibliothèque de profils reproductibles.
 
-Cette documentation ne cherche pas à reproduire des réglages trouvés sur Internet.
+Cette documentation n'est pas un simple manuel d'utilisation.
 
-Elle vise à comprendre **pourquoi** un réglage fonctionne et **dans quel contexte** il doit être utilisé.
+Elle constitue un carnet de recherche technique, enrichi au fil des expérimentations, des comparaisons et des validations réalisées sur le matériel de référence.
 
 ---
 
-# Organisation du chapitre
+# Organisation de cette documentation
 
-## 01 — Architecture du Brunetti
+Chaque chapitre répond à un objectif précis.
 
-Documentation technique de l'amplificateur.
+---
 
-Contenu :
+## ✅ Chapitre 01 — Documentation exhaustive
 
-- philosophie de conception ;
+Documentation technique complète de l'amplificateur :
+
 - architecture générale ;
+- commandes ;
 - fonctionnement des canaux ;
-- rôle des commandes ;
-- interactions entre les réglages.
+- réglages ;
+- boucle d'effets ;
+- particularités de conception ;
+- comportement général.
 
-➡️ **À consulter en premier.**
-
----
-
-## 02 — Pourquoi le Brunetti est difficile à classer
-
-Étude comparative des différents territoires sonores auxquels le Brunetti est régulièrement associé.
-
-Contenu actuel :
-
-- ✅ Partie 1 — Introduction
-- ✅ Partie 2 — Le territoire Marshall
-- ✅ Partie 3 — Le territoire Mesa Boogie
-
-À venir :
-
-- ⏳ Partie 4 — Le territoire Diezel
-- ⏳ Partie 5 — Le territoire EVH
-- ⏳ Partie 6 — Le territoire Brunetti
-- ⏳ Partie 7 — Synthèse
-- ⏳ Partie 8 — Conséquences pratiques
-
-➡️ **[Accéder au chapitre](02-pourquoi-le-brunetti/index.md)**
+➡️ **[Accéder au Chapitre 01](01-brunetti/index.md)**
 
 ---
 
-## 03 — Les canaux
+## ✅ Chapitre 02 — Pourquoi le Brunetti est difficile à classer
 
-À venir.
+Analyse approfondie de son territoire sonore.
 
-Étude détaillée des canaux :
+Comparaisons avec :
 
-- Clean
-- Crunch
-- Boost
-- XLead
+- Marshall ;
+- Mesa Boogie ;
+- Diezel ;
+- EVH.
 
-Chaque canal fera l'objet d'une analyse complète.
+Définition de l'identité sonore propre du Brunetti et élaboration de la méthode ToneLab.
 
----
-
-## 04 — Les réglages
-
-À venir.
-
-Analyse détaillée de chaque commande :
-
-- Gain
-- Bass
-- Mid
-- Edge
-- Master
-- Bright
-- Focus
-- Level
-- Depth
-
-L'objectif sera de comprendre précisément l'influence de chaque réglage sur le comportement de l'amplificateur.
+➡️ **[Accéder au Chapitre 02](02-pourquoi-le-brunetti/index.md)**
 
 ---
 
-## 05 — Les profils sonores
+## ⏳ Chapitre 03 — Construction des profils sonores
 
-À venir.
+Création de profils reproductibles adaptés au matériel de référence.
 
-Exemples :
+Ce chapitre constituera le cœur pratique du ToneLab.
+
+Les profils seront construits, testés, documentés puis améliorés progressivement.
+
+Exemples de profils prévus :
 
 - Foo Fighters
 - Queens of the Stone Age
 - Refused
-- Rage Against The Machine
-- Hermano
 - Tool
+- Hermano
+- Rage Against The Machine
 - Kyuss
-- ZZ Top
-- Son personnel ToneLab
+- Deftones
+- Biffy Clyro
 
-Chaque profil comprendra :
-
-- le contexte musical ;
-- la chaîne utilisée ;
-- les réglages provisoires ;
-- les validations expérimentales ;
-- les évolutions du profil.
+➡️ **Dossier à créer**
 
 ---
 
-## 06 — Les expérimentations
+## ⏳ Chapitre 04 — Les pédales et leur interaction avec le Brunetti
 
-À venir.
+Étude détaillée des effets utilisés avec l'amplificateur.
 
-Journal de toutes les expérimentations réalisées.
+Sujets prévus :
 
-Chaque essai conservera :
-
-- la date ;
-- le matériel utilisé ;
-- les réglages ;
-- les observations ;
-- les améliorations proposées.
-
----
-
-# Documentation disponible
-
-| Chapitre | État |
-|----------|------|
-| Architecture | 🚧 |
-| Pourquoi le Brunetti est difficile à classer | 🚧 |
-| Les canaux | ⏳ |
-| Les réglages | ⏳ |
-| Les profils sonores | ⏳ |
-| Les expérimentations | ⏳ |
+- Tube Screamer Analogman Silver Mod
+- MXR 6 Band EQ
+- égaliseurs
+- délais
+- réverbes
+- tremolos
+- ordre des pédales
+- interaction avec la boucle d'effets.
 
 ---
 
-# Feuille de route
+## ⏳ Chapitre 05 — Expérimentations
 
-Les prochaines étapes du ToneLab sont les suivantes :
+Journal des essais réalisés sur le matériel.
 
-1. terminer le chapitre « Pourquoi le Brunetti est difficile à classer » ;
-2. documenter précisément chaque commande de l'amplificateur ;
-3. construire les premiers profils sonores ;
-4. valider les réglages sur le matériel de référence ;
-5. affiner les profils au fil des essais.
+Chaque test sera documenté :
+
+- objectif ;
+- réglages ;
+- matériel utilisé ;
+- observations ;
+- conclusion ;
+- niveau de validation.
+
+---
+
+## ⏳ Chapitre 06 — Références musicales
+
+Analyse des sons recherchés.
+
+Pour chaque artiste ou album :
+
+- matériel identifié ;
+- philosophie sonore ;
+- éléments caractéristiques ;
+- adaptation au Brunetti.
+
+---
+
+# État d'avancement
+
+| Chapitre | Sujet | État |
+|:---------|:------|:----:|
+| 01 | Documentation exhaustive | ✅ |
+| 02 | Territoire sonore | ✅ |
+| 03 | Profils sonores | ⏳ |
+| 04 | Pédales | ⏳ |
+| 05 | Expérimentations | ⏳ |
+| 06 | Références musicales | ⏳ |
+
+---
+
+# Philosophie du ToneLab
+
+Le ToneLab ne cherche pas à copier des réglages trouvés sur Internet.
+
+Il cherche à comprendre :
+
+- pourquoi un réglage fonctionne ;
+- quelles interactions existent entre les différents paramètres ;
+- comment reproduire un résultat de manière fiable ;
+- comment adapter un même profil à différents contextes.
+
+Chaque conclusion est documentée, argumentée et destinée à être vérifiée sur le matériel de référence.
+
+---
+
+# Ce que contient désormais cette section
+
+À ce stade du projet, cette documentation permet déjà de :
+
+- comprendre en détail le fonctionnement du Brunetti XL R-EVO II ;
+- identifier sa véritable personnalité sonore ;
+- connaître ses proximités avec les grandes familles d'amplificateurs ;
+- disposer d'une méthode structurée pour élaborer des réglages ;
+- préparer la création des premiers profils sonores.
+
+Le travail de recherche théorique constitue désormais une base solide pour la suite du projet.
 
 ---
 
 # Navigation
 
-⬅️ [Retour à l'index principal](../index.md)
+⬆️ **[Retour au ToneLab](../index.md)**
 
-➡️ [01 — Architecture du Brunetti](01-architecture/index.md)
+➡️ **[Chapitre 01 – Documentation exhaustive](01-brunetti/index.md)**
 
-➡️ [02 — Pourquoi le Brunetti est difficile à classer](02-pourquoi-le-brunetti/index.md)
+➡️ **[Chapitre 02 – Pourquoi le Brunetti est difficile à classer](02-pourquoi-le-brunetti/index.md)**
+
+➡️ **Chapitre 03 – Construction des profils sonores** *(à créer)*
