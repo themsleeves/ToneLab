@@ -254,4 +254,4 @@ Nous chercherons à comprendre pourquoi ces deux amplificateurs sont souvent rap
 
 🏠 [Retour au chapitre](index.md)
 
-➡️ Partie 3 — Le territoire Mesa Boogie
+➡️ [Partie 3 — Le territoire Mesa Boogie](part3.md)
