@@ -42,7 +42,7 @@ Documentation technique complète de l'amplificateur :
 - particularités de conception ;
 - comportement général.
 
-➡️ **[Accéder au Chapitre 01](01-brunetti/index.md)**
+➡️ **[Accéder au Chapitre 01](01-architecture/index.md)**
 
 ---
 
