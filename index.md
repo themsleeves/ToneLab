@@ -18,7 +18,7 @@
 
 # Préface
 
-- 📖 [Préface](PREFACE.md)
+- 📖 [Préface](preface.md)
 
 ---
 
