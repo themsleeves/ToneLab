@@ -1,542 +1,396 @@
-Chapitre 01 — Architecture
+# Chapitre 01 — Architecture
 
-Partie 1 — Architecture générale du Brunetti XL R-EVO II
+## Partie 1 — Architecture générale du Brunetti XL R-EVO II
 
-«Avant de chercher à reproduire un son, il faut comprendre la machine qui va le produire.»
+> Avant de chercher à reproduire un son, il faut comprendre la machine qui va le produire.
 
 ---
 
-Fil d'Ariane
+## Fil d'Ariane
 
-"ToneLab" (../../index.md)
-
-→ "Brunetti XL R-EVO II" (../index.md)
-
-→ "Chapitre 01 — Architecture" (index.md)
-
+[ToneLab](../../index.md)  
+→ [Brunetti XL R-EVO II](../index.md)  
+→ [Architecture](index.md)  
 → Partie 1 — Architecture générale
 
 ---
 
-Sommaire
+## Sommaire
 
-- "Objectif" (#objectif)
-- "Le Brunetti comme système sonore" (#le-brunetti-comme-système-sonore)
-- "Une architecture à trois canaux" (#une-architecture-à-trois-canaux)
-- "Les trois identités de préamplification" (#les-trois-identités-de-préamplification)
-- "Organisation des commandes" (#organisation-des-commandes)
-- "Les commandes propres aux canaux" (#les-commandes-propres-aux-canaux)
-- "Les commandes communes" (#les-commandes-communes)
-- "Une égalisation qui ne doit pas être interprétée comme sur un ampli classique" (#une-égalisation-qui-ne-doit-pas-être-interprétée-comme-sur-un-ampli-classique)
-- "Le rôle particulier de Edge" (#le-rôle-particulier-de-edge)
-- "Le rôle particulier de Bright" (#le-rôle-particulier-de-bright)
-- "Le rôle particulier de Depth" (#le-rôle-particulier-de-depth)
-- "Architecture et identité sonore" (#architecture-et-identité-sonore)
-- "Ce que cette architecture implique pour la suite" (#ce-que-cette-architecture-implique-pour-la-suite)
-- "Niveau de certitude" (#niveau-de-certitude)
-- "Conclusion" (#conclusion)
-- "Navigation" (#navigation)
-
----
-
-Objectif
-
-Cette première partie a pour objectif de poser les fondations techniques de toute la documentation consacrée au Brunetti XL R-EVO II.
-
-Il ne s'agit pas encore de déterminer comment obtenir :
-
-- un son Mesa Boogie ;
-- un son Marshall ;
-- un son Diezel ;
-- un son EVH ;
-- un son Foo Fighters ;
-- un son Queens of the Stone Age.
-
-Ces recherches appartiennent à d'autres chapitres.
-
-Ici, nous devons d'abord comprendre comment l'amplificateur est organisé et comment ses différentes commandes participent à la construction du son.
-
-Cette distinction est essentielle.
-
-Le ToneLab cherche à éviter une approche consistant à mémoriser des positions de potentiomètres sans comprendre leur fonction.
+- [1. Objectif](#1-objectif)
+- [2. Le Brunetti comme système sonore](#2-le-brunetti-comme-système-sonore)
+- [3. Une architecture à trois canaux](#3-une-architecture-à-trois-canaux)
+- [4. Les trois identités de préamplification](#4-les-trois-identités-de-préamplification)
+- [5. Organisation générale des commandes](#5-organisation-générale-des-commandes)
+- [6. Les commandes propres aux canaux](#6-les-commandes-propres-aux-canaux)
+- [7. Les commandes communes](#7-les-commandes-communes)
+- [8. Bass, Mid et Edge](#8-bass-mid-et-edge)
+- [9. Le rôle de Edge](#9-le-rôle-de-edge)
+- [10. Le rôle de Bright](#10-le-rôle-de-bright)
+- [11. Le rôle de Focus](#11-le-rôle-de-focus)
+- [12. Le rôle de Depth](#12-le-rôle-de-depth)
+- [13. Architecture et identité sonore](#13-architecture-et-identité-sonore)
+- [14. Architecture et matériel externe](#14-architecture-et-matériel-externe)
+- [15. Conséquences pour la méthode de réglage](#15-conséquences-pour-la-méthode-de-réglage)
+- [16. Ce qui est établi et ce qui reste à vérifier](#16-ce-qui-est-établi-et-ce-qui-reste-à-vérifier)
+- [17. Conclusion](#17-conclusion)
+- [Navigation](#navigation)
 
 ---
 
-Le Brunetti comme système sonore
+# 1. Objectif
 
-Le Brunetti XL R-EVO II doit être considéré comme un système dans lequel plusieurs sections travaillent ensemble.
+Cette première partie constitue la base technique du chapitre consacré à l'architecture du Brunetti XL R-EVO II.
 
-Le son final ne dépend pas d'un seul réglage.
+L'objectif n'est pas encore de déterminer comment obtenir un son Mesa Boogie Dual Rectifier, Marshall, Diezel, EVH ou un son correspondant à un groupe particulier.
 
-Il résulte de l'interaction entre :
+Ces recherches viendront ensuite.
 
+Avant de chercher à rapprocher le Brunetti d'un autre territoire sonore, il faut comprendre précisément ce que nous avons entre les mains.
+
+Cette partie cherche donc à documenter :
+
+- l'organisation générale de l'amplificateur ;
+- ses trois canaux ;
+- l'organisation de ses commandes ;
+- les commandes qui sont spécifiques à certains canaux ;
+- les commandes qui interviennent de manière plus globale ;
+- la logique générale de son voicing ;
+- les éléments qui devront être pris en compte lors des futurs réglages.
+
+Cette distinction est importante pour le ToneLab.
+
+Un réglage de potentiomètres n'a de sens que si l'on comprend le rôle de ces potentiomètres et leur interaction avec le reste de l'amplificateur.
+
+---
+
+# 2. Le Brunetti comme système sonore
+
+Le Brunetti XL R-EVO II ne doit pas être considéré comme une simple collection de potentiomètres indépendants.
+
+Le son obtenu est le résultat de l'interaction de plusieurs éléments.
+
+Dans notre configuration, il faut notamment prendre en compte :
+
+- la guitare ;
+- les micros ;
+- le niveau du signal entrant ;
 - le canal sélectionné ;
 - le gain ;
 - l'égalisation ;
-- les commandes particulières du Brunetti ;
+- les commandes de voicing ;
+- la boucle d'effets ;
 - la section de puissance ;
+- le volume de fonctionnement ;
 - le cabinet ;
 - les haut-parleurs ;
-- la guitare ;
-- les micros ;
-- les éventuelles pédales ;
-- le volume de fonctionnement.
+- les pédales placées avant l'amplificateur ;
+- les effets placés dans la boucle.
 
-Cette notion d'interaction est fondamentale pour comprendre pourquoi il est difficile de produire une règle simple du type :
+Cela signifie qu'un réglage donné ne possède pas nécessairement une valeur absolue.
 
-«« Mets tous les potentiomètres à 12 h et ajuste ensuite. »»
+Un réglage qui fonctionne avec une guitare peut nécessiter une adaptation avec une autre.
 
-Une position identique peut produire des résultats très différents selon le canal et le reste de la chaîne.
+De même, un réglage qui semble idéal à faible volume peut réagir différemment lorsque l'amplificateur est utilisé à un niveau plus important.
+
+Dans le cadre du ToneLab, un profil sonore devra donc toujours être associé autant que possible à son contexte.
+
+Un futur réglage documenté devra idéalement préciser :
+
+- la guitare utilisée ;
+- le micro utilisé ;
+- le canal ;
+- les réglages de l'amplificateur ;
+- les pédales utilisées ;
+- leur position dans la chaîne ;
+- le cabinet utilisé ;
+- les conditions d'écoute ;
+- les observations réalisées.
+
+Cette méthode nous permettra de distinguer un véritable réglage reproductible d'une simple impression subjective obtenue dans une configuration particulière.
 
 ---
 
-Une architecture à trois canaux
+# 3. Une architecture à trois canaux
 
 Le XL R-EVO II est organisé autour de trois canaux.
 
-Ils ne doivent pas être considérés simplement comme :
+Il est toutefois préférable de ne pas les considérer comme une simple progression :
 
-- un canal clair ;
-- un canal rythmique ;
-- un canal solo.
+    Clean
+       ↓
+    Crunch
+       ↓
+    Lead
 
-Cette représentation serait trop simpliste.
+Cette représentation est trop simplificatrice.
 
-La documentation disponible indique au contraire que les canaux saturés Boost et XLead correspondent à des voicings différents.
+Les canaux possèdent chacun leur propre personnalité et leur propre voicing.
 
-Le choix entre eux dépend donc davantage du caractère recherché que d'une simple hiérarchie « rythme → solo ».
+Le choix d'un canal ne dépend donc pas uniquement de la quantité de gain recherchée.
+
+Il dépend également de la manière dont le canal présente le signal :
+
+- densité ;
+- attaque ;
+- équilibre spectral ;
+- présence des médiums ;
+- quantité d'aigus ;
+- définition ;
+- compression ;
+- sensation de profondeur ;
+- réaction aux pédales.
 
 Cette caractéristique est particulièrement importante pour notre projet.
 
-Elle signifie qu'un canal ne doit pas être choisi uniquement en fonction de la quantité de gain recherchée.
+Nous cherchons à utiliser le Brunetti pour explorer plusieurs territoires sonores très différents.
 
-Il faut également considérer :
+Il serait donc contre-productif de considérer un canal comme étant simplement « meilleur » qu'un autre.
 
-- la réponse ;
+Il faut plutôt déterminer **quel canal constitue le meilleur point de départ pour le son recherché**.
+
+Cette approche sera particulièrement importante lorsque nous chercherons à approcher les territoires :
+
+- Marshall ;
+- Mesa Boogie ;
+- Diezel ;
+- EVH ;
+- stoner rock ;
+- hard rock ;
+- metal moderne.
+
+---
+
+# 4. Les trois identités de préamplification
+
+## 4.1 Canal Clean
+
+Le canal Clean constitue le point de référence de l'amplificateur pour les sons à faible niveau de saturation.
+
+Il permet notamment d'observer le comportement du système sans que la forte saturation des autres canaux masque certaines caractéristiques de la chaîne.
+
+Il est particulièrement intéressant pour étudier :
+
+- la réponse générale de l'égalisation ;
+- l'influence de la guitare ;
+- l'influence des micros ;
+- la réaction aux pédales placées en amont ;
+- le rôle de la commande Bright.
+
+Il ne faut toutefois pas réduire son intérêt à l'obtention d'un son totalement propre.
+
+Comme pour tout amplificateur à lampes, le comportement dépend également du niveau du signal entrant et du niveau de fonctionnement de l'amplificateur.
+
+---
+
+## 4.2 Canal Boost
+
+Le canal Boost ne doit pas être interprété comme un simple « Clean avec plus de gain ».
+
+Il possède sa propre identité sonore.
+
+Dans les éléments déjà étudiés dans notre documentation, il est associé à un caractère riche en harmoniques, épais et dynamique.
+
+Il constitue donc un véritable territoire sonore et non simplement une étape intermédiaire entre le Clean et le XLead.
+
+Cette distinction est importante pour la suite du ToneLab.
+
+Lorsque nous chercherons un son saturé, nous ne devrons pas automatiquement partir du XLead sous prétexte qu'il offre davantage de gain.
+
+Le Boost pourra constituer un meilleur point de départ lorsque le caractère recherché nécessitera notamment :
+
+- davantage d'épaisseur ;
+- une réponse plus organique ;
+- une saturation moins orientée vers le caractère incisif du XLead ;
+- une dynamique particulière.
+
+Ces critères devront néanmoins être vérifiés avec le matériel réel.
+
+---
+
+## 4.3 Canal XLead
+
+Le XLead occupe une place particulièrement importante dans notre travail.
+
+C'est le canal que nous avons notamment envisagé comme point de départ pour certaines recherches de sons modernes et fortement saturés.
+
+Il serait cependant incorrect de le définir uniquement comme :
+
+> le canal qui possède le plus de gain.
+
+La quantité de gain n'est qu'une partie de son identité.
+
+Le XLead possède également un voicing particulier.
+
+Les informations déjà réunies dans notre documentation le décrivent comme plus incisif et davantage orienté vers les hauts médiums et les aigus que le Boost.
+
+On peut donc retenir provisoirement :
+
+    XLead ≠ Boost + davantage de gain
+
+La différence concerne également :
+
 - l'équilibre spectral ;
 - l'attaque ;
-- la densité ;
-- la définition ;
-- la manière dont le canal réagit aux pédales.
+- la sensation de présence ;
+- la manière dont la saturation est présentée ;
+- la réaction aux corrections d'égalisation.
+
+Cette distinction sera essentielle lorsque nous étudierons les rapprochements avec les amplificateurs modernes.
+
+Le XLead pourra être un excellent point de départ pour certaines recherches, mais il ne faut surtout pas partir du principe qu'il constitue automatiquement la meilleure solution pour tous les sons high-gain.
+
+Le choix devra être déterminé par le territoire sonore recherché.
 
 ---
 
-Les trois identités de préamplification
+# 5. Organisation générale des commandes
 
-Canal Clean
+Le Brunetti associe des commandes que l'on retrouve sur de nombreux amplificateurs à d'autres commandes plus particulières.
 
-Le Clean constitue le territoire le plus éloigné des recherches high-gain du ToneLab.
-
-Il constitue néanmoins une référence importante pour comprendre l'architecture de l'amplificateur.
-
-Il permet notamment d'étudier le comportement du système sans la forte saturation des autres canaux.
-
-Une caractéristique importante est que Bright est associé au canal Clean.
-
-Cette commande ne doit donc pas être considérée comme une commande universelle présente sur les trois canaux.
-
----
-
-Canal Boost
-
-Le nom « Boost » peut être trompeur.
-
-Il ne faut pas l'interpréter comme un simple bouton permettant d'ajouter du niveau à un autre canal.
-
-Les informations déjà recueillies le décrivent comme un voicing riche en harmoniques, épais, compact et dynamique.
-
-Cette caractéristique explique pourquoi il peut constituer une base intéressante pour certains sons rock.
-
-Son intérêt ne se limite donc pas à une utilisation comme canal intermédiaire entre Clean et XLead.
-
----
-
-Canal XLead
-
-Le XLead est particulièrement important pour le ToneLab.
-
-Il serait tentant de le définir simplement comme :
-
-«« Le canal avec le plus de gain. »»
-
-Cette définition est insuffisante.
-
-Les informations disponibles indiquent que le XLead se distingue notamment par une personnalité plus incisive et davantage orientée vers les hauts médiums et les aigus.
-
-Autrement dit :
-
-XLead ≠ Boost + davantage de gain.
-
-La différence entre les deux canaux doit être comprise comme une différence de voicing et de comportement, et pas seulement comme une différence de quantité de saturation.
-
-Cette observation deviendra particulièrement importante lorsque nous étudierons :
-
-- le territoire Mesa ;
-- le territoire Diezel ;
-- le territoire EVH ;
-- les sons modernes ;
-- les sons Marshall hot-rodded.
-
----
-
-Organisation des commandes
-
-L'architecture de commande du Brunetti comporte plusieurs familles de réglages.
-
-On retrouve les paramètres classiques :
+Parmi les commandes principales figurent notamment :
 
 - Gain ;
 - Bass ;
 - Mid ;
+- Edge ;
 - Master.
 
-Mais également plusieurs commandes qui jouent un rôle beaucoup plus spécifique :
+D'autres commandes participent à la construction du voicing ou à la réponse globale :
 
-- Edge ;
 - Bright ;
 - Focus ;
 - Level ;
 - Depth.
 
-Cette combinaison explique en partie pourquoi l'amplificateur demande davantage de temps d'apprentissage qu'un amplificateur dont l'égalisation serait limitée à Bass / Mid / Treble.
+Cette organisation est importante pour notre documentation car elle explique pourquoi il est difficile de traduire directement un réglage provenant d'un autre amplificateur.
 
----
+Sur un amplificateur très classique, on pourrait par exemple raisonner avec :
 
-Les commandes propres aux canaux
+    Gain
+    Bass
+    Middle
+    Treble
+    Master
 
-Chaque canal dispose de sa propre personnalité et de réglages qui participent à son voicing.
+Le Brunetti ne se limite pas à cette logique.
 
-L'égalisation doit donc être considérée dans le contexte du canal utilisé.
+Il dispose de plusieurs commandes supplémentaires permettant d'agir sur la sensation produite par l'amplificateur.
 
-C'est une conséquence importante de l'architecture :
+Il faut donc éviter de chercher systématiquement un équivalent direct entre chaque commande du Brunetti et une commande connue sur un autre ampli.
 
-«Un même réglage de tonalité ne doit pas nécessairement produire la même sensation sur les trois canaux.»
-
-Il faudra donc éviter de construire une future documentation sous la forme :
-
-«« Mid = 6 signifie toujours beaucoup de médiums. »»
-
-La valeur d'un réglage doit toujours être interprétée dans son contexte.
-
----
-
-Les commandes communes
-
-Certaines commandes interviennent au-delà du simple réglage individuel d'un canal.
-
-Cette organisation est importante parce qu'elle signifie qu'il existe deux niveaux de construction sonore :
-
-1. le voicing du canal ;
-2. l'adaptation globale de l'amplificateur.
-
-Cette distinction sera particulièrement utile lorsque nous construirons des réglages destinés à être utilisés en situation réelle.
-
-Un réglage pourra donc conserver une base commune tout en modifiant le canal utilisé.
-
----
-
-Une égalisation qui ne doit pas être interprétée comme sur un ampli classique
-
-L'une des premières erreurs que nous avons identifiées dans nos recherches consiste à vouloir interpréter toutes les commandes comme si elles correspondaient à celles d'un autre amplificateur.
-
-C'est notamment problématique avec Edge.
-
-Il serait tentant de considérer :
-
-- Bass = graves ;
-- Mid = médiums ;
-- Edge = aigus.
-
-Cette lecture est trop simpliste.
-
-Le fonctionnement documenté de Edge montre qu'il intervient dans une zone beaucoup plus haute du spectre qu'un simple réglage Treble traditionnel.
-
----
-
-Le rôle particulier de Edge
-
-Edge n'est pas un Treble classique.
-
-Les informations disponibles situent son action dans les très hautes fréquences, autour de 10 kHz selon le manuel.
-
-Cette caractéristique change complètement son interprétation.
-
-Il ne faut donc pas chercher à reproduire avec Edge ce que l'on ferait avec un bouton Treble traditionnel.
-
-Dans la pratique, Edge doit plutôt être considéré comme une commande permettant d'agir sur la sensation de :
-
-- présence ;
-- brillance ;
-- ouverture ;
-- mordant ;
-- agressivité dans le haut du spectre.
-
-Cette différence est particulièrement importante pour nos futures comparaisons.
-
-Un réglage de Edge relativement faible ne signifie pas nécessairement que l'ampli manque d'aigus au sens classique du terme.
-
-Inversement, augmenter fortement Edge peut apporter une sensation de brillance ou de présence sans produire exactement le même résultat qu'une augmentation des aigus sur un autre amplificateur.
-
----
-
-Le rôle particulier de Bright
-
-Bright constitue une autre commande qui ne doit pas être généralisée à l'ensemble de l'amplificateur.
-
-Elle est associée au canal Clean.
-
-Les informations recueillies situent son action autour de 5 kHz selon le manuel.
-
-Bright doit donc être compris comme une commande permettant d'apporter davantage d'ouverture et de présence au Clean.
-
-Il ne faut pas le confondre avec Edge.
-
-La différence de zone d'action est précisément ce qui rend les deux commandes distinctes.
-
----
-
-Le rôle particulier de Depth
-
-Depth est probablement l'une des commandes les plus importantes pour comprendre le comportement global du Brunetti.
-
-Elle ne doit pas être assimilée à un simple réglage supplémentaire de Bass.
-
-Les informations disponibles indiquent que Depth intervient dans l'étage de puissance et agit notamment sur les graves et les bas médiums.
-
-Cette caractéristique est fondamentale.
-
-Bass et Depth peuvent donc produire deux sensations de grave différentes.
-
-On peut résumer provisoirement leur distinction de la manière suivante :
-
-Commande| Fonction à retenir
-Bass| Construction du grave dans l'égalisation du préampli
-Depth| Renforcement du registre grave / bas médium associé à l'étage de puissance
-
-Cette distinction devra être conservée dans toute la documentation future.
-
-Elle sera particulièrement importante lorsque nous chercherons :
-
-- un son Rectifier massif ;
-- un son Diezel précis ;
-- un son Marshall plus ouvert ;
-- un son EVH plus ferme.
-
----
-
-Architecture et identité sonore
-
-Ces éléments permettent déjà de comprendre pourquoi le Brunetti peut évoluer dans plusieurs directions sonores.
-
-Son architecture ne semble pas imposer une seule identité figée.
-
-Elle fournit au contraire plusieurs leviers permettant d'agir sur :
-
-- la quantité de saturation ;
-- la densité ;
-- les médiums ;
-- l'attaque ;
-- les très hautes fréquences ;
-- la profondeur du grave ;
-- la réponse globale de l'amplificateur.
-
-C'est précisément cette combinaison qui nous a conduits, dans le chapitre précédent, à étudier les rapprochements avec Marshall, Mesa Boogie, Diezel et EVH.
-
-Le Brunetti ne devient pas pour autant chacun de ces amplificateurs.
-
-Il dispose simplement d'une architecture suffisamment modulable pour pénétrer plusieurs de ces territoires sonores.
-
----
-
-Une conséquence fondamentale pour le ToneLab
-
-Cette architecture nous impose une méthode.
-
-Nous ne devons pas chercher à régler toutes les commandes simultanément.
-
-Il sera préférable de procéder par niveaux.
-
-Niveau 1 — Choix du canal
-
-Déterminer le voicing de départ :
-
-- Clean ;
-- Boost ;
-- XLead.
-
----
-
-Niveau 2 — Gain
-
-Déterminer la quantité et la nature de la saturation recherchée.
-
----
-
-Niveau 3 — Égalisation principale
-
-Travailler :
-
-- Bass ;
-- Mid.
-
----
-
-Niveau 4 — Voicing spécifique
-
-Travailler :
+C'est particulièrement vrai pour :
 
 - Edge ;
-- Bright lorsqu'il est disponible.
-
----
-
-Niveau 5 — Réponse globale
-
-Travailler :
-
 - Focus ;
-- Depth ;
-- Master / Level selon leur fonction dans la configuration utilisée.
+- Depth.
 
-Cette méthode évitera de chercher à corriger un problème de structure avec une simple égalisation.
-
----
-
-Architecture et matériel externe
-
-L'amplificateur ne fonctionne évidemment pas isolément.
-
-Dans notre configuration, le résultat final est également influencé par :
-
-- la Gibson Les Paul Classic DC ;
-- la Gretsch John Gourley Broadkaster ;
-- le Marshall 4×12 ;
-- la Tube Screamer Analogman Silver Mod ;
-- le MXR 6 Band EQ ;
-- les autres effets du pedalboard.
-
-Le pedalboard de référence confirme notamment le rôle recherché pour la Tube Screamer : augmenter l'attaque, ajouter des médiums et resserrer les graves.
-
-Cela signifie qu'un profil sonore ne pourra jamais être défini uniquement par les réglages de l'ampli.
-
-Le ToneLab devra toujours préciser le contexte matériel dans lequel un réglage a été obtenu.
+Ces commandes seront étudiées séparément dans les parties suivantes de ce chapitre.
 
 ---
 
-Ce que cette architecture nous apprend déjà
+# 6. Les commandes propres aux canaux
 
-Plusieurs conclusions importantes peuvent maintenant être retenues.
+Le caractère d'un canal ne peut pas être séparé de la manière dont son égalisation agit.
 
-1. Le Brunetti n'est pas organisé autour d'un seul son
+Un réglage donné ne doit donc pas être interprété indépendamment du canal utilisé.
 
-Les trois canaux possèdent des voicings distincts.
+Par exemple, il serait dangereux de construire une règle universelle telle que :
 
-2. Boost et XLead ne sont pas simplement des niveaux de gain différents
+> Mid à 6 = beaucoup de médiums.
 
-La différence concerne également leur caractère sonore.
+La perception réelle dépend du contexte.
 
-3. XLead possède une identité particulièrement incisive
+Elle peut varier en fonction :
 
-Il constitue donc une plateforme particulièrement intéressante pour nos recherches de sons modernes.
+- du canal ;
+- du niveau de gain ;
+- des autres réglages ;
+- du volume ;
+- du cabinet ;
+- des haut-parleurs ;
+- de la guitare ;
+- des micros ;
+- des pédales placées en amont.
 
-4. Edge n'est pas un Treble classique
+Cette interaction explique pourquoi les futurs profils sonores devront être construits par expérimentation.
 
-Son domaine d'action est situé beaucoup plus haut dans le spectre.
+Nous pourrons utiliser des valeurs de potentiomètres comme points de départ, mais nous ne devons pas leur attribuer une signification universelle indépendamment du contexte.
 
-5. Bright et Edge ne jouent pas le même rôle
+C'est également la raison pour laquelle les futurs réglages de type :
 
-Bright est associé au Clean, tandis que Edge constitue une commande distincte du voicing de l'amplificateur.
+    Mesa / Rectifier
+    Marshall / Plexi
+    Diezel
+    EVH
+    Stoner
 
-6. Depth ne remplace pas Bass
-
-Il agit à un autre niveau du comportement de l'amplificateur.
-
-7. Les médiums restent fondamentaux
-
-Les différents documents de travail et les retours déjà analysés convergent vers l'intérêt de conserver des médiums présents plutôt que de creuser systématiquement l'égalisation.
-
----
-
-Ce que nous ne devons pas encore conclure
-
-Cette première partie permet de comprendre l'architecture générale, mais certaines questions doivent volontairement rester ouvertes.
-
-Nous ne pouvons pas encore déterminer définitivement :
-
-- quelle position de Focus est optimale pour chaque territoire ;
-- comment Bass et Depth interagissent exactement dans toutes les configurations ;
-- quelle combinaison de canal et d'égalisation constitue le meilleur point de départ pour chaque style ;
-- quelle influence exacte possède le cabinet sur chaque profil ;
-- quelle combinaison guitare / ampli / pédale donnera le meilleur résultat dans chaque cas.
-
-Ces questions feront l'objet des chapitres et expérimentations suivants.
+devront être documentés comme des **profils de réglage du Brunetti**, et non comme des traductions littérales des réglages d'un autre amplificateur.
 
 ---
 
-Niveau de certitude
+# 7. Les commandes communes
 
-✔ Confirmé
+L'organisation du Brunetti implique également de distinguer deux niveaux de réglage.
 
-Les éléments suivants sont suffisamment établis dans notre documentation :
+Le premier concerne le caractère propre du canal sélectionné.
 
-- architecture à trois canaux ;
-- distinction entre Boost et XLead ;
-- caractère particulier du XLead ;
-- rôle de Edge dans les très hautes fréquences ;
-- présence de Bright sur le Clean ;
-- rôle de Depth dans la section de puissance ;
-- importance des médiums ;
-- caractère propre du Brunetti.
+Le second concerne les paramètres qui participent à la réponse globale de l'amplificateur.
 
----
+Cette distinction est particulièrement importante pour notre méthode de travail.
 
-◐ Hypothèse solide
+Un réglage destiné à produire un profil sonore peut donc être construit en plusieurs étapes :
 
-Les observations suivantes constituent des axes de travail :
+1. choisir le canal ;
+2. déterminer le niveau de gain ;
+3. construire l'équilibre tonal principal ;
+4. travailler le voicing ;
+5. régler la profondeur et la réponse globale ;
+6. vérifier le résultat avec le cabinet et la guitare utilisés.
 
-- XLead comme plateforme privilégiée pour les sons modernes ;
-- utilisation de Focus pour modifier la sensation de fermeté ;
-- utilisation combinée de Bass et Depth pour construire le registre grave ;
-- possibilité d'utiliser un même point de départ pour plusieurs territoires sonores.
+Cette méthode évite de chercher à corriger simultanément tous les paramètres.
 
-Ces éléments devront être validés dans les futurs essais.
+Elle permet également de mieux identifier la cause d'un problème sonore.
 
----
+Par exemple, si un son manque de définition, il est préférable de déterminer d'abord si le problème vient :
 
-🧪 À tester
+- du canal choisi ;
+- d'un excès de gain ;
+- d'un excès de grave ;
+- d'un manque de médiums ;
+- d'un réglage de voicing ;
+- du cabinet ;
+- de la guitare ;
+- d'une pédale.
 
-Nous devrons notamment expérimenter :
-
-- l'influence exacte de Focus ;
-- l'interaction Bass / Depth ;
-- l'influence de Edge selon les différentes guitares ;
-- l'interaction XLead / Tube Screamer ;
-- l'effet du Marshall 4×12 sur ces différents profils.
+Plutôt que de modifier plusieurs paramètres simultanément.
 
 ---
 
-Conclusion
+# 8. Bass, Mid et Edge
 
-L'architecture du Brunetti XL R-EVO II explique déjà une grande partie de sa personnalité.
+L'égalisation du Brunetti ne doit pas être interprétée comme une copie directe de l'égalisation d'un autre amplificateur.
 
-Ce n'est pas simplement un amplificateur disposant de trois niveaux de saturation.
+Les trois commandes :
 
-Il propose plusieurs voicings, plusieurs leviers d'égalisation et plusieurs possibilités d'orienter sa réponse.
+- Bass ;
+- Mid ;
+- Edge ;
 
-Les commandes qui paraissent secondaires au premier regard — en particulier Edge, Focus et Depth — deviennent ainsi essentielles pour comprendre pourquoi le Brunetti peut évoluer entre différents territoires sonores.
+ne doivent pas automatiquement être traduites comme :
 
-Cette compréhension constitue la base nécessaire pour la suite.
+- Bass ;
+- Middle ;
+- Treble.
 
-Nous pouvons maintenant descendre d'un niveau dans l'architecture et étudier séparément les trois canaux.
+Cette distinction est particulièrement importante pour **Edge**.
+
+Le nom pourrait inciter à considérer cette commande comme un simple réglage d'aigus.
+
+Ce n'est pas une interprétation suffisamment précise.
+
+La fonction de Edge devra être comprise comme une commande spécifique du Brunetti, avec sa propre zone d'action et sa propre influence sur la sensation sonore.
+
+C'est précisément ce type de différence qui explique pourquoi la transposition directe d'un réglage Mesa Boogie ou Marshall vers le Brunetti ne peut pas fonctionner simplement potentiomètre par potentiomètre.
 
 ---
-
-Navigation
-
-⬅️ "Retour à l'index du chapitre Architecture" (index.md)
-
-⬆️ "Retour à la documentation Brunetti" (../index.md)
-
-🏠 "Retour au ToneLab" (../../index.md)
-
-➡️ "Partie 2 — Architecture des canaux" (part2.md)
