@@ -127,7 +127,7 @@ C'est notamment pour cette raison que les réglages du Brunetti devront être é
 
 Il ne doit pas être considéré comme un simple équivalent du réglage **Treble** que l'on retrouve sur de nombreux amplificateurs.
 
-Les informations déjà réunies dans la documentation indiquent que son action se situe dans une zone très élevée du spectre, autour de 10 kHz selon les données disponibles. 1
+Les informations déjà réunies dans la documentation indiquent que son action se situe dans une zone très élevée du spectre, autour de 10 kHz selon les données disponibles.
 
 Son rôle doit donc être compris en termes de sensation de haut du spectre plutôt que comme une simple commande générale d'aigus.
 
@@ -171,7 +171,7 @@ Elle doit être distinguée de Edge.
 
 Les deux commandes concernent le haut du spectre, mais elles ne doivent pas être considérées comme deux versions du même réglage.
 
-Les informations disponibles indiquent que Bright agit plus bas dans le spectre que Edge, autour de 5 kHz selon les données documentées. 2
+Les informations disponibles indiquent que Bright agit plus bas dans le spectre que Edge, autour de 5 kHz selon les données documentées.
 
 Bright intervient donc dans la sensation de brillance du canal Clean.
 
@@ -228,7 +228,7 @@ Cette distinction sera reprise lorsque nous étudierons plus précisément la ch
 
 Il ne doit pas être considéré comme un deuxième réglage de Bass.
 
-Les informations disponibles indiquent que Depth intervient dans la section de puissance et agit sur les graves et les bas médiums. 3
+Les informations disponibles indiquent que Depth intervient dans la section de puissance et agit sur les graves et les bas médiums.
 
 Cette différence est fondamentale.
 
