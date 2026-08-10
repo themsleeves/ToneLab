@@ -12,6 +12,28 @@
 
 ---
 
+## Sommaire de la partie
+
+- [1. Introduction](#1-introduction)
+- [2. Pourquoi commencer par des profils de référence ?](#2-pourquoi-commencer-par-des-profils-de-référence)
+- [3. Profil de référence Clean](#3-profil-de-référence-clean)
+- [4. Profil de référence Crunch](#4-profil-de-référence-crunch)
+- [5. Profil de référence Rock](#5-profil-de-référence-rock)
+- [6. Profil de référence High Gain](#6-profil-de-référence-high-gain)
+- [7. Profil de référence Massif](#7-profil-de-référence-massif)
+- [8. Profil de référence Articulé](#8-profil-de-référence-articulé)
+- [9. Comparaison des profils](#9-comparaison-des-profils)
+- [10. Le rôle du Gain](#10-le-rôle-du-gain)
+- [11. Le rôle de l'égalisation](#11-le-rôle-de-légalisation)
+- [12. Le rôle de la guitare](#12-le-rôle-de-la-guitare)
+- [13. Le rôle des pédales](#13-le-rôle-des-pédales)
+- [14. Les profils de référence ne sont pas encore des presets définitifs](#14-les-profils-de-référence-ne-sont-pas-encore-des-presets-définitifs)
+- [15. Méthode de validation](#15-méthode-de-validation)
+- [16. Ce que ces profils doivent nous apprendre](#16-ce-que-ces-profils-doivent-nous-apprendre)
+- [17. À retenir](#17-à-retenir)
+
+---
+
 ## 1. Introduction
 
 Avant de construire des profils inspirés d'un artiste, d'un morceau ou d'un amplificateur particulier, il est nécessaire de disposer de quelques références simples.
