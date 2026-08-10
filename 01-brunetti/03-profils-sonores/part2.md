@@ -14,25 +14,27 @@
 
 ## Sommaire de la partie
 
-- [1. Introduction](#1-introduction)
-- [2. Pourquoi commencer par des profils de référence ?](#2-pourquoi-commencer-par-des-profils-de-référence)
-- [3. Profil de référence Clean](#3-profil-de-référence-clean)
-- [4. Profil de référence Crunch](#4-profil-de-référence-crunch)
-- [5. Profil de référence Rock](#5-profil-de-référence-rock)
-- [6. Profil de référence High Gain](#6-profil-de-référence-high-gain)
-- [7. Profil de référence Massif](#7-profil-de-référence-massif)
-- [8. Profil de référence Articulé](#8-profil-de-référence-articulé)
-- [9. Comparaison des profils](#9-comparaison-des-profils)
-- [10. Le rôle du Gain](#10-le-rôle-du-gain)
-- [11. Le rôle de l'égalisation](#11-le-rôle-de-légalisation)
-- [12. Le rôle de la guitare](#12-le-rôle-de-la-guitare)
-- [13. Le rôle des pédales](#13-le-rôle-des-pédales)
-- [14. Les profils de référence ne sont pas encore des presets définitifs](#14-les-profils-de-référence-ne-sont-pas-encore-des-presets-définitifs)
-- [15. Méthode de validation](#15-méthode-de-validation)
-- [16. Ce que ces profils doivent nous apprendre](#16-ce-que-ces-profils-doivent-nous-apprendre)
-- [17. À retenir](#17-à-retenir)
+- [1. Introduction](#part2-introduction)
+- [2. Pourquoi commencer par des profils de référence ?](#part2-pourquoi)
+- [3. Profil de référence Clean](#part2-clean)
+- [4. Profil de référence Crunch](#part2-crunch)
+- [5. Profil de référence Rock](#part2-rock)
+- [6. Profil de référence High Gain](#part2-high-gain)
+- [7. Profil de référence Massif](#part2-massif)
+- [8. Profil de référence Articulé](#part2-articule)
+- [9. Comparaison des profils](#part2-comparaison)
+- [10. Le rôle du Gain](#part2-gain)
+- [11. Le rôle de l'égalisation](#part2-egalisation)
+- [12. Le rôle de la guitare](#part2-guitare)
+- [13. Le rôle des pédales](#part2-pedales)
+- [14. Les profils de référence ne sont pas encore des presets définitifs](#part2-presets)
+- [15. Méthode de validation](#part2-validation)
+- [16. Ce que ces profils doivent nous apprendre](#part2-apprentissage)
+- [17. À retenir](#part2-a-retenir)
 
 ---
+
+<a id="part2-introduction"></a>
 
 ## 1. Introduction
 
@@ -55,6 +57,8 @@ Les principales références retenues sont :
 
 ---
 
+<a id="part2-pourquoi"></a>
+
 ## 2. Pourquoi commencer par des profils de référence ?
 
 Un profil inspiré d'un artiste peut dépendre de nombreux éléments.
@@ -75,6 +79,8 @@ Les profils de référence permettent de réduire cette complexité.
 Ils constituent une base connue à partir de laquelle les profils plus spécifiques pourront être construits.
 
 ---
+
+<a id="part2-clean"></a>
 
 ## 3. Profil de référence Clean
 
@@ -117,6 +123,8 @@ Ce profil servira notamment à :
 
 ---
 
+<a id="part2-crunch"></a>
+
 ## 4. Profil de référence Crunch
 
 ### Objectif
@@ -152,6 +160,8 @@ Le profil Crunch constituera notamment une référence pour les futures recherch
 🧪 **Profil de référence à construire et valider sur le matériel.**
 
 ---
+
+<a id="part2-rock"></a>
 
 ## 5. Profil de référence Rock
 
@@ -192,6 +202,8 @@ Il pourra notamment constituer une base pour les territoires :
 🧪 **Profil de référence à construire et valider sur le matériel.**
 
 ---
+
+<a id="part2-high-gain"></a>
 
 ## 6. Profil de référence High Gain
 
@@ -245,6 +257,8 @@ Ce profil constituera la base des recherches ultérieures vers :
 
 ---
 
+<a id="part2-massif"></a>
+
 ## 7. Profil de référence Massif
 
 ### Objectif
@@ -297,6 +311,8 @@ Ce profil constituera notamment une référence pour les recherches :
 
 ---
 
+<a id="part2-articule"></a>
+
 ## 8. Profil de référence Articulé
 
 ### Objectif
@@ -344,6 +360,8 @@ Ce profil sera particulièrement intéressant pour les recherches orientées ver
 
 ---
 
+<a id="part2-comparaison"></a>
+
 ## 9. Comparaison des profils
 
 Les six profils ne doivent pas être considérés comme six réglages définitifs.
@@ -363,6 +381,8 @@ Cette première cartographie permet de disposer d'une base commune avant de rech
 
 ---
 
+<a id="part2-gain"></a>
+
 ## 10. Le rôle du Gain
 
 Le Gain constitue l'un des paramètres les plus importants pour passer progressivement d'un profil à l'autre.
@@ -381,6 +401,8 @@ Deux réglages présentant un niveau de saturation similaire peuvent avoir des c
 Le Gain doit donc être considéré comme l'un des paramètres d'un système complet.
 
 ---
+
+<a id="part2-egalisation"></a>
 
 ## 11. Le rôle de l'égalisation
 
@@ -416,6 +438,8 @@ Ces descriptions constituent des objectifs de recherche et non des valeurs fixes
 
 ---
 
+<a id="part2-guitare"></a>
+
 ## 12. Le rôle de la guitare
 
 Les profils de référence devront être testés avec les guitares de référence du ToneLab.
@@ -442,6 +466,8 @@ Elles ne doivent pas être transformées en règles absolues.
 
 ---
 
+<a id="part2-pedales"></a>
+
 ## 13. Le rôle des pédales
 
 Les profils de référence doivent dans un premier temps être construits avec une chaîne aussi simple que possible.
@@ -455,6 +481,8 @@ Cette méthode est particulièrement importante pour la Tube Screamer et le MXR 
 Ils pourront être utilisés ultérieurement comme outils permettant d'orienter un profil vers un territoire sonore particulier.
 
 ---
+
+<a id="part2-presets"></a>
 
 ## 14. Les profils de référence ne sont pas encore des presets définitifs
 
@@ -475,6 +503,8 @@ Les valeurs définitives seront documentées lorsque les réglages auront été 
 
 ---
 
+<a id="part2-validation"></a>
+
 ## 15. Méthode de validation
 
 Chaque profil devra être validé progressivement.
@@ -492,6 +522,8 @@ Un profil ne sera considéré comme réellement établi qu'après cette phase de
 
 ---
 
+<a id="part2-apprentissage"></a>
+
 ## 16. Ce que ces profils doivent nous apprendre
 
 L'objectif principal de cette partie n'est finalement pas de produire six bons sons.
@@ -506,6 +538,8 @@ Il est de comprendre comment le Brunetti se comporte lorsque nous passons progre
 Cette connaissance permettra ensuite d'aborder les territoires sonores spécifiques avec beaucoup plus de précision.
 
 ---
+
+<a id="part2-a-retenir"></a>
 
 ## 17. À retenir
 
