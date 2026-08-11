@@ -42,6 +42,8 @@ Documentation technique complète de l'amplificateur :
 - particularités de conception ;
 - comportement général.
 
+Le chapitre est organisé en plusieurs sous-parties consacrées à l'architecture du Brunetti XL R-EVO II.
+
 ➡️ **[Accéder au Chapitre 01](01-architecture/index.md)**
 
 ---
@@ -59,31 +61,41 @@ Comparaisons avec :
 
 Définition de l'identité sonore propre du Brunetti et élaboration de la méthode ToneLab.
 
+Le chapitre est désormais complet et regroupe l'ensemble des parties consacrées à cette analyse.
+
 ➡️ **[Accéder au Chapitre 02](02-pourquoi-le-brunetti/index.md)**
 
 ---
 
-## ⏳ Chapitre 03 — Construction des profils sonores
+## 🚧 Chapitre 03 — Construction des profils sonores
 
-Création de profils reproductibles adaptés au matériel de référence.
+Passage de l'analyse théorique à la construction concrète de profils sonores reproductibles.
 
-Ce chapitre constituera le cœur pratique du ToneLab.
+Ce chapitre constitue le cœur pratique du ToneLab.
 
-Les profils seront construits, testés, documentés puis améliorés progressivement.
+Les profils sont construits à partir :
 
-Exemples de profils prévus :
+- des caractéristiques propres au Brunetti ;
+- des territoires sonores identifiés ;
+- des guitares utilisées ;
+- de la Tube Screamer ;
+- du MXR 6 Band EQ ;
+- des références musicales recherchées.
 
-- Foo Fighters
-- Queens of the Stone Age
-- Refused
-- Tool
-- Hermano
-- Rage Against The Machine
-- Kyuss
-- Deftones
-- Biffy Clyro
+### Parties actuellement disponibles
 
-➡️ **Dossier à créer**
+- [Partie 1 — Méthode de construction des profils](03-profils-sonores/part1.md)
+- [Partie 2 — Profils de référence](03-profils-sonores/part2.md)
+- [Partie 3 — Territoires sonores](03-profils-sonores/part3.md)
+- [Partie 4 — Profils adaptés aux guitares](03-profils-sonores/part4.md)
+- [Partie 5 — Rôle de la Tube Screamer et de l'égalisation](03-profils-sonores/part5.md)
+- [Partie 6 — Profils musicaux](03-profils-sonores/part6.md)
+
+Le chapitre est en cours de développement.
+
+Les premières parties permettent déjà de disposer d'une méthode complète pour construire et documenter les profils. Les parties suivantes viendront compléter cette méthode et approfondir les variantes et adaptations.
+
+➡️ **[Accéder au Chapitre 03](03-profils-sonores/index.md)**
 
 ---
 
@@ -93,13 +105,13 @@ Exemples de profils prévus :
 
 Sujets prévus :
 
-- Tube Screamer Analogman Silver Mod
-- MXR 6 Band EQ
-- égaliseurs
-- délais
-- réverbes
-- tremolos
-- ordre des pédales
+- Tube Screamer Analogman Silver Mod ;
+- MXR 6 Band EQ ;
+- égaliseurs ;
+- délais ;
+- réverbes ;
+- tremolos ;
+- ordre des pédales ;
 - interaction avec la boucle d'effets.
 
 ---
@@ -138,10 +150,22 @@ Pour chaque artiste ou album :
 |:---------|:------|:----:|
 | 01 | Documentation exhaustive | ✅ |
 | 02 | Territoire sonore | ✅ |
-| 03 | Profils sonores | ⏳ |
+| 03 | Profils sonores | 🚧 |
 | 04 | Pédales | ⏳ |
 | 05 | Expérimentations | ⏳ |
 | 06 | Références musicales | ⏳ |
+
+### Détail du chapitre 03
+
+| Partie | Sujet | État |
+|:-------|:------|:----:|
+| 01 | Méthode de construction des profils | ✅ |
+| 02 | Profils de référence | ✅ |
+| 03 | Territoires sonores | ✅ |
+| 04 | Profils adaptés aux guitares | ✅ |
+| 05 | Tube Screamer et égalisation | ✅ |
+| 06 | Profils musicaux | ✅ |
+| 07 | Variantes et adaptation | ⏳ |
 
 ---
 
@@ -168,9 +192,12 @@ Chaque conclusion est documentée, argumentée et destinée à être vérifiée 
 - identifier sa véritable personnalité sonore ;
 - connaître ses proximités avec les grandes familles d'amplificateurs ;
 - disposer d'une méthode structurée pour élaborer des réglages ;
-- préparer la création des premiers profils sonores.
+- définir différents territoires sonores ;
+- tenir compte des différences entre les guitares de référence ;
+- comprendre le rôle de la Tube Screamer et du MXR 6 Band EQ ;
+- commencer à construire des profils associés aux références musicales du ToneLab.
 
-Le travail de recherche théorique constitue désormais une base solide pour la suite du projet.
+Le travail de recherche théorique constitue désormais une base solide pour la construction progressive de la bibliothèque de profils.
 
 ---
 
@@ -178,8 +205,8 @@ Le travail de recherche théorique constitue désormais une base solide pour la 
 
 ⬆️ **[Retour au ToneLab](../index.md)**
 
-➡️ **[Chapitre 01 – Documentation exhaustive](01-brunetti/index.md)**
+➡️ **[Chapitre 01 – Documentation exhaustive](01-architecture/index.md)**
 
 ➡️ **[Chapitre 02 – Pourquoi le Brunetti est difficile à classer](02-pourquoi-le-brunetti/index.md)**
 
-➡️ **Chapitre 03 – Construction des profils sonores** *(à créer)*
+➡️ **[Chapitre 03 – Construction des profils sonores](03-profils-sonores/index.md)**
