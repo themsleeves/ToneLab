@@ -115,7 +115,7 @@ L'objectif peut alors être de rechercher :
 
 Cette logique est particulièrement intéressante pour les territoires inspirés des amplificateurs modernes à fort gain.
 
-Elle rejoint notamment ce que nous avons observé lors de l'étude du territoire Mesa Boogie : la Tube Screamer sert principalement à **structurer le signal** plutôt qu'à simplement augmenter le niveau de saturation. 1
+Elle rejoint notamment ce que nous avons observé lors de l'étude du territoire Mesa Boogie : la Tube Screamer sert principalement à **structurer le signal** plutôt qu'à simplement augmenter le niveau de saturation.
 
 ---
 
