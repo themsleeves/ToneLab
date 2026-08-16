@@ -27,6 +27,7 @@ Ce chapitre répond notamment aux questions suivantes :
 - En quoi peut-il rappeler un Diezel ou un EVH ?
 - Existe-t-il une véritable identité sonore Brunetti ?
 - Comment utiliser ces connaissances pour construire des profils sonores cohérents ?
+- Quel territoire sonore particulier peut-on exploiter avec le canal Boost ?
 
 L'objectif n'est pas de déterminer quel amplificateur le Brunetti imite le mieux.
 
@@ -100,10 +101,30 @@ Transformation des conclusions théoriques en une méthode de travail reproducti
 
 ---
 
+## 🆕 Partie 9 — Le canal Boost : un territoire sonore à part
+
+Approfondissement du rôle du canal Boost dans la palette sonore du Brunetti XL R-EVO II.
+
+Cette partie cherchera notamment à déterminer :
+
+- comment le Boost se positionne entre le Clean et le XLead ;
+- comment son caractère évolue avec le niveau de Gain ;
+- quelles familles d'amplificateurs peuvent servir de références ;
+- dans quelle mesure il peut approcher des territoires Plexi, JCM800 ou hot-rodded Marshall ;
+- quels territoires rock, hard rock ou rock alternatif lui conviennent particulièrement ;
+- dans quelles situations le Boost peut être préférable au XLead ;
+- comment les guitares, les pédales et l'égalisation peuvent modifier ce territoire.
+
+Cette analyse constituera un complément au chapitre théorique avant la construction des profils sonores du Chapitre 03.
+
+➡️ **[Accéder à la Partie 9](part9.md)**
+
+---
+
 # Progression
 
 | Partie | Sujet | État |
-|:------:|--------|:----:|
+|:------:|-------|:----:|
 | 1 | Introduction | ✅ |
 | 2 | Territoire Marshall | ✅ |
 | 3 | Territoire Mesa Boogie | ✅ |
@@ -112,30 +133,44 @@ Transformation des conclusions théoriques en une méthode de travail reproducti
 | 6 | L'identité sonore du Brunetti | ✅ |
 | 7 | Synthèse | ✅ |
 | 8 | Méthode de réglage | ✅ |
+| 9 | Canal Boost — territoire sonore | 🆕 |
 
 ---
 
-# Ce que vous aurez appris à la fin de ce chapitre
+# Ce que ce chapitre doit permettre d'obtenir
 
-À l'issue de cette lecture, vous disposerez :
+À l'issue de ce chapitre, nous disposons d'une compréhension structurée du territoire sonore du Brunetti XL R-EVO II.
 
-- d'une compréhension approfondie de la philosophie du Brunetti XL R-EVO II ;
-- d'une vision claire de ses proximités avec les grandes familles d'amplificateurs (Marshall, Mesa Boogie, Diezel, EVH) ;
-- d'une définition argumentée de son identité sonore propre ;
-- d'une méthode structurée pour créer des réglages cohérents et reproductibles ;
-- des bases nécessaires pour aborder les futurs profils sonores du ToneLab.
+Nous pouvons notamment :
 
-Ce chapitre constitue la référence théorique sur laquelle reposera l'ensemble des expérimentations et des profils développés dans les chapitres suivants.
+- identifier ses proximités avec les grandes familles Marshall, Mesa Boogie, Diezel et EVH ;
+- comprendre ce qui constitue son identité propre ;
+- identifier les paramètres ayant le plus d'influence sur son comportement ;
+- distinguer les rôles des différents canaux ;
+- comprendre le potentiel spécifique du canal Boost ;
+- déterminer les territoires sonores qui pourront servir de point de départ aux futurs profils.
+
+La Partie 9 apporte une analyse complémentaire consacrée spécifiquement au Boost, afin que ce canal ne soit pas réduit à un simple intermédiaire entre Clean et XLead.
 
 ---
 
-# Chapitre suivant
+# Transition vers le Chapitre 03
 
-Le **Chapitre 03** marquera un changement d'approche.
+Le **Chapitre 03 — Construction des profils sonores** constituera la mise en pratique des connaissances acquises ici.
 
-Nous quitterons progressivement la phase d'analyse documentaire pour entrer dans la phase de conception des profils sonores.
+Nous pourrons alors passer :
 
-Les connaissances acquises dans ce chapitre serviront directement à construire des réglages adaptés à des univers musicaux précis (Foo Fighters, Queens of the Stone Age, Refused, Tool, Hermano, Rage Against The Machine, etc.), en tenant compte du matériel utilisé et de la logique de travail définie dans le ToneLab.
+- de la famille sonore recherchée ;
+- au choix du canal ;
+- au choix de la guitare ;
+- au choix du cabinet ;
+- aux pédales ;
+- aux réglages précis ;
+- puis aux essais et à la validation.
+
+Les profils seront documentés et comparés à partir des expérimentations réalisées sur le matériel de référence.
+
+➡️ **[Accéder au Chapitre 03 — Construction des profils sonores](../03-profils-sonores/index.md)**
 
 ---
 
@@ -145,4 +180,22 @@ Les connaissances acquises dans ce chapitre serviront directement à construire 
 
 ⬆️ **[Retour au ToneLab](../../index.md)**
 
-➡️ **[Chapitre 03 – Construction des profils sonores](../03-profils-sonores/index.md)** *(à créer)*
+➡️ **[Partie 1 — Introduction](part1.md)**
+
+➡️ **[Partie 2 — Territoire Marshall](part2.md)**
+
+➡️ **[Partie 3 — Territoire Mesa Boogie](part3.md)**
+
+➡️ **[Partie 4 — Territoire Diezel](part4.md)**
+
+➡️ **[Partie 5 — Territoire EVH](part5.md)**
+
+➡️ **[Partie 6 — Identité sonore du Brunetti](part6.md)**
+
+➡️ **[Partie 7 — Synthèse](part7.md)**
+
+➡️ **[Partie 8 — Conséquences pratiques](part8.md)**
+
+➡️ **[Partie 9 — Canal Boost](part9.md)**
+
+➡️ **[Chapitre 03 — Construction des profils sonores](../03-profils-sonores/index.md)**
