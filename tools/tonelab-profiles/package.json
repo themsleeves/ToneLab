@@ -1,0 +1,8 @@
+{
+  "name":"tonelab-profiles",
+  "version":"0.3.0",
+  "private":true,
+  "type":"module",
+  "scripts":{"dev":"vite","build":"vite","preview":"vite preview"},
+  "dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","typescript":"latest","react":"latest","react-dom":"latest"}
+}
