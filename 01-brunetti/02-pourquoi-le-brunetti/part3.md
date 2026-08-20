@@ -2,7 +2,7 @@
 
 # Partie 3 — Le territoire Mesa Boogie
 
-> *Le Brunetti XL R-EVO II est régulièrement comparé aux amplificateurs Mesa Boogie, et plus particulièrement au Dual Rectifier. Cette comparaison est-elle justifiée ? Quels éléments rapprochent réellement ces deux amplificateurs ? Quels sont leurs points de divergence ? Et surtout, comment exploiter cette proximité pour construire un profil sonore inspiré de Foo Fighters ou Queens of the Stone Age ?*
+> *Le Brunetti XL R-EVO II peut être orienté vers un territoire sonore fortement saturé, dense et précis qui rappelle certaines caractéristiques du Mesa Boogie Dual Rectifier. Cette proximité doit cependant être étudiée comme une convergence de comportement et non comme une copie de l'architecture Mesa.*
 
 ---
 
@@ -20,356 +20,767 @@
 
 # Sommaire
 
-- [Objectif](#objectif)
-- [Pourquoi le Dual Rectifier est-il devenu une référence ?](#pourquoi-le-dual-rectifier-est-il-devenu-une-référence)
-- [Validation documentaire](#validation-documentaire)
-- [Une erreur très répandue](#une-erreur-très-répandue)
-- [Ce qui fait réellement un Rectifier](#ce-qui-fait-réellement-un-rectifier)
-- [Premières conséquences pour le Brunetti](#premières-conséquences-pour-le-brunetti)
+- [Introduction](#introduction)
+- [Que signifie réellement « son Mesa Boogie » ?](#que-signifie-réellement-son-mesa-boogie-)
+- [Le territoire Dual Rectifier](#le-territoire-dual-rectifier)
+- [Les principales caractéristiques recherchées](#les-principales-caractéristiques-recherchées)
+- [Le Brunetti face au territoire Mesa](#le-brunetti-face-au-territoire-mesa)
+- [Le rôle du canal XLead](#le-rôle-du-canal-xlead)
+- [Le rôle du canal Boost](#le-rôle-du-canal-boost)
+- [Boost et XLead : deux approches du territoire saturé](#boost-et-xlead--deux-approches-du-territoire-saturé)
+- [Influence du Gain](#influence-du-gain)
+- [Influence de Bass](#influence-de-bass)
+- [Influence des médiums](#influence-des-médiums)
+- [Influence de Edge](#influence-de-edge)
+- [Influence de Focus](#influence-de-focus)
+- [Influence de Depth](#influence-de-depth)
+- [La dynamique et la compression](#la-dynamique-et-la-compression)
+- [Le rôle de la guitare](#le-rôle-de-la-guitare)
+- [Le rôle de la Tube Screamer](#le-rôle-de-la-tube-screamer)
+- [Le rôle de l'égalisation](#le-rôle-de-légalisation)
+- [Le rôle du cabinet](#le-rôle-du-cabinet)
+- [Le territoire Mesa et les sons recherchés dans ToneLab](#le-territoire-mesa-et-les-sons-recherchés-dans-tonelab)
+- [Première cartographie ToneLab](#première-cartographie-tonelab)
+- [Hypothèses à tester](#hypothèses-à-tester)
+- [Ce que nous retenons](#ce-que-nous-retenons)
 - [Navigation](#navigation)
 
 ---
 
-# Objectif
+# Introduction
 
-Parmi tous les amplificateurs auxquels le Brunetti XL R-EVO II est comparé, le Mesa Boogie Dual Rectifier est probablement celui qui revient le plus souvent.
+Le rapprochement entre le Brunetti XL R-EVO II et Mesa Boogie constitue probablement l'une des comparaisons les plus importantes pour le projet ToneLab.
 
-Cette comparaison est particulièrement intéressante dans le cadre du ToneLab, car plusieurs des groupes que nous cherchons à approcher utilisent des amplificateurs de cette famille ou des sons qui en sont directement inspirés.
+Cette proximité est particulièrement intéressante parce que le Brunetti est utilisé dans le projet pour rechercher des sons :
 
-On pense notamment à :
+- massifs ;
+- saturés ;
+- précis ;
+- agressifs ;
+- mais conservant une certaine dynamique.
 
-- Foo Fighters ;
-- Queens of the Stone Age ;
-- certaines productions modernes de hard rock américain ;
-- plusieurs groupes de rock alternatif des années 1995–2010.
+Le Mesa Boogie Dual Rectifier représente une référence particulièrement importante pour ce type de territoire.
 
-L'objectif de cette partie n'est pas de transformer le Brunetti en Dual Rectifier.
+Il faut toutefois éviter une conclusion trop simple :
 
-L'objectif est beaucoup plus ambitieux.
+> « Le XLead est un Dual Rectifier. »
 
-Il s'agit de comprendre **ce qui définit réellement le territoire sonore Rectifier**, afin d'identifier quels réglages du Brunetti permettent de s'en rapprocher sans perdre sa personnalité.
+Ce n'est pas l'objectif de cette documentation.
 
----
+La question est plutôt :
 
-# Pourquoi le Dual Rectifier est-il devenu une référence ?
+> **Quelles caractéristiques du Brunetti permettent de rejoindre certaines zones du territoire sonore associé au Dual Rectifier ?**
 
-Lorsque Mesa Boogie commercialise le Dual Rectifier, le paysage des amplificateurs high-gain évolue profondément.
-
-Jusqu'alors, une grande partie des sons saturés provenaient d'amplificateurs de tradition britannique ou de leurs dérivés.
-
-Le Rectifier apporte une autre philosophie.
-
-Le son devient :
-
-- plus large ;
-- plus massif ;
-- plus profond ;
-- plus agressif dans les graves ;
-- plus moderne.
-
-Très rapidement, cet amplificateur devient une référence dans plusieurs styles.
-
-Cependant, il est important de comprendre que cette réputation ne repose pas uniquement sur son niveau de gain.
-
-Beaucoup d'amplificateurs proposent autant de saturation.
-
-Ce qui distingue réellement le Dual Rectifier est la manière dont cette saturation est construite.
+Cette distinction est fondamentale.
 
 ---
 
-# Validation documentaire
+# Que signifie réellement « son Mesa Boogie » ?
 
-## ✔ Confirmé
+Le terme « Mesa Boogie » recouvre lui-même plusieurs familles d'amplificateurs et plusieurs philosophies de conception.
 
-Le Mesa Boogie Dual Rectifier est reconnu pour :
+Dans le cadre de ToneLab, la comparaison qui nous intéresse principalement est celle avec le **Dual Rectifier** et les sonorités modernes qui lui sont associées.
 
-- un grave particulièrement ample ;
-- une saturation très dense ;
-- une réserve de gain importante ;
-- une réponse dynamique qui varie fortement selon le mode sélectionné et le réglage de présence ;
-- une capacité à produire aussi bien des sons rock que metal.
+Cette famille sonore peut notamment être caractérisée par :
 
----
+- une réserve importante de gain ;
+- une saturation dense ;
+- un grave puissant ;
+- une attaque précise ;
+- une forte présence ;
+- une capacité à produire un son massif ;
+- une certaine compression lorsque le gain augmente.
 
-## ◐ Hypothèse solide
+Le résultat peut cependant être très différent selon :
 
-La proximité entre le Brunetti XL R-EVO II et le Dual Rectifier semble provenir principalement du canal **XLead**, associé à une égalisation adaptée.
+- le réglage de l'amplificateur ;
+- le niveau de volume ;
+- la guitare ;
+- les micros ;
+- les pédales ;
+- le cabinet ;
+- le jeu du guitariste.
 
-Plusieurs utilisateurs expérimentés rapportent qu'avec un gain raisonnable et une bonne gestion des médiums, le Brunetti peut évoquer certaines caractéristiques d'un Rectifier moderne.
-
-Cette proximité concerne davantage le comportement général que la copie exacte du grain.
-
----
-
-## 🧪 À valider expérimentalement
-
-Nous devrons vérifier sur le matériel de référence :
-
-- l'influence exacte du réglage **Focus** ;
-- le rôle du **Depth** dans la perception du grave ;
-- l'interaction avec la Tube Screamer Analogman Silver Mod ;
-- les différences de comportement entre la Gibson Les Paul Classic DC et la Gretsch Broadkaster.
-
-Ces essais feront l'objet d'un chapitre spécifique consacré aux expérimentations.
+Il ne faut donc pas chercher une recette universelle.
 
 ---
 
-# Une erreur très répandue
+# Le territoire Dual Rectifier
 
-Lorsque l'on évoque un Mesa Boogie Dual Rectifier, beaucoup de guitaristes pensent immédiatement :
+Le Dual Rectifier constitue une référence importante pour les sons modernes à forte saturation.
 
-> « énormément de gain ».
+Dans le cadre de notre projet, ce territoire est particulièrement intéressant pour :
 
-Cette idée est pourtant réductrice.
+- les rythmiques lourdes ;
+- les riffs fortement saturés ;
+- les sons modernes ;
+- les attaques franches ;
+- les graves puissants ;
+- les murs sonores nécessitant malgré tout une certaine lisibilité.
 
-En pratique, une grande partie des sons devenus célèbres avec un Rectifier utilisent un niveau de gain inférieur à ce que l'on imagine.
+Ce territoire n'est toutefois pas identique au territoire Diezel.
 
-Leur puissance provient d'un équilibre entre plusieurs paramètres :
+Le Diezel recherché dans ToneLab met davantage l'accent sur :
 
-- la dynamique de l'amplificateur ;
-- le comportement des graves ;
-- la réponse de l'attaque ;
-- l'égalisation ;
-- le choix du baffle ;
-- le haut-parleur ;
-- et très souvent l'utilisation d'une Tube Screamer en amont.
+- la précision ;
+- la définition ;
+- la maîtrise du grave ;
+- la lisibilité.
 
-Cette dernière ne sert généralement pas à ajouter de la saturation.
+Le territoire Rectifier peut accepter davantage :
 
-Elle sert à resserrer le grave, accentuer l'attaque et améliorer la lisibilité.
+- d'épaisseur ;
+- de largeur ;
+- de saturation ;
+- de caractère agressif.
 
-C'est une nuance fondamentale pour la suite de notre travail.
-
----
-
-# Ce qui fait réellement un Rectifier
-
-Après recoupement de nombreuses analyses, plusieurs caractéristiques reviennent de manière constante.
-
-Un Rectifier moderne se distingue principalement par :
-
-- un grave très présent mais qui reste contrôlé ;
-- une sensation d'ampleur importante ;
-- une saturation riche en harmoniques ;
-- une attaque franche ;
-- des médiums moins projetés qu'un Marshall traditionnel ;
-- une grande sensation d'espace.
-
-Cette combinaison explique pourquoi il est particulièrement efficace sur les rythmiques puissantes.
-
-En revanche, lorsqu'il est mal réglé, un excès de graves ou de gain peut rapidement conduire à un son brouillon.
-
-C'est précisément pour cette raison que de nombreux utilisateurs associent un Rectifier à une Tube Screamer.
-
-# Premières conséquences pour le Brunetti
-
-À ce stade de notre étude, une conclusion importante commence à émerger.
-
-Le Brunetti XL R-EVO II ne possède probablement pas un canal spécifiquement conçu pour reproduire un Mesa Boogie Dual Rectifier.
-
-En revanche, son canal **XLead** semble partager plusieurs caractéristiques qui permettent de l'orienter vers ce territoire sonore.
-
-L'objectif ne sera donc jamais de copier un Rectifier.
-
-L'objectif sera de retrouver les sensations qui font son identité.
-
-Cette nuance est fondamentale.
-
-Le ToneLab ne cherche pas à transformer le Brunetti en un autre amplificateur.
-
-Il cherche à exploiter intelligemment son potentiel afin d'obtenir une couleur sonore comparable.
+Cette différence sera importante lorsque nous comparerons les deux familles.
 
 ---
 
-# Les réglages qui semblent déterminants
+# Les principales caractéristiques recherchées
 
-Nos recherches mettent progressivement en évidence plusieurs commandes qui auront probablement une influence majeure.
+## Gain important
 
-## Le Gain
+Le territoire Rectifier peut nécessiter une quantité de saturation importante.
 
-Contrairement aux idées reçues, un gain très élevé ne rapproche pas nécessairement le Brunetti d'un Rectifier.
+Mais le niveau de Gain ne doit pas être considéré isolément.
 
-Au contraire.
+Trop de Gain peut entraîner :
 
-Une saturation excessive tend à :
+- une compression excessive ;
+- une perte d'attaque ;
+- une perte de définition ;
+- une accumulation de fréquences graves et bas-médiums.
 
-- diminuer la définition ;
-- masquer les attaques ;
-- rendre les accords plus confacts ;
-- accentuer la compression.
-
-Les meilleurs sons Rectifier utilisent souvent un gain plus modéré qu'on ne l'imagine.
-
-Le gain devra donc être considéré comme un réglage d'équilibre et non comme un indicateur de puissance.
+L'objectif est donc de trouver le niveau de saturation qui conserve suffisamment de précision.
 
 ---
 
-## Le Focus
+## Grave puissant
 
-Le réglage **Focus** est probablement l'un des éléments les plus originaux du Brunetti.
+Le grave constitue une partie importante de la sensation de masse.
 
-Il n'existe pas d'équivalent direct sur un Mesa Boogie.
+Mais un grave trop important peut rapidement devenir problématique.
 
-Toutefois, son influence sur la sensation d'attaque et sur la réponse générale de l'amplificateur laisse penser qu'il pourra devenir un outil essentiel pour déplacer le Brunetti vers différents territoires sonores.
+Le résultat peut devenir :
 
-### ✔ Confirmé
+- flou ;
+- lent ;
+- envahissant ;
+- difficile à contrôler dans un mix.
 
-Le Focus agit fortement sur le comportement du canal XLead.
+Le réglage du grave devra donc être étudié conjointement avec :
 
-### ◐ Hypothèse solide
-
-Une valeur moyenne à légèrement élevée semble favoriser une attaque plus précise, compatible avec le territoire Rectifier moderne.
-
-### 🧪 À valider
-
-Déterminer expérimentalement la zone optimale du Focus pour :
-
-- Foo Fighters ;
-- Queens of the Stone Age ;
-- Hermano.
+- Bass ;
+- Depth ;
+- le cabinet ;
+- les haut-parleurs ;
+- le niveau de volume.
 
 ---
 
-## Le Depth
+## Attaque précise
 
-Le réglage **Depth** mérite également une attention particulière.
+Un son très saturé peut facilement perdre de la précision.
 
-Le Dual Rectifier est célèbre pour l'ampleur de son registre grave.
+Pour conserver une attaque lisible, il faut notamment surveiller :
 
-Cependant, cette ampleur ne doit jamais être confondue avec un grave envahissant.
+- la quantité de Gain ;
+- les médiums ;
+- Edge ;
+- Focus ;
+- la guitare ;
+- les réglages de la Tube Screamer.
 
-Un excès de graves conduit rapidement à un son imprécis.
+La précision n'est donc pas uniquement une conséquence du canal utilisé.
 
-Le Depth devra donc être utilisé comme un réglage de soutien, destiné à renforcer la sensation de profondeur sans dégrader la définition.
-
-Cette recherche d'équilibre constituera l'un des axes majeurs de nos expérimentations.
+Elle résulte de l'interaction de plusieurs éléments.
 
 ---
 
-## Les médiums
+## Densité
 
-L'une des erreurs les plus fréquentes consiste à creuser fortement les médiums afin d'obtenir un son supposé "américain".
+Le son recherché doit conserver une certaine densité harmonique.
 
-Nos recherches montrent au contraire que de nombreux guitaristes utilisant un Dual Rectifier conservent une quantité importante de médiums.
+Cette densité permet d'obtenir :
 
-Ces derniers permettent :
+- une sensation de puissance ;
+- une saturation épaisse ;
+- un sustain important ;
+- une présence importante dans le mix.
 
-- de conserver la présence du son dans un mix ;
-- d'améliorer la lisibilité des accords ;
-- de renforcer les attaques.
+Mais là encore, trop de densité peut réduire la séparation entre les notes.
 
-Le Brunetti semble suivre cette logique.
+---
 
-Une réduction excessive des médiums risque de faire perdre ce qui rend son canal XLead particulièrement intéressant.
+# Le Brunetti face au territoire Mesa
+
+Le Brunetti possède des caractéristiques qui permettent d'entrer dans cette zone.
+
+Le XLead constitue le point de départ le plus évident.
+
+Il permet notamment de travailler avec :
+
+- une quantité importante de Gain ;
+- une saturation dense ;
+- une attaque plus agressive ;
+- une réponse plus moderne ;
+- une grande réserve de saturation.
+
+Cette combinaison permet de construire une base cohérente pour rechercher un territoire proche du Dual Rectifier.
+
+Cependant, le résultat reste un son de Brunetti.
+
+La comparaison doit donc porter sur le **comportement sonore obtenu**, et non sur une prétendue identité d'architecture.
+
+---
+
+# Le rôle du canal XLead
+
+Le XLead est actuellement le candidat principal pour le territoire Mesa recherché dans ToneLab.
+
+Cette position repose principalement sur son comportement lorsque le Gain et les paramètres de voicing sont poussés.
+
+Il permet d'obtenir :
+
+- davantage de saturation ;
+- davantage de densité ;
+- une attaque plus agressive ;
+- une réponse plus moderne ;
+- une sensation de puissance importante.
+
+Il constitue donc la première voie à explorer lorsque l'objectif est un son proche du territoire Dual Rectifier.
+
+Cette conclusion reste néanmoins une conclusion de travail.
+
+Elle devra être confirmée par les essais réalisés sur le matériel réel.
+
+---
+
+# Le rôle du canal Boost
+
+Le Boost ne doit cependant pas être exclu de l'analyse.
+
+Il ne constitue pas aujourd'hui le candidat principal pour un son Dual Rectifier.
+
+Son intérêt est différent.
+
+Son caractère plus dynamique et riche en harmoniques pourrait permettre d'explorer une zone :
+
+- moins compressée ;
+- moins saturée ;
+- plus organique ;
+- plus orientée rock.
+
+Le Boost pourrait donc être intéressant pour rechercher une **interprétation plus ouverte du territoire Mesa**, plutôt qu'une reproduction du comportement Rectifier fortement saturé.
+
+Il ne faut toutefois pas considérer cette possibilité comme démontrée.
+
+**Statut : 🧪 À tester.**
+
+---
+
+# Boost et XLead : deux approches du territoire saturé
+
+La comparaison entre les deux canaux est particulièrement intéressante.
+
+## XLead
+
+Le XLead constitue l'approche privilégiée pour :
+
+- saturation importante ;
+- densité ;
+- agressivité ;
+- précision ;
+- caractère moderne.
+
+## Boost
+
+Le Boost pourrait constituer une approche alternative lorsque l'on recherche :
+
+- moins de compression ;
+- davantage de dynamique ;
+- davantage de grain ;
+- une saturation plus ouverte.
+
+La différence fondamentale pourrait donc être moins :
+
+> « Mesa ou pas Mesa »
+
+que :
+
+> **« Quelle interprétation du territoire saturé recherchons-nous ? »**
+
+Cette question sera importante pour les profils ToneLab.
+
+---
+
+# Influence du Gain
+
+Le Gain est évidemment un paramètre majeur.
+
+Une première progression peut être envisagée :
+
+### Gain faible
+
+Le territoire s'éloigne progressivement du Dual Rectifier.
+
+Le son peut conserver davantage de :
+
+- dynamique ;
+- ouverture ;
+- grain ;
+- caractère rock.
+
+### Gain moyen
+
+Le son entre davantage dans une zone :
+
+- hard rock ;
+- rock moderne ;
+- saturation épaisse.
+
+### Gain élevé
+
+Le XLead peut alors entrer dans une zone beaucoup plus proche du territoire recherché :
+
+- saturation dense ;
+- compression accrue ;
+- sustain ;
+- agressivité.
+
+Cependant, le gain maximal n'est pas nécessairement le meilleur réglage.
+
+Un réglage légèrement inférieur peut conserver davantage de définition.
+
+---
+
+# Influence de Bass
+
+Bass détermine une grande partie de la sensation de poids.
+
+Un réglage élevé peut donner immédiatement une impression de puissance.
+
+Mais il peut également :
+
+- masquer l'attaque ;
+- augmenter le flou ;
+- rendre les palm-mutes moins précis ;
+- charger excessivement le cabinet.
+
+La bonne méthode consiste donc à construire d'abord une base équilibrée.
+
+Il est préférable d'obtenir un grave suffisamment présent mais contrôlé avant d'utiliser Depth pour augmenter la sensation globale de profondeur.
+
+---
+
+# Influence des médiums
+
+Les médiums jouent un rôle essentiel dans la lisibilité.
+
+Un son très saturé avec des médiums trop faibles peut sembler massif seul mais devenir difficile à entendre dans un mix.
+
+Une présence suffisante dans les médiums permet :
+
+- de conserver l'identité des notes ;
+- d'améliorer l'attaque ;
+- de rendre les riffs plus lisibles ;
+- de maintenir une présence importante.
+
+Il faudra donc éviter d'associer automatiquement « son Rectifier » à une absence totale de médiums.
+
+Le réglage recherché dépendra du contexte musical.
+
+---
+
+# Influence de Edge
+
+Edge intervient principalement dans la perception de l'attaque et des hautes fréquences.
+
+Une augmentation peut produire :
+
+- davantage de présence ;
+- davantage d'attaque ;
+- davantage d'agressivité.
+
+Mais un réglage excessif peut rendre le son :
+
+- dur ;
+- brillant ;
+- fatigant ;
+- trop agressif.
+
+Le réglage devra donc être associé à :
+
+- la guitare ;
+- les micros ;
+- le cabinet ;
+- le niveau de Gain.
+
+---
+
+# Influence de Focus
+
+Focus est particulièrement intéressant dans la recherche d'un son moderne et précis.
+
+Il peut contribuer à modifier la sensation de :
+
+- fermeté ;
+- attaque ;
+- densité ;
+- contrôle.
+
+Pour le territoire Rectifier, Focus pourra être utilisé pour rechercher un grave plus ferme et une attaque plus nette.
+
+Mais il faudra éviter d'utiliser Focus uniquement pour compenser un excès de Bass.
+
+La bonne méthode consiste à construire d'abord l'équilibre tonal général.
+
+---
+
+# Influence de Depth
+
+Depth intervient sur la sensation de profondeur et de réponse globale dans le grave.
+
+Il peut donner davantage :
+
+- d'ampleur ;
+- de profondeur ;
+- de poids.
+
+Mais un réglage excessif peut rapidement produire une sensation de grave moins contrôlée.
+
+Depth devra donc être réglé après l'équilibre obtenu avec Bass.
+
+Cette distinction est importante :
+
+> Bass établit l'équilibre tonal.
+
+> Depth modifie ensuite la sensation de profondeur et de réponse globale.
+
+---
+
+# La dynamique et la compression
+
+Le territoire Rectifier peut être associé à une saturation importante et à une certaine compression.
+
+Mais la compression ne doit pas être considérée comme un objectif en elle-même.
+
+Un son trop compressé peut perdre :
+
+- son attaque ;
+- sa dynamique ;
+- sa séparation ;
+- une partie de son caractère.
+
+C'est notamment ici que la comparaison avec le Boost devient intéressante.
+
+Le Boost pourrait permettre d'obtenir un son fortement saturé tout en conservant davantage de réponse dynamique.
+
+Le XLead pourra quant à lui être utilisé pour rechercher une saturation plus dense.
+
+Cette différence devra être étudiée expérimentalement.
+
+---
+
+# Le rôle de la guitare
+
+La guitare influence directement le comportement du territoire saturé.
+
+## Gibson Les Paul Classic DC
+
+La Gibson peut favoriser :
+
+- épaisseur ;
+- densité ;
+- sustain ;
+- médiums.
+
+Elle constitue donc une candidate naturelle pour les profils recherchant un son massif.
+
+---
+
+## Gretsch John Gourley Broadkaster
+
+La Gretsch peut apporter davantage :
+
+- d'attaque ;
+- de séparation ;
+- d'articulation ;
+- de dynamique perceptible.
+
+Elle pourrait donc être intéressante lorsque le son saturé devient trop dense ou trop sombre avec une guitare plus épaisse.
+
+Ces observations restent cependant à confirmer profil par profil.
 
 ---
 
 # Le rôle de la Tube Screamer
 
-Cette partie est probablement l'une des plus importantes de toute cette étude.
+La Tube Screamer peut jouer un rôle particulièrement important dans la recherche d'un son moderne et précis.
 
-Dans l'imaginaire collectif, une Tube Screamer est souvent utilisée pour obtenir davantage de saturation.
+Elle peut notamment :
 
-Dans un contexte Rectifier, son rôle est tout autre.
-
-Elle agit principalement comme un outil de mise en forme.
-
-Ses effets les plus recherchés sont :
-
+- pousser le préamplificateur ;
 - resserrer les graves ;
-- renforcer l'attaque du médiator ;
-- améliorer la précision des palm-mutes ;
-- augmenter la lisibilité générale.
+- renforcer certaines fréquences médiums ;
+- accentuer l'attaque.
 
-Cette philosophie correspond parfaitement à notre projet.
+Cette combinaison peut être particulièrement intéressante avec le XLead.
 
-La **Tube Screamer Analogman Silver Mod** présente sur le pedalboard pourrait donc devenir un élément essentiel du futur profil Mesa.
+Elle permet potentiellement d'obtenir :
 
-L'objectif ne sera pas de produire davantage de gain.
+- des graves plus fermes ;
+- une attaque plus nette ;
+- une saturation plus contrôlée.
 
-L'objectif sera de produire un meilleur gain.
+Mais la Tube Screamer ne doit pas être utilisée automatiquement.
 
----
+Un réglage trop poussé peut :
 
-# Influence des guitares
+- réduire la dynamique ;
+- augmenter excessivement les médiums ;
+- modifier le caractère propre du Brunetti.
 
-Nos deux guitares principales possèdent des personnalités très différentes.
-
-## Gibson Les Paul Classic DC
-
-Grâce à ses micros Classic 57+, elle présente naturellement :
-
-- davantage de rondeur ;
-- un grave plus dense ;
-- un sustain important ;
-- des médiums riches.
-
-Ces caractéristiques semblent particulièrement adaptées aux profils :
-
-- Foo Fighters ;
-- Hermano ;
-- certaines sonorités QOTSA.
+Son influence devra donc être documentée séparément.
 
 ---
 
-## Gretsch Broadkaster
+# Le rôle de l'égalisation
 
-Les Full'Tron offrent :
+Le MXR 6 Band EQ et le Mooer Graphic G peuvent être utilisés pour affiner le territoire.
 
-- davantage de définition ;
-- une attaque plus rapide ;
-- une meilleure séparation des notes ;
-- un registre aigu plus présent.
+Ils peuvent notamment permettre :
 
-Cette guitare pourrait devenir très intéressante lorsque l'on cherchera un profil Rectifier plus moderne ou plus précis.
+- de réduire une accumulation de graves ;
+- de contrôler les bas-médiums ;
+- de renforcer certaines fréquences de présence ;
+- d'adapter le profil à une guitare.
 
-Elle permettra également de vérifier dans quelle mesure le caractère du Brunetti dépend du choix de l'instrument.
+L'égalisation doit toutefois intervenir après la construction d'une base cohérente.
+
+Il ne faut pas utiliser l'EQ pour masquer un mauvais choix de canal ou un réglage de Gain incohérent.
 
 ---
 
-# Premier réglage provisoire
+# Le rôle du cabinet
 
-> **Objectif : territoire Mesa Boogie moderne**
+Le cabinet joue un rôle particulièrement important dans les sons fortement saturés.
 
-| Paramètre | Valeur provisoire | Niveau de confiance |
-|-----------|-------------------|---------------------|
-| Canal | XLead | ★★★★★ |
-| Gain | 4,5 à 5,5 | ★★★★☆ |
-| Bass | 5 | ★★★☆☆ |
-| Mid | 6 | ★★★★★ |
-| Edge | 4 | ★★★★☆ |
-| Focus | 5 à 6 | ★★★☆☆ |
-| Depth | 5 | ★★★☆☆ |
+Un réglage développé avec un cabinet produisant beaucoup de grave peut réagir très différemment avec un autre système.
 
-Ce tableau constitue uniquement un point de départ.
+Dans notre configuration, le 4×12 constitue la référence principale pour les recherches de ce type.
 
-Il sera ajusté après les expérimentations sur le matériel de référence.
+Les différents haut-parleurs présents dans le cabinet peuvent modifier :
+
+- l'attaque ;
+- les médiums ;
+- la projection ;
+- la sensation de grave ;
+- la définition.
+
+Les essais devront donc conserver une configuration de cabinet identifiée.
+
+Le Thiele équipé du Celestion 15 pouces pourra également être étudié séparément, mais il ne devra pas être mélangé aux essais de référence sans documenter précisément la configuration.
+
+---
+
+# Le territoire Mesa et les sons recherchés dans ToneLab
+
+Le territoire Mesa Boogie est particulièrement pertinent pour plusieurs objectifs du projet.
+
+## Rythmiques lourdes
+
+Le XLead constitue une base particulièrement logique.
+
+On recherchera :
+
+- attaque ;
+- poids ;
+- saturation ;
+- précision.
+
+---
+
+## Rock moderne
+
+Le Boost peut devenir plus intéressant.
+
+Un son moins compressé peut permettre de conserver davantage de :
+
+- dynamique ;
+- grain ;
+- interaction avec le jeu.
+
+---
+
+## Sons massifs
+
+Le XLead constitue à nouveau le candidat principal.
+
+L'objectif sera cependant de conserver suffisamment de médiums pour éviter que le son ne devienne uniquement massif lorsqu'il est joué seul.
+
+---
+
+## Stoner
+
+Le territoire Stoner ne doit pas être assimilé automatiquement au territoire Rectifier.
+
+Il peut cependant exister une zone de recouvrement.
+
+Le Boost pourrait notamment être intéressant pour une approche plus :
+
+- organique ;
+- épaisse ;
+- dynamique.
+
+Le XLead pourrait produire une approche plus :
+
+- dense ;
+- moderne ;
+- agressive.
+
+Cette distinction sera particulièrement intéressante pour les futurs profils Kyuss et Hermano.
+
+---
+
+# Première cartographie ToneLab
+
+La cartographie provisoire peut être formulée ainsi :
+
+| Territoire | Clean | Boost | XLead |
+|:--|:--:|:--:|:--:|
+| Mesa clean / légèrement poussé | ★★★ | ★★★ | ★ |
+| Rock saturé | ★★ | ★★★★★ | ★★★★ |
+| Mesa vintage / ouvert | ★★ | ★★★★ | ★★★ |
+| Rock moderne dense | ★ | ★★★ | ★★★★★ |
+| Dual Rectifier | ★ | ★★ | ★★★★★ |
+| Saturation moderne très dense | ★ | ★★ | ★★★★★ |
+| Approche Mesa dynamique | ★★ | ★★★★ | ★★★★ |
+
+Cette table représente uniquement une **hypothèse de travail**.
+
+Elle ne constitue pas une validation expérimentale.
+
+---
+
+# Hypothèses à tester
+
+## Hypothèse 1 — Le XLead est le meilleur point de départ pour le territoire Rectifier
+
+Cette hypothèse est actuellement la plus solide.
+
+**Statut : ◐ Hypothèse forte, à valider**
+
+---
+
+## Hypothèse 2 — Le Boost peut couvrir une zone Mesa moins saturée
+
+Le Boost pourrait être intéressant pour une interprétation plus dynamique et plus ouverte.
+
+**Statut : 🧪 À tester**
+
+---
+
+## Hypothèse 3 — La Tube Screamer peut rapprocher le XLead du comportement recherché
+
+Le resserrement du grave et l'augmentation de l'attaque pourraient améliorer la précision.
+
+**Statut : ◐ Hypothèse solide, à valider**
+
+---
+
+## Hypothèse 4 — Un gain légèrement inférieur peut produire un meilleur résultat qu'un gain maximal
+
+Une quantité excessive de saturation peut réduire la lisibilité.
+
+**Statut : 🧪 À tester**
+
+---
+
+## Hypothèse 5 — Le cabinet peut modifier fortement la perception du territoire Mesa
+
+Les haut-parleurs peuvent déplacer suffisamment l'équilibre tonal pour modifier la perception globale du profil.
+
+**Statut : ◐ Hypothèse solide, à valider**
+
+---
+
+## Hypothèse 6 — Le Boost peut être pertinent pour certains territoires inspirés de Mesa sans être un candidat au Dual Rectifier
+
+Cette distinction permet d'éviter une conclusion trop simpliste.
+
+**Statut : 🧪 À tester**
 
 ---
 
 # Ce que nous retenons
 
-L'étude du territoire Mesa Boogie conduit à une conclusion importante.
+Le **XLead reste actuellement le principal candidat** pour rechercher le territoire Mesa Boogie Dual Rectifier.
 
-Le caractère d'un Rectifier ne repose pas uniquement sur sa quantité de saturation.
+Cette orientation s'explique notamment par :
 
-Il résulte d'un équilibre complexe entre :
+- sa réserve de Gain ;
+- sa densité ;
+- son agressivité ;
+- sa capacité à produire une saturation importante ;
+- son potentiel de voicing moderne.
 
-- la dynamique ;
-- l'attaque ;
-- le contrôle des graves ;
-- les médiums ;
-- l'utilisation d'un overdrive en amont ;
-- le choix de la guitare ;
-- le baffle utilisé.
+Le Boost ne doit cependant pas être ignoré.
 
-Le Brunetti XL R-EVO II semble capable de retrouver une partie importante de ces sensations.
+Il pourrait permettre d'explorer une zone plus :
 
-Non pas parce qu'il imite un Rectifier, mais parce que sa conception lui permet d'explorer un territoire sonore voisin lorsqu'il est correctement réglé.
+- dynamique ;
+- ouverte ;
+- organique ;
+- orientée rock.
 
-Cette distinction est essentielle.
+Il ne s'agit donc pas de déclarer :
 
-Elle marque le passage d'une logique de copie à une logique de construction d'identité sonore.
+> **Boost = Mesa**
+
+mais de poser une question plus pertinente :
+
+> **Jusqu'où le Boost peut-il entrer dans le territoire Mesa avant que le XLead ne devienne clairement supérieur ?**
+
+Cette question pourra être résolue uniquement par l'expérimentation.
+
+---
+
+# Conclusion
+
+Le rapprochement entre le Brunetti XL R-EVO II et le Mesa Boogie Dual Rectifier repose principalement sur une convergence de comportement dans les zones fortement saturées.
+
+Le XLead constitue actuellement la meilleure porte d'entrée pour explorer cette zone.
+
+Il permet notamment de rechercher :
+
+- gain important ;
+- densité ;
+- attaque ;
+- précision ;
+- agressivité ;
+- puissance.
+
+Le Boost possède néanmoins un intérêt complémentaire.
+
+Il pourrait permettre de rechercher une interprétation plus dynamique et moins compressée du territoire Mesa, particulièrement lorsque le résultat recherché se rapproche davantage du rock saturé que du high-gain moderne.
+
+La comparaison entre les deux canaux devra donc faire partie intégrante des expérimentations ToneLab.
+
+La prochaine étape ne sera pas de chercher un réglage « Mesa » universel.
+
+Elle consistera à déterminer :
+
+1. quel canal constitue le meilleur point de départ ;
+2. quelle quantité de Gain est réellement nécessaire ;
+3. quelle combinaison Bass / Mid / Edge produit la meilleure définition ;
+4. comment Focus et Depth influencent la sensation de puissance ;
+5. quelle influence ont la Tube Screamer et l'EQ ;
+6. quel cabinet permet de conserver le meilleur équilibre.
+
+Cette méthode permettra de déterminer progressivement **quelle partie du territoire Mesa le Brunetti peut réellement reproduire avec son propre caractère**.
 
 ---
 
@@ -377,6 +788,8 @@ Elle marque le passage d'une logique de copie à une logique de construction d'i
 
 ⬅️ **[Partie 2 – Le territoire Marshall](part2.md)**
 
-🏠 **[Retour au chapitre](index.md)**
+🏠 **[Retour au chapitre 02](index.md)**
 
 ➡️ **[Partie 4 – Le territoire Diezel](part4.md)**
+
+➡️ **[Chapitre 03 – Construction des profils sonores](../03-profils-sonores/index.md)**
