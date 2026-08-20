@@ -1,0 +1,13 @@
+{
+  "name": "ToneLab Profiles",
+  "short_name": "ToneLab",
+  "description": "Laboratoire de réglages d'amplis et pédales de guitare",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef1f5",
+  "theme_color": "#182331",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
