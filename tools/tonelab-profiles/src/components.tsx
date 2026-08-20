@@ -79,7 +79,7 @@ function ParamListEditor({params,onChange}:{params:PedalParam[],onChange:(params
   <div className="pedal-add-row">
    <button type="button" onClick={()=>addParam("knob")}>+ Potard</button>
    <button type="button" onClick={()=>addParam("slider")}>+ Slider</button>
-   <button type="button" onClick={()=>addParam("switch")}>+ Commutateur</button>
+   <button type="button" onClick={()=>addParam("switch")}>+ Switch</button>
   </div>
  </>;
 }
@@ -135,10 +135,10 @@ function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:PedalTem
  const [selectedId,setSelectedId]=useState<string|null>(catalog[0]?.id??null);
  const selected=catalog.find(t=>t.id===selectedId)??null;
  return <CollapsibleSection title="Gérer le catalogue de pédales">
-  <div className="list-cat-tabs">
-   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"list-cat active":"list-cat"} onClick={()=>setSelectedId(tpl.id)}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
-   <button type="button" className="list-cat" onClick={()=>{onAdd();}}>+ Nouveau modèle</button>
+  <div className="catalog-manager-list">
+   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>setSelectedId(tpl.id)}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
   </div>
+  <button type="button" onClick={onAdd}>+ Nouveau modèle</button>
   {selected&&<>
    <PedalTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)}/>
    <button type="button" className="danger" onClick={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}}>✕ Supprimer ce modèle</button>
@@ -254,9 +254,22 @@ export function TestForm({test,lists,onChange,onRenameListItem,onRemoveListItem,
   </div><label className="check"><input type="checkbox" checked={test.retained} onChange={e=>set("retained",e.target.checked)}/> Profil retenu</label></section>
  </div>
 }
-export function TestList({tests,selected,checked,onSelect,onToggleCheck}:{tests:TestRecord[],selected:string,checked:Set<string>,onSelect:(id:string)=>void,onToggleCheck:(id:string)=>void}){
- return <div className="test-list">{tests.map(t=><div key={t.id} className={selected===t.id?"test-item active":"test-item"}>
-  <input type="checkbox" checked={checked.has(t.id)} onChange={()=>onToggleCheck(t.id)}/>
-  <button className="test-item-btn" onClick={()=>onSelect(t.id)}><strong>{t.artistReference||"Artiste non défini"}</strong><span>{t.song||"Morceau non défini"}</span><small>{t.id} · {t.status}</small></button>
- </div>)}</div>
+export function TestList({tests,selected,checked,onSelect,onToggleCheck,statusOptions,statusFilter,onToggleStatusFilter,onRename,onRemove}:{tests:TestRecord[],selected:string,checked:Set<string>,onSelect:(id:string)=>void,onToggleCheck:(id:string)=>void,statusOptions:string[],statusFilter:Set<string>,onToggleStatusFilter:(s:string)=>void,onRename:(id:string)=>void,onRemove:(id:string)=>void}){
+ const [openMenu,setOpenMenu]=useState<string|null>(null);
+ return <div className="test-list-wrap">
+  <div className="status-filter-bar">
+   {statusOptions.map(s=><label key={s} className="status-filter-chip"><input type="checkbox" checked={statusFilter.has(s)} onChange={()=>onToggleStatusFilter(s)}/>{s}</label>)}
+  </div>
+  <div className="test-list">{tests.map(t=><div key={t.id} className={selected===t.id?"test-item active":"test-item"}>
+   <input type="checkbox" checked={checked.has(t.id)} onChange={()=>onToggleCheck(t.id)}/>
+   <button className="test-item-btn" onClick={()=>onSelect(t.id)}><strong>{t.artistReference||"Artiste non défini"}</strong><span>{t.song||"Morceau non défini"}</span><div className="test-item-meta"><small>{t.id}</small><span className="status-badge">{t.status}</span></div></button>
+   <div className="menu test-item-menu">
+    <button type="button" className="menu-trigger" onClick={()=>setOpenMenu(m=>m===t.id?null:t.id)} aria-label="Actions sur ce test">⋮</button>
+    {openMenu===t.id&&<div className="menu-panel">
+     <button type="button" onClick={()=>{setOpenMenu(null);onRename(t.id)}}>Renommer</button>
+     <button type="button" className="danger" onClick={()=>{setOpenMenu(null);onRemove(t.id)}}>Supprimer</button>
+    </div>}
+   </div>
+  </div>)}</div>
+ </div>;
 }
