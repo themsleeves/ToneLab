@@ -4,7 +4,7 @@ import {emptyTest,sampleTests} from "./data";
 import {load,save} from "./storage";
 import {csv,json,markdown} from "./export";
 import {TestForm,TestList} from "./components";
-import {loadLists,saveLists,type ListKey} from "./lists";
+import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
 function id(t:TestRecord[]){return `TEST-${String(t.length+1).padStart(3,"0")}`}
 type CategoryField="status"|"artistReference"|"guitar"|"tuning"|"pickup"|"channel"|"cabinet";
 const CATEGORY_FIELD:Record<ListKey,CategoryField>={status:"status",artist:"artistReference",guitar:"guitar",tuning:"tuning",pickup:"pickup",channel:"channel",cabinet:"cabinet"};
@@ -31,7 +31,7 @@ export default function App(){
  function renameListItem(cat:ListKey,oldV:string,newV:string){setLists(l=>({...l,[cat]:l[cat].map(x=>x===oldV?newV:x)}));const field=CATEGORY_FIELD[cat];setTests(a=>a.map(t=>t[field]===oldV?{...t,[field]:newV}:t))}
  function removeListItem(cat:ListKey,v:string){setLists(l=>({...l,[cat]:l[cat].filter(x=>x!==v)}))}
  function addListItem(cat:ListKey,v:string){setLists(l=>l[cat].includes(v)?l:{...l,[cat]:[...l[cat],v]})}
- function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");setTests(d.tests);setSelected(d.tests[0]?.id||"")};i.click()}
+ function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");setTests(d.tests);setSelected(d.tests[0]?.id||"");setLists(mergeLists(d.lists))};i.click()}
  return <main><header><div><div className="eyebrow">TONELAB</div><h1>Profiles</h1><p>Laboratoire de réglages du Brunetti XL R-EVO II</p></div><div className="actions">
   <button className="primary" onClick={newTest}>+ Nouveau test</button>
   <div className="menu">
@@ -40,8 +40,9 @@ export default function App(){
     <button onClick={()=>{duplicate();setMenuOpen(false)}} disabled={!current}>Dupliquer</button>
     <button onClick={()=>{current&&markdown(current);setMenuOpen(false)}} disabled={!current}>Exporter Markdown</button>
     <button onClick={()=>{csv(tests);setMenuOpen(false)}}>Exporter CSV</button>
-    <button onClick={()=>{json(tests);setMenuOpen(false)}}>Exporter JSON</button>
+    <button onClick={()=>{json(tests,lists);setMenuOpen(false)}}>Exporter JSON</button>
     <button onClick={()=>{importJson();setMenuOpen(false)}}>Importer JSON</button>
+    <button onClick={()=>{downloadListsCode(lists);setMenuOpen(false)}}>Générer les listes par défaut (.ts)</button>
    </div>}
   </div>
  </div></header>
