@@ -1,10 +1,11 @@
 import {useEffect,useMemo,useState} from "react";
-import type {TestRecord} from "./types";
+import type {TestRecord,Pedal,PedalTemplate} from "./types";
 import {emptyTest,sampleTests} from "./data";
-import {load,save} from "./storage";
+import {load,save,migrateTest} from "./storage";
 import {csv,json,markdown} from "./export";
 import {TestForm,TestList} from "./components";
 import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
+import {newPedal,newTemplate,instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode} from "./pedalCatalog";
 function id(t:TestRecord[]){return `TEST-${String(t.length+1).padStart(3,"0")}`}
 type CategoryField="status"|"artistReference"|"guitar"|"tuning"|"pickup"|"channel"|"cabinet";
 const CATEGORY_FIELD:Record<ListKey,CategoryField>={status:"status",artist:"artistReference",guitar:"guitar",tuning:"tuning",pickup:"pickup",channel:"channel",cabinet:"cabinet"};
@@ -13,10 +14,12 @@ export default function App(){
  const [selected,setSelected]=useState(""); const [q,setQ]=useState("");
  const [checked,setChecked]=useState<Set<string>>(new Set());
  const [lists,setLists]=useState(()=>loadLists());
+ const [catalog,setCatalog]=useState(()=>loadPedalCatalog());
  const [mobileView,setMobileView]=useState<"list"|"form">("list");
  const [menuOpen,setMenuOpen]=useState(false);
  useEffect(()=>save(tests),[tests]);
  useEffect(()=>saveLists(lists),[lists]);
+ useEffect(()=>savePedalCatalog(catalog),[catalog]);
  const filtered=useMemo(()=>{const x=q.toLowerCase().trim();return x?tests.filter(t=>[t.id,t.artistReference,t.song,t.guitar,t.cabinet,t.channel,t.status].join(" ").toLowerCase().includes(x)):tests},[tests,q]);
  const current=tests.find(t=>t.id===selected)||filtered[0]||tests[0];
  function selectTest(id:string){setSelected(id);setMobileView("form")}
@@ -31,7 +34,15 @@ export default function App(){
  function renameListItem(cat:ListKey,oldV:string,newV:string){setLists(l=>({...l,[cat]:l[cat].map(x=>x===oldV?newV:x)}));const field=CATEGORY_FIELD[cat];setTests(a=>a.map(t=>t[field]===oldV?{...t,[field]:newV}:t))}
  function removeListItem(cat:ListKey,v:string){setLists(l=>({...l,[cat]:l[cat].filter(x=>x!==v)}))}
  function addListItem(cat:ListKey,v:string){setLists(l=>l[cat].includes(v)?l:{...l,[cat]:[...l[cat],v]})}
- function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");setTests(d.tests);setSelected(d.tests[0]?.id||"");setLists(mergeLists(d.lists))};i.click()}
+ function addPedal(){if(!current)return;update({...current,pedals:[...current.pedals,newPedal()]})}
+ function addPedalFromCatalog(tpl:PedalTemplate){if(!current)return;update({...current,pedals:[...current.pedals,instantiatePedal(tpl)]})}
+ function updatePedal(id:string,pedal:Pedal){if(!current)return;update({...current,pedals:current.pedals.map(p=>p.id===id?pedal:p)})}
+ function removePedal(id:string){if(!current)return;update({...current,pedals:current.pedals.filter(p=>p.id!==id)})}
+ function saveAsTemplate(tpl:PedalTemplate){setCatalog(c=>[...c,tpl])}
+ function addCatalogTemplate(){setCatalog(c=>[...c,newTemplate()])}
+ function updateCatalogTemplate(id:string,tpl:PedalTemplate){setCatalog(c=>c.map(t=>t.id===id?tpl:t))}
+ function removeCatalogTemplate(id:string){setCatalog(c=>c.filter(t=>t.id!==id))}
+ function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");const migrated=d.tests.map(migrateTest);setTests(migrated);setSelected(migrated[0]?.id||"");setLists(mergeLists(d.lists));setCatalog(mergeCatalog(d.catalog))};i.click()}
  return <main><header><div><div className="eyebrow">TONELAB</div><h1>Profiles</h1><p>Laboratoire de réglages du Brunetti XL R-EVO II</p></div><div className="actions">
   <button className="primary" onClick={newTest}>+ Nouveau test</button>
   <div className="menu">
@@ -40,9 +51,10 @@ export default function App(){
     <button onClick={()=>{duplicate();setMenuOpen(false)}} disabled={!current}>Dupliquer</button>
     <button onClick={()=>{current&&markdown(current);setMenuOpen(false)}} disabled={!current}>Exporter Markdown</button>
     <button onClick={()=>{csv(tests);setMenuOpen(false)}}>Exporter CSV</button>
-    <button onClick={()=>{json(tests,lists);setMenuOpen(false)}}>Exporter JSON</button>
+    <button onClick={()=>{json(tests,lists,catalog);setMenuOpen(false)}}>Exporter JSON</button>
     <button onClick={()=>{importJson();setMenuOpen(false)}}>Importer JSON</button>
     <button onClick={()=>{downloadListsCode(lists);setMenuOpen(false)}}>Générer les listes par défaut (.ts)</button>
+    <button onClick={()=>{downloadPedalCatalogCode(catalog);setMenuOpen(false)}}>Générer le catalogue de pédales (.ts)</button>
    </div>}
   </div>
  </div></header>
@@ -51,5 +63,5 @@ export default function App(){
   <div className="bulk-actions"><button onClick={toggleCheckAll}>{checked.size===filtered.length&&filtered.length>0?"Tout désélectionner":"Tout sélectionner"}</button><button className="danger" onClick={removeSelected} disabled={checked.size===0}>Supprimer la sélection ({checked.size})</button></div>
   <TestList tests={filtered} selected={current?.id||""} checked={checked} onSelect={selectTest} onToggleCheck={toggleCheck}/>
   <div className="bulk-actions"><button onClick={rename} disabled={!current}>Renommer</button><button className="danger" onClick={remove} disabled={!current}>Supprimer</button></div>
- </aside><article><button className="back-mobile" onClick={()=>setMobileView("list")}>← Tests</button>{current?<TestForm test={current} lists={lists} onChange={update} onRenameListItem={renameListItem} onRemoveListItem={removeListItem} onAddListItem={addListItem}/>:<div className="empty">Aucun test.</div>}</article></div></main>
+ </aside><article><button className="back-mobile" onClick={()=>setMobileView("list")}>← Tests</button>{current?<TestForm test={current} lists={lists} onChange={update} onRenameListItem={renameListItem} onRemoveListItem={removeListItem} onAddListItem={addListItem} catalog={catalog} onAddPedal={addPedal} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} onSaveAsTemplate={saveAsTemplate} onAddCatalogTemplate={addCatalogTemplate} onUpdateCatalogTemplate={updateCatalogTemplate} onRemoveCatalogTemplate={removeCatalogTemplate}/>:<div className="empty">Aucun test.</div>}</article></div></main>
 }
