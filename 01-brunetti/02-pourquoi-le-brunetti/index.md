@@ -1,8 +1,6 @@
-# Chapitre 02
-
 # Pourquoi le Brunetti est difficile à classer
 
-> *Ce chapitre constitue le socle théorique du ToneLab consacré au Brunetti XL R-EVO II. Il rassemble les recherches, analyses et comparaisons ayant permis de comprendre pourquoi cet amplificateur est régulièrement rapproché de plusieurs grandes familles sonores sans appartenir totalement à aucune d'entre elles.*
+> *Ce chapitre analyse le territoire sonore du Brunetti XL R-EVO II et cherche à comprendre pourquoi cet amplificateur peut évoquer plusieurs grandes familles sonores sans se réduire à aucune d'entre elles.*
 
 ---
 
@@ -12,190 +10,201 @@
 
 → **[Brunetti XL R-EVO II](../index.md)**
 
-→ **Chapitre 02 – Pourquoi le Brunetti est difficile à classer**
+→ **Pourquoi le Brunetti est difficile à classer**
 
 ---
 
 # Objectif du chapitre
 
-Avant de rechercher des réglages, il est indispensable de comprendre la philosophie du Brunetti XL R-EVO II.
+Le Brunetti XL R-EVO II possède une personnalité sonore particulièrement difficile à résumer par une seule référence.
 
-Ce chapitre répond notamment aux questions suivantes :
+Selon les réglages, le canal utilisé et le contexte matériel, il peut se rapprocher de plusieurs grandes familles d'amplificateurs :
 
-- Pourquoi le Brunetti est-il parfois comparé à un Marshall ?
-- Pourquoi certains utilisateurs évoquent-ils un Mesa Boogie Dual Rectifier ?
-- En quoi peut-il rappeler un Diezel ou un EVH ?
-- Existe-t-il une véritable identité sonore Brunetti ?
-- Comment utiliser ces connaissances pour construire des profils sonores cohérents ?
-- Quel territoire sonore particulier peut-on exploiter avec le canal Boost ?
+- Marshall ;
+- Mesa Boogie ;
+- Diezel ;
+- EVH.
 
-L'objectif n'est pas de déterminer quel amplificateur le Brunetti imite le mieux.
+L'objectif de ce chapitre n'est cependant pas de déterminer à quel amplificateur le Brunetti « ressemble ».
 
-L'objectif est de comprendre **ce qui fait sa personnalité**, afin d'exploiter tout son potentiel dans le cadre du projet ToneLab.
+Il s'agit de comprendre :
 
----
-
-# Sommaire du chapitre
-
-## ✅ Partie 1 — Introduction
-
-Présentation de la démarche, de la méthode d'analyse et des objectifs du chapitre.
-
-➡️ **[Accéder à la Partie 1](part1.md)**
+- les différents territoires sonores accessibles ;
+- les caractéristiques qui permettent de s'en rapprocher ;
+- les différences entre les canaux ;
+- le rôle particulier du Boost et du XLead ;
+- les interactions entre les paramètres ;
+- ce qui constitue finalement l'identité propre du Brunetti.
 
 ---
 
-## ✅ Partie 2 — Le territoire Marshall
+# Sommaire
 
-Étude des similitudes entre le Brunetti et les différentes familles Marshall, du Plexi aux modèles hot-rodded.
-
-➡️ **[Accéder à la Partie 2](part2.md)**
-
----
-
-## ✅ Partie 3 — Le territoire Mesa Boogie
-
-Analyse détaillée des points communs avec le Mesa Boogie Dual Rectifier et des limites de cette comparaison.
-
-➡️ **[Accéder à la Partie 3](part3.md)**
+- [Partie 1 — Territoire Marshall](#partie-1--territoire-marshall)
+- [Partie 2 — Territoire Mesa Boogie](#partie-2--territoire-mesa-boogie)
+- [Partie 3 — Territoire Diezel](#partie-3--territoire-diezel)
+- [Partie 4 — Territoire EVH](#partie-4--territoire-evh)
+- [Partie 5 — Approfondissement du territoire EVH](#partie-5--approfondissement-du-territoire-evh)
+- [Partie 6 — L'identité sonore du Brunetti](#partie-6--lidentité-sonore-du-brunetti)
+- [Partie 7 — Synthèse du chapitre](#partie-7--synthèse-du-chapitre)
+- [Conclusion du chapitre](#conclusion-du-chapitre)
+- [Navigation](#navigation)
 
 ---
 
-## ✅ Partie 4 — Le territoire Diezel
+# Organisation du chapitre
 
-Comprendre pourquoi certains utilisateurs rapprochent le Brunetti des amplificateurs Diezel et ce que cela implique en matière de réglages.
+## Partie 1 — Territoire Marshall
 
-➡️ **[Accéder à la Partie 4](part4.md)**
+Cette première partie étudie la proximité du Brunetti avec le territoire Marshall.
 
----
+Elle s'intéresse notamment :
 
-## ✅ Partie 5 — Le territoire EVH
+- aux médiums ;
+- au grain ;
+- à la dynamique ;
+- à l'attaque ;
+- au rôle du Boost ;
+- au rôle du XLead ;
+- aux conditions permettant d'obtenir une orientation plus Marshall.
 
-Analyse du comportement du Brunetti face aux caractéristiques des amplificateurs EVH modernes.
-
-➡️ **[Accéder à la Partie 5](part5.md)**
-
----
-
-## ✅ Partie 6 — L'identité sonore du Brunetti
-
-Synthèse des analyses précédentes afin de définir la personnalité propre du Brunetti XL R-EVO II.
-
-➡️ **[Accéder à la Partie 6](part6.md)**
+➡️ **[Accéder à la Partie 1 — Territoire Marshall](part1.md)**
 
 ---
 
-## ✅ Partie 7 — Synthèse
+## Partie 2 — Territoire Mesa Boogie
 
-Récapitulatif des enseignements des différentes parties et mise en évidence des constantes observées.
+Cette partie étudie la capacité du Brunetti à se rapprocher du territoire Mesa Boogie.
 
-➡️ **[Accéder à la Partie 7](part7.md)**
+Elle analyse notamment :
 
----
+- la densité ;
+- la saturation ;
+- l'ampleur ;
+- l'agressivité ;
+- le rôle du XLead ;
+- les possibilités offertes par le Boost ;
+- l'influence de l'égalisation.
 
-## ✅ Partie 8 — Conséquences pratiques et méthode de réglage
-
-Transformation des conclusions théoriques en une méthode de travail reproductible pour construire des profils sonores.
-
-➡️ **[Accéder à la Partie 8](part8.md)**
-
----
-
-## 🆕 Partie 9 — Le canal Boost : un territoire sonore à part
-
-Approfondissement du rôle du canal Boost dans la palette sonore du Brunetti XL R-EVO II.
-
-Cette partie cherchera notamment à déterminer :
-
-- comment le Boost se positionne entre le Clean et le XLead ;
-- comment son caractère évolue avec le niveau de Gain ;
-- quelles familles d'amplificateurs peuvent servir de références ;
-- dans quelle mesure il peut approcher des territoires Plexi, JCM800 ou hot-rodded Marshall ;
-- quels territoires rock, hard rock ou rock alternatif lui conviennent particulièrement ;
-- dans quelles situations le Boost peut être préférable au XLead ;
-- comment les guitares, les pédales et l'égalisation peuvent modifier ce territoire.
-
-Cette analyse constituera un complément au chapitre théorique avant la construction des profils sonores du Chapitre 03.
-
-➡️ **[Accéder à la Partie 9](part9.md)**
+➡️ **[Accéder à la Partie 2 — Territoire Mesa Boogie](part2.md)**
 
 ---
 
-# Progression
+## Partie 3 — Territoire Diezel
 
-| Partie | Sujet | État |
-|:------:|-------|:----:|
-| 1 | Introduction | ✅ |
-| 2 | Territoire Marshall | ✅ |
-| 3 | Territoire Mesa Boogie | ✅ |
-| 4 | Territoire Diezel | ✅ |
-| 5 | Territoire EVH | ✅ |
-| 6 | L'identité sonore du Brunetti | ✅ |
-| 7 | Synthèse | ✅ |
-| 8 | Méthode de réglage | ✅ |
-| 9 | Canal Boost — territoire sonore | 🆕 |
+Cette partie est consacrée au territoire sonore associé à Diezel.
 
----
+Elle s'intéresse notamment :
 
-# Ce que ce chapitre doit permettre d'obtenir
+- à la précision ;
+- à la définition ;
+- au contrôle du grave ;
+- à la fermeté ;
+- à l'articulation ;
+- au rôle du XLead ;
+- aux paramètres permettant d'orienter le Brunetti vers un comportement plus moderne.
 
-À l'issue de ce chapitre, nous disposons d'une compréhension structurée du territoire sonore du Brunetti XL R-EVO II.
-
-Nous pouvons notamment :
-
-- identifier ses proximités avec les grandes familles Marshall, Mesa Boogie, Diezel et EVH ;
-- comprendre ce qui constitue son identité propre ;
-- identifier les paramètres ayant le plus d'influence sur son comportement ;
-- distinguer les rôles des différents canaux ;
-- comprendre le potentiel spécifique du canal Boost ;
-- déterminer les territoires sonores qui pourront servir de point de départ aux futurs profils.
-
-La Partie 9 apporte une analyse complémentaire consacrée spécifiquement au Boost, afin que ce canal ne soit pas réduit à un simple intermédiaire entre Clean et XLead.
+➡️ **[Accéder à la Partie 3 — Territoire Diezel](part3.md)**
 
 ---
 
-# Transition vers le Chapitre 03
+## Partie 4 — Territoire EVH
 
-Le **Chapitre 03 — Construction des profils sonores** constituera la mise en pratique des connaissances acquises ici.
+Cette partie étudie le territoire EVH.
 
-Nous pourrons alors passer :
+Elle analyse notamment :
 
-- de la famille sonore recherchée ;
-- au choix du canal ;
-- au choix de la guitare ;
-- au choix du cabinet ;
-- aux pédales ;
-- aux réglages précis ;
-- puis aux essais et à la validation.
+- l'attaque ;
+- la dynamique ;
+- la saturation ;
+- les médiums ;
+- l'agressivité ;
+- les possibilités offertes par le Boost ;
+- les possibilités offertes par le XLead.
 
-Les profils seront documentés et comparés à partir des expérimentations réalisées sur le matériel de référence.
+➡️ **[Accéder à la Partie 4 — Territoire EVH](part4.md)**
 
-➡️ **[Accéder au Chapitre 03 — Construction des profils sonores](../03-profils-sonores/index.md)**
+---
+
+## Partie 5 — Approfondissement du territoire EVH
+
+Cette partie approfondit certains aspects spécifiques du territoire EVH et permet de préciser sa place dans la cartographie sonore du Brunetti.
+
+Elle permet notamment de distinguer :
+
+- les caractéristiques générales du territoire ;
+- les zones de convergence avec le Brunetti ;
+- les différences entre les différentes approches ;
+- les limites de la comparaison ;
+- les pistes d'expérimentation à conserver pour la suite du ToneLab.
+
+➡️ **[Accéder à la Partie 5 — Approfondissement du territoire EVH](part5.md)**
+
+---
+
+## Partie 6 — L'identité sonore du Brunetti
+
+Après l'étude des différents territoires, cette partie revient au Brunetti lui-même.
+
+L'objectif est de déterminer ce qui constitue son identité propre.
+
+Elle aborde notamment :
+
+- la complémentarité des territoires étudiés ;
+- le rôle du Boost ;
+- le rôle du XLead ;
+- les interactions entre paramètres ;
+- l'influence de la guitare ;
+- l'influence du cabinet ;
+- l'influence des pédales ;
+- la notion de plateforme sonore ;
+- les premières hypothèses sur la signature propre du Brunetti.
+
+➡️ **[Accéder à la Partie 6 — L'identité sonore du Brunetti](part6.md)**
+
+---
+
+## Partie 7 — Synthèse du chapitre
+
+Cette dernière partie rassemble les conclusions du chapitre.
+
+Elle transforme les observations précédentes en principes de travail pour la suite du projet.
+
+Elle permet notamment de définir :
+
+- les quatre grands territoires étudiés ;
+- le rôle des différents canaux ;
+- la place particulière du Boost ;
+- la place du XLead ;
+- les paramètres fondamentaux ;
+- l'importance des interactions ;
+- l'influence de la guitare ;
+- l'influence du cabinet ;
+- l'influence des pédales ;
+- la méthode ToneLab pour construire les futurs profils.
+
+➡️ **[Accéder à la Partie 7 — Synthèse du chapitre](part7.md)**
+
+---
+
+# Conclusion du chapitre
+
+L'étude des différents territoires montre que le Brunetti ne doit pas être considéré comme une imitation d'un autre amplificateur.
+
+Il constitue une plateforme sonore capable d'explorer plusieurs directions tout en conservant une identité propre.
+
+Les références Marshall, Mesa Boogie, Diezel et EVH servent donc principalement de repères.
+
+Elles permettent de décrire différentes zones de la cartographie sonore du Brunetti.
+
+Cette compréhension constitue désormais la base théorique nécessaire à la construction des profils sonores du ToneLab.
 
 ---
 
 # Navigation
 
-⬆️ **[Retour au Brunetti XL R-EVO II](../index.md)**
+⬅️ **[Retour au Brunetti XL R-EVO II](../index.md)**
+
+➡️ **[Chapitre 03 – Construction des profils sonores](../03-profils-sonores/index.md)**
 
 ⬆️ **[Retour au ToneLab](../../index.md)**
-
-➡️ **[Partie 1 — Introduction](part1.md)**
-
-➡️ **[Partie 2 — Territoire Marshall](part2.md)**
-
-➡️ **[Partie 3 — Territoire Mesa Boogie](part3.md)**
-
-➡️ **[Partie 4 — Territoire Diezel](part4.md)**
-
-➡️ **[Partie 5 — Territoire EVH](part5.md)**
-
-➡️ **[Partie 6 — Identité sonore du Brunetti](part6.md)**
-
-➡️ **[Partie 7 — Synthèse](part7.md)**
-
-➡️ **[Partie 8 — Conséquences pratiques](part8.md)**
-
-➡️ **[Partie 9 — Canal Boost](part9.md)**
-
-➡️ **[Chapitre 03 — Construction des profils sonores](../03-profils-sonores/index.md)**

@@ -1,6 +1,6 @@
 export type TestStatus = "À tester" | "Prometteur" | "Validé" | "Rejeté";
 export type ControlKind = "knob" | "slider" | "switch";
-export interface PedalParam { name:string; kind:ControlKind; value:string; options?:string[] }
+export interface PedalParam { name:string; kind:ControlKind; value:string; options?:string[]; min?:number; max?:number; step?:number }
 export interface Pedal { id:string; name:string; enabled:string; notes:string; params:PedalParam[]; templateId?:string }
 export interface PedalTemplate { id:string; brand:string; model:string; params:PedalParam[] }
 export interface TestRecord {

@@ -5,58 +5,15 @@ const newId = () => `pedal-${Date.now()}-${Math.random().toString(36).slice(2, 7
 
 const knob = (name: string, value = ""): PedalParam => ({ name, kind: "knob", value });
 const sel = (name: string, options: string[]): PedalParam => ({ name, kind: "switch", value: options[0], options });
+// Bande d'EQ graphique (ex. MXR M109S, Mooer Graphic G) : curseur bipolaire -18 dB / +18 dB, 0 = plat.
+const eqBand = (name: string): PedalParam => ({ name, kind: "slider", value: "0", min: -18, max: 18, step: 1 });
 
 // Modèles repris de specs constructeur (Ibanez, Dunlop/MXR, Mooer, Fender) — gérables ensuite depuis le catalogue.
 export const defaultPedalCatalog: PedalTemplate[] = [
   { id: "tube-screamer", brand: "Ibanez", model: "Tube Screamer (TS9 / TS808)", params: [knob("Drive"), knob("Tone"), knob("Level")] },
-  { id: "mxr-6-band-eq", brand: "MXR", model: "M109S Six Band EQ", params: [knob("100 Hz"), knob("200 Hz"), knob("400 Hz"), knob("800 Hz"), knob("1.6 kHz"), knob("3.2 kHz")] },
-  { id: "mooer-graphic-g", brand: "Mooer", model: "Graphic G", params: [knob("100 Hz"), knob("250 Hz"), knob("630 Hz"), knob("1.6 kHz"), knob("4 kHz")] },
-  {
-    "id": "fender-the-pelt",
-    "brand": "Fender",
-    "model": "The Pelt Fuzz",
-    "params": [
-      {
-        "name": "Fuzz",
-        "kind": "knob",
-        "value": ""
-      },
-      {
-        "name": "Level",
-        "kind": "knob",
-        "value": ""
-      },
-      {
-        "name": "Tone",
-        "kind": "knob",
-        "value": ""
-      },
-      {
-        "name": "Bloom",
-        "kind": "knob",
-        "value": ""
-      },
-      {
-        "name": "Mid",
-        "kind": "switch",
-        "value": "Cut",
-        "options": [
-          "Cut",
-          "Flat",
-          "Boost"
-        ]
-      },
-      {
-        "name": "Thick",
-        "kind": "switch",
-        "value": "OFF",
-        "options": [
-          "OFF",
-          "ON"
-        ]
-      }
-    ]
-  },
+  { id: "mxr-6-band-eq", brand: "MXR", model: "M109S Six Band EQ", params: ["100 Hz", "200 Hz", "400 Hz", "800 Hz", "1.6 kHz", "3.2 kHz"].map(eqBand) },
+  { id: "mooer-graphic-g", brand: "Mooer", model: "Graphic G", params: ["100 Hz", "250 Hz", "630 Hz", "1.6 kHz", "4 kHz"].map(eqBand) },
+  { id: "fender-the-pelt", brand: "Fender", model: "The Pelt Fuzz", params: [knob("Fuzz"), knob("Level"), knob("Tone"), knob("Bloom"), sel("Mid", ["Cut", "Flat", "Boost"]), sel("Thick", ["OFF", "ON"])] },
 ];
 
 export function loadPedalCatalog(): PedalTemplate[] {
@@ -77,8 +34,10 @@ export function mergeCatalog(catalog?: PedalTemplate[]): PedalTemplate[] {
 }
 
 // Génère le code source de `defaultPedalCatalog` à partir du catalogue actuel, pour mettre à jour la base de référence du dépôt.
+// Une ligne compacte par modèle (au lieu du JSON entièrement indenté) pour rester cohérent avec le style condensé du fichier.
 export function defaultPedalCatalogCode(catalog: PedalTemplate[]): string {
-  return `export const defaultPedalCatalog: PedalTemplate[] = ${JSON.stringify(catalog, null, 2)};\n`;
+  const lines = catalog.map(t => `  ${JSON.stringify(t)},`).join("\n");
+  return `export const defaultPedalCatalog: PedalTemplate[] = [\n${lines}\n];\n`;
 }
 
 export function downloadPedalCatalogCode(catalog: PedalTemplate[]) {
@@ -107,15 +66,11 @@ export function resyncPedalFromCatalog(pedal: Pedal, catalog: PedalTemplate[]): 
 }
 
 // Signature structurelle (nom/type/positions, hors valeur) pour détecter si un catalogue a évolué depuis l'ajout de la pédale.
-const paramSignature = (params: PedalParam[]) => params.map(p => `${p.name.trim().toLowerCase()}|${p.kind}|${(p.options || []).join(",")}`).join(";");
+const paramSignature = (params: PedalParam[]) => params.map(p => `${p.name.trim().toLowerCase()}|${p.kind}|${(p.options || []).join(",")}|${p.min ?? ""}|${p.max ?? ""}|${p.step ?? ""}`).join(";");
 
 export function pedalNeedsResync(pedal: Pedal, catalog: PedalTemplate[]): boolean {
   const tpl = catalog.find(t => t.id === pedal.templateId);
   return !!tpl && paramSignature(tpl.params) !== paramSignature(pedal.params);
-}
-
-export function newPedal(): Pedal {
-  return { id: newId(), name: "Nouvelle pédale", enabled: "OFF", notes: "", params: [knob("Réglage", "0")] };
 }
 
 export function newTemplate(): PedalTemplate {
