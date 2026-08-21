@@ -1,5 +1,4 @@
-import type {TestRecord,Pedal,PedalTemplate} from "./types";
-import {PARAM_LABELS} from "./types";
+import type {TestRecord,Pedal,PedalTemplate,Amp,AmpTemplate} from "./types";
 import type {Lists} from "./lists";
 function download(name:string,text:string,type="text/plain;charset=utf-8"){const b=new Blob([text],{type}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=name;a.click();URL.revokeObjectURL(u);}
 const esc=(x:string)=>`"${String(x??"").replaceAll('"','""')}"`;
@@ -7,10 +6,14 @@ const esc=(x:string)=>`"${String(x??"").replaceAll('"','""')}"`;
 function pedalsSummary(pedals:Pedal[]):string {
  return pedals.map(p=>`${p.name} (${p.enabled==="ON"?"ON":"OFF"}): ${p.params.map(pr=>`${pr.name}=${pr.value}`).join(", ")}${p.notes?` [${p.notes}]`:""}`).join(" | ");
 }
-export function json(tests:TestRecord[],lists:Lists,catalog:PedalTemplate[]){download("tonelab-data.json",JSON.stringify({version:3,tests,lists,catalog},null,2),"application/json");}
+// Résume dynamiquement les réglages d'un ampli catalogue-driven (pour la colonne CSV).
+function ampSummary(amp:Amp):string {
+ return amp.params.map(p=>`${p.name}=${p.value}`).join(", ");
+}
+export function json(tests:TestRecord[],lists:Lists,catalog:PedalTemplate[],ampCatalog:AmpTemplate[]){download("tonelab-data.json",JSON.stringify({version:4,tests,lists,catalog,ampCatalog},null,2),"application/json");}
 export function csv(tests:TestRecord[]){
- const h=["ID test","Artiste / Référence","Morceau / Riff","Date","Statut","Guitare","Accordage","Micro / Position","Cabinet","Canal","Gain","Bass","Mid","Edge","Master","Bright","Focus","Level","Depth","Master principal","Pédales d'effets","Autres pédales / chaîne","Objectif du test","Observations","Résultat / Conclusion","Profil retenu"];
- const rows=tests.map(t=>[t.id,t.artistReference,t.song,t.date,t.status,t.guitar,t.tuning,t.pickup,t.cabinet,t.channel,t.amp.gain,t.amp.bass,t.amp.mid,t.amp.edge,t.amp.master,t.amp.bright,t.amp.focus,t.amp.level,t.amp.depth,t.amp.masterPrincipal,pedalsSummary(t.pedals),t.otherPedals,t.objective,t.observations,t.conclusion,t.retained?"Oui":"Non"]);
+ const h=["ID test","Artiste / Référence","Morceau / Riff","Date","Statut","Guitare","Accordage","Micro / Position","Cabinet","Ampli","Canal","Réglages ampli","Pédales d'effets","Autres pédales / chaîne","Objectif du test","Observations","Résultat / Conclusion","Profil retenu"];
+ const rows=tests.map(t=>[t.id,t.artistReference,t.song,t.date,t.status,t.guitar,t.tuning,t.pickup,t.cabinet,t.amp.name,t.amp.channel,ampSummary(t.amp),pedalsSummary(t.pedals),t.otherPedals,t.objective,t.observations,t.conclusion,t.retained?"Oui":"Non"]);
  download("tonelab-tests.csv","\uFEFF"+[h,...rows].map(r=>r.map(esc).join(";")).join("\n"),"text/csv;charset=utf-8");
 }
 export function markdown(t:TestRecord){
@@ -31,11 +34,11 @@ ${r("Accordage",t.tuning)}
 ${r("Micro / position",t.pickup)}
 ${r("Cabinet",t.cabinet)}
 
-## Brunetti XL R-EVO II
+## ${t.amp.name||"Ampli"}
 | Paramètre | Réglage |
 |---|---:|
-${r("Canal",t.channel)}
-${Object.entries(t.amp).map(([k,v])=>r(PARAM_LABELS.amp[k]??k,v)).join("\n")}
+${r("Canal",t.amp.channel)}
+${t.amp.params.filter(p=>!p.onlyChannel||p.onlyChannel===t.amp.channel).map(p=>r(p.name,p.value)).join("\n")}
 
 ${t.pedals.map(p=>`## ${p.name} (${p.enabled==="ON"?"Activée":"Désactivée"})
 | Paramètre | Réglage |

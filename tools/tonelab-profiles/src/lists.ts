@@ -1,4 +1,4 @@
-export type ListKey = "status" | "artist" | "guitar" | "tuning" | "pickup" | "channel" | "cabinet";
+export type ListKey = "status" | "artist" | "guitar" | "tuning" | "pickup" | "cabinet";
 export type Lists = Record<ListKey, string[]>;
 
 export const LIST_LABELS: Record<ListKey, string> = {
@@ -7,7 +7,6 @@ export const LIST_LABELS: Record<ListKey, string> = {
   guitar: "Guitare",
   tuning: "Accordage",
   pickup: "Micro / Position",
-  channel: "Canal",
   cabinet: "Cabinet",
 };
 
@@ -18,12 +17,11 @@ export const defaultLists: Lists = {
   guitar: ["Gibson Les Paul Classic DC","Gretsch Gourley Broadkaster","Stratocaster \"The Strat\"","Autre"],
   tuning: ["Standard","Drop D","Drop C#","Drop C","Autre"],
   pickup: ["Chevalet","Manche","Middle","Autre"],
-  channel: ["Clean","Boost","XLead"],
   cabinet: ["Marshall 4x12","Thiele Celestion 15\" 4 Ω","2x12 Closed V70","2x12 Open Back","Autre"],
 };
 
 const KEY = "tonelab-lists";
-const LIST_ORDER: ListKey[] = ["status","artist","guitar","tuning","pickup","channel","cabinet"];
+const LIST_ORDER: ListKey[] = ["status","artist","guitar","tuning","pickup","cabinet"];
 
 export function mergeLists(partial?: Partial<Lists>): Lists {
   return { ...defaultLists, ...(partial || {}) };

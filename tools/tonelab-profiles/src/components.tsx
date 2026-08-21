@@ -1,8 +1,8 @@
 import {useState,useRef,useEffect} from "react";
 import type {ReactNode,CSSProperties} from "react";
-import type {TestRecord,Pedal,PedalParam,PedalTemplate,ControlKind} from "./types";
-import {PARAM_LABELS} from "./types";
+import type {TestRecord,Pedal,PedalParam,PedalTemplate,ControlKind,AmpTemplate,Amp} from "./types";
 import {resyncPedalFromCatalog,pedalNeedsResync} from "./pedalCatalog";
+import {resyncAmpFromCatalog,ampNeedsResync} from "./ampCatalog";
 import {LIST_LABELS} from "./lists";
 import type {ListKey,Lists} from "./lists";
 // Referme un menu ouvert au clic en dehors de tout élément `.menu` (trigger + panneau).
@@ -26,19 +26,9 @@ function Area({label,value,onChange,autoGrow}:{label?:string,value:string,onChan
  useEffect(()=>{if(autoGrow)resize()},[value,autoGrow]);
  return <label className={autoGrow?"field full area-autogrow":"field full"}>{label&&<span>{label}</span>}<textarea ref={ref} value={value} onChange={e=>onChange(e.target.value)} rows={autoGrow?3:4}/></label>;
 }
-function RangeField({label,value,onChange,min=0,max=10,step=0.5}:{label:string,value:string,onChange:(v:string)=>void,min?:number,max?:number,step?:number}){
- const num=Number(value)||0;
- const set=(n:number)=>onChange(String(Math.min(max,Math.max(min,n))));
- return <label className="field"><span>{label}</span><div className="range-row">
-  <button type="button" onClick={()=>set(num-step)}>−</button>
-  <input type="range" min={min} max={max} step={step} value={num} onChange={e=>set(Number(e.target.value))}/>
-  <output>{num}</output>
-  <button type="button" onClick={()=>set(num+step)}>+</button>
- </div></label>
-}
-const LIST_KEYS:ListKey[]=["status","artist","guitar","tuning","pickup","channel","cabinet"];
+const LIST_KEYS:ListKey[]=["status","artist","guitar","tuning","pickup","cabinet"];
 const PEDAL_PARAM_SUGGESTIONS=["Drive","Gain","Tone","Level","Volume","Bass","Mid","Treble","Presence","Depth","Bloom","Fuzz","Sustain","Attack","Release","Speed","Rate","Mix","Sensitivity","Output","Blend"];
-function ParamRow({param,onChange,onRemove,removable=true}:{param:PedalParam,onChange:(patch:Partial<PedalParam>)=>void,onRemove:()=>void,removable?:boolean}){
+function ParamRow({param,onChange,onRemove,removable=true,ampChannels}:{param:PedalParam,onChange:(patch:Partial<PedalParam>)=>void,onRemove:()=>void,removable?:boolean,ampChannels?:string[]}){
  const [nameEditing,setNameEditing]=useState(false);
  const [nameDraft,setNameDraft]=useState(param.name);
  const commitName=()=>{const v=nameDraft.trim();if(v)onChange({name:v});setNameEditing(false)};
@@ -68,6 +58,12 @@ function ParamRow({param,onChange,onRemove,removable=true}:{param:PedalParam,onC
   const min=Number(minStr),max=Number(maxStr),step=Number(stepStr);
   if(isNaN(min)||isNaN(max)||isNaN(step)||min>=max||step<=0)return;
   const value=String(Math.min(max,Math.max(min,Number(param.value)||0)));
+  if(ampChannels){
+   const channelStr=prompt(`Disponible uniquement sur un canal ? (laisser vide = tous les canaux)\nCanaux possibles : ${ampChannels.join(", ")}`,param.onlyChannel??"");
+   if(channelStr===null)return;
+   onChange({min,max,step,value,onlyChannel:channelStr.trim()||undefined});
+   return;
+  }
   onChange({min,max,step,value});
  };
  return <div className={param.kind==="switch"?"field pedal-param pedal-param--switch":"field pedal-param"}>
@@ -109,13 +105,24 @@ function AddParamMenu({onAdd}:{onAdd:(kind:ControlKind)=>void}){
   </div>}
  </div>;
 }
-function ParamListEditor({params,onChange,removable=true}:{params:PedalParam[],onChange:(params:PedalParam[])=>void,removable?:boolean}){
+function AmpSwitcher({catalog,onPick}:{catalog:AmpTemplate[],onPick:(tpl:AmpTemplate)=>void}){
+ const [open,setOpen]=useState(false);
+ useCloseOnOutsideClick(open,()=>setOpen(false));
+ if(catalog.length===0)return null;
+ return <div className="menu amp-switch-menu">
+  <button type="button" className="switch-config" onClick={()=>setOpen(o=>!o)} title="Changer d'ampli" aria-label="Changer d'ampli">⇄</button>
+  {open&&<div className="menu-panel">
+   {catalog.map(tpl=><button type="button" key={tpl.id} onClick={()=>{onPick(tpl);setOpen(false)}}>{tpl.brand} — {tpl.model}</button>)}
+  </div>}
+ </div>;
+}
+function ParamListEditor({params,onChange,removable=true,ampChannels}:{params:PedalParam[],onChange:(params:PedalParam[])=>void,removable?:boolean,ampChannels?:string[]}){
  const setParam=(i:number,patch:Partial<PedalParam>)=>onChange(params.map((p,idx)=>idx===i?{...p,...patch}:p));
  const removeParam=(i:number)=>onChange(params.filter((_,idx)=>idx!==i));
  const rangeLengths=params.filter(p=>p.kind!=="switch").map(p=>p.name.length);
  const labelCh=rangeLengths.length?Math.min(16,Math.max(6,Math.max(...rangeLengths)))+1:0;
  const style=!removable&&labelCh?({"--param-label-ch":`${labelCh}ch`} as CSSProperties):undefined;
- return <div className="grid" style={style}>{params.map((p,i)=><ParamRow key={i} param={p} onChange={patch=>setParam(i,patch)} onRemove={()=>removeParam(i)} removable={removable}/>)}</div>;
+ return <div className="grid" style={style}>{params.map((p,i)=><ParamRow key={i} param={p} onChange={patch=>setParam(i,patch)} onRemove={()=>removeParam(i)} removable={removable} ampChannels={ampChannels}/>)}</div>;
 }
 function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}:{pedal:Pedal,catalog:PedalTemplate[],onChange:(p:Pedal)=>void,onRemove:()=>void,onSaveAsTemplate:(tpl:PedalTemplate)=>void,dragHandle?:ReactNode}){
  const [nameEditing,setNameEditing]=useState(false);
@@ -145,7 +152,7 @@ function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}
      :<span onClick={()=>{setNameDraft(pedal.name);setNameEditing(true)}} title="Cliquer pour renommer">{pedal.name}</span>}
    </label>
    <span className="pedal-card-actions">
-    <button type="button" className="pedal-reset-btn" onClick={resetParams} title="Remettre tous les réglages à 0">🧹</button>
+    <button type="button" className="pedal-reset-btn" onClick={resetParams} title="Remettre tous les réglages à 0">⏮</button>
     <button type="button" className="pedal-save-template" onClick={saveAsTemplate} title="Enregistrer comme modèle du catalogue">☆ Modèle</button>
     <button type="button" className="danger pedal-remove" onClick={()=>{if(confirm(`Supprimer la pédale "${pedal.name}" ?`))onRemove()}}>✕ Supprimer</button>
    </span>
@@ -196,7 +203,42 @@ export function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:P
   {selected&&<PedalTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}}/>}
  </CollapsibleSection>;
 }
-function CatalogPicker({catalog,onPick,placeholder="Depuis le catalogue…"}:{catalog:PedalTemplate[],onPick:(tpl:PedalTemplate)=>void,placeholder?:string}){
+function AmpTemplateEditor({template,onChange,onRemove}:{template:AmpTemplate,onChange:(tpl:AmpTemplate)=>void,onRemove:()=>void}){
+ const [channelDraft,setChannelDraft]=useState("");
+ const addChannel=()=>{const v=channelDraft.trim();if(v&&!template.channels.includes(v)){onChange({...template,channels:[...template.channels,v]});setChannelDraft("")}};
+ return <div className="template-editor">
+  <div className="template-editor-header">
+   <input value={template.brand} placeholder="Marque" onChange={e=>onChange({...template,brand:e.target.value})}/>
+   <input value={template.model} placeholder="Modèle" onChange={e=>onChange({...template,model:e.target.value})}/>
+  </div>
+  <div className="chip-row">
+   {template.channels.map(ch=><Chip key={ch} item={ch} onRename={v=>onChange({...template,channels:template.channels.map(c=>c===ch?v:c)})} onRemove={()=>onChange({...template,channels:template.channels.filter(c=>c!==ch)})}/>)}
+   <span className="chip chip-add">
+    <input placeholder="+ Canal" value={channelDraft} onChange={e=>setChannelDraft(e.target.value)} onKeyDown={e=>{if(e.key==="Enter")addChannel()}}/>
+    <button type="button" onClick={addChannel} aria-label="Ajouter un canal">+</button>
+   </span>
+  </div>
+  <div className="template-editor-toolbar">
+   <AddParamMenu onAdd={kind=>onChange({...template,params:[...template.params,newParam(kind)]})}/>
+   <button type="button" className="danger template-remove-btn" onClick={onRemove}>✕ Supprimer ce modèle</button>
+  </div>
+  <ParamListEditor params={template.params} onChange={params=>onChange({...template,params})} ampChannels={template.channels}/>
+ </div>;
+}
+export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:AmpTemplate[],onUpdate:(id:string,tpl:AmpTemplate)=>void,onAdd:()=>void,onRemove:(id:string)=>void}){
+ const [selectedId,setSelectedId]=useState<string|null>(catalog[0]?.id??null);
+ const selected=catalog.find(t=>t.id===selectedId)??null;
+ return <CollapsibleSection title="Gérer le catalogue d'amplis">
+  <div className="catalog-manager-toolbar">
+   <button type="button" className="catalog-add-model" onClick={onAdd}>+ Nouveau modèle</button>
+  </div>
+  <div className="catalog-manager-list">
+   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>setSelectedId(tpl.id)}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
+  </div>
+  {selected&&<AmpTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}}/>}
+ </CollapsibleSection>;
+}
+function CatalogPicker<T extends {id:string,brand:string,model:string}>({catalog,onPick,placeholder="Depuis le catalogue…"}:{catalog:T[],onPick:(tpl:T)=>void,placeholder?:string}){
  const [resetKey,setResetKey]=useState(0);
  if(catalog.length===0)return <select disabled className="catalog-picker-select"><option>Catalogue vide</option></select>;
  return <select key={resetKey} className="catalog-picker-select" defaultValue="" onChange={e=>{const tpl=catalog.find(t=>t.id===e.target.value);if(tpl){onPick(tpl);setResetKey(k=>k+1)}}}>
@@ -232,12 +274,12 @@ export function ListManager({lists,onRename,onRemove,onAdd}:{lists:Lists,onRenam
   </div>
  </CollapsibleSection>
 }
-export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUpdatePedal,onRemovePedal,onSaveAsTemplate}:{
+export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUpdatePedal,onRemovePedal,onSaveAsTemplate,ampCatalog,onReplaceAmpFromCatalog,onUpdateAmpParams}:{
  test:TestRecord,lists:Lists,onChange:(t:TestRecord)=>void,
- catalog:PedalTemplate[],onAddPedalFromCatalog:(tpl:PedalTemplate)=>void,onUpdatePedal:(id:string,pedal:Pedal)=>void,onRemovePedal:(id:string)=>void,onSaveAsTemplate:(tpl:PedalTemplate)=>void
+ catalog:PedalTemplate[],onAddPedalFromCatalog:(tpl:PedalTemplate)=>void,onUpdatePedal:(id:string,pedal:Pedal)=>void,onRemovePedal:(id:string)=>void,onSaveAsTemplate:(tpl:PedalTemplate)=>void,
+ ampCatalog:AmpTemplate[],onReplaceAmpFromCatalog:(tpl:AmpTemplate)=>void,onUpdateAmpParams:(amp:Amp)=>void
 }){
  const set=(k:keyof TestRecord,v:unknown)=>onChange({...test,[k]:v});
- const nest=(k:"amp",f:string,v:string)=>onChange({...test,[k]:{...test[k], [f]:v}});
  const [dragIndex,setDragIndex]=useState<number|null>(null);
  const [hoverIndex,setHoverIndex]=useState<number|null>(null);
  const pedalRefs=useRef<Record<string,HTMLDivElement|null>>({});
@@ -267,7 +309,15 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
   setDragIndex(null);
   setHoverIndex(null);
  };
- const resetAmp=()=>{if(!confirm("Remettre tous les réglages Brunetti à 0 ?"))return;set("amp",Object.fromEntries(Object.keys(test.amp).map(k=>[k,"0"])))};
+ const resetAmp=()=>{if(!confirm("Remettre tous les réglages ampli à 0 ?"))return;onUpdateAmpParams({...test.amp,params:test.amp.params.map(p=>({...p,value:"0"}))})};
+ const ampTpl=ampCatalog.find(t=>t.id===test.amp.templateId);
+ const ampOutOfSync=ampNeedsResync(test.amp,ampCatalog);
+ const [ampLinking,setAmpLinking]=useState(false);
+ const visibleAmpParams=test.amp.params.filter(p=>!p.onlyChannel||p.onlyChannel===test.amp.channel);
+ const onAmpParamsChange=(params:PedalParam[])=>{
+  const byName=new Map(params.map(p=>[p.name,p]));
+  onUpdateAmpParams({...test.amp,params:test.amp.params.map(p=>byName.get(p.name)??p)});
+ };
  return <div className="form">
   <datalist id="pedal-param-names">{PEDAL_PARAM_SUGGESTIONS.map(n=><option key={n} value={n}/>)}</datalist>
   <CollapsibleSection title="Identification" defaultOpen><div className="grid">
@@ -279,10 +329,23 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
    <SelectField label="Guitare" value={test.guitar} options={lists.guitar} onChange={v=>set("guitar",v)}/><SelectField label="Accordage" value={test.tuning} options={lists.tuning} onChange={v=>set("tuning",v)}/>
    <SelectField label="Micro / Position" value={test.pickup} options={lists.pickup} onChange={v=>set("pickup",v)}/><SelectField label="Cabinet" value={test.cabinet} options={lists.cabinet} onChange={v=>set("cabinet",v)}/>
   </div></CollapsibleSection>
-  <CollapsibleSection title="Brunetti XL R-EVO II" actions={<button type="button" className="reset-section-btn" onClick={resetAmp} title="Remettre tous les réglages à 0">🧹 Remettre à 0</button>}><div className="grid">
-   <SelectField label="Canal Brunetti" value={test.channel} options={lists.channel} onChange={v=>set("channel",v)}/>
-   {Object.entries(test.amp).map(([k,v])=><RangeField key={k} label={PARAM_LABELS.amp[k]??k} value={v} onChange={x=>nest("amp",k,x)}/>)}
-  </div></CollapsibleSection>
+  <CollapsibleSection title={test.amp.name||"Ampli"} actions={<span className="pedal-card-actions">
+   <button type="button" className="pedal-reset-btn" onClick={resetAmp} title="Remettre tous les réglages à 0">⏮</button>
+   <AmpSwitcher catalog={ampCatalog.filter(t=>t.id!==test.amp.templateId)} onPick={onReplaceAmpFromCatalog}/>
+  </span>}>
+   {ampTpl&&<label className="field field-inline">
+    <span>Canal</span>
+    <select value={test.amp.channel} onChange={e=>onUpdateAmpParams({...test.amp,channel:e.target.value})}>
+     {ampTpl.channels.map(c=><option key={c} value={c}>{c}</option>)}
+    </select>
+   </label>}
+   {ampTpl
+    ?(ampOutOfSync&&<button type="button" className="pedal-resync-corner" onClick={()=>{if(confirm(`Resynchroniser l'ampli avec le modèle "${ampTpl.brand} ${ampTpl.model}" du catalogue ? Les valeurs compatibles seront conservées.`))onUpdateAmpParams(resyncAmpFromCatalog(test.amp,ampCatalog))}} title="Le catalogue a changé — recharger les réglages">⟳</button>)
+    :(ampLinking
+      ?<CatalogPicker catalog={ampCatalog} onPick={tpl=>{onUpdateAmpParams(resyncAmpFromCatalog({...test.amp,templateId:tpl.id},ampCatalog));setAmpLinking(false)}} placeholder="Choisir un modèle…"/>
+      :<button type="button" className="pedal-resync-corner" onClick={()=>setAmpLinking(true)} title="Relier cet ampli à un modèle du catalogue">🔗</button>)}
+   <ParamListEditor params={visibleAmpParams} onChange={onAmpParamsChange} removable={false}/>
+  </CollapsibleSection>
   <CollapsibleSection title="Pédales d'effets" actions={<CatalogPicker catalog={catalog} onPick={onAddPedalFromCatalog}/>}>
    {test.pedals.map((p,i)=><div key={p.id} ref={el=>{pedalRefs.current[p.id]=el}} className={dragIndex===i?"pedal-drag-wrapper dragging":hoverIndex===i&&dragIndex!==null?"pedal-drag-wrapper drop-target":"pedal-drag-wrapper"}>
     <PedalCard pedal={p} catalog={catalog} onChange={updated=>onUpdatePedal(p.id,updated)} onRemove={()=>onRemovePedal(p.id)} onSaveAsTemplate={onSaveAsTemplate} dragHandle={<span className="pedal-drag-handle" onPointerDown={e=>{setDragIndex(i);(e.target as HTMLElement).setPointerCapture(e.pointerId)}} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} title="Glisser pour réordonner">⠿</span>}/>

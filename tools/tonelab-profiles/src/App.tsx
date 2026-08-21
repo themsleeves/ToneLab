@@ -1,20 +1,22 @@
 import {useEffect,useMemo,useState} from "react";
-import type {TestRecord,Pedal,PedalTemplate} from "./types";
+import type {TestRecord,Pedal,PedalTemplate,AmpTemplate,Amp} from "./types";
 import {emptyTest,sampleTests} from "./data";
 import {load,save,migrateTest} from "./storage";
-import {csv,json,markdown} from "./export";
-import {TestForm,TestList,PedalCatalogManager,ListManager,useCloseOnOutsideClick} from "./components";
+import {json,markdown} from "./export";
+import {TestForm,TestList,PedalCatalogManager,AmpCatalogManager,ListManager,useCloseOnOutsideClick} from "./components";
 import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
 import {newTemplate,instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode,resyncPedalFromCatalog} from "./pedalCatalog";
+import {newAmpTemplate,instantiateAmp,loadAmpCatalog,saveAmpCatalog,mergeAmpCatalog,downloadAmpCatalogCode,resyncAmpFromCatalog} from "./ampCatalog";
 function id(t:TestRecord[]){return `TEST-${String(t.length+1).padStart(3,"0")}`}
-type CategoryField="status"|"artistReference"|"guitar"|"tuning"|"pickup"|"channel"|"cabinet";
-const CATEGORY_FIELD:Record<ListKey,CategoryField>={status:"status",artist:"artistReference",guitar:"guitar",tuning:"tuning",pickup:"pickup",channel:"channel",cabinet:"cabinet"};
+type CategoryField="status"|"artistReference"|"guitar"|"tuning"|"pickup"|"cabinet";
+const CATEGORY_FIELD:Record<ListKey,CategoryField>={status:"status",artist:"artistReference",guitar:"guitar",tuning:"tuning",pickup:"pickup",cabinet:"cabinet"};
 export default function App(){
  const [tests,setTests]=useState<TestRecord[]>(()=>load().length?load():sampleTests);
  const [selected,setSelected]=useState(""); const [q,setQ]=useState("");
  const [lists,setLists]=useState(()=>loadLists());
  const [statusFilter,setStatusFilter]=useState<Set<string>>(()=>new Set(loadLists().status));
  const [catalog,setCatalog]=useState(()=>loadPedalCatalog());
+ const [ampCatalog,setAmpCatalog]=useState(()=>loadAmpCatalog());
  const [mobileView,setMobileView]=useState<"list"|"form">("list");
  const [menuOpen,setMenuOpen]=useState(false);
  const [settingsOpen,setSettingsOpen]=useState(false);
@@ -23,10 +25,11 @@ export default function App(){
  useEffect(()=>save(tests),[tests]);
  useEffect(()=>saveLists(lists),[lists]);
  useEffect(()=>savePedalCatalog(catalog),[catalog]);
- const filtered=useMemo(()=>{const x=q.toLowerCase().trim();return tests.filter(t=>(statusFilter.has(t.status)||!lists.status.includes(t.status))&&(!x||[t.id,t.artistReference,t.song,t.guitar,t.cabinet,t.channel,t.status].join(" ").toLowerCase().includes(x)))},[tests,q,statusFilter,lists.status]);
+ useEffect(()=>saveAmpCatalog(ampCatalog),[ampCatalog]);
+ const filtered=useMemo(()=>{const x=q.toLowerCase().trim();return tests.filter(t=>(statusFilter.has(t.status)||!lists.status.includes(t.status))&&(!x||[t.id,t.artistReference,t.song,t.guitar,t.cabinet,t.amp.channel,t.status].join(" ").toLowerCase().includes(x)))},[tests,q,statusFilter,lists.status]);
  const current=tests.find(t=>t.id===selected)||filtered[0]||tests[0];
  function selectTest(id:string){setSelected(id);setMobileView("form")}
- function settingsFingerprint(t:TestRecord){return JSON.stringify([t.guitar,t.tuning,t.pickup,t.cabinet,t.channel,t.amp,t.pedals,t.otherPedals,t.objective,t.observations,t.conclusion,t.retained])}
+ function settingsFingerprint(t:TestRecord){return JSON.stringify([t.guitar,t.tuning,t.pickup,t.cabinet,t.amp,t.pedals,t.otherPedals,t.objective,t.observations,t.conclusion,t.retained])}
  function update(t:TestRecord){
   const changed=current&&settingsFingerprint(t)!==settingsFingerprint(current);
   const next=changed?{...t,date:new Date().toISOString().slice(0,10)}:t;
@@ -51,18 +54,27 @@ export default function App(){
   setTests(a=>a.map(t=>({...t,pedals:t.pedals.map(p=>p.templateId===id?resyncPedalFromCatalog(p,nextCatalog):p)})));
  }
  function removeCatalogTemplate(id:string){setCatalog(c=>c.filter(t=>t.id!==id))}
- function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");const migrated=d.tests.map(migrateTest);setTests(migrated);setSelected(migrated[0]?.id||"");setLists(mergeLists(d.lists));setCatalog(mergeCatalog(d.catalog))};i.click()}
+ function replaceAmpFromCatalog(tpl:AmpTemplate){if(!current)return;if(!confirm(`Remplacer l'ampli actuel par "${tpl.brand} ${tpl.model}" ? Les réglages actuels seront perdus.`))return;update({...current,amp:instantiateAmp(tpl)})}
+ function updateAmpParams(amp:Amp){if(!current)return;update({...current,amp})}
+ function addAmpCatalogTemplate(){setAmpCatalog(c=>[...c,newAmpTemplate()])}
+ function updateAmpCatalogTemplate(id:string,tpl:AmpTemplate){
+  const nextCatalog=ampCatalog.map(t=>t.id===id?tpl:t);
+  setAmpCatalog(nextCatalog);
+  setTests(a=>a.map(t=>t.amp.templateId===id?{...t,amp:resyncAmpFromCatalog(t.amp,nextCatalog)}:t));
+ }
+ function removeAmpCatalogTemplate(id:string){setAmpCatalog(c=>c.filter(t=>t.id!==id))}
+ function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");const migrated=d.tests.map(migrateTest);setTests(migrated);setSelected(migrated[0]?.id||"");setLists(mergeLists(d.lists));setCatalog(mergeCatalog(d.catalog));setAmpCatalog(mergeAmpCatalog(d.ampCatalog))};i.click()}
  return <main><header><div><div className="eyebrow">TONELAB</div><h1>Profiles</h1><p>Laboratoire de réglages du Brunetti XL R-EVO II</p></div><div className="actions">
   <button className="primary" onClick={newTest}>+ Nouveau test</button>
   <div className="menu">
    <button className="menu-trigger" onClick={()=>setMenuOpen(o=>!o)} aria-label="Plus d'actions">⋮</button>
    {menuOpen&&<div className="menu-panel">
     <button onClick={()=>{current&&markdown(current);setMenuOpen(false)}} disabled={!current}>Exporter Markdown</button>
-    <button onClick={()=>{csv(tests);setMenuOpen(false)}}>Exporter CSV</button>
-    <button onClick={()=>{json(tests,lists,catalog);setMenuOpen(false)}}>Exporter JSON</button>
+    <button onClick={()=>{json(tests,lists,catalog,ampCatalog);setMenuOpen(false)}}>Exporter JSON</button>
     <button onClick={()=>{importJson();setMenuOpen(false)}}>Importer JSON</button>
     <button onClick={()=>{downloadListsCode(lists);setMenuOpen(false)}}>Générer les listes par défaut (.ts)</button>
     <button onClick={()=>{downloadPedalCatalogCode(catalog);setMenuOpen(false)}}>Générer le catalogue de pédales (.ts)</button>
+    <button onClick={()=>{downloadAmpCatalogCode(ampCatalog);setMenuOpen(false)}}>Générer le catalogue d'amplis (.ts)</button>
    </div>}
   </div>
   <button type="button" className="settings-trigger" onClick={()=>setSettingsOpen(true)} aria-label="Paramètres" title="Paramètres (listes, catalogue de pédales)">⚙</button>
@@ -71,10 +83,11 @@ export default function App(){
   <div className="modal-panel" onClick={e=>e.stopPropagation()}>
    <div className="modal-panel-header"><h2>Paramètres</h2><button type="button" className="modal-close" onClick={()=>setSettingsOpen(false)} aria-label="Fermer">✕</button></div>
    <PedalCatalogManager catalog={catalog} onUpdate={updateCatalogTemplate} onAdd={addCatalogTemplate} onRemove={removeCatalogTemplate}/>
+   <AmpCatalogManager catalog={ampCatalog} onUpdate={updateAmpCatalogTemplate} onAdd={addAmpCatalogTemplate} onRemove={removeAmpCatalogTemplate}/>
    <ListManager lists={lists} onRename={renameListItem} onRemove={removeListItem} onAdd={addListItem}/>
   </div>
  </div>}
  <div className={`workspace ${mobileView==="form"?"show-form":"show-list"}`}><aside><input className="search" placeholder="Rechercher..." value={q} onChange={e=>setQ(e.target.value)}/>
   <TestList tests={filtered} selected={current?.id||""} onSelect={selectTest} statusOptions={lists.status} statusFilter={statusFilter} onToggleStatusFilter={toggleStatusFilter} onRename={rename} onDuplicate={duplicate} onRemove={remove}/>
- </aside><article><button className="back-mobile" onClick={()=>setMobileView("list")}>← Tests</button>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} onSaveAsTemplate={saveAsTemplate}/>:<div className="empty">Aucun test.</div>}</article></div></main>
+ </aside><article><button className="back-mobile" onClick={()=>setMobileView("list")}>← Tests</button>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} onSaveAsTemplate={saveAsTemplate} ampCatalog={ampCatalog} onReplaceAmpFromCatalog={replaceAmpFromCatalog} onUpdateAmpParams={updateAmpParams}/>:<div className="empty">Aucun test.</div>}</article></div></main>
 }

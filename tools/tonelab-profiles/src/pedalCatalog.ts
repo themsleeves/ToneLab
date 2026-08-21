@@ -10,10 +10,10 @@ const eqBand = (name: string): PedalParam => ({ name, kind: "slider", value: "0"
 
 // Modèles repris de specs constructeur (Ibanez, Dunlop/MXR, Mooer, Fender) — gérables ensuite depuis le catalogue.
 export const defaultPedalCatalog: PedalTemplate[] = [
-  { id: "tube-screamer", brand: "Ibanez", model: "Tube Screamer (TS9 / TS808)", params: [knob("Drive"), knob("Tone"), knob("Level")] },
-  { id: "mxr-6-band-eq", brand: "MXR", model: "M109S Six Band EQ", params: ["100 Hz", "200 Hz", "400 Hz", "800 Hz", "1.6 kHz", "3.2 kHz"].map(eqBand) },
-  { id: "mooer-graphic-g", brand: "Mooer", model: "Graphic G", params: ["100 Hz", "250 Hz", "630 Hz", "1.6 kHz", "4 kHz"].map(eqBand) },
-  { id: "fender-the-pelt", brand: "Fender", model: "The Pelt Fuzz", params: [knob("Fuzz"), knob("Level"), knob("Tone"), knob("Bloom"), sel("Mid", ["Cut", "Flat", "Boost"]), sel("Thick", ["OFF", "ON"])] },
+  {"id":"tube-screamer","brand":"Ibanez","model":"Tube Screamer (TS9 / TS808)","params":[{"name":"Drive","kind":"knob","value":""},{"name":"Tone","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""}]},
+  {"id":"mxr-6-band-eq","brand":"MXR","model":"M109S Six Band EQ","params":[{"name":"100 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"200 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"400 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"800 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"1.6 kHz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"3.2 kHz","kind":"slider","value":"0","min":-18,"max":18,"step":1}]},
+  {"id":"mooer-graphic-g","brand":"Mooer","model":"Graphic G","params":[{"name":"100 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"250 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"630 Hz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"1.6 kHz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"4 kHz","kind":"slider","value":"0","min":-18,"max":18,"step":1},{"name":"Level","kind":"knob","value":"-0.5","min":-5,"max":5,"step":0.5}]},
+  {"id":"fender-the-pelt","brand":"Fender","model":"The Pelt Fuzz","params":[{"name":"Fuzz","kind":"knob","value":"0","min":0,"max":10,"step":0.5},{"name":"Level","kind":"knob","value":""},{"name":"Tone","kind":"knob","value":""},{"name":"Bloom","kind":"knob","value":""},{"name":"Mid","kind":"switch","value":"Cut","options":["Cut","Flat","Boost"]},{"name":"Thick","kind":"switch","value":"OFF","options":["OFF","ON"]}]},
 ];
 
 export function loadPedalCatalog(): PedalTemplate[] {

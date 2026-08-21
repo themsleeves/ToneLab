@@ -1,5 +1,6 @@
-import type {TestRecord, Pedal, PedalParam} from "./types";
+import type {TestRecord, Pedal, PedalParam, Amp} from "./types";
 import {defaultPedals} from "./pedalCatalog";
+import {defaultAmpCatalog} from "./ampCatalog";
 const KEY="tonelab-profile-manager";
 
 function knobParam(name:string, value:unknown):PedalParam { return {name, kind:"knob", value:String(value||"")}; }
@@ -19,10 +20,21 @@ function ensureParamKinds(pedals:Pedal[]):Pedal[] {
  return pedals.map(p=>({...p,params:p.params.map(pr=>('kind' in pr)?pr:{...pr,kind:"knob"} as PedalParam)}));
 }
 
+// Ordre historique des clés de l'ancien TestRecord.amp (Record<string,string>), pour migrer vers Amp.params.
+const LEGACY_AMP_KEYS=["gain","bass","mid","edge","master","bright","focus","level","depth","masterPrincipal"];
+// Migre l'ancien amp:Record<string,string>+channel (top-level) vers le nouvel amp:Amp catalogue-driven (lié au Brunetti par défaut).
+function migrateAmp(raw:any):Amp {
+ if(raw.amp&&Array.isArray(raw.amp.params))return raw.amp as Amp;
+ const oldAmp:Record<string,string>=raw.amp||{};
+ const tpl=defaultAmpCatalog[0];
+ return {templateId:tpl.id,name:`${tpl.brand} ${tpl.model}`,channel:raw.channel||tpl.channels[0],params:tpl.params.map((p,i)=>({...p,value:oldAmp[LEGACY_AMP_KEYS[i]]??p.value}))};
+}
+
 export function migrateTest(raw:any):TestRecord {
- const {tubeScreamer,mxr,mooer,testVolume,profile,...rest}=raw;
+ const {tubeScreamer,mxr,mooer,testVolume,profile,channel,...rest}=raw;
  const pedals=Array.isArray(raw.pedals)?ensureParamKinds(raw.pedals):migrateLegacyPedals(raw);
- return {...rest,pedals} as TestRecord;
+ const amp=migrateAmp(raw);
+ return {...rest,pedals,amp} as TestRecord;
 }
 
 export function load():TestRecord[]{try{const x=localStorage.getItem(KEY);const arr=x?JSON.parse(x):[];return Array.isArray(arr)?arr.map(migrateTest):[];}catch{return[];}}
