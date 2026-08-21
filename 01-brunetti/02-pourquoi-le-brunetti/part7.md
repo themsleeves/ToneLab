@@ -1,8 +1,8 @@
 # Chapitre 02
 
-# Partie 7 — Synthèse
+# Partie 7 — Synthèse du chapitre
 
-> *Après avoir étudié séparément les territoires Marshall, Mesa Boogie, Diezel, EVH puis l'identité propre du Brunetti XL R-EVO II, il est temps de rassembler toutes les observations afin de dégager les constantes qui permettront de construire une véritable méthode de réglage. Cette partie marque la transition entre l'analyse théorique et la mise en pratique.*
+> *L'objectif de ce chapitre était de comprendre pourquoi le Brunetti XL R-EVO II peut évoquer plusieurs grandes familles d'amplificateurs tout en conservant une identité propre. Cette synthèse rassemble les conclusions nécessaires avant de passer à la construction des profils sonores.*
 
 ---
 
@@ -14,256 +14,572 @@
 
 → **[Chapitre 02 – Pourquoi le Brunetti est difficile à classer](index.md)**
 
-→ **Partie 7 – Synthèse**
+→ **Partie 7 – Synthèse du chapitre**
 
 ---
 
 # Sommaire
 
-- [Objectif](#objectif)
-- [Les enseignements des parties précédentes](#les-enseignements-des-parties-précédentes)
-- [Comparaison des territoires sonores](#comparaison-des-territoires-sonores)
-- [Ce qui ne change jamais](#ce-qui-ne-change-jamais)
-- [Les paramètres les plus influents](#les-paramètres-les-plus-influents)
-- [Le rôle de chaque guitare](#le-rôle-de-chaque-guitare)
-- [Première cartographie sonore](#première-cartographie-sonore)
-- [Les grands principes du ToneLab](#les-grands-principes-du-tonelab)
+- [Objectif de cette synthèse](#objectif-de-cette-synthèse)
+- [Les quatre territoires étudiés](#les-quatre-territoires-étudiés)
+- [Territoire Marshall](#territoire-marshall)
+- [Territoire Mesa Boogie](#territoire-mesa-boogie)
+- [Territoire Diezel](#territoire-diezel)
+- [Territoire EVH](#territoire-evh)
+- [Le Brunetti au centre de la cartographie](#le-brunetti-au-centre-de-la-cartographie)
+- [Le rôle des canaux](#le-rôle-des-canaux)
+- [Le rôle particulier du Boost](#le-rôle-particulier-du-boost)
+- [Le rôle particulier du XLead](#le-rôle-particulier-du-xlead)
+- [Les paramètres fondamentaux](#les-paramètres-fondamentaux)
+- [Les interactions entre paramètres](#les-interactions-entre-paramètres)
+- [L'importance de la guitare](#limportance-de-la-guitare)
+- [L'importance du cabinet](#limportance-du-cabinet)
+- [L'importance des pédales](#limportance-des-pédales)
+- [Ce qu'est réellement un territoire sonore](#ce-quest-réellement-un-territoire-sonore)
+- [Ce qu'il ne faut pas faire](#ce-quil-ne-faut-pas-faire)
+- [La méthode ToneLab](#la-méthode-tonelab)
+- [Conséquences pour le chapitre 03](#conséquences-pour-le-chapitre-03)
+- [Ce qui reste à expérimenter](#ce-qui-reste-à-expérimenter)
 - [Conclusion](#conclusion)
 - [Navigation](#navigation)
 
 ---
 
-# Objectif
+# Objectif de cette synthèse
 
-Jusqu'à présent, nous avons étudié chaque famille d'amplificateurs séparément.
+Les parties précédentes ont étudié séparément plusieurs territoires sonores.
 
-Cette méthode était volontaire.
+L'objectif n'était pas de déterminer quel amplificateur est « meilleur ».
 
-Elle permettait d'isoler les caractéristiques de chaque territoire afin d'éviter les raccourcis et les idées reçues.
+Il s'agissait de comprendre :
 
-Il est maintenant temps de prendre du recul.
+- quelles caractéristiques définissent chaque territoire ;
+- comment le Brunetti peut s'en approcher ;
+- quels canaux semblent les plus adaptés ;
+- quels paramètres permettent de déplacer le son ;
+- quelles interactions peuvent modifier le résultat.
 
-Cette synthèse a pour objectif de répondre à une question simple :
-
-**Que nous ont réellement appris toutes ces comparaisons ?**
+Cette synthèse permet maintenant de transformer ces observations en méthode de travail.
 
 ---
 
-# Les enseignements des parties précédentes
+# Les quatre territoires étudiés
 
-Notre étude met en évidence une réalité que nous ne soupçonnions pas forcément au départ.
-
-Le Brunetti XL R-EVO II ne possède pas plusieurs personnalités.
-
-Il possède une seule personnalité...
-
-...mais suffisamment riche pour être orientée dans plusieurs directions.
-
-Cette nuance est capitale.
-
-Elle explique pourquoi des utilisateurs expérimentés peuvent évoquer :
+Le chapitre a principalement étudié quatre grandes directions :
 
 - Marshall ;
 - Mesa Boogie ;
 - Diezel ;
 - EVH.
 
-Sans qu'aucun n'ait réellement tort.
+Ces territoires ne doivent pas être considérés comme quatre positions fixes.
 
-Ils décrivent simplement des facettes différentes d'un même amplificateur.
+Ils constituent plutôt des zones de référence dans une cartographie sonore.
 
----
-
-# Comparaison des territoires sonores
-
-| Territoire | Ce que nous retrouvons sur le Brunetti | Niveau de proximité |
-|------------|-----------------------------------------|---------------------|
-| Marshall | Médiums, dynamique, crunch organique | ★★★★★ |
-| Mesa Boogie | Ampleur, saturation moderne, puissance | ★★★★☆ |
-| Diezel | Définition, précision, articulation | ★★★★☆ |
-| EVH | Équilibre, fluidité, attaque | ★★★★☆ |
+Le Brunetti peut se déplacer entre ces zones sans perdre complètement sa propre personnalité.
 
 ---
 
-# Ce qui ne change jamais
+# Territoire Marshall
 
-Malgré toutes les variations possibles, plusieurs caractéristiques restent constantes.
+Le territoire Marshall met particulièrement en évidence :
 
-## Une excellente dynamique
+- les médiums ;
+- le grain ;
+- la dynamique ;
+- l'attaque ;
+- une saturation relativement ouverte.
 
-Le Brunetti répond immédiatement aux nuances du guitariste.
+Le Boost apparaît particulièrement intéressant dans cette zone.
 
-Il récompense davantage le jeu qu'il ne le masque.
-
----
-
-## Une saturation progressive
-
-Le gain augmente de manière naturelle.
-
-La sensation de contrôle reste présente même lorsque l'on pousse le canal XLead.
+Le XLead peut également être utilisé pour obtenir une interprétation plus saturée ou plus moderne.
 
 ---
 
-## Une forte personnalité des médiums
+# Territoire Mesa Boogie
 
-Contrairement à beaucoup d'amplificateurs modernes, le Brunetti ne semble jamais fonctionner correctement lorsque les médiums sont fortement creusés.
+Le territoire Mesa Boogie met davantage en évidence :
 
-Ils participent directement à son identité.
+- la densité ;
+- la saturation ;
+- l'ampleur ;
+- l'agressivité ;
+- la puissance.
 
----
+Le XLead constitue généralement le point de départ le plus évident.
 
-## Une remarquable définition
-
-Même avec beaucoup de saturation, les accords restent lisibles.
-
-Cette qualité revient dans quasiment tous les témoignages étudiés.
-
----
-
-## Une grande polyvalence
-
-Cette polyvalence ne vient pas d'un DSP ou d'une modélisation.
-
-Elle provient directement de l'architecture de l'amplificateur.
+Le Boost peut néanmoins être intéressant lorsque l'on recherche une interprétation plus dynamique ou moins dense.
 
 ---
 
-# Les paramètres les plus influents
+# Territoire Diezel
 
-Au fil de notre travail, plusieurs réglages apparaissent comme essentiels.
+Le territoire Diezel met davantage en évidence :
 
-| Réglage | Influence observée |
-|----------|--------------------|
-| Gain | Définit le territoire plus que le niveau de saturation |
-| Focus | Influence fortement l'attaque et la sensation de fermeté |
-| Depth | Gère la profondeur du registre grave |
-| Mid | Élément central de l'identité du Brunetti |
-| Edge | Ajuste la présence sans modifier profondément le grain |
-| Tube Screamer | Sert principalement à structurer le son |
-| MXR 6 Band EQ | Outil majeur de personnalisation |
+- précision ;
+- définition ;
+- fermeté ;
+- contrôle du grave ;
+- articulation.
 
----
+Le XLead apparaît particulièrement pertinent pour cette direction.
 
-# Le rôle de chaque guitare
-
-Nos recherches montrent également que la guitare utilisée influence fortement le résultat final.
-
-## Gibson Les Paul Classic DC
-
-Points forts :
-
-- sustain important ;
-- médiums généreux ;
-- son épais ;
-- excellente base pour :
-
-    - Foo Fighters ;
-    - Hermano ;
-    - QOTSA période Songs for the Deaf.
+Le travail sur le grave, les médiums et Focus devient particulièrement important.
 
 ---
 
-## Gretsch Broadkaster
+# Territoire EVH
 
-Points forts :
+Le territoire EVH constitue une zone intermédiaire particulièrement intéressante.
 
-- attaque rapide ;
-- meilleure séparation des notes ;
-- davantage de clarté ;
-- idéale pour :
+Il combine :
 
-    - rock alternatif moderne ;
-    - sons très articulés ;
-    - profils inspirés d'EVH ou de Diezel.
+- saturation ;
+- dynamique ;
+- attaque ;
+- médiums ;
+- agressivité.
 
-Cette différence confirme une idée importante.
+Le Boost et le XLead peuvent tous deux être pertinents.
 
-Le son ne dépend jamais uniquement de l'amplificateur.
-
----
-
-# Première cartographie sonore
-
-```
-                Marshall
-                    ▲
-                    │
-                    │
-     Diezel ◄── Brunetti ──► Mesa
-                    │
-                    │
-                    ▼
-                   EVH
-```
-
-Cette représentation est volontairement simplifiée.
-
-Elle montre que le Brunetti n'est situé au centre d'aucune école.
-
-Il est capable de se déplacer vers chacune d'elles.
+Le choix dépend principalement du degré de saturation et de dynamique recherché.
 
 ---
 
-# Les grands principes du ToneLab
+# Le Brunetti au centre de la cartographie
 
-Cette première phase de recherche nous conduit à plusieurs règles qui serviront désormais de fil conducteur.
+La conclusion principale du chapitre peut être formulée simplement :
 
-## Principe n°1
+> **Les territoires sonores sont des directions de réglage, pas des identités que le Brunetti doit copier.**
 
-Comprendre avant de régler.
+Le Brunetti reste le point de référence.
 
----
+Les comparaisons avec Marshall, Mesa Boogie, Diezel et EVH servent uniquement à décrire des zones sonores compréhensibles.
 
-## Principe n°2
+Cette approche permet d'éviter une erreur importante :
 
-Chercher une sensation avant de chercher un chiffre.
+> chercher à transformer artificiellement le Brunetti en un autre amplificateur.
 
----
-
-## Principe n°3
-
-Construire des profils plutôt qu'un réglage universel.
+Le but est au contraire de comprendre comment exploiter ses propres caractéristiques.
 
 ---
 
-## Principe n°4
+# Le rôle des canaux
 
-Toujours tenir compte de :
+Les canaux doivent être considérés comme des points de départ différents.
 
-- la guitare ;
-- le baffle ;
-- les haut-parleurs ;
-- les pédales ;
-- le contexte musical.
+Ils ne correspondent pas simplement à des niveaux successifs de saturation.
+
+Le choix du canal constitue donc une première décision importante dans la construction d'un profil.
+
+Avant de modifier les réglages, il faudra se demander :
+
+> **Quel comportement sonore est recherché ?**
+
+Puis :
+
+> **Quel canal semble naturellement le plus proche de ce comportement ?**
 
 ---
 
-## Principe n°5
+# Le rôle particulier du Boost
 
-Le Brunetti est une plateforme sonore.
+Le Boost possède une importance particulière dans la cartographie.
 
-Ce n'est pas une imitation d'un autre amplificateur.
+Il ne doit pas être réduit à un canal intermédiaire entre Crunch et XLead.
+
+Il peut constituer une véritable base de construction.
+
+Il semble particulièrement intéressant pour les sons recherchant :
+
+- dynamique ;
+- richesse harmonique ;
+- épaisseur ;
+- médiums ;
+- réaction au jeu.
+
+Il pourra donc être utilisé dans plusieurs territoires.
+
+Le chapitre 03 devra impérativement prévoir des essais de profils basés sur le Boost.
+
+---
+
+# Le rôle particulier du XLead
+
+Le XLead constitue une base privilégiée lorsque l'on recherche :
+
+- saturation ;
+- densité ;
+- attaque ;
+- précision ;
+- agressivité.
+
+Il apparaît donc particulièrement pertinent pour :
+
+- Mesa Boogie ;
+- Diezel ;
+- EVH fortement saturé ;
+- Marshall hot-rodded.
+
+Mais son utilisation ne doit pas être automatique.
+
+Le profil devra toujours être choisi en fonction du résultat recherché.
+
+---
+
+# Les paramètres fondamentaux
+
+Plusieurs paramètres apparaissent particulièrement importants dans la construction d'un profil.
+
+## Gain
+
+Détermine principalement le niveau de saturation et de compression.
+
+---
+
+## Bass
+
+Influence la quantité de grave présente dans le préamplificateur.
+
+---
+
+## Mid
+
+Influence fortement :
+
+- caractère ;
+- présence ;
+- articulation ;
+- densité perçue.
+
+---
+
+## Edge
+
+Agit principalement sur la présence et les très hautes fréquences.
+
+---
+
+## Focus
+
+Participe à la sensation de :
+
+- fermeté ;
+- contrôle ;
+- précision ;
+- attaque.
+
+---
+
+## Depth
+
+Participe à la sensation de :
+
+- profondeur ;
+- ampleur ;
+- grave ;
+- réponse de la section de puissance.
+
+---
+
+# Les interactions entre paramètres
+
+Un des enseignements majeurs du chapitre est que les paramètres ne doivent jamais être étudiés isolément.
+
+Un réglage peut modifier la perception d'un autre.
+
+Par exemple :
+
+- davantage de Gain peut modifier la perception du grave ;
+- davantage de Depth peut augmenter la sensation de puissance ;
+- davantage d'Edge peut accentuer l'attaque ;
+- davantage de médiums peut donner l'impression que le son possède davantage de Gain ;
+- une modification de Focus peut changer la perception de la précision.
+
+La construction d'un profil devra donc être progressive.
+
+---
+
+# L'importance de la guitare
+
+La guitare constitue une partie intégrante du résultat.
+
+Dans le matériel de référence, la Gibson Les Paul Classic DC et la Gretsch John Gourley Broadkaster présentent des caractéristiques suffisamment différentes pour nécessiter une attention particulière.
+
+Un réglage qui fonctionne avec l'une peut demander une adaptation avec l'autre.
+
+Il faudra donc documenter la guitare utilisée lors de chaque essai important.
+
+---
+
+# L'importance du cabinet
+
+Le cabinet est également une composante du profil.
+
+Le 4×12 de référence possède plusieurs configurations de haut-parleurs.
+
+Le Thiele équipé du Celestion 15 pouces constitue une autre configuration sonore.
+
+Les profils devront donc préciser le cabinet utilisé.
+
+Un réglage ne devra pas être considéré comme totalement validé tant que son contexte matériel n'est pas clairement identifié.
+
+---
+
+# L'importance des pédales
+
+Les pédales peuvent modifier profondément le résultat.
+
+Elles peuvent :
+
+- pousser le préamplificateur ;
+- modifier le grave ;
+- renforcer les médiums ;
+- modifier l'attaque ;
+- corriger certaines fréquences.
+
+Elles doivent cependant être distinguées du réglage de base de l'amplificateur.
+
+Il faudra donc distinguer :
+
+**profil ampli**
+
+et
+
+**profil ampli + pédales**.
+
+---
+
+# Ce qu'est réellement un territoire sonore
+
+Un territoire sonore ne correspond pas à une combinaison fixe de potentiomètres.
+
+Il correspond plutôt à un ensemble de caractéristiques perceptibles.
+
+Par exemple, le territoire EVH peut être défini par une combinaison de :
+
+- saturation ;
+- attaque ;
+- dynamique ;
+- médiums ;
+- agressivité.
+
+Plusieurs réglages différents peuvent donc appartenir au même territoire.
+
+Cette distinction sera essentielle pour construire les profils du chapitre 03.
+
+---
+
+# Ce qu'il ne faut pas faire
+
+Plusieurs erreurs devront être évitées.
+
+## Chercher à copier un réglage trouvé sur Internet
+
+Un réglage extérieur peut utiliser :
+
+- une autre guitare ;
+- un autre cabinet ;
+- un autre volume ;
+- d'autres pédales ;
+- une autre acoustique.
+
+Il ne constitue donc pas nécessairement une référence directement exploitable.
+
+---
+
+## Modifier tous les paramètres simultanément
+
+Cette méthode rendrait impossible l'identification de la cause d'une amélioration ou d'une dégradation.
+
+Les essais devront rester suffisamment contrôlés.
+
+---
+
+## Juger un profil uniquement au casque ou à faible volume
+
+La perception peut évoluer fortement lorsque le cabinet travaille réellement.
+
+---
+
+## Négliger la guitare
+
+Le même réglage peut réagir différemment avec deux instruments.
+
+---
+
+## Utiliser systématiquement une pédale pour corriger un mauvais réglage
+
+Une pédale doit apporter quelque chose d'identifiable.
+
+Elle ne doit pas simplement servir à compenser une mauvaise base.
+
+---
+
+# La méthode ToneLab
+
+La méthode qui découle du chapitre peut être résumée en plusieurs étapes.
+
+## Étape 1 — Définir la cible
+
+Identifier précisément le son recherché.
+
+---
+
+## Étape 2 — Définir le contexte
+
+Préciser :
+
+- guitare ;
+- accordage ;
+- cabinet ;
+- volume ;
+- pédales éventuelles.
+
+---
+
+## Étape 3 — Choisir le canal
+
+Déterminer le canal qui semble naturellement le plus proche du comportement recherché.
+
+---
+
+## Étape 4 — Construire une base
+
+Commencer avec un réglage simple.
+
+Éviter de modifier trop de paramètres simultanément.
+
+---
+
+## Étape 5 — Ajuster les paramètres principaux
+
+Travailler progressivement :
+
+- Gain ;
+- Bass ;
+- Mid ;
+- Edge ;
+- Focus ;
+- Depth.
+
+---
+
+## Étape 6 — Tester la dynamique
+
+Le réglage doit être testé avec différentes intensités de jeu.
+
+---
+
+## Étape 7 — Ajouter les pédales
+
+Seulement lorsque leur contribution est clairement identifiée.
+
+---
+
+## Étape 8 — Comparer
+
+Comparer le résultat avec la cible sonore.
+
+---
+
+## Étape 9 — Documenter
+
+Noter :
+
+- réglages ;
+- matériel ;
+- observations ;
+- modifications ;
+- résultat.
+
+---
+
+## Étape 10 — Valider
+
+Un profil ne devient un profil ToneLab qu'après avoir été suffisamment testé.
+
+---
+
+# Conséquences pour le chapitre 03
+
+Le chapitre 03 devra donc adopter une structure différente.
+
+Le chapitre 02 expliquait :
+
+> **où nous voulons aller.**
+
+Le chapitre 03 devra expliquer :
+
+> **comment nous y arrivons.**
+
+Chaque profil devra donc contenir suffisamment d'informations pour permettre :
+
+- sa reproduction ;
+- sa comparaison ;
+- son amélioration ;
+- sa validation.
+
+---
+
+# Ce qui reste à expérimenter
+
+La théorie permet désormais de formuler des hypothèses.
+
+Elle ne permet pas encore de les considérer comme des résultats définitifs.
+
+Il faudra notamment expérimenter :
+
+- Boost contre XLead ;
+- différents niveaux de Gain ;
+- différentes positions de Mid ;
+- différentes positions de Focus ;
+- différentes positions de Depth ;
+- Gibson contre Gretsch ;
+- 4×12 contre Thiele ;
+- ampli seul contre ampli + Tube Screamer ;
+- ampli seul contre ampli + EQ ;
+- différentes combinaisons de ces éléments.
+
+Cette phase expérimentale constituera le cœur du chapitre 03.
 
 ---
 
 # Conclusion
 
-À ce stade du ToneLab, nous pouvons déjà affirmer plusieurs choses.
+Le chapitre 02 permet désormais de considérer le Brunetti XL R-EVO II d'une manière différente.
 
-Le Brunetti XL R-EVO II est probablement l'un des amplificateurs les plus difficiles à résumer en une phrase.
+Il ne s'agit plus de chercher à quel amplificateur il ressemble.
 
-Ce n'est pas une faiblesse.
+Il s'agit de comprendre comment il peut être utilisé pour construire différents territoires sonores.
 
-C'est précisément ce qui fait sa richesse.
+Les quatre grandes références étudiées permettent de définir des directions :
 
-Sa personnalité repose moins sur un grain figé que sur sa capacité à conserver une excellente musicalité lorsqu'on l'oriente vers différents territoires sonores.
+- Marshall pour le grain et la dynamique ;
+- Mesa Boogie pour la densité et la puissance ;
+- Diezel pour la précision et le contrôle ;
+- EVH pour l'équilibre entre saturation, attaque et dynamique.
 
-Cette conclusion servira de fondation à toute la suite de cette documentation.
+Mais aucune de ces références ne constitue l'identité du Brunetti.
 
-Le prochain chapitre abandonnera progressivement l'analyse théorique pour entrer dans une démarche beaucoup plus concrète.
+Le Brunetti reste au centre.
 
-Nous commencerons enfin à construire les premiers profils sonores reproductibles.
+Son identité repose sur :
+
+- ses voicings ;
+- ses interactions ;
+- sa dynamique ;
+- sa richesse harmonique ;
+- ses médiums ;
+- sa capacité à évoluer entre plusieurs territoires.
+
+Le **Boost** et le **XLead** jouent des rôles différents dans cette cartographie.
+
+Cette distinction devra être conservée lors de la construction des profils.
+
+La prochaine étape consiste désormais à quitter progressivement la théorie pour entrer dans l'expérimentation.
+
+Le chapitre 03 pourra ainsi transformer les hypothèses du chapitre 02 en réglages concrets, reproductibles et documentés.
 
 ---
 
@@ -271,6 +587,8 @@ Nous commencerons enfin à construire les premiers profils sonores reproductible
 
 ⬅️ **[Partie 6 – L'identité sonore du Brunetti](part6.md)**
 
-🏠 **[Retour au chapitre](index.md)**
+🏠 **[Retour au chapitre 02](index.md)**
 
-➡️ **[Partie 8 – Conséquences pratiques et méthode de réglage](part8.md)**
+➡️ **[Chapitre 03 – Construction des profils sonores](../03-profils-sonores/index.md)**
+
+➡️ **[Retour au Brunetti XL R-EVO II](../index.md)**
