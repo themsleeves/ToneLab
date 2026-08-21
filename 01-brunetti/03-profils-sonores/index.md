@@ -1,6 +1,6 @@
 # Chapitre 03 — Construction des profils sonores
 
-> Construire des réglages reproductibles à partir de l'identité du Brunetti, du matériel utilisé et du territoire sonore recherché.
+> *Ce chapitre constitue le passage de l'analyse théorique à la construction concrète des profils sonores ToneLab. Il définit une méthode reproductible permettant de transformer les caractéristiques du Brunetti, du matériel utilisé et du territoire sonore recherché en configurations documentées et testables.*
 
 ---
 
@@ -24,7 +24,7 @@ Le [Chapitre 02 — Pourquoi le Brunetti est difficile à classer](../02-pourquo
 
 Le Chapitre 03 constitue maintenant le passage à la pratique.
 
-L'objectif est de transformer ces connaissances en **profils sonores réellement utilisables**.
+L'objectif est de transformer ces connaissances en **profils sonores réellement utilisables, reproductibles et documentés**.
 
 ---
 
@@ -38,6 +38,7 @@ Il doit décrire un ensemble cohérent comprenant, lorsque cela est nécessaire 
 - les réglages de l'amplificateur ;
 - la guitare utilisée ;
 - les micros ;
+- l'accordage ;
 - les pédales utilisées ;
 - l'ordre des pédales ;
 - les réglages des pédales ;
@@ -54,7 +55,7 @@ L'objectif est de pouvoir retrouver un son sans devoir recommencer toute la rech
 
 Les profils seront construits à partir de la connaissance acquise dans les chapitres précédents.
 
-La méthode générale sera :
+La méthode générale repose sur une progression contrôlée :
 
 1. identifier le territoire sonore recherché ;
 2. déterminer le canal de départ ;
@@ -66,66 +67,82 @@ La méthode générale sera :
 8. déterminer le rôle des pédales ;
 9. vérifier le résultat avec le cabinet utilisé ;
 10. documenter le réglage ;
-11. tester et valider le profil.
+11. comparer les variantes ;
+12. tester et valider le profil.
 
-Cette méthode permettra d'éviter de chercher directement des réglages au hasard.
+Cette méthode permet d'éviter de chercher directement des réglages au hasard.
+
+---
+
+# Sommaire du chapitre
+
+- [Partie 1 — Méthode de construction des profils](#partie-1--méthode-de-construction-des-profils)
+- [Partie 2 — Profils de référence](#partie-2--profils-de-référence)
+- [Partie 3 — Territoires sonores](#partie-3--territoires-sonores)
+- [Partie 4 — Profils adaptés aux guitares](#partie-4--profils-adaptés-aux-guitares)
+- [Partie 5 — Tube Screamer et égalisation](#partie-5--tube-screamer-et-égalisation)
+- [Partie 6 — Profils musicaux](#partie-6--profils-musicaux)
+- [Méthode générale de validation](#méthode-générale-de-validation)
+- [Organisation des expérimentations](#organisation-des-expérimentations)
+- [Évolution vers l'application ToneLab](#évolution-vers-lapplication-tonelab)
+- [Conclusion du chapitre](#conclusion-du-chapitre)
+- [Navigation](#navigation)
 
 ---
 
 # Organisation du chapitre
 
-Le chapitre sera progressivement organisé autour de plusieurs étapes.
-
----
-
 ## Partie 1 — Méthode de construction des profils
 
-Cette partie définira la méthode générale utilisée pour créer un profil sonore.
+Cette première partie définit la méthode générale utilisée pour créer un profil sonore.
 
-Elle précisera notamment :
+Elle précise notamment :
 
 - les informations à documenter ;
 - l'ordre dans lequel effectuer les réglages ;
-- la manière de comparer plusieurs réglages ;
-- la distinction entre hypothèse, essai et réglage validé.
+- la manière de comparer plusieurs configurations ;
+- la distinction entre hypothèse, essai, profil prometteur et réglage validé ;
+- les principes permettant de construire des profils reproductibles.
 
-➡️ **[Accéder à la Partie 1](part1.md)**
+➡️ **[Accéder à la Partie 1 — Méthode de construction des profils](part1.md)**
 
 ---
 
 ## Partie 2 — Profils de référence
 
-Cette partie servira à établir quelques profils de référence permettant de caractériser le comportement du Brunetti.
+Cette partie établit plusieurs profils de référence permettant de caractériser progressivement le comportement du Brunetti.
 
-L'objectif ne sera pas encore de reproduire un artiste précis, mais de disposer de bases solides :
+L'objectif n'est pas encore de reproduire un artiste précis, mais de disposer de bases permettant de comparer différentes zones de fonctionnement :
 
 - Clean ;
 - Crunch ;
 - Rock ;
 - High Gain ;
-- son massif ;
-- son articulé.
+- Massif ;
+- Articulé.
 
-➡️ **[Accéder à la Partie 2](part2.md)**
+Ces profils constituent des points de départ et non des presets définitifs.
+
+➡️ **[Accéder à la Partie 2 — Profils de référence](part2.md)**
 
 ---
 
 ## Partie 3 — Territoires sonores
 
-Cette partie permettra de transformer les conclusions du Chapitre 02 en réglages concrets.
+Cette partie transforme les conclusions du Chapitre 02 en directions concrètes de réglage.
 
-Les profils pourront notamment être orientés vers :
+Les profils peuvent notamment être orientés vers :
 
 - Marshall ;
 - Mesa Boogie ;
 - Diezel ;
 - EVH.
 
-Les profils ne chercheront pas à transformer le Brunetti en copie exacte de ces amplificateurs.
+L'objectif n'est pas de transformer le Brunetti en copie exacte d'un autre amplificateur.
 
-Ils chercheront à exploiter les caractéristiques du Brunetti permettant de s'approcher de ces territoires.
+Il s'agit d'exploiter les caractéristiques propres du Brunetti permettant de rejoindre certaines zones de ces territoires sonores.
 
-➡️ **[Accéder à la Partie 3](part3.md)**
+➡️ **[Accéder à la Partie 3 — Territoires sonores](part3.md)**
 
 ---
 
@@ -133,41 +150,51 @@ Ils chercheront à exploiter les caractéristiques du Brunetti permettant de s'a
 
 Le choix de la guitare constitue une variable importante du résultat final.
 
-Cette partie étudiera notamment les différences entre :
+Cette partie étudie notamment :
 
-- Gibson Les Paul Classic DC ;
-- Gretsch Broadkaster ;
-- autres guitares qui pourront être intégrées ultérieurement.
+- la Gibson Les Paul Classic DC ;
+- la Gretsch John Gourley Broadkaster ;
+- leurs différences ;
+- leur influence sur les réglages ;
+- les adaptations nécessaires ;
+- la possibilité de créer des variantes d'un même profil selon la guitare.
 
-L'objectif sera notamment de déterminer quand privilégier une guitare plutôt qu'une autre pour un profil donné.
+L'objectif n'est pas de rendre les guitares identiques, mais de préserver leur personnalité tout en permettant de retrouver une même direction sonore.
 
-➡️ **[Accéder à la Partie 4](part4.md)**
+➡️ **[Accéder à la Partie 4 — Profils adaptés aux guitares](part4.md)**
 
 ---
 
-## Partie 5 — Rôle de la Tube Screamer et de l'égalisation
+## Partie 5 — Tube Screamer et égalisation
 
-Cette partie étudiera l'utilisation des pédales qui jouent un rôle majeur dans la construction des profils.
+Cette partie étudie le rôle des principaux outils utilisés pour modifier ou affiner le comportement du profil.
 
-Une attention particulière sera portée à :
+Elle concerne notamment :
 
 - la Tube Screamer Analogman Silver Mod ;
 - le MXR 6 Band EQ ;
-- leur ordre dans la chaîne ;
-- leur interaction avec les différents canaux ;
-- leur utilisation comme outils de sculpture plutôt que comme simples effets.
+- le Mooer Graphic G 5 bandes ;
+- leur position dans la chaîne ;
+- leur interaction avec le Brunetti ;
+- leur influence sur le grave ;
+- les médiums ;
+- l'attaque ;
+- la définition ;
+- l'adaptation entre différentes guitares.
 
-➡️ **[Accéder à la Partie 5](part5.md)**
+Cette partie permet de distinguer le caractère propre du Brunetti des modifications apportées par les effets externes.
+
+➡️ **[Accéder à la Partie 5 — Tube Screamer et égalisation](part5.md)**
 
 ---
 
 ## Partie 6 — Profils musicaux
 
-Cette partie constituera le cœur pratique du chapitre.
+Cette partie constitue le cœur pratique du chapitre.
 
-Les réglages seront progressivement adaptés aux territoires musicaux recherchés dans le projet.
+Elle transforme les territoires sonores et les méthodes étudiées précédemment en profils associés aux références musicales du ToneLab.
 
-Parmi les références envisagées :
+Les principales références étudiées sont notamment :
 
 - Foo Fighters ;
 - Queens of the Stone Age ;
@@ -179,202 +206,66 @@ Parmi les références envisagées :
 - Deftones ;
 - Biffy Clyro.
 
-Chaque profil devra être considéré comme une interprétation adaptée au Brunetti et au matériel du ToneLab, et non comme une prétention à reproduire exactement le matériel original de l'artiste.
+Un profil musical ne constitue pas une copie exacte du matériel original d'un artiste.
 
-➡️ **[Accéder à la Partie 6](part6.md)**
+Il représente une **interprétation du territoire sonore recherché avec le Brunetti et le matériel de référence du ToneLab**.
 
----
-
-## Partie 7 — Variantes et adaptation
-
-Un même profil peut nécessiter des adaptations selon :
-
-- la guitare ;
-- le niveau de volume ;
-- le cabinet ;
-- la salle ;
-- le jeu ;
-- les pédales disponibles.
-
-Cette partie permettra donc de documenter les variantes utiles d'un même profil.
-
-L'objectif sera notamment d'éviter de multiplier inutilement les profils lorsque quelques adaptations suffisent.
-
-➡️ **[Accéder à la Partie 7](part7.md)**
+➡️ **[Accéder à la Partie 6 — Profils musicaux](part6.md)**
 
 ---
 
-## Partie 8 — Validation et profils définitifs
+# Méthode générale de validation
 
-Cette dernière partie permettra de distinguer les réglages expérimentaux des profils réellement validés.
+Les différentes parties du chapitre définissent progressivement une méthode de validation.
 
-Chaque profil définitif devra pouvoir être :
+Un profil devra idéalement être construit selon la séquence suivante :
 
-- reproduit ;
-- identifié ;
-- comparé ;
-- modifié ;
-- réutilisé ultérieurement.
+1. définir précisément la référence musicale ;
+2. identifier le territoire sonore ;
+3. choisir le canal de départ ;
+4. choisir la guitare ;
+5. construire une base aussi simple que possible ;
+6. ajuster le Gain ;
+7. ajuster l'équilibre tonal ;
+8. ajuster les paramètres de voicing ;
+9. introduire éventuellement la Tube Screamer ;
+10. introduire éventuellement l'égalisation ;
+11. comparer plusieurs variantes ;
+12. tester à différents niveaux de volume ;
+13. vérifier le résultat dans le contexte musical ;
+14. documenter le réglage retenu ;
+15. attribuer un statut au profil.
 
-Les réglages abandonnés ou remplacés pourront également être conservés afin de comprendre l'évolution de la recherche.
-
-➡️ **[Accéder à la Partie 8](part8.md)**
-
----
-
-# Structure d'une fiche de profil
-
-Chaque profil sonore devra autant que possible suivre une structure homogène.
-
-## Identification
-
-- Nom du profil
-- Territoire sonore
-- Référence musicale éventuelle
-- Date de création
-- Statut
-
-## Amplificateur
-
-- Canal
-- Gain
-- Bass
-- Mid
-- Edge
-- Bright
-- Focus
-- Master
-- Level
-- Depth
-
-## Guitare
-
-- Modèle
-- Micros
-- Sélecteur
-- Volume
-- Tone
-
-## Pédales
-
-- Pédales utilisées
-- Ordre
-- Réglages
-- Position avant ampli ou boucle FX
-
-## Cabinet
-
-- Cabinet utilisé
-- Configuration
-- Particularités importantes
-
-## Résultat recherché
-
-Description du caractère sonore recherché.
-
-## Résultat obtenu
-
-Description du résultat réellement obtenu lors du test.
-
-## Ajustements
-
-Modifications effectuées pendant la recherche.
-
-## Validation
-
-- Réglage testé
-- Conditions de test
-- Niveau de validation
-- Éventuelles limites
+Cette progression permet de conserver une relation claire entre les modifications effectuées et le résultat obtenu.
 
 ---
 
-# Statuts utilisés
+# Organisation des expérimentations
 
-Afin de distinguer clairement les hypothèses des réglages réellement éprouvés, les profils pourront utiliser plusieurs statuts.
+Le profil final ne doit pas effacer l'historique de sa construction.
 
-| Statut | Signification |
-|:---:|---|
-| 🧪 | Hypothèse ou premier essai |
-| 🔧 | En cours de réglage |
-| 🟡 | Fonctionnel mais encore à confirmer |
-| ✅ | Validé sur le matériel de référence |
-| ⭐ | Profil de référence particulièrement réussi |
-| ❌ | Réglage abandonné |
+Plusieurs essais peuvent être nécessaires avant d'obtenir un résultat satisfaisant.
 
-Cette distinction sera importante pour éviter qu'un réglage expérimental soit ultérieurement pris pour une valeur définitive.
+Il est donc important de conserver :
 
----
+- les réglages testés ;
+- les configurations rejetées ;
+- les variantes prometteuses ;
+- les observations ;
+- les comparaisons ;
+- les conclusions intermédiaires ;
+- le réglage finalement retenu.
 
-# Matériel de référence
+La logique recommandée est :
 
-Les profils seront développés en tenant compte du matériel réellement utilisé dans le ToneLab.
+> **1 expérimentation = 1 configuration documentée**
 
-La configuration de référence comprend notamment :
+Un même profil peut donc posséder plusieurs essais successifs.
 
-- **Brunetti XL R-EVO II 60 W** ;
-- **Marshall 4x12** ;
-- **Gibson Les Paul Classic DC** ;
-- **Gretsch John Gourley Broadkaster** ;
-- **Tube Screamer Analogman Silver Mod** ;
-- **MXR 6 Band EQ** ;
-- les autres effets intégrés progressivement au pedalboard.
+Par exemple :
 
-Cette configuration constitue le contexte de référence.
-
-Un réglage obtenu avec un autre amplificateur, un autre cabinet ou une autre guitare pourra servir de comparaison, mais ne devra pas être présenté comme un profil ToneLab validé tant qu'il n'aura pas été vérifié sur notre matériel.
-
----
-
-# Principe fondamental
-
-Le but du ToneLab n'est pas de trouver **un réglage universel**.
-
-Le Brunetti possède suffisamment de possibilités pour construire plusieurs personnalités sonores cohérentes.
-
-Nous chercherons donc à construire une bibliothèque de profils plutôt qu'un seul réglage censé fonctionner dans toutes les situations.
-
-Un profil devra toujours répondre à une question simple :
-
-> **Quel son cherchons-nous à obtenir, dans quelles conditions, et comment pouvons-nous le reproduire ?**
-
----
-
-# Progression du chapitre
-
-| Partie | Sujet | État |
-|:------:|-------|:----:|
-| 1 | Méthode de construction des profils | ⏳ |
-| 2 | Profils de référence | ⏳ |
-| 3 | Territoires sonores | ⏳ |
-| 4 | Profils adaptés aux guitares | ⏳ |
-| 5 | Tube Screamer et égalisation | ⏳ |
-| 6 | Profils musicaux | ⏳ |
-| 7 | Variantes et adaptation | ⏳ |
-| 8 | Validation et profils définitifs | ⏳ |
-
----
-
-# Ce que ce chapitre doit permettre d'obtenir
-
-À la fin de ce chapitre, nous devrons disposer d'une véritable bibliothèque de réglages du Brunetti XL R-EVO II.
-
-Chaque profil devra être suffisamment documenté pour pouvoir être :
-
-- retrouvé rapidement ;
-- reproduit ;
-- comparé à d'autres profils ;
-- adapté à une autre guitare ;
-- amélioré après expérimentation.
-
-Le chapitre constituera ainsi le lien entre la **compréhension du Brunetti** et son **utilisation musicale concrète**.
-
----
-
-# Navigation
-
-⬅️ **[Retour au Brunetti XL R-EVO II](../index.md)**
-
-⬆️ **[Retour au ToneLab](../../index.md)**
-
-➡️ **[Partie 1 — Méthode de construction des profils](part1.md)**
+```text
+QOTSA-001
+QOTSA-002
+QOTSA-003
+QOTSA-004
