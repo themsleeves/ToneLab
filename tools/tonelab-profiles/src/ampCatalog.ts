@@ -8,7 +8,7 @@ const knob = (name: string, value = "", onlyChannel?: string): PedalParam => (on
 // "Bright" (knob) n'est disponible que sur le canal "Clean" (onlyChannel).
 export const defaultAmpCatalog: AmpTemplate[] = [
   {"id":"brunetti-xl-revo2","brand":"Brunetti","model":"XL R-EVO II","channels":["Clean","Boost","XLead"],"params":[{"name":"Gain","kind":"knob","value":""},{"name":"Bass","kind":"knob","value":""},{"name":"Mid","kind":"knob","value":""},{"name":"Edge","kind":"knob","value":""},{"name":"Master","kind":"knob","value":""},{"name":"Bright","kind":"knob","value":"","onlyChannel":"Clean"},{"name":"Focus","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""},{"name":"Depth","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""}]},
-  {"id":"amptpl-1787349577156","brand":"Gibson","model":"Skylark 5w","channels":["Principal"],"params":[{"name":"Master","kind":"knob","value":"0"}]},
+  {"id":"gibson-skylark-5T","brand":"Gibson","model":"Skylark 5w","channels":["Principal"],"params":[{"name":"Master","kind":"knob","value":"0"}]},
 ];
 
 export function loadAmpCatalog(): AmpTemplate[] {
