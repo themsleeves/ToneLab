@@ -1,469 +1,888 @@
 # Partie 1 — Méthode de construction des profils
 
+## Fil d'Ariane
+
+**[ToneLab](../../../../index.md)**
+
+→ **[Brunetti XL R-EVO II](../index.md)**
+
+→ **[Chapitre 03 – Construction des profils sonores](index.md)**
+
+→ **Partie 1 – Méthode de construction des profils**
+
+---
+
 ## Navigation
 
 [← Retour à l'index du chapitre Profils sonores](index.md)
 
-[← Retour au chapitre Brunetti XL R-EVO II](../index.md)
-
 [→ Partie 2 — Profils de référence](part2.md)
 
+[→ Retour au chapitre Brunetti XL R-EVO II](../index.md)
+
 ---
+
+## Sommaire de la partie
+
+- [1. Introduction](#part1-introduction)
+- [2. Qu'est-ce qu'un profil sonore ?](#part1-definition)
+- [3. Le catalogue ToneLab](#part1-catalogue)
+- [4. Le profil comme objectif sonore](#part1-profil)
+- [5. Le test comme unité d'expérimentation](#part1-test)
+- [6. Structure d'un test](#part1-structure-test)
+- [7. Les éléments matériels d'un test](#part1-materiel)
+- [8. La configuration de l'amplificateur](#part1-amplificateur)
+- [9. La configuration des pédales](#part1-pedales)
+- [10. Le rôle de la guitare et du pickup](#part1-guitare)
+- [11. Le rôle du cabinet et de l'accordage](#part1-cabinet)
+- [12. Plusieurs tests pour un même profil](#part1-multiples)
+- [13. Du test au profil validé](#part1-validation)
+- [14. Statuts des expérimentations](#part1-statuts)
+- [15. Principe de progression](#part1-progression)
+- [16. À retenir](#part1-a-retenir)
+
+---
+
+<a id="part1-introduction"></a>
 
 ## 1. Introduction
 
-Les chapitres précédents ont permis de comprendre le Brunetti XL R-EVO II, son organisation, ses commandes et son territoire sonore.
+Le chapitre 02 a permis de définir le territoire sonore du Brunetti XL R-EVO II et de comprendre pourquoi cet amplificateur peut être orienté vers plusieurs familles sonores.
 
-Le rôle du présent chapitre est différent.
+Nous pouvons maintenant passer à une étape différente.
 
-Il s'agit maintenant de transformer cette connaissance en **réglages utilisables, reproductibles et documentés**.
+L'objectif n'est plus seulement de comprendre l'amplificateur.
 
-Un profil sonore ne doit donc pas être considéré comme une simple liste de positions de potentiomètres.
+Il s'agit désormais de **transformer cette connaissance en profils sonores réellement utilisables**.
 
-Il doit être associé à un contexte précis et permettre de retrouver un résultat sonore donné.
+Un profil ToneLab devra pouvoir être recherché, expérimenté, comparé, modifié puis éventuellement validé.
 
-Cette première partie définit la méthode qui sera utilisée pour construire et documenter ces profils.
+Cette démarche nécessite donc une méthode.
 
----
+Il ne serait pas pertinent de simplement noter quelques positions de potentiomètres et de considérer immédiatement le résultat comme un profil définitif.
 
-## 2. Pourquoi une méthode est nécessaire
+Un réglage sonore est le résultat d'un ensemble d'interactions entre :
 
-Un réglage d'amplificateur peut sembler satisfaisant dans une situation donnée et devenir beaucoup moins pertinent dans une autre.
-
-Le résultat dépend notamment :
-
-- du canal utilisé ;
-- de la guitare ;
-- des micros ;
-- du niveau de sortie de la guitare ;
-- des pédales ;
-- de leur ordre ;
-- du cabinet ;
-- du volume d'utilisation ;
-- du contexte musical.
-
-Il serait donc trompeur de considérer un réglage comme une vérité absolue.
-
-Dans le ToneLab, un profil doit plutôt être considéré comme une **configuration de référence associée à des conditions données**.
-
----
-
-## 3. Première étape : définir le résultat recherché
-
-Avant de modifier les commandes de l'amplificateur, il faut déterminer ce que l'on cherche à obtenir.
-
-La recherche peut partir :
-
-- d'un morceau ;
-- d'un groupe ;
-- d'un guitariste ;
-- d'un type de saturation ;
-- d'un caractère sonore ;
-- d'une utilisation particulière ;
-- d'un son déjà obtenu et que l'on souhaite conserver.
-
-Cette étape permet d'éviter de modifier les réglages sans objectif précis.
-
-Le profil doit donc toujours répondre à une intention sonore clairement identifiée.
-
----
-
-## 4. Deuxième étape : choisir le canal
-
-Le choix du canal constitue le premier choix important concernant l'amplificateur.
-
-Les trois canaux du Brunetti offrent des comportements différents :
-
-- **Clean**
-- **Boost**
-- **XLead**
-
-Le canal doit être choisi en fonction du territoire sonore recherché.
-
-Il ne faut pas commencer par chercher les positions exactes de Bass, Mid ou Edge avant d'avoir déterminé quel canal constitue le meilleur point de départ.
-
-Le choix du canal est donc une décision de conception du profil, et non un simple réglage secondaire.
-
----
-
-## 5. Troisième étape : choisir la guitare
-
-La guitare doit ensuite être intégrée à la réflexion.
-
-Dans notre configuration, plusieurs guitares peuvent être utilisées avec le Brunetti.
-
-Elles ne fournissent pas nécessairement le même signal à l'amplificateur.
-
-Le profil doit donc préciser la guitare utilisée lors de sa construction.
-
-Lorsque cela est pertinent, il faudra également préciser :
-
-- les micros ;
-- la position du sélecteur ;
-- le volume ;
-- le réglage de tonalité.
-
-Cette information permettra de distinguer un réglage réellement adapté à une guitare d'un réglage supposé fonctionner indépendamment du matériel utilisé.
-
----
-
-## 6. Quatrième étape : établir une base d'amplification
-
-Une fois le canal et la guitare définis, il faut construire une base simple.
-
-L'objectif n'est pas de chercher immédiatement le réglage parfait.
-
-Il faut d'abord obtenir une sonorité cohérente permettant d'évaluer les modifications successives.
-
-Cette base doit notamment permettre de déterminer :
-
-- la quantité de gain nécessaire ;
-- l'équilibre général du spectre ;
-- la sensation d'attaque ;
-- la densité du son ;
-- la présence nécessaire.
-
-Cette étape constitue le point de départ des ajustements plus fins.
-
----
-
-## 7. Cinquième étape : régler le Gain
-
-Le Gain doit être déterminé en fonction du comportement recherché.
-
-Il ne faut pas nécessairement utiliser la quantité maximale de saturation disponible.
-
-Un excès de gain peut notamment réduire :
-
-- la lisibilité ;
-- la dynamique ;
-- la précision de l'attaque ;
-- la séparation entre les notes.
-
-À l'inverse, un niveau de gain insuffisant peut empêcher d'obtenir la densité recherchée.
-
-Le bon réglage est donc celui qui permet d'obtenir le caractère nécessaire au profil.
-
----
-
-## 8. Sixième étape : construire l'équilibre tonal
-
-Une fois le niveau de gain établi, l'égalisation peut être ajustée.
-
-L'ordre de travail recommandé est de commencer par l'équilibre général avant de rechercher des corrections très précises.
-
-Les principales commandes concernées sont :
-
-- **Bass**
-- **Mid**
-- **Edge**
-
-Le but n'est pas de placer chaque commande sur une position théorique.
-
-Il s'agit de trouver un équilibre cohérent avec :
-
+- l'amplificateur ;
+- son canal ;
+- ses réglages ;
 - la guitare ;
-- le canal ;
-- le niveau de gain ;
+- les micros ;
+- l'accordage ;
 - le cabinet ;
-- le résultat recherché.
+- les pédales ;
+- les réglages des pédales ;
+- le contexte musical ;
+- le volume d'utilisation.
+
+La construction d'un profil doit donc prendre en compte l'ensemble de ces éléments.
+
+Le ToneLab doit permettre de conserver cette information de manière structurée afin de pouvoir revenir ultérieurement sur les essais réalisés.
 
 ---
 
-## 9. Septième étape : affiner le voicing
+<a id="part1-definition"></a>
 
-Après avoir établi l'équilibre général, les commandes de voicing peuvent être utilisées pour affiner le comportement du profil.
+## 2. Qu'est-ce qu'un profil sonore ?
 
-Cette étape concerne notamment les paramètres tels que :
+Un profil sonore n'est pas simplement une liste de positions de potentiomètres.
 
-- **Bright**, lorsque le canal utilisé le permet ;
-- **Focus** ;
-- **Depth**.
+Il correspond à une **configuration cohérente de matériel et de réglages destinée à produire un résultat sonore précis**.
 
-Ces commandes ne doivent pas être utilisées pour corriger systématiquement toutes les différences entendues.
+Selon le profil recherché, il pourra notamment décrire :
 
-Elles doivent intervenir lorsque leur fonction correspond réellement au changement recherché.
-
----
-
-## 10. Huitième étape : intégrer les pédales
-
-Une fois la base de l'amplificateur établie, les pédales peuvent être intégrées au profil.
-
-Il faut distinguer les pédales placées :
-
-- avant l'entrée de l'amplificateur ;
-- dans la boucle d'effets.
-
-Cette distinction est importante car elles n'interviennent pas au même endroit dans la chaîne du signal.
-
-Une pédale utilisée comme élément de construction du son doit donc être considérée comme faisant partie intégrante du profil.
-
-Elle ne doit pas être ajoutée à la documentation uniquement comme un accessoire.
-
----
-
-## 11. Neuvième étape : vérifier les interactions
-
-Après intégration des pédales, il faut vérifier que l'ensemble reste cohérent.
-
-Une modification apportée à une pédale placée avant l'amplificateur peut modifier la réaction du préamplificateur.
-
-De même, une modification d'un effet placé dans la boucle peut changer la perception du résultat final sans modifier directement le réglage du canal.
-
-Le profil doit donc être évalué comme un système complet.
-
----
-
-## 12. Dixième étape : tester dans les conditions prévues
-
-Un réglage doit être testé dans des conditions aussi proches que possible de son utilisation réelle.
-
-Il faut notamment tenir compte :
-
-- du volume ;
-- de la guitare ;
-- du cabinet ;
-- des pédales réellement utilisées ;
-- du contexte musical.
-
-Un profil destiné à une utilisation en groupe ne doit pas nécessairement être validé uniquement à faible volume et seul devant l'amplificateur.
-
-La validation doit correspondre autant que possible à l'utilisation prévue.
-
----
-
-## 13. Documenter le résultat obtenu
-
-Une fois le réglage satisfaisant, il faut documenter précisément sa configuration.
-
-Un profil devra au minimum permettre de retrouver :
-
-- le canal ;
+- le territoire sonore ;
+- la référence musicale éventuelle ;
+- le canal utilisé ;
 - les réglages de l'amplificateur ;
 - la guitare ;
-- les micros ;
-- les pédales utilisées ;
-- leur position dans la chaîne ;
+- le pickup utilisé ;
+- l'accordage ;
 - le cabinet ;
-- le contexte de validation.
+- les pédales utilisées ;
+- l'état de chaque pédale ;
+- les réglages des pédales ;
+- l'objectif recherché ;
+- les observations réalisées pendant le test ;
+- la conclusion ;
+- le statut du résultat.
 
-Cette documentation constitue une partie essentielle du ToneLab.
+L'objectif est de pouvoir retrouver une configuration sans devoir recommencer toute la recherche depuis zéro.
 
-Un bon réglage impossible à reproduire est moins utile qu'un réglage légèrement moins parfait mais correctement documenté.
+### Un profil n'est donc pas nécessairement un réglage définitif
 
----
+Il est important de distinguer :
 
-## 14. Distinguer recherche et validation
+**ce que nous cherchons**
 
-Tous les réglages essayés ne doivent pas devenir automatiquement des profils définitifs.
+de
 
-Il faut distinguer plusieurs situations :
+**ce que nous avons réellement testé**
 
-- une idée de départ ;
-- un réglage expérimental ;
-- un réglage intéressant ;
-- un réglage fonctionnel ;
-- un réglage validé ;
-- un profil de référence.
+et de
 
-Cette distinction permettra de conserver l'historique de la recherche sans transformer chaque expérimentation en référence.
+**ce que nous avons finalement validé**.
 
----
-
-## 15. Comparer les réglages
-
-Lorsqu'un nouveau réglage est créé, il doit être comparé à une référence connue lorsque cela est possible.
-
-La comparaison peut porter sur :
-
-- le niveau de gain ;
-- la quantité de grave ;
-- la présence des médiums ;
-- l'attaque ;
-- la définition ;
-- la sensation de compression ;
-- la largeur ou la profondeur perçue ;
-- la capacité du son à fonctionner dans le contexte musical prévu.
-
-Cette comparaison est plus utile qu'une simple appréciation du type « meilleur » ou « moins bon ».
+Cette distinction devient essentielle lorsque plusieurs réglages sont expérimentés pour atteindre un même résultat.
 
 ---
 
-## 16. Ne modifier qu'un nombre limité de paramètres à la fois
+<a id="part1-catalogue"></a>
 
-Lors d'une phase de recherche, il est préférable d'éviter de modifier simultanément tous les paramètres.
+## 3. Le catalogue ToneLab
 
-Si plusieurs commandes changent en même temps, il devient difficile de déterminer laquelle a réellement produit l'amélioration ou la dégradation observée.
+ToneLab n'est plus limité à un simple carnet permettant de noter les réglages du Brunetti.
 
-Une méthode plus fiable consiste à :
+L'application dispose désormais d'une logique de **catalogue de matériel**.
 
-1. établir une référence ;
-2. modifier un paramètre ou un petit groupe cohérent ;
-3. écouter ;
-4. comparer ;
-5. conserver ou abandonner la modification ;
-6. passer à l'étape suivante.
+Ce catalogue peut contenir notamment :
 
-Cette méthode permettra également de mieux comprendre le comportement réel du Brunetti au fil du temps.
+- des amplificateurs ;
+- des pédales ;
+- des guitares ;
+- des cabinets ;
+- d'autres éléments matériels pouvant être intégrés ultérieurement.
+
+L'application permet également de définir des composants personnalisés et leurs paramètres.
+
+Cette architecture rend possible une séparation importante entre :
+
+### Le matériel
+
+Le catalogue décrit les composants disponibles.
+
+Par exemple, le Brunetti XL R-EVO II est défini comme un amplificateur possédant plusieurs canaux et plusieurs paramètres.
+
+Les pédales disposent également de leurs propres paramètres.
+
+### Le test
+
+Le test utilise une combinaison concrète de ces composants.
+
+Il peut associer :
+
+- une guitare ;
+- un accordage ;
+- un pickup ;
+- un cabinet ;
+- un amplificateur ;
+- un canal ;
+- des réglages ;
+- plusieurs pédales.
+
+Cette distinction permet d'éviter de recopier systématiquement les caractéristiques du matériel dans chaque expérimentation.
+
+Le catalogue constitue donc une **infrastructure de référence**, tandis que le test décrit une utilisation concrète de cette infrastructure.
+
+### Le Brunetti reste actuellement notre référence
+
+Même si ToneLab est désormais conçu pour pouvoir gérer différents amplificateurs, les expérimentations documentées dans ce chapitre restent actuellement centrées sur le **Brunetti XL R-EVO II**.
+
+C'est notre amplificateur de référence pour cette phase du projet.
+
+La possibilité d'intégrer d'autres amplificateurs dans l'application ne signifie donc pas que les méthodes de ce chapitre doivent être généralisées artificiellement.
+
+Elles sont d'abord appliquées à notre matériel réel.
 
 ---
 
-## 17. Le réglage doit être reproductible
+<a id="part1-profil"></a>
 
-Un profil n'est considéré comme réellement utile que s'il peut être reproduit.
+## 4. Le profil comme objectif sonore
 
-Il faut donc éviter les descriptions trop vagues telles que :
+Avant de commencer à modifier les réglages, il faut définir ce que nous cherchons à obtenir.
 
-> « beaucoup de médiums »
+Un profil peut correspondre à :
 
-ou :
-
-> « un peu moins de gain ».
-
-Lorsque cela est possible, les réglages doivent être exprimés avec une référence claire.
-
-Les observations subjectives peuvent ensuite compléter ces valeurs.
-
----
-
-## 18. Valeur du réglage et valeur de l'observation
-
-Les positions de potentiomètres constituent une information importante, mais elles ne suffisent pas toujours.
-
-Une bonne fiche doit également expliquer pourquoi le réglage a été choisi.
+- une famille sonore ;
+- un territoire d'amplificateur ;
+- un artiste ;
+- un morceau ;
+- une utilisation particulière ;
+- une combinaison de plusieurs de ces éléments.
 
 Par exemple :
 
-- pourquoi le Gain a été diminué ;
-- pourquoi les médiums ont été conservés relativement présents ;
-- pourquoi une pédale a été utilisée ;
-- pourquoi un réglage fonctionne mieux avec une guitare qu'avec une autre.
+> **Queens of the Stone Age — Little Sister**
 
-Ces observations permettront progressivement de construire une véritable connaissance personnelle du Brunetti.
+constitue une référence beaucoup plus précise que :
+
+> **Son Stoner**
+
+De la même manière :
+
+> **Foo Fighters — base Rock dynamique**
+
+définit un objectif plus exploitable qu'une simple indication :
+
+> **Son Rock**
+
+Cette précision permet ensuite d'évaluer le résultat.
+
+Sans objectif clairement défini, il devient difficile de déterminer si un réglage est réellement réussi.
+
+### Le profil décrit donc d'abord une cible
+
+La cible peut être formulée simplement :
+
+> Quel son cherchons-nous ?
+
+Puis précisée :
+
+> Dans quel contexte ?
+
+> Avec quelle guitare ?
+
+> Avec quel cabinet ?
+
+> Pour quel morceau ou quel type de jeu ?
+
+Cette définition constitue le point de départ de l'expérimentation.
 
 ---
 
-## 19. Une bibliothèque plutôt qu'un réglage unique
+<a id="part1-test"></a>
 
-Le ToneLab ne cherchera pas à déterminer un réglage unique censé fonctionner dans toutes les situations.
+## 5. Le test comme unité d'expérimentation
 
-Nous chercherons plutôt à construire une bibliothèque de profils.
+Le **test** constitue l'unité fondamentale de l'expérimentation dans ToneLab.
 
-Chaque profil pourra avoir une fonction différente :
+Un test représente une configuration concrète que nous voulons essayer ou que nous avons effectivement essayée.
 
-- son clair ;
-- crunch ;
-- rock ;
-- high gain ;
-- son massif ;
-- son plus articulé ;
-- profil inspiré d'un territoire Marshall ;
-- profil inspiré d'un territoire Mesa ;
-- profil inspiré d'un territoire Diezel ;
-- profil inspiré d'un territoire EVH ;
-- profils adaptés à certains morceaux ou contextes.
+Il ne s'agit donc pas nécessairement d'un profil définitif.
 
-Cette organisation permettra de retrouver rapidement le point de départ approprié.
+Un test peut être :
+
+- une première hypothèse ;
+- une variation d'un réglage existant ;
+- une comparaison entre deux canaux ;
+- une modification de guitare ;
+- une modification de cabinet ;
+- un essai avec une pédale ;
+- un essai sans pédale ;
+- une tentative de rapprochement d'une référence musicale.
+
+Cette organisation permet de conserver l'historique de la recherche.
+
+### Exemple
+
+Supposons que nous recherchions un son QOTSA.
+
+Nous pouvons avoir :
+
+```text
+QOTSA
+│
+├── Test 001
+│   └── Boost + Gretsch + Thiele
+│
+├── Test 002
+│   └── XLead + Gretsch + Thiele + Tube Screamer
+│
+├── Test 003
+│   └── XLead + Gibson + Marshall 4x12
+│
+└── Test 004
+    └── XLead + Gretsch + Thiele + Tube Screamer + EQ
+```
+
+Chaque configuration peut être évaluée indépendamment.
+
+Certaines pourront être abandonnées.
+
+D'autres pourront être considérées comme prometteuses.
+
+Une seule pourra éventuellement devenir la configuration de référence.
 
 ---
 
-## 20. Structure minimale d'un profil
+<a id="part1-structure-test"></a>
 
-Chaque profil créé dans les parties suivantes devra idéalement comporter :
+## 6. Structure d'un test
+
+Un test doit permettre de retrouver suffisamment d'informations pour comprendre ce qui a réellement été expérimenté.
+
+La structure actuelle de ToneLab permet notamment de documenter :
 
 ### Identification
 
-- Nom du profil
-- Territoire sonore
-- Référence éventuelle
-- Statut
-
-### Amplificateur
-
-- Canal
-- Gain
-- Bass
-- Mid
-- Edge
-- Bright
-- Focus
-- Master
-- Level
-- Depth
+- identifiant du test ;
+- référence artistique ;
+- morceau éventuel ;
+- date ;
+- statut.
 
 ### Guitare
 
-- Modèle
-- Micros
-- Sélecteur
-- Volume
-- Tone
-
-### Pédales
-
-- Modèles utilisés
-- Position dans la chaîne
-- Réglages
+- modèle ;
+- accordage ;
+- pickup.
 
 ### Cabinet
 
-- Cabinet utilisé
-- Informations utiles
+- cabinet utilisé.
+
+### Amplificateur
+
+- modèle ;
+- canal ;
+- paramètres.
+
+### Pédales
+
+- pédales utilisées ;
+- état de chaque pédale ;
+- réglages ;
+- notes éventuelles.
+
+### Recherche
+
+- objectif ;
+- observations ;
+- conclusion.
 
 ### Résultat
 
-- Caractère sonore obtenu
-- Utilisation prévue
-- Points forts
-- Limites éventuelles
+- statut ;
+- conservation ou non du résultat.
 
-### Validation
-
-- Conditions de test
-- Résultat
-- Statut du profil
+Cette structure permet de séparer clairement les données de configuration des observations réalisées pendant l'expérimentation.
 
 ---
 
-## 21. Principe de progression
+<a id="part1-materiel"></a>
 
-La construction d'un profil doit donc suivre une progression logique :
+## 7. Les éléments matériels d'un test
 
-1. définir le son recherché ;
-2. choisir le canal ;
-3. choisir la guitare ;
-4. établir une base de Gain ;
-5. construire l'équilibre tonal ;
-6. affiner le voicing ;
-7. intégrer les pédales ;
-8. vérifier les interactions ;
-9. tester dans les conditions prévues ;
-10. documenter ;
-11. comparer ;
-12. valider ou abandonner.
+Un test ne doit pas être considéré comme une simple configuration de l'amplificateur.
 
-Cette progression constituera la méthode de référence pour les parties suivantes.
+Le matériel utilisé fait partie du résultat.
+
+Dans notre cas, cela concerne notamment :
+
+- le Brunetti XL R-EVO II ;
+- la Gibson Les Paul Classic DC ;
+- la Gretsch John Gourley Broadkaster ;
+- les cabinets disponibles ;
+- la Tube Screamer ;
+- le MXR 6 Band EQ ;
+- le Mooer Graphic G ;
+- la Fender The Pelt Fuzz ;
+- les autres pédales éventuellement utilisées.
+
+Le choix du matériel doit donc être documenté.
+
+### Pourquoi ?
+
+Parce qu'un même réglage d'amplificateur peut produire un résultat différent selon la guitare ou le cabinet.
+
+De la même manière, l'activation d'une Tube Screamer ou d'un EQ peut modifier sensiblement le comportement de l'amplificateur.
+
+Il serait donc impossible de comparer correctement deux tests si une partie importante de leur configuration n'était pas renseignée.
 
 ---
 
-## 22. À retenir
+<a id="part1-amplificateur"></a>
 
-La construction d'un profil sonore doit partir d'un objectif précis et non d'une recherche aléatoire de positions de potentiomètres.
+## 8. La configuration de l'amplificateur
 
-Les éléments essentiels sont :
+Le Brunetti constitue actuellement le cœur de nos expérimentations.
 
-- définir le territoire sonore recherché ;
-- choisir le canal adapté ;
-- tenir compte de la guitare ;
-- construire progressivement le réglage ;
-- considérer les pédales comme des éléments du système ;
-- tester dans les conditions d'utilisation ;
-- documenter précisément le résultat ;
-- distinguer les essais des profils validés ;
-- conserver suffisamment d'informations pour pouvoir reproduire le réglage.
+La première décision importante consiste à choisir le canal.
 
-Le but final est de transformer les expérimentations en une bibliothèque de profils fiables et exploitables.
+Le XL R-EVO II dispose de trois canaux :
+
+- **Clean** ;
+- **Boost** ;
+- **XLead**.
+
+Le choix du canal constitue déjà une orientation sonore.
+
+Il ne faut donc pas considérer le canal comme une simple étape avant le réglage des potentiomètres.
+
+Il constitue une partie du profil.
+
+### Les paramètres
+
+Pour un test utilisant le Brunetti, les paramètres pertinents doivent être documentés.
+
+Ils comprennent notamment :
+
+- Gain ;
+- Bass ;
+- Mid ;
+- Edge ;
+- Master ;
+- Bright lorsqu'il est disponible ;
+- Focus ;
+- Level ;
+- Depth.
+
+Le réglage doit être considéré comme un ensemble.
+
+Modifier uniquement le Gain ne permet pas nécessairement de comprendre l'évolution du résultat.
+
+### Une méthode progressive
+
+Pour construire une base, il est préférable de procéder progressivement :
+
+1. choisir le canal ;
+2. établir une base de Gain ;
+3. construire l'équilibre entre Bass, Mid et Edge ;
+4. ajuster les paramètres de voicing ;
+5. régler les niveaux ;
+6. écouter le résultat ;
+7. seulement ensuite introduire d'autres éléments si nécessaire.
+
+Cette méthode permet de mieux comprendre l'origine des changements.
+
+---
+
+<a id="part1-pedales"></a>
+
+## 9. La configuration des pédales
+
+Les pédales doivent être considérées comme des éléments potentiels du profil et non comme de simples accessoires.
+
+Une pédale peut modifier :
+
+- le signal entrant dans l'amplificateur ;
+- la réaction du préamplificateur ;
+- l'équilibre fréquentiel ;
+- l'attaque ;
+- la saturation ;
+- la dynamique ;
+- la définition.
+
+La position de la pédale dans la chaîne doit donc également être prise en compte.
+
+### Les principales pédales actuellement documentées dans ToneLab
+
+Le catalogue actuel comprend notamment :
+
+- **Ibanez Tube Screamer (TS9 / TS808)** ;
+- **MXR M109S Six Band EQ** ;
+- **Mooer Graphic G** ;
+- **Fender The Pelt Fuzz**.
+
+Les réglages propres à chaque pédale sont conservés dans le test.
+
+Cela permet de reproduire non seulement la présence de la pédale, mais également sa configuration.
+
+### Une pédale peut être désactivée
+
+Un test peut parfaitement contenir une pédale dont l'état est `OFF`.
+
+Cela peut être utile lorsque nous souhaitons conserver une configuration matérielle identique entre plusieurs tests tout en comparant :
+
+- avec pédale ;
+- sans pédale.
+
+Cette possibilité est particulièrement intéressante pour les expérimentations comparatives.
+
+### Les pédales doivent être ajoutées progressivement
+
+Lorsqu'un profil est encore en phase de recherche, il est préférable de ne pas modifier simultanément :
+
+- le canal ;
+- l'amplificateur ;
+- la guitare ;
+- plusieurs pédales ;
+- l'égalisation.
+
+Sinon, il devient difficile de déterminer quelle modification a réellement produit le résultat observé.
+
+---
+
+<a id="part1-guitare"></a>
+
+## 10. Le rôle de la guitare et du pickup
+
+La guitare constitue une variable importante du profil.
+
+Deux instruments différents peuvent envoyer à l'amplificateur des signaux présentant des caractéristiques très différentes.
+
+Dans notre configuration de référence, deux guitares occupent notamment une place importante :
+
+### Gibson Les Paul Classic DC
+
+Elle constitue une référence intéressante pour les recherches nécessitant notamment :
+
+- épaisseur ;
+- densité ;
+- sustain ;
+- présence médium.
+
+Elle ne doit toutefois pas être considérée comme automatiquement meilleure pour tous les profils.
+
+### Gretsch John Gourley Broadkaster
+
+Elle présente un comportement différent et peut être particulièrement intéressante lorsque nous recherchons :
+
+- attaque ;
+- séparation ;
+- définition ;
+- dynamique.
+
+Là encore, ces caractéristiques constituent des points de départ et non des règles absolues.
+
+### Le pickup doit être documenté
+
+Le modèle de guitare ne suffit pas toujours.
+
+Le pickup utilisé peut modifier sensiblement le résultat.
+
+Le test doit donc conserver cette information lorsque cela est pertinent.
+
+Dans ToneLab, le pickup constitue donc une donnée distincte de la guitare.
+
+---
+
+<a id="part1-cabinet"></a>
+
+## 11. Le rôle du cabinet et de l'accordage
+
+Le cabinet constitue une partie essentielle de la chaîne sonore.
+
+Il influence directement le résultat perçu.
+
+Dans le contexte actuel du ToneLab, plusieurs configurations peuvent être utilisées, notamment :
+
+- **Marshall 4x12** ;
+- **Thiele Celestion 15" 4 Ω** ;
+- autres cabinets pouvant être ajoutés au catalogue.
+
+Un réglage développé avec un cabinet donné ne doit donc pas être considéré comme automatiquement reproductible à l'identique avec un autre.
+
+Le cabinet doit faire partie des données du test.
+
+### L'accordage
+
+L'accordage doit également être documenté.
+
+Un même réglage peut être perçu différemment selon l'accordage utilisé, notamment lorsque la fréquence fondamentale des cordes graves change.
+
+Dans l'application, l'accordage constitue donc lui aussi une information indépendante.
+
+Les valeurs actuellement utilisées dans ToneLab comprennent notamment :
+
+- Standard ;
+- Drop D ;
+- Drop C# ;
+- Drop C ;
+- Autre.
+
+### Pourquoi conserver ces informations ?
+
+Parce qu'un profil sonore doit être reproductible dans les conditions pour lesquelles il a été construit.
+
+Un réglage :
+
+> XLead + Gain X + EQ Y
+
+ne décrit pas nécessairement suffisamment le résultat.
+
+Il faut également savoir :
+
+> avec quelle guitare, quel pickup, quel accordage et quel cabinet le réglage a été obtenu.
+
+---
+
+<a id="part1-multiples"></a>
+
+## 12. Plusieurs tests pour un même profil
+
+C'est probablement l'un des principes les plus importants de cette méthode.
+
+**Un profil cible peut nécessiter plusieurs tests.**
+
+Il ne faut donc pas chercher à faire entrer immédiatement tous les essais dans une seule fiche.
+
+Supposons que nous recherchions :
+
+> **Queens of the Stone Age — Little Sister**
+
+Le premier test peut utiliser :
+
+- Gretsch ;
+- Boost ;
+- Thiele ;
+- Fender The Pelt.
+
+Un second test peut utiliser :
+
+- Gretsch ;
+- XLead ;
+- Thiele ;
+- Tube Screamer.
+
+Un troisième peut utiliser :
+
+- Gibson ;
+- XLead ;
+- Marshall 4x12 ;
+- EQ.
+
+Ces essais ne sont pas nécessairement contradictoires.
+
+Ils constituent différentes hypothèses permettant d'explorer le même objectif.
+
+### Pourquoi conserver les essais abandonnés ?
+
+Parce qu'un réglage qui ne fonctionne pas apporte malgré tout une information.
+
+Il peut permettre de comprendre :
+
+- qu'un canal est moins adapté ;
+- qu'une guitare modifie trop fortement le résultat ;
+- qu'une pédale n'apporte pas l'amélioration attendue ;
+- qu'un cabinet ne convient pas à ce territoire ;
+- qu'un certain réglage pousse le son dans une mauvaise direction.
+
+L'historique de recherche a donc une valeur documentaire.
+
+### Un test n'est pas automatiquement un profil
+
+C'est une distinction fondamentale.
+
+```text
+Objectif sonore
+       ↓
+Profil cible
+       ↓
+Plusieurs tests
+       ↓
+Comparaison
+       ↓
+Test retenu
+       ↓
+Profil validé
+```
+
+Cette organisation permet de conserver une véritable trace de la recherche.
+
+---
+
+<a id="part1-validation"></a>
+
+## 13. Du test au profil validé
+
+Un test peut évoluer progressivement.
+
+Il peut commencer par une simple hypothèse :
+
+> « Le XLead semble être le meilleur point de départ pour ce territoire. »
+
+Puis devenir une configuration expérimentale :
+
+> « XLead + Gretsch + Thiele + Tube Screamer. »
+
+Le résultat peut ensuite devenir prometteur :
+
+> « La combinaison donne une bonne base mais nécessite encore un travail sur l'égalisation. »
+
+Enfin, après plusieurs essais, il peut devenir un profil validé.
+
+### Le profil validé
+
+Un profil validé correspond à une configuration ayant suffisamment démontré sa pertinence pour devenir une référence ToneLab.
+
+La validation doit notamment prendre en compte :
+
+- la cohérence avec l'objectif initial ;
+- la reproductibilité ;
+- le matériel utilisé ;
+- les conditions de test ;
+- le résultat sonore ;
+- les éventuelles limites identifiées.
+
+Un profil ne doit donc pas être déclaré validé uniquement parce qu'il « sonne bien ».
+
+Il doit répondre à l'objectif pour lequel il a été créé.
+
+### La validation reste évolutive
+
+Un profil validé n'est pas nécessairement définitif pour toujours.
+
+De nouveaux essais peuvent conduire à :
+
+- l'améliorer ;
+- le remplacer ;
+- créer une variante ;
+- découvrir une meilleure combinaison.
+
+Il est donc important de conserver l'historique plutôt que d'écraser les anciens essais.
+
+---
+
+<a id="part1-statuts"></a>
+
+## 14. Statuts des expérimentations
+
+Les statuts utilisés dans ToneLab permettent de suivre l'évolution des tests.
+
+Ils sont actuellement :
+
+| Statut | Signification |
+|:---|:---|
+| **À tester** | La configuration a été définie mais n'a pas encore été réellement évaluée. |
+| **Prometteur** | Le résultat est intéressant mais nécessite encore des essais ou des ajustements. |
+| **Validé** | La configuration répond suffisamment à l'objectif pour être considérée comme une référence. |
+| **Rejeté** | Le résultat ne répond pas à l'objectif ou la piste a été abandonnée. |
+
+Cette nomenclature doit être conservée dans la documentation afin que l'application et le Markdown utilisent le même vocabulaire.
+
+### Pourquoi éviter plusieurs systèmes de statuts ?
+
+Parce que ToneLab doit rester cohérent.
+
+Si le Markdown parle de :
+
+- Hypothèse ;
+- Expérimental ;
+- Prometteur ;
+- Validé ;
+
+alors que l'application utilise :
+
+- À tester ;
+- Prometteur ;
+- Validé ;
+- Rejeté ;
+
+nous risquons de créer une ambiguïté.
+
+Les quatre statuts de l'application constituent donc notre référence actuelle.
+
+---
+
+<a id="part1-progression"></a>
+
+## 15. Principe de progression
+
+La construction d'un profil doit suivre une progression logique.
+
+Une méthode de référence peut être résumée ainsi :
+
+1. définir l'objectif sonore ;
+2. identifier la référence musicale éventuelle ;
+3. choisir le territoire sonore ;
+4. déterminer le canal de départ ;
+5. choisir la guitare ;
+6. choisir le pickup ;
+7. choisir l'accordage ;
+8. choisir le cabinet ;
+9. construire une base d'amplification ;
+10. ajuster le Gain ;
+11. construire l'équilibre tonal ;
+12. ajuster les paramètres de voicing ;
+13. écouter le résultat ;
+14. introduire éventuellement une pédale ;
+15. régler cette pédale ;
+16. comparer avec et sans pédale ;
+17. comparer plusieurs variantes ;
+18. tester dans les conditions prévues ;
+19. documenter les observations ;
+20. attribuer un statut au test ;
+21. retenir éventuellement une configuration ;
+22. valider le profil lorsque les conditions sont réunies.
+
+Cette progression ne doit pas être considérée comme une procédure rigide.
+
+Certains profils nécessiteront des adaptations.
+
+Elle constitue surtout une méthode permettant d'éviter une recherche totalement aléatoire.
+
+### Modifier peu de paramètres à la fois
+
+Lorsque plusieurs paramètres sont modifiés simultanément, il devient difficile d'identifier l'origine d'une amélioration ou d'une dégradation.
+
+Il est donc préférable, lorsque cela est possible, de procéder par étapes.
+
+Par exemple :
+
+```text
+Test A
+   ↓
+Modification du Gain
+   ↓
+Test B
+   ↓
+Modification du Mid
+   ↓
+Test C
+   ↓
+Ajout de la Tube Screamer
+   ↓
+Test D
+```
+
+Cette méthode permet de comprendre progressivement ce qui fonctionne.
+
+### Mais le contexte réel reste prioritaire
+
+La recherche ne doit pas devenir une expérience scientifique totalement déconnectée de la musique.
+
+Le résultat doit finalement être jugé dans son contexte :
+
+- riff ;
+- morceau ;
+- groupe ;
+- niveau de volume ;
+- jeu réel.
+
+Le meilleur réglage sur le papier n'est pas nécessairement le meilleur réglage musical.
+
+---
+
+<a id="part1-a-retenir"></a>
+
+## 16. À retenir
+
+La construction d'un profil sonore doit partir d'un **objectif précis** et non d'une recherche aléatoire de positions de potentiomètres.
+
+Les principes essentiels sont :
+
+- un profil décrit une cible sonore ;
+- un test décrit une expérimentation concrète ;
+- plusieurs tests peuvent être nécessaires pour un même profil ;
+- le matériel utilisé fait partie du résultat ;
+- le canal de l'amplificateur constitue une décision sonore importante ;
+- la guitare et le pickup doivent être documentés ;
+- le cabinet et l'accordage doivent être conservés ;
+- les pédales doivent être considérées comme des éléments du système ;
+- les modifications doivent être réalisées progressivement lorsque cela est possible ;
+- les résultats négatifs doivent être conservés lorsqu'ils apportent une information ;
+- un test n'est pas automatiquement un profil validé ;
+- les statuts de ToneLab permettent de suivre la progression ;
+- un profil validé doit être reproductible et répondre à l'objectif défini.
+
+La logique générale du ToneLab peut donc être résumée ainsi :
+
+```text
+OBJECTIF SONORE
+       │
+       ▼
+  PROFIL CIBLE
+       │
+       ▼
+   TESTS SUCCESSIFS
+       │
+       ├── À tester
+       ├── Prometteur
+       ├── Rejeté
+       │
+       ▼
+ COMPARAISON / AJUSTEMENT
+       │
+       ▼
+     VALIDÉ
+       │
+       ▼
+ PROFIL DE RÉFÉRENCE
+```
+
+Cette méthode permet de transformer progressivement les recherches et expérimentations en une véritable bibliothèque de profils sonores reproductibles.
 
 ---
 
@@ -471,6 +890,8 @@ Le but final est de transformer les expérimentations en une bibliothèque de pr
 
 [← Retour à l'index du chapitre Profils sonores](index.md)
 
-[← Retour au chapitre Brunetti XL R-EVO II](../index.md)
-
 [→ Partie 2 — Profils de référence](part2.md)
+
+[→ Retour au chapitre Brunetti XL R-EVO II](../index.md)
+
+[↑ Retour au ToneLab](../../../../index.md)
