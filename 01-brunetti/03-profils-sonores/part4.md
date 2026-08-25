@@ -1,5 +1,7 @@
 # Partie 4 — Profils adaptés aux guitares
 
+<a id="navigation"></a>
+
 ## Navigation
 
 [← Retour à l'index du chapitre Profils sonores](index.md)
@@ -12,7 +14,9 @@
 
 ---
 
-## Sommaire de la partie
+<a id="sommaire"></a>
+
+## Sommaire
 
 - [1. Introduction](#part4-introduction)
 - [2. Pourquoi adapter un profil à la guitare ?](#part4-pourquoi)
@@ -35,7 +39,7 @@
 
 <a id="part4-introduction"></a>
 
-## 1. Introduction
+# 1. Introduction
 
 Le profil sonore d'un amplificateur ne peut pas être considéré indépendamment de la guitare utilisée.
 
@@ -48,96 +52,188 @@ Le signal qui arrive dans l'amplificateur dépend notamment :
 - de son réglage ;
 - de la manière dont elle est jouée.
 
-Dans le ToneLab, cette question est particulièrement importante puisque deux guitares de caractère différent sont utilisées comme références :
+Dans le ToneLab, cette question est particulièrement importante puisque deux guitares de référence sont actuellement utilisées :
 
 - la **Gibson Les Paul Classic DC** ;
 - la **Gretsch John Gourley Broadkaster**.
 
-L'objectif de cette partie est donc de déterminer comment adapter les profils du Brunetti à ces deux instruments.
+L'objectif de cette partie est de déterminer comment intégrer la guitare dans la construction des profils sonores du Brunetti.
+
+Il ne s'agit pas de déterminer quelle guitare est « meilleure ».
+
+L'objectif est plutôt de comprendre :
+
+- ce que chaque guitare apporte ;
+- dans quels territoires sonores elle constitue un point de départ intéressant ;
+- comment elle interagit avec le Brunetti ;
+- et comment conserver ces différences dans les profils ToneLab.
+
+La guitare doit donc être considérée comme **une composante du système sonore**, au même titre que l'amplificateur, les pédales ou le cabinet.
 
 ---
 
 <a id="part4-pourquoi"></a>
 
-## 2. Pourquoi adapter un profil à la guitare ?
+# 2. Pourquoi adapter un profil à la guitare ?
 
 Un même réglage d'amplificateur peut produire des résultats sensiblement différents selon la guitare utilisée.
 
 Cela peut modifier la perception :
 
-- du grave ;
-- des médiums ;
-- des aigus ;
+- du niveau de Gain ;
 - de l'attaque ;
-- de la saturation ;
-- de la compression ;
-- de la définition.
+- de la densité ;
+- des médiums ;
+- du grave ;
+- de la définition ;
+- du sustain ;
+- de la dynamique.
 
-Il serait donc contre-productif de chercher systématiquement à utiliser exactement les mêmes réglages avec toutes les guitares.
+Une erreur fréquente consisterait donc à considérer le réglage de l'amplificateur comme une donnée indépendante.
 
-L'objectif est plutôt de déterminer une **base commune**, puis d'identifier les adaptations nécessaires.
+Par exemple :
+
+> XLead + Gain 5 + Bass 5 + Mid 6 + Edge 5
+
+ne constitue pas nécessairement un profil complet.
+
+Le résultat obtenu dépend également de la guitare qui alimente l'amplificateur.
+
+## La guitare comme variable expérimentale
+
+Dans la méthodologie ToneLab, la guitare doit être considérée comme une **variable documentée**.
+
+Un même réglage peut ainsi être testé avec :
+
+- la Gibson ;
+- la Gretsch.
+
+afin d'observer ce qui change réellement.
+
+Cette comparaison permet notamment de déterminer si une différence sonore provient principalement :
+
+- du canal ;
+- du réglage de l'amplificateur ;
+- de la guitare ;
+- du pickup ;
+- du cabinet ;
+- ou de l'interaction entre plusieurs de ces éléments.
+
+Cette approche est particulièrement importante pour éviter de tirer des conclusions trop rapides à partir d'un seul instrument.
 
 ---
 
 <a id="part4-les-paul"></a>
 
-## 3. La Gibson Les Paul Classic DC
+# 3. La Gibson Les Paul Classic DC
 
-La Gibson Les Paul Classic DC constitue l'une des guitares de référence du ToneLab.
+La **Gibson Les Paul Classic DC**, équipée de ses micros Classic 57+, constitue l'une des deux références principales du ToneLab.
 
-Elle est équipée de micros **Classic 57+**.
+Elle représente une approche particulièrement intéressante lorsque nous recherchons :
 
-Dans notre configuration, elle représente une approche particulièrement intéressante lorsque l'on recherche :
-
-- de l'épaisseur ;
 - de la densité ;
+- de l'épaisseur ;
+- des médiums présents ;
 - du sustain ;
-- des médiums riches ;
-- un son plus massif.
+- une sensation de puissance.
 
-Elle peut donc naturellement être associée aux profils recherchant une forte densité sonore.
+Ces caractéristiques peuvent être particulièrement intéressantes pour certains profils rock et saturés.
 
-Cela ne signifie cependant pas qu'elle soit limitée aux sons saturés.
+Elles peuvent également constituer un avantage lorsque le profil recherché nécessite une certaine densité harmonique.
 
-Elle peut également servir de référence pour les profils Clean, Crunch ou Rock.
+## La Gibson comme référence expérimentale
+
+La Gibson peut donc constituer un point de départ intéressant pour construire une base de profil.
+
+Elle permet notamment d'explorer des sons :
+
+- rock ;
+- hard rock ;
+- stoner ;
+- saturés ;
+- épais ;
+- ou nécessitant une certaine masse sonore.
+
+Il ne faut cependant pas transformer cette observation en règle absolue.
+
+Un réglage particulier peut produire un excellent résultat avec la Gretsch et un résultat moins intéressant avec la Gibson, même si la Gibson semble théoriquement mieux adaptée au territoire recherché.
+
+Le matériel constitue donc un **point de départ expérimental**, et non une conclusion.
+
+## Le rôle du pickup
+
+Le modèle de guitare ne suffit pas toujours à caractériser le résultat.
+
+Le pickup utilisé peut modifier sensiblement :
+
+- le niveau du signal ;
+- l'attaque ;
+- la réponse fréquentielle ;
+- la quantité de saturation obtenue ;
+- la sensation de dynamique.
+
+Le pickup devra donc être conservé comme information distincte dans les tests lorsque cette information est pertinente.
 
 ---
 
 <a id="part4-gretsch"></a>
 
-## 4. La Gretsch John Gourley Broadkaster
+# 4. La Gretsch John Gourley Broadkaster
 
-La Gretsch John Gourley Broadkaster constitue l'autre guitare de référence du ToneLab.
+La **Gretsch John Gourley Broadkaster**, équipée de ses micros Full'Tron USA, constitue l'autre grande référence du ToneLab.
 
-Elle est équipée de micros **Full'Tron USA**.
+Son comportement permet d'explorer une approche différente de celle de la Gibson.
 
-Dans notre configuration, elle apporte une personnalité différente de la Les Paul.
+Elle peut notamment être intéressante lorsque nous recherchons :
 
-Elle peut notamment favoriser :
+- de l'attaque ;
+- de la définition ;
+- de la séparation ;
+- de l'articulation ;
+- de la dynamique.
 
-- l'attaque ;
-- la définition ;
-- la séparation des notes ;
-- une réponse plus claire dans certains réglages ;
-- une sensation de présence différente dans les médiums.
+Cette différence est particulièrement intéressante pour les profils dans lesquels la lisibilité des notes est importante.
 
-Elle constitue donc une référence particulièrement intéressante lorsque le profil recherché doit conserver beaucoup d'articulation.
+## Une différence qui peut devenir un avantage
+
+Il serait incorrect de chercher systématiquement à compenser les caractéristiques de la Gretsch afin de la faire ressembler à la Gibson.
+
+Son intérêt réside justement dans son comportement différent.
+
+La Gretsch peut permettre d'obtenir un résultat plus articulé ou plus ouvert sans avoir nécessairement besoin de modifier fortement l'amplificateur.
+
+Elle constitue donc également un outil d'exploration du territoire sonore du Brunetti.
+
+## La Gretsch comme outil de comparaison
+
+Un réglage construit avec la Gibson pourra être reproduit avec la Gretsch.
+
+Si le résultat reste cohérent, nous aurons identifié une certaine robustesse du profil.
+
+Si le résultat change fortement, cette différence devra être documentée.
+
+Cette information pourra ensuite conduire à :
+
+- une variante du profil ;
+- un autre réglage d'amplificateur ;
+- une autre combinaison de pédales ;
+- ou simplement la recommandation d'utiliser l'une des deux guitares plutôt que l'autre.
 
 ---
 
 <a id="part4-comparaison"></a>
 
-## 5. Comparaison des deux guitares
+# 5. Comparaison des deux guitares
 
 Les deux guitares ne doivent pas être considérées comme deux versions d'un même instrument.
 
 Elles permettent au contraire d'explorer deux comportements différents avec le même amplificateur.
 
 | Caractéristique recherchée | Gibson Les Paul Classic DC | Gretsch John Gourley Broadkaster |
-|---|---|---|
+|:--|:--|:--|
 | Épaisseur | Très intéressante | Intéressante |
 | Densité | Très intéressante | Intéressante |
-| Sustain | Important | Différent selon le réglage |
+| Sustain | Important | Différent selon le contexte |
 | Attaque | Plus épaisse | Plus mise en avant |
 | Définition | Bonne | Très intéressante |
 | Séparation des notes | Bonne | Très intéressante |
@@ -145,33 +241,64 @@ Elles permettent au contraire d'explorer deux comportements différents avec le 
 | Sons massifs | Très adaptée | Adaptée |
 | Sons articulés | Adaptée | Très adaptée |
 
-Ce tableau constitue une orientation de travail et non une règle absolue.
+Ce tableau constitue une **orientation de travail**, et non une règle absolue.
 
-Le résultat dépendra toujours du réglage de l'amplificateur, du cabinet et du contexte musical.
+Le résultat dépendra toujours :
 
----
+- du canal du Brunetti ;
+- du réglage de l'amplificateur ;
+- du pickup ;
+- de l'accordage ;
+- des pédales ;
+- du cabinet ;
+- et du contexte musical.
 
 <a id="part4-element"></a>
 
 ## 6. La guitare comme élément du profil
 
-La guitare doit être considérée comme une partie intégrante d'un profil sonore lorsque son influence est importante.
+Dans ToneLab, la guitare ne doit pas être considérée comme une simple information descriptive.
 
-Un profil complet peut donc être décrit comme une combinaison de :
+Elle fait partie de la configuration qui produit le résultat sonore.
 
-- guitare ;
-- micros ;
-- canal ;
-- réglages de l'amplificateur ;
-- pédales ;
-- cabinet ;
-- contexte d'utilisation.
+Un profil peut donc être défini autour d'une guitare particulière lorsque celle-ci constitue une composante importante du résultat recherché.
 
-Cela permet d'éviter une erreur fréquente :
+Cela ne signifie pas nécessairement que le profil sera inutilisable avec une autre guitare.
 
-> considérer le réglage de l'amplificateur comme étant le son complet.
+Il faut plutôt distinguer :
 
-Le son final est le résultat de l'ensemble de la chaîne.
+- le **profil de référence** ;
+- la **guitare utilisée lors de sa construction** ;
+- les éventuelles **adaptations nécessaires** pour une autre guitare.
+
+Cette distinction est importante pour conserver la reproductibilité des expérimentations.
+
+### Les informations à conserver
+
+Lorsqu'un profil est testé ou validé, il est utile de conserver au minimum :
+
+- la guitare ;
+- le pickup utilisé ;
+- l'accordage ;
+- le cabinet ;
+- le canal de l'amplificateur ;
+- les réglages de l'amplificateur ;
+- les pédales utilisées ;
+- les observations réalisées pendant le test.
+
+L'application ToneLab permet précisément de conserver ces informations dans chaque test.
+
+La guitare devient ainsi une véritable variable expérimentale.
+
+### Le profil et son contexte
+
+Un réglage peut être excellent dans un contexte donné tout en devenant moins pertinent dans un autre.
+
+Par exemple, un réglage particulièrement efficace avec la Gibson, en Drop C#, sur le micro chevalet et avec un cabinet donné ne doit pas nécessairement être considéré comme une vérité générale.
+
+Il s'agit d'abord d'un résultat obtenu **dans ces conditions précises**.
+
+Cette précision est essentielle pour éviter de tirer des conclusions trop générales à partir d'une seule expérimentation.
 
 ---
 
@@ -179,20 +306,58 @@ Le son final est le résultat de l'ensemble de la chaîne.
 
 ## 7. Adapter le Gain
 
-Le niveau de sortie et le comportement des micros peuvent influencer la manière dont le préamplificateur réagit.
+Le Gain constitue l'un des paramètres les plus sensibles lorsqu'une guitare différente est utilisée.
 
-Une guitare envoyant davantage de signal peut provoquer :
+Une guitare dont le signal d'entrée est plus puissant ou dont la réponse favorise davantage certaines fréquences peut donner une sensation de saturation différente avec exactement le même réglage.
 
-- davantage de saturation ;
-- une attaque différente ;
-- une compression plus importante ;
-- une sensation de gain différente.
+Il peut donc être nécessaire d'adapter le Gain.
 
-Il peut donc être nécessaire d'adapter légèrement le Gain lorsqu'un même profil est utilisé avec une autre guitare.
+### Il ne faut cependant pas corriger automatiquement
 
-L'objectif n'est pas de conserver absolument la même position du potentiomètre.
+Une différence de saturation perçue ne signifie pas systématiquement qu'il faut modifier le Gain.
 
-L'objectif est de conserver le **même comportement sonore recherché**.
+Il faut d'abord déterminer **pourquoi** le résultat semble différent.
+
+La sensation peut provenir :
+
+- du niveau de sortie du pickup ;
+- de la réponse dans les médiums ;
+- de l'attaque ;
+- de la quantité de grave ;
+- de la dynamique ;
+- ou simplement de la manière dont la guitare réagit au même réglage.
+
+La première étape consiste donc à écouter la différence avant de chercher à la corriger.
+
+### Méthode
+
+Lorsqu'un profil existant est testé avec une autre guitare :
+
+1. conserver le Gain initial ;
+2. conserver les autres paramètres ;
+3. jouer dans les mêmes conditions ;
+4. identifier la différence ;
+5. déterminer si cette différence est réellement gênante ;
+6. modifier le Gain uniquement si nécessaire ;
+7. comparer avec le réglage initial.
+
+Cette méthode permet de déterminer si le Gain doit réellement être adapté ou si la différence constitue simplement une nouvelle caractéristique intéressante du profil.
+
+### Conserver les différences utiles
+
+Il ne faut pas chercher systématiquement à obtenir la même quantité de saturation avec toutes les guitares.
+
+Une guitare peut naturellement produire une sensation plus ouverte, plus dynamique ou plus dense.
+
+Si cette différence sert le territoire sonore recherché, elle doit être conservée.
+
+L'objectif n'est donc pas :
+
+> obtenir exactement le même son avec deux guitares.
+
+L'objectif est :
+
+> obtenir un résultat cohérent avec le même territoire sonore en conservant les qualités propres de chaque guitare.
 
 ---
 
@@ -200,23 +365,62 @@ L'objectif est de conserver le **même comportement sonore recherché**.
 
 ## 8. Adapter l'équilibre tonal
 
-La guitare influence fortement l'équilibre spectral perçu.
+L'égalisation de l'amplificateur peut également nécessiter une adaptation.
 
-Un réglage qui semble parfaitement équilibré avec une guitare peut paraître :
+Les commandes :
 
-- trop sombre ;
-- trop brillant ;
-- trop épais ;
-- trop creusé ;
-- ou trop agressif
+- Bass ;
+- Mid ;
+- Edge ;
 
-avec une autre guitare.
+permettent de modifier l'équilibre général du signal.
 
-L'adaptation doit donc être réalisée à l'écoute.
+Une guitare plus riche dans une zone fréquentielle donnée peut nécessiter un réglage différent pour conserver l'équilibre recherché.
 
-Il faut notamment éviter de corriger immédiatement un caractère provenant de la guitare en modifiant excessivement l'amplificateur.
+### Ne pas corriger par principe
 
-Une partie de la différence entre les deux instruments doit être considérée comme une qualité et non comme un défaut.
+Comme pour le Gain, il faut éviter de modifier immédiatement l'égalisation.
+
+Une différence de spectre peut être précisément ce qui rend une guitare intéressante pour un territoire donné.
+
+Il faut donc distinguer :
+
+- une **caractéristique utile** ;
+- un **déséquilibre gênant**.
+
+Cette distinction est fondamentale.
+
+### Exemple de démarche
+
+Supposons qu'un profil ait été construit avec la Gibson.
+
+Lorsqu'il est reproduit avec la Gretsch, plusieurs situations sont possibles.
+
+#### Situation A — le résultat reste équilibré
+
+Aucune modification n'est nécessaire.
+
+Le profil peut être considéré comme compatible avec les deux guitares.
+
+#### Situation B — la guitare apporte une présence supplémentaire
+
+Il peut être possible de conserver cette présence si elle améliore l'articulation ou l'attaque.
+
+Il ne faut pas nécessairement la supprimer.
+
+#### Situation C — une fréquence devient réellement excessive
+
+Une correction légère peut alors être envisagée.
+
+La correction devra rester aussi limitée que possible.
+
+#### Situation D — l'adaptation détruit la personnalité de la guitare
+
+Dans ce cas, il peut être préférable de conserver le réglage original et de considérer que le profil possède simplement une préférence pour une guitare donnée.
+
+Cette dernière situation n'est pas un échec.
+
+Elle constitue au contraire une information utile pour la bibliothèque de profils.
 
 ---
 
@@ -224,21 +428,67 @@ Une partie de la différence entre les deux instruments doit être considérée 
 
 ## 9. Adapter l'attaque et la définition
 
-L'attaque constitue un élément particulièrement important pour les profils Rock, Stoner, Post-Hardcore et High Gain.
+Toutes les différences entre deux guitares ne se traduisent pas directement par une modification des potentiomètres.
 
-Une guitare qui produit une attaque plus présente peut permettre d'utiliser un réglage plus dense sans perdre autant de définition.
+L'attaque et la définition constituent notamment des caractéristiques qui peuvent être très perceptibles sans qu'une correction d'égalisation soit nécessaire.
 
-À l'inverse, une guitare produisant un son naturellement plus épais peut nécessiter davantage d'attention afin de conserver la séparation des notes.
+Une guitare peut donner :
 
-La recherche devra donc tenir compte simultanément :
+- davantage de présence au début de la note ;
+- une attaque plus douce ;
+- une séparation plus nette des cordes ;
+- une sensation plus dense ;
+- une réponse plus dynamique.
 
-- du niveau de Gain ;
-- de l'attaque ;
-- de la quantité de médiums ;
-- du grave ;
-- de la définition.
+Ces différences doivent être évaluées avant toute modification du réglage de l'amplificateur.
 
----
+### L'attaque dans les rythmiques
+
+Pour les sons rythmiques, l'attaque peut être déterminante.
+
+Elle influence notamment :
+
+- la précision des palm-mutes ;
+- la séparation des accords ;
+- la lisibilité des riffs ;
+- la sensation de puissance ;
+- la dynamique du jeu.
+
+Une guitare qui produit une attaque particulièrement nette peut donc être avantageuse pour certains profils même si elle ne produit pas exactement le même équilibre tonal qu'une autre guitare.
+
+### La définition dans les accords
+
+La définition devient également importante lorsque le profil doit fonctionner avec :
+
+- des accords complexes ;
+- plusieurs cordes jouées simultanément ;
+- des accords saturés ;
+- des arrangements où plusieurs instruments occupent déjà le spectre.
+
+Un réglage qui semble impressionnant seul peut perdre de son intérêt lorsque les notes commencent à se mélanger.
+
+La comparaison entre la Gibson et la Gretsch doit donc également être réalisée dans ce contexte.
+
+### Ne pas confondre définition et brillance
+
+Une guitare plus définie n'est pas nécessairement une guitare plus brillante.
+
+La définition peut résulter de plusieurs facteurs :
+
+- attaque ;
+- dynamique ;
+- équilibre des médiums ;
+- quantité de grave ;
+- séparation des fréquences ;
+- comportement du pickup.
+
+Il faut donc éviter de corriger systématiquement une différence de définition en augmentant ou diminuant simplement l'Edge.
+
+### Une information utile pour ToneLab
+
+Lorsqu'une guitare apporte naturellement une meilleure définition dans un contexte donné, cette information doit être conservée dans les observations du test.
+
+Elle peut devenir un critère de sélection du matériel pour un futur profil.
 
 <a id="part4-privilegier-les-paul"></a>
 
@@ -322,16 +572,12 @@ Cela supprimerait justement une partie de l'intérêt de disposer de plusieurs i
 
 La Les Paul et la Gretsch doivent conserver leur personnalité.
 
-Le rôle du réglage de l'amplificateur est de permettre à chacune de fonctionner correctement dans le territoire sonore recherché.
-
 Il faut donc distinguer :
 
 - **corriger un déséquilibre** ;
 - **préserver une personnalité sonore**.
 
 Cette distinction sera importante lors de la construction des profils définitifs.
-
----
 
 <a id="part4-autres"></a>
 

@@ -15,22 +15,23 @@
 ## Sommaire de la partie
 
 - [1. Introduction](#part5-introduction)
-- [2. Pourquoi utiliser des pédales comme outils de sculpture](#part5-outils)
-- [3. La Tube Screamer dans la chaîne](#part5-tube-screamer)
-- [4. La Tube Screamer n'est pas seulement une pédale de saturation](#part5-fonction)
+- [2. Pédales et construction du profil](#part5-outils)
+- [3. La Tube Screamer](#part5-tube-screamer)
+- [4. Tube Screamer : boost ou overdrive](#part5-fonction)
 - [5. Le rôle du Drive](#part5-drive)
 - [6. Le rôle du Tone](#part5-tone)
 - [7. Le rôle du Level](#part5-level)
-- [8. La Tube Screamer et le canal XLead](#part5-xlead)
-- [9. La Tube Screamer et le canal Boost](#part5-boost)
+- [8. La Tube Screamer avec le XLead](#part5-xlead)
+- [9. La Tube Screamer avec le Boost](#part5-boost)
 - [10. Le MXR 6 Band EQ](#part5-mxr)
-- [11. L'égaliseur comme outil de correction](#part5-correction)
-- [12. L'égaliseur comme outil de coloration](#part5-coloration)
-- [13. Tube Screamer et égaliseur : deux fonctions différentes](#part5-complementaires)
-- [14. Ordre des éléments](#part5-ordre)
-- [15. Méthode de travail](#part5-methode)
+- [11. Correction et coloration](#part5-correction)
+- [12. Tube Screamer et EQ : deux fonctions différentes](#part5-complementaires)
+- [13. Ordre des éléments](#part5-ordre)
+- [14. Méthode de travail](#part5-methode)
+- [15. Variables à observer pendant un test](#part5-variables)
 - [16. Ce qu'il faut éviter](#part5-erreurs)
-- [17. À retenir](#part5-a-retenir)
+- [17. Documentation dans ToneLab](#part5-tonelab)
+- [18. À retenir](#part5-a-retenir)
 
 ---
 
@@ -38,84 +39,82 @@
 
 ## 1. Introduction
 
-Les profils précédents ont permis de définir les principales variables liées à l'amplificateur et aux guitares.
+Les parties précédentes ont permis de définir les principales variables liées au Brunetti, aux canaux et aux guitares.
 
-Il reste maintenant à intégrer les outils qui permettent de modifier plus précisément le signal entrant dans le Brunetti.
+Il faut maintenant intégrer les éléments qui permettent de modifier plus précisément le signal avant son entrée dans l'amplificateur.
 
-Dans notre configuration, deux éléments jouent un rôle particulièrement important :
+Dans notre configuration, deux pédales jouent un rôle particulièrement important :
 
 - la **Tube Screamer Analogman Silver Mod** ;
 - le **MXR 6 Band EQ**.
 
-Ces deux pédales ne doivent cependant pas être considérées comme de simples effets supplémentaires.
+Elles ne doivent pas être considérées uniquement comme des effets.
 
-Elles peuvent être utilisées comme de véritables **outils de sculpture sonore**.
-
-L'objectif de cette partie est de comprendre leur rôle avant de les intégrer aux profils musicaux.
+Elles peuvent également servir à orienter et affiner le comportement du profil sonore.
 
 ---
 
 <a id="part5-outils"></a>
 
-## 2. Pourquoi utiliser des pédales comme outils de sculpture
+## 2. Pédales et construction du profil
 
-Le Brunetti possède déjà une architecture particulièrement complète.
+Une pédale placée avant l'amplificateur peut modifier non seulement le son final, mais également la manière dont le préamplificateur réagit au signal qui lui est envoyé.
 
-Il serait donc inutile d'ajouter des pédales uniquement pour obtenir davantage de réglages.
+Cela permet notamment d'agir sur :
 
-L'intérêt des pédales est plutôt de permettre une intervention complémentaire sur le signal.
+- la saturation ;
+- l'attaque ;
+- la dynamique ;
+- l'équilibre fréquentiel ;
+- la définition.
 
-Elles peuvent notamment servir à :
+Cette distinction est importante pour la construction des profils.
 
-- modifier le signal avant la préamplification ;
-- resserrer ou accentuer certaines caractéristiques ;
-- modifier l'équilibre fréquentiel ;
-- pousser différemment un canal ;
-- adapter un profil à une guitare ;
-- rapprocher un réglage d'un territoire sonore particulier.
-
-Cette approche est particulièrement importante pour la Tube Screamer.
+Une pédale peut donc être utilisée comme un **effet**, mais également comme un **outil de sculpture sonore**.
 
 ---
 
 <a id="part5-tube-screamer"></a>
 
-## 3. La Tube Screamer dans la chaîne
+## 3. La Tube Screamer
 
-Dans notre configuration, la Tube Screamer Analogman Silver Mod est placée avant l'entrée du Brunetti.
+La Tube Screamer Analogman Silver Mod fait partie de la configuration de référence du ToneLab.
 
-Elle agit donc sur le signal avant son traitement par le préamplificateur.
+Son intérêt principal dans notre démarche n'est pas nécessairement de produire une saturation de type Tube Screamer.
 
-Cette position permet notamment de modifier la manière dont le canal réagit au signal provenant de la guitare.
+Elle peut surtout servir à modifier le signal envoyé au Brunetti.
 
-La Tube Screamer peut ainsi être utilisée de deux façons très différentes :
+Elle peut notamment :
 
-- comme pédale de saturation audible ;
-- comme outil de préparation du signal destiné à l'amplificateur.
+- pousser le préamplificateur ;
+- resserrer le grave ;
+- renforcer les médiums ;
+- accentuer l'attaque ;
+- améliorer la définition.
 
-Pour les profils fortement saturés, la seconde fonction est particulièrement importante.
+Son influence dépend toutefois fortement du canal utilisé et du réglage de l'amplificateur.
 
 ---
 
 <a id="part5-fonction"></a>
 
-## 4. La Tube Screamer n'est pas seulement une pédale de saturation
+## 4. Tube Screamer : boost ou overdrive
 
-Dans un contexte High Gain, utiliser la Tube Screamer uniquement pour ajouter de la saturation n'est généralement pas l'approche la plus intéressante.
+Deux utilisations doivent être distinguées.
 
-Elle peut au contraire être utilisée avec peu de Drive et davantage de Level afin de modifier le comportement du préamplificateur.
+### Utilisation comme boost
 
-L'objectif peut alors être de rechercher :
+Le Drive reste relativement faible tandis que le Level est utilisé pour pousser davantage l'entrée du Brunetti.
 
-- une attaque plus précise ;
-- une sensation plus tendue ;
-- des graves mieux contrôlés ;
-- une meilleure définition ;
-- une réponse plus adaptée aux riffs.
+La pédale participe alors peu à la création directe de la saturation.
 
-Cette logique est particulièrement intéressante pour les territoires inspirés des amplificateurs modernes à fort gain.
+Elle modifie surtout le comportement du préamplificateur.
 
-Elle rejoint notamment ce que nous avons observé lors de l'étude du territoire Mesa Boogie : la Tube Screamer sert principalement à **structurer le signal** plutôt qu'à simplement augmenter le niveau de saturation.
+### Utilisation comme overdrive
+
+Le Drive est davantage sollicité et la Tube Screamer participe directement à la saturation.
+
+Cette approche pourra être intéressante pour certains profils, mais elle ne doit pas être confondue avec l'utilisation de la pédale comme simple boost.
 
 ---
 
@@ -123,29 +122,13 @@ Elle rejoint notamment ce que nous avons observé lors de l'étude du territoire
 
 ## 5. Le rôle du Drive
 
-Le Drive détermine la quantité de saturation générée directement par la Tube Screamer.
+Le Drive détermine la quantité de saturation produite directement par la Tube Screamer.
 
-Pour notre utilisation comme outil de sculpture, il n'est pas nécessairement utile de le pousser fortement.
+Un réglage faible permet généralement de conserver davantage le caractère du Brunetti.
 
-Un Drive faible peut permettre de conserver davantage de caractère provenant du Brunetti tout en bénéficiant de l'action de la pédale sur le signal.
+Un réglage plus important fait davantage intervenir la pédale elle-même dans le résultat final.
 
-Un Drive plus important peut en revanche devenir intéressant lorsque la Tube Screamer doit participer davantage à la création de la saturation.
-
-Il faut donc distinguer deux approches :
-
-### Tube Screamer comme boost
-
-- Drive faible ;
-- Level relativement élevé ;
-- rôle principal : modifier le comportement du préamplificateur.
-
-### Tube Screamer comme overdrive
-
-- Drive plus important ;
-- Level adapté au résultat recherché ;
-- rôle principal : ajouter sa propre saturation au signal.
-
-Les deux approches devront être testées séparément lors de la construction des profils.
+Il faudra donc tester séparément ces deux approches lors de la construction des profils.
 
 ---
 
@@ -153,24 +136,20 @@ Les deux approches devront être testées séparément lors de la construction d
 
 ## 6. Le rôle du Tone
 
-Le Tone permet d'influencer l'équilibre spectral produit par la Tube Screamer.
+Le Tone modifie l'équilibre spectral de la Tube Screamer.
 
-Son réglage doit être considéré en relation avec :
+Son réglage doit être considéré en fonction :
 
-- la guitare ;
-- les micros ;
-- le canal utilisé ;
-- le niveau de Gain ;
-- l'égalisation du Brunetti ;
-- le cabinet.
+- de la guitare ;
+- des micros ;
+- du canal ;
+- du Gain ;
+- de l'égalisation ;
+- du cabinet.
 
-Il ne faut donc pas chercher une position universelle.
+Il n'existe donc pas de position universelle.
 
-Un réglage pouvant apporter de la précision à une Les Paul peut devenir trop agressif avec une guitare dont l'attaque est déjà très présente.
-
-Inversement, un réglage très doux peut manquer de définition avec un profil fortement saturé.
-
-Le Tone devra donc être ajusté en fonction du résultat global.
+Un réglage adapté à la Gibson peut par exemple produire une attaque excessive avec la Gretsch.
 
 ---
 
@@ -178,63 +157,58 @@ Le Tone devra donc être ajusté en fonction du résultat global.
 
 ## 7. Le rôle du Level
 
-Le Level constitue un paramètre particulièrement important lorsque la Tube Screamer est utilisée comme boost.
+Le Level est particulièrement important lorsque la Tube Screamer est utilisée comme boost.
 
-Son augmentation permet d'envoyer davantage de signal vers l'entrée du Brunetti.
+Augmenter le Level permet d'envoyer davantage de signal vers l'entrée du Brunetti.
 
-Le résultat peut alors être :
+Cela peut modifier :
 
-- davantage de saturation ;
-- une réponse plus comprimée ;
-- une attaque différente ;
-- une sensation de gain accrue.
+- la quantité de saturation ;
+- la compression ressentie ;
+- l'attaque ;
+- la dynamique.
 
-Il est donc important de ne pas confondre le Level de la Tube Screamer avec le Gain de l'amplificateur.
+Le Level de la Tube Screamer ne doit donc pas être assimilé au Gain du Brunetti.
 
-Deux profils ayant exactement le même Gain sur le Brunetti peuvent produire des résultats très différents selon le niveau envoyé par la Tube Screamer.
+Deux réglages identiques de l'amplificateur peuvent produire des résultats très différents selon le niveau envoyé par la pédale.
 
 ---
 
 <a id="part5-xlead"></a>
 
-## 8. La Tube Screamer et le canal XLead
+## 8. La Tube Screamer avec le XLead
 
-Le XLead constitue l'un des principaux candidats pour l'utilisation de la Tube Screamer comme outil de sculpture.
+Le XLead constitue un candidat particulièrement intéressant pour l'utilisation de la Tube Screamer comme boost.
 
-Lorsque le canal est déjà fortement saturé, la pédale peut permettre de modifier la manière dont le préamplificateur réagit.
+Sur un réglage déjà fortement saturé, elle peut notamment permettre :
 
-L'objectif recherché pourra notamment être :
+- de resserrer le grave ;
+- d'améliorer la définition ;
+- de renforcer l'attaque ;
+- de rendre les palm-mutes plus lisibles.
 
-- resserrer le grave ;
-- renforcer la sensation d'attaque ;
-- améliorer la définition ;
-- conserver des palm-mutes lisibles ;
-- éviter qu'une augmentation du Gain ne rende le son excessivement diffus.
+Cette association devra néanmoins être comparée au XLead utilisé sans Tube Screamer.
 
-Cette approche sera particulièrement utile pour les profils High Gain.
-
-Elle pourra également être comparée avec une utilisation du XLead sans Tube Screamer afin de mesurer précisément ce que la pédale apporte.
+L'objectif est de déterminer ce que la pédale apporte réellement, plutôt que de supposer qu'elle améliore systématiquement le résultat.
 
 ---
 
 <a id="part5-boost"></a>
 
-## 9. La Tube Screamer et le canal Boost
+## 9. La Tube Screamer avec le Boost
 
-La Tube Screamer ne doit pas être réservée au XLead.
+La Tube Screamer peut également être associée au canal Boost.
 
-Le canal Boost peut également bénéficier de son utilisation.
+Dans ce cas, elle peut permettre de faire évoluer progressivement le caractère du canal vers un son plus dense et plus saturé.
 
-Dans ce contexte, la pédale peut servir à :
+Cette combinaison est particulièrement intéressante pour les territoires Rock et Rock alternatif.
 
-- augmenter la saturation ;
-- modifier l'attaque ;
-- accentuer certaines fréquences ;
-- transformer progressivement un Crunch en son plus dense.
+Elle pourra également permettre de comparer deux approches :
 
-Cette approche peut être particulièrement intéressante pour les profils Rock et Rock alternatif.
+- Boost + Tube Screamer ;
+- XLead seul ou XLead + Tube Screamer.
 
-Elle permettra également de déterminer si le Boost associé à la Tube Screamer constitue une alternative plus dynamique au XLead.
+Le résultat devra être évalué en termes de saturation, de dynamique et d'attaque.
 
 ---
 
@@ -242,11 +216,9 @@ Elle permettra également de déterminer si le Boost associé à la Tube Screame
 
 ## 10. Le MXR 6 Band EQ
 
-Le MXR 6 Band EQ constitue un outil différent.
+Le MXR 6 Band EQ constitue un outil différent de la Tube Screamer.
 
-Contrairement à la Tube Screamer, son rôle principal est de modifier directement l'équilibre fréquentiel.
-
-Dans notre configuration, il dispose des bandes :
+Ses bandes sont :
 
 - 100 Hz ;
 - 200 Hz ;
@@ -255,127 +227,119 @@ Dans notre configuration, il dispose des bandes :
 - 1,6 kHz ;
 - 3,2 kHz.
 
-Il peut donc permettre d'intervenir de manière beaucoup plus ciblée sur le spectre.
+Il permet d'intervenir directement sur certaines zones du spectre.
 
-Cette possibilité est particulièrement intéressante pour adapter un profil sans modifier nécessairement le comportement général du canal.
+Dans ToneLab, il devra donc être considéré comme un élément à part entière du profil lorsqu'il est utilisé de manière significative.
 
 ---
 
 <a id="part5-correction"></a>
 
-## 11. L'égaliseur comme outil de correction
+## 11. Correction et coloration
 
-Le premier rôle du MXR peut être de corriger un déséquilibre.
+L'EQ peut avoir deux fonctions principales.
 
-Par exemple, un profil peut présenter :
+### Correction
+
+Il peut servir à corriger un déséquilibre :
 
 - trop de grave ;
-- trop de bas-médium ;
-- un manque de présence ;
-- une attaque trop agressive.
+- trop de bas-médiums ;
+- manque de présence ;
+- excès d'aigus.
 
-L'égaliseur peut alors permettre d'effectuer une correction ciblée.
+### Coloration
 
-Cette approche doit toutefois rester modérée.
+Il peut également être utilisé volontairement pour orienter le caractère du profil.
 
-Si l'égaliseur doit compenser énormément de défauts, il est probablement préférable de revoir d'abord le réglage de l'amplificateur.
+Il peut alors participer à la recherche :
 
-L'égaliseur doit compléter le profil plutôt que masquer un réglage incohérent.
+- d'un son plus massif ;
+- de davantage de médiums ;
+- d'une attaque plus présente ;
+- d'un son plus sombre ou plus brillant.
 
----
-
-<a id="part5-coloration"></a>
-
-## 12. L'égaliseur comme outil de coloration
-
-Le MXR peut également être utilisé volontairement pour donner une couleur particulière au profil.
-
-Il devient alors un outil de création plutôt qu'un simple correcteur.
-
-Cette utilisation peut notamment permettre de rapprocher un profil d'un territoire sonore particulier.
-
-Les différentes bandes peuvent servir à agir sur :
-
-- la sensation de poids ;
-- l'épaisseur ;
-- les médiums ;
-- l'attaque ;
-- la présence.
-
-Il faudra toutefois éviter de considérer les bandes individuellement.
-
-Le résultat doit toujours être évalué comme un ensemble.
+Dans les deux cas, l'EQ ne doit cependant pas servir à masquer un mauvais choix de canal ou de réglage général.
 
 ---
 
 <a id="part5-complementaires"></a>
 
-## 13. Tube Screamer et égaliseur : deux fonctions différentes
+## 12. Tube Screamer et EQ : deux fonctions différentes
 
-La Tube Screamer et le MXR 6 Band EQ peuvent intervenir sur des aspects proches, mais leur logique n'est pas identique.
+La Tube Screamer et l'EQ peuvent tous les deux modifier le résultat sonore, mais leur fonction principale n'est pas la même.
 
-La Tube Screamer agit principalement sur le **comportement du signal entrant dans l'amplificateur**.
-
-Le MXR permet principalement de **sculpter l'équilibre fréquentiel**.
-
-Cette distinction est importante.
-
-On peut donc résumer leur rôle de la manière suivante :
-
-| Outil | Fonction principale |
+| Élément | Fonction principale |
 |---|---|
-| Tube Screamer | Modifier le comportement du signal avant le préamplificateur |
+| Tube Screamer | Modifier le signal et le comportement du préamplificateur |
 | MXR 6 Band EQ | Modifier précisément l'équilibre fréquentiel |
-| Brunetti | Produire la base du caractère et de la saturation |
+| Brunetti | Constituer la base du caractère et de la saturation |
 
-L'objectif n'est donc pas de demander à chaque élément de faire le travail des autres.
+Cette distinction permet de mieux interpréter les résultats des expérimentations.
 
 ---
 
 <a id="part5-ordre"></a>
 
-## 14. Ordre des éléments
+## 13. Ordre des éléments
 
-L'ordre des éléments influence leur interaction.
+La configuration de référence reste :
 
-Dans notre configuration de référence, la Tube Screamer et le MXR sont utilisés avant l'entrée du Brunetti.
+**Guitare → Tube Screamer → MXR 6 Band EQ → Brunetti**
 
-Il faudra néanmoins conserver une méthode expérimentale permettant de déterminer quelle position produit le résultat recherché lorsque plusieurs pédales sont utilisées.
+Cet ordre permet de conserver une base stable pendant les premiers essais.
 
-L'ordre devra donc être documenté dans chaque profil lorsque celui-ci devient déterminant.
+Si l'ordre est modifié, cette information devra être conservée dans le test correspondant.
 
-Il ne faudra pas considérer l'ordre comme une simple information secondaire.
+L'ordre devient particulièrement important lorsque plusieurs pédales interviennent simultanément.
 
 ---
 
 <a id="part5-methode"></a>
 
-## 15. Méthode de travail
+## 14. Méthode de travail
 
-La méthode recommandée consiste à introduire les pédales progressivement.
+Les pédales doivent être introduites progressivement.
 
-### Étape 1 — Amplificateur seul
+La méthode de référence est :
 
-Construire d'abord un profil cohérent avec le Brunetti.
+1. construire une base avec le Brunetti seul ;
+2. ajouter la Tube Screamer ;
+3. identifier précisément son apport ;
+4. ajouter ensuite l'EQ ;
+5. comparer les différentes configurations ;
+6. conserver les réglages intéressants dans ToneLab.
 
-### Étape 2 — Tube Screamer
+Cette méthode permet de savoir quel élément est réellement responsable d'une amélioration.
 
-Ajouter ensuite la Tube Screamer et identifier précisément ce qu'elle apporte.
+---
 
-### Étape 3 — Égaliseur
+<a id="part5-variables"></a>
 
-Ajouter le MXR uniquement après avoir compris le comportement obtenu avec la Tube Screamer.
+## 15. Variables à observer pendant un test
 
-### Étape 4 — Comparaison
+Pour pouvoir comprendre l'influence réelle de chaque élément, il est utile de ne modifier qu'une variable importante à la fois.
 
-Comparer :
+| Élément testé | Ce que l'on cherche à observer |
+|---|---|
+| Tube Screamer OFF / ON | Influence globale de la pédale |
+| Drive | Part de saturation produite par la pédale |
+| Tone | Influence sur l'équilibre spectral et l'attaque |
+| Level | Influence sur le comportement du préamplificateur |
+| EQ OFF / ON | Influence globale de l'égalisation |
+| Bandes EQ | Zones fréquentielles responsables du changement |
+| Canal | Interaction avec le Boost ou le XLead |
+| Gain | Évolution de la saturation et de la dynamique |
+| Guitare | Réaction du profil au signal source |
+| Pickup | Influence du niveau et du caractère du signal |
+| Accordage | Influence des fondamentales et de la réponse dans le grave |
+| Cabinet | Influence sur le résultat final |
 
-- sans pédales ;
-- avec Tube Screamer ;
-- avec MXR ;
-- avec Tube Screamer + MXR.
+Cette méthode permet notamment d'éviter une situation dans laquelle plusieurs modifications produisent simultanément une amélioration ou une dégradation sans que l'on sache laquelle en est responsable.
 
-Cette méthode permet d'identifier la contribution réelle de chaque élément.
+Il n'est toutefois pas nécessaire de modifier **un seul réglage numérique à chaque fois**. On peut par exemple comparer directement deux configurations complètes lorsque l'objectif est de comparer deux approches différentes.
+
+L'important est de conserver suffisamment d'informations pour pouvoir comprendre la différence entre les deux tests.
 
 ---
 
@@ -383,37 +347,60 @@ Cette méthode permet d'identifier la contribution réelle de chaque élément.
 
 ## 16. Ce qu'il faut éviter
 
-Plusieurs erreurs doivent être évitées.
+Plusieurs erreurs doivent être évitées :
 
-### Ajouter trop de gain
+- augmenter systématiquement le gain ;
+- utiliser trop d'EQ pour corriger un mauvais réglage d'ampli ;
+- modifier plusieurs paramètres simultanément ;
+- rechercher un réglage universel pour toutes les guitares ;
+- copier directement un réglage conçu pour un autre amplificateur.
 
-Une Tube Screamer n'a pas besoin d'être utilisée pour augmenter constamment la saturation.
+Un réglage doit toujours être évalué dans le contexte du matériel utilisé.
 
-### Corriger excessivement avec l'EQ
+---
 
-Un égaliseur ne doit pas servir à réparer un réglage fondamentalement mauvais.
+<a id="part5-tonelab"></a>
 
-### Modifier plusieurs paramètres simultanément
+## 17. Documentation dans ToneLab
 
-Si le Gain, la Tube Screamer et l'EQ changent en même temps, il devient difficile de savoir ce qui a réellement amélioré le résultat.
+Les expérimentations liées à la Tube Screamer et à l'EQ doivent être enregistrées avec le reste de la configuration.
 
-### Chercher une position universelle
+Un test doit notamment permettre de conserver :
 
-Un réglage efficace avec la Les Paul peut ne pas être optimal avec la Gretsch.
+- la guitare ;
+- l'accordage ;
+- le micro utilisé ;
+- le cabinet ;
+- le canal du Brunetti ;
+- les réglages de l'amplificateur ;
+- les pédales activées ;
+- leurs réglages ;
+- l'objectif du test ;
+- les observations ;
+- la conclusion ;
+- le statut du résultat.
 
-### Copier un réglage externe
+Plusieurs tests peuvent donc être nécessaires avant d'obtenir un profil réellement validé.
 
-Les positions trouvées pour un autre amplificateur ne doivent pas être transposées directement au Brunetti.
+Cette organisation permet de distinguer clairement :
 
-Les outils doivent être réglés en fonction du résultat recherché sur notre matériel.
+- une hypothèse ;
+- un essai ;
+- un réglage prometteur ;
+- un profil validé.
+
+Le détail des expérimentations appartient ainsi à ToneLab, tandis que la documentation Markdown peut conserver les conclusions importantes et les profils retenus.
 
 ---
 
 <a id="part5-a-retenir"></a>
 
-## 17. À retenir
+## 18. À retenir
 
-La Tube Screamer Analogman Silver Mod et le MXR 6 Band EQ doivent être considérés comme des **outils de construction des profils**, et non comme de simples effets ajoutés à la chaîne.
+La Tube Screamer et l'égalisation sont deux outils importants dans la construction des profils sonores.
+
+La Tube Screamer agit principalement sur le signal envoyé au Brunetti et sur le comportement du préamplificateur.
+Le MXR permet de travailler plus directement sur l'équilibre fréquentiel.
 
 La Tube Screamer peut notamment servir à :
 
@@ -429,11 +416,13 @@ Le MXR peut notamment servir à :
 - adapter un profil à une guitare ;
 - orienter davantage le caractère sonore.
 
-La méthode ToneLab doit cependant conserver une règle essentielle :
+Ils doivent être introduits progressivement afin de pouvoir identifier leur contribution réelle.
 
-> **modifier un élément à la fois et identifier précisément ce qu'il apporte.**
+La règle essentielle reste donc :
 
-C'est cette méthode qui permettra de construire des profils reproductibles plutôt que des réglages empiriques difficiles à comprendre.
+> **construire d'abord une base cohérente, puis modifier un élément à la fois.**
+
+Les réglages expérimentaux et leurs résultats seront conservés dans ToneLab afin de pouvoir comparer plusieurs variantes avant de retenir un profil définitif.
 
 ---
 
