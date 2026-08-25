@@ -28,55 +28,70 @@ function Area({label,value,onChange,autoGrow}:{label?:string,value:string,onChan
 }
 const LIST_KEYS:ListKey[]=["status","artist","guitar","tuning","pickup","cabinet"];
 const PEDAL_PARAM_SUGGESTIONS=["Drive","Gain","Tone","Level","Volume","Bass","Mid","Treble","Presence","Depth","Bloom","Fuzz","Sustain","Attack","Release","Speed","Rate","Mix","Sensitivity","Output","Blend"];
-function ParamRow({param,onChange,onRemove,removable=true,ampChannels}:{param:PedalParam,onChange:(patch:Partial<PedalParam>)=>void,onRemove:()=>void,removable?:boolean,ampChannels?:string[]}){
+function ParamRow({param,onChange,onRemove,removable=true,ampChannels,dragHandle}:{param:PedalParam,onChange:(patch:Partial<PedalParam>)=>void,onRemove:()=>void,removable?:boolean,ampChannels?:string[],dragHandle?:ReactNode}){
  const [nameEditing,setNameEditing]=useState(false);
  const [nameDraft,setNameDraft]=useState(param.name);
  const commitName=()=>{const v=nameDraft.trim();if(v)onChange({name:v});setNameEditing(false)};
  const nameField=nameEditing
   ?<input autoFocus className="pedal-param-name-input" list="pedal-param-names" value={nameDraft} onChange={e=>setNameDraft(e.target.value)} onKeyDown={e=>{if(e.key==="Enter")commitName();if(e.key==="Escape"){setNameDraft(param.name);setNameEditing(false)}}} onBlur={commitName}/>
   :<span className="pedal-param-name-label" onClick={()=>{setNameDraft(param.name);setNameEditing(true)}} title="Cliquer pour renommer">{param.name}</span>;
- const configurePositions=()=>{
+ const [configOpen,setConfigOpen]=useState(false);
+ const setPositionsCount=(n:2|3)=>{
   const current=param.options||["OFF","ON"];
-  const nStr=prompt("Nombre de positions (2 ou 3) ?",String(current.length));
-  if(nStr===null)return;
-  const n=Math.min(3,Math.max(2,parseInt(nStr,10)||current.length));
-  const next:string[]=[];
-  for(let i=0;i<n;i++){
-   const label=prompt(`Libellé position ${i+1}`,current[i]??(i===0?"OFF":"ON"));
-   if(label===null)return;
-   next.push(label.trim()||current[i]||`Position ${i+1}`);
-  }
+  const next=current.slice(0,n);
+  while(next.length<n)next.push(`Position ${next.length+1}`);
   onChange({options:next,value:next.includes(param.value)?param.value:next[0]});
  };
- const configureRange=()=>{
-  const minStr=prompt("Valeur minimale ?",String(param.min??0));
-  if(minStr===null)return;
-  const maxStr=prompt("Valeur maximale ?",String(param.max??10));
-  if(maxStr===null)return;
-  const stepStr=prompt("Pas (incrément) ?",String(param.step??0.5));
-  if(stepStr===null)return;
-  const min=Number(minStr),max=Number(maxStr),step=Number(stepStr);
-  if(isNaN(min)||isNaN(max)||isNaN(step)||min>=max||step<=0)return;
-  const value=String(Math.min(max,Math.max(min,Number(param.value)||0)));
-  if(ampChannels){
-   const channelStr=prompt(`Disponible uniquement sur un canal ? (laisser vide = tous les canaux)\nCanaux possibles : ${ampChannels.join(", ")}`,param.onlyChannel??"");
-   if(channelStr===null)return;
-   onChange({min,max,step,value,onlyChannel:channelStr.trim()||undefined});
-   return;
-  }
-  onChange({min,max,step,value});
+ const setPositionLabel=(idx:number,label:string)=>{
+  const next=[...(param.options||["OFF","ON"])];
+  next[idx]=label;
+  onChange({options:next,value:next.includes(param.value)?param.value:next[0]});
  };
+ const toggleChannel=(c:string)=>{
+  const current=param.onlyChannels||[];
+  const next=current.includes(c)?current.filter(x=>x!==c):[...current,c];
+  onChange({onlyChannels:next.length?next:undefined});
+ };
+ const configPanel=removable&&<>
+  <button type="button" className="switch-config" onClick={()=>setConfigOpen(true)} title="Configurer ce réglage" aria-label="Configurer ce réglage">⚙</button>
+  {configOpen&&<div className="param-config-overlay" onClick={()=>setConfigOpen(false)}>
+   <div className="param-config-panel" onClick={e=>e.stopPropagation()}>
+    <div className="param-config-panel-header"><strong>{param.name}</strong><button type="button" className="modal-close" onClick={()=>setConfigOpen(false)} aria-label="Fermer">✕</button></div>
+    {param.kind==="switch"?<>
+     <div className="param-config-positions-count">
+      <button type="button" className={(param.options||["OFF","ON"]).length===2?"switch-toggle-option active":"switch-toggle-option"} onClick={()=>setPositionsCount(2)}>2</button>
+      <button type="button" className={(param.options||["OFF","ON"]).length===3?"switch-toggle-option active":"switch-toggle-option"} onClick={()=>setPositionsCount(3)}>3</button>
+     </div>
+     <div className="param-config-positions-labels">
+      {(param.options||["OFF","ON"]).map((opt,idx)=><input key={idx} type="text" value={opt} onChange={e=>setPositionLabel(idx,e.target.value)}/>)}
+     </div>
+    </>:<div className="param-config-minmaxstep">
+     <label>Min<input type="number" value={param.min??0} onChange={e=>{const n=Number(e.target.value);if(!isNaN(n))onChange({min:n})}}/></label>
+     <label>Max<input type="number" value={param.max??10} onChange={e=>{const n=Number(e.target.value);if(!isNaN(n))onChange({max:n})}}/></label>
+     <label>Pas<input type="number" step="0.1" value={param.step??0.5} onChange={e=>{const n=Number(e.target.value);if(!isNaN(n))onChange({step:n})}}/></label>
+    </div>}
+    {ampChannels&&<>
+     <span className="param-config-title">Canaux</span>
+     <div className="param-config-channels">
+      {ampChannels.map(c=><label key={c} className="channel-picker-option"><input type="checkbox" checked={(param.onlyChannels||[]).includes(c)} onChange={()=>toggleChannel(c)}/> {c}</label>)}
+     </div>
+    </>}
+   </div>
+  </div>}
+ </>;
  return <div className={param.kind==="switch"?"field pedal-param pedal-param--switch":"field pedal-param"}>
   {param.kind==="switch"
    ?<div className="pedal-param-row">
+     {dragHandle}
      <div className="switch-toggle">
       {(param.options||["OFF","ON"]).map(o=><button type="button" key={o} className={param.value===o?"switch-toggle-option active":"switch-toggle-option"} onClick={()=>onChange({value:o})}>{o}</button>)}
      </div>
-     {removable&&<button type="button" className="switch-config" onClick={configurePositions} title="Configurer le nombre et le nom des positions">⚙</button>}
+     {configPanel}
      {nameField}
      {removable&&<button type="button" className="chip-remove" onClick={onRemove} aria-label="Supprimer ce composant">✕</button>}
     </div>
    :<div className={removable?"pedal-param-row pedal-param-row--range":"pedal-param-row pedal-param-row--range pedal-param-row--aligned"}>
+     {dragHandle}
      {nameField}
      <div className={param.kind==="slider"?"range-row range-row--slider":"range-row range-row--knob"}>
       {(()=>{const min=param.min??0;const max=param.max??10;const step=param.step??0.5;const num=Number(param.value)||0;const set=(n:number)=>onChange({value:String(Math.min(max,Math.max(min,n)))});return <>
@@ -86,7 +101,7 @@ function ParamRow({param,onChange,onRemove,removable=true,ampChannels}:{param:Pe
        <button type="button" onClick={()=>set(num+step)}>+</button>
       </>})()}
      </div>
-     {removable&&<button type="button" className="switch-config" onClick={configureRange} title="Configurer les bornes (min/max/pas)">⚙</button>}
+     {configPanel}
      {removable&&<button type="button" className="chip-remove" onClick={onRemove} aria-label="Supprimer ce composant">✕</button>}
     </div>}
  </div>;
@@ -117,12 +132,46 @@ function AmpSwitcher({catalog,onPick}:{catalog:AmpTemplate[],onPick:(tpl:AmpTemp
  </div>;
 }
 function ParamListEditor({params,onChange,removable=true,ampChannels}:{params:PedalParam[],onChange:(params:PedalParam[])=>void,removable?:boolean,ampChannels?:string[]}){
+ const [dragIndex,setDragIndex]=useState<number|null>(null);
+ const [hoverIndex,setHoverIndex]=useState<number|null>(null);
+ const rowRefs=useRef<(HTMLDivElement|null)[]>([]);
  const setParam=(i:number,patch:Partial<PedalParam>)=>onChange(params.map((p,idx)=>idx===i?{...p,...patch}:p));
  const removeParam=(i:number)=>onChange(params.filter((_,idx)=>idx!==i));
+ const reorder=(from:number,to:number)=>{
+  if(from===to)return;
+  const next=[...params];
+  const [moved]=next.splice(from,1);
+  next.splice(to,0,moved);
+  onChange(next);
+ };
+ // Glisser-déposer via Pointer Events (souris + tactile), même mécanisme que le réordonnancement des pédales.
+ const handlePointerMove=(e:{clientY:number})=>{
+  if(dragIndex===null)return;
+  const y=e.clientY;
+  let closest=dragIndex,closestDist=Infinity;
+  params.forEach((_,idx)=>{
+   const el=rowRefs.current[idx];
+   if(!el)return;
+   const rect=el.getBoundingClientRect();
+   const dist=Math.abs(y-(rect.top+rect.height/2));
+   if(dist<closestDist){closestDist=dist;closest=idx}
+  });
+  setHoverIndex(closest);
+ };
+ const handlePointerUp=()=>{
+  if(dragIndex!==null&&hoverIndex!==null)reorder(dragIndex,hoverIndex);
+  setDragIndex(null);
+  setHoverIndex(null);
+ };
  const rangeLengths=params.filter(p=>p.kind!=="switch").map(p=>p.name.length);
  const labelCh=rangeLengths.length?Math.min(16,Math.max(6,Math.max(...rangeLengths)))+1:0;
- const style=!removable&&labelCh?({"--param-label-ch":`${labelCh}ch`} as CSSProperties):undefined;
- return <div className="grid" style={style}>{params.map((p,i)=><ParamRow key={i} param={p} onChange={patch=>setParam(i,patch)} onRemove={()=>removeParam(i)} removable={removable} ampChannels={ampChannels}/>)}</div>;
+ const style=!removable&&labelCh?({"--param-label-ch":`${labelCh}ch`} as CSSProperties):(removable?({gridTemplateColumns:"1fr"} as CSSProperties):undefined);
+ return <div className="grid" style={style}>{params.map((p,i)=>
+  <div key={i} ref={el=>{rowRefs.current[i]=el}} className={dragIndex===i?"pedal-drag-wrapper dragging":hoverIndex===i&&dragIndex!==null?"pedal-drag-wrapper drop-target":"pedal-drag-wrapper"}>
+   <ParamRow param={p} onChange={patch=>setParam(i,patch)} onRemove={()=>removeParam(i)} removable={removable} ampChannels={ampChannels}
+    dragHandle={removable?<span className="pedal-drag-handle" onPointerDown={e=>{setDragIndex(i);(e.target as HTMLElement).setPointerCapture(e.pointerId)}} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} title="Glisser pour réordonner">⣿</span>:undefined}/>
+  </div>)}
+ </div>;
 }
 function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}:{pedal:Pedal,catalog:PedalTemplate[],onChange:(p:Pedal)=>void,onRemove:()=>void,onSaveAsTemplate:(tpl:PedalTemplate)=>void,dragHandle?:ReactNode}){
  const [nameEditing,setNameEditing]=useState(false);
@@ -313,7 +362,7 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
  const ampTpl=ampCatalog.find(t=>t.id===test.amp.templateId);
  const ampOutOfSync=ampNeedsResync(test.amp,ampCatalog);
  const [ampLinking,setAmpLinking]=useState(false);
- const visibleAmpParams=test.amp.params.filter(p=>!p.onlyChannel||p.onlyChannel===test.amp.channel);
+ const visibleAmpParams=test.amp.params.filter(p=>!p.onlyChannels||p.onlyChannels.length===0||p.onlyChannels.includes(test.amp.channel));
  const onAmpParamsChange=(params:PedalParam[])=>{
   const byName=new Map(params.map(p=>[p.name,p]));
   onUpdateAmpParams({...test.amp,params:test.amp.params.map(p=>byName.get(p.name)??p)});
@@ -333,12 +382,14 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
    <button type="button" className="pedal-reset-btn" onClick={resetAmp} title="Remettre tous les réglages à 0">⏮</button>
    <AmpSwitcher catalog={ampCatalog.filter(t=>t.id!==test.amp.templateId)} onPick={onReplaceAmpFromCatalog}/>
   </span>}>
-   {ampTpl&&<label className="field field-inline">
-    <span>Canal</span>
-    <select value={test.amp.channel} onChange={e=>onUpdateAmpParams({...test.amp,channel:e.target.value})}>
-     {ampTpl.channels.map(c=><option key={c} value={c}>{c}</option>)}
-    </select>
-   </label>}
+   {ampTpl&&<div className="amp-channel-row">
+    <label className="field field-inline">
+     <span>Canal</span>
+     <select value={test.amp.channel} onChange={e=>onUpdateAmpParams({...test.amp,channel:e.target.value})}>
+      {ampTpl.channels.map(c=><option key={c} value={c}>{c}</option>)}
+     </select>
+    </label>
+   </div>}
    {ampTpl
     ?(ampOutOfSync&&<button type="button" className="pedal-resync-corner" onClick={()=>{if(confirm(`Resynchroniser l'ampli avec le modèle "${ampTpl.brand} ${ampTpl.model}" du catalogue ? Les valeurs compatibles seront conservées.`))onUpdateAmpParams(resyncAmpFromCatalog(test.amp,ampCatalog))}} title="Le catalogue a changé — recharger les réglages">⟳</button>)
     :(ampLinking

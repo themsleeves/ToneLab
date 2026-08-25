@@ -15,6 +15,22 @@ header p{margin:3px 0;color:#b9c4d2;font-size:13px}
 .menu-panel{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid #d5dbe3;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);padding:6px;display:flex;flex-direction:column;gap:2px;min-width:190px;max-width:calc(100vw - 24px);z-index:10}
 .menu-panel button{text-align:left;border:none;background:transparent;border-radius:6px;padding:9px 10px}
 .menu-panel button:hover{background:#eef1f5}
+.param-config-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.param-config-panel{background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);max-width:280px;width:100%;padding:12px;display:flex;flex-direction:column;gap:5px}
+.param-config-minmaxstep{display:flex;gap:8px}
+.param-config-minmaxstep label{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font-size:10px;color:#566170}
+.param-config-minmaxstep input[type=number]{width:48px}
+.param-config-channels{display:flex;flex-wrap:wrap;gap:4px 10px}
+.param-config-panel-header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.param-config-panel label{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:11px;color:#566170}
+.param-config-panel input[type=number]{width:56px;font-size:16px;border:1px solid #cbd2dc;border-radius:6px;padding:3px 5px}
+.param-config-panel input[type=text]{font-size:16px;border:1px solid #cbd2dc;border-radius:6px;padding:3px 5px;width:100%}
+.param-config-title{font-size:10px;font-weight:700;color:#566170;text-transform:uppercase;letter-spacing:.03em;margin-top:4px}
+.param-config-positions-count{display:flex;gap:4px}
+.param-config-positions-count .switch-toggle-option{padding:4px 10px}
+.param-config-positions-labels{display:flex;gap:4px}
+.param-config-positions-labels input[type=text]{width:64px;font-size:16px}
+.channel-picker-option{display:flex;align-items:center;gap:4px;font-size:12px;white-space:nowrap;cursor:pointer}
 .workspace{display:grid;grid-template-columns:1fr;min-height:calc(100vh - 200px)}
 .workspace.show-list article{display:none}
 .workspace.show-form aside{display:none}
@@ -38,6 +54,7 @@ article{padding:16px 16px 40px;overflow:auto}
 .field .check{margin-top:0}
 .field-inline{flex-direction:row;align-items:center;gap:8px}
 .field-inline span{flex:0 0 auto}
+.amp-channel-row{padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #d5dbe3}
 .section-toggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer}
 .pedal-card{position:relative}
 .pedal-card h2{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
@@ -95,6 +112,7 @@ article{padding:16px 16px 40px;overflow:auto}
 .pedal-drag-handle{cursor:grab;color:#9aa5b1;font-size:14px;-webkit-user-select:none;user-select:none;margin-right:2px;touch-action:none}
 .pedal-drag-handle:active{cursor:grabbing}
 .pedal-drag-wrapper.drop-target{outline:2px dashed #4f8edb;outline-offset:2px;border-radius:10px}
+.grid>.pedal-drag-wrapper{margin-bottom:0}
 .test-item{display:flex;align-items:center;gap:8px;border:1px solid #cbd2dc;background:#fff;border-radius:7px;padding:8px 11px}
 .test-item .test-item-btn{flex:1;min-width:0;border:none;background:transparent;padding:0;text-align:left;cursor:pointer}
 .collapsible-section{background:#fff;border:1px solid #d5dbe3;border-radius:10px;margin-bottom:14px}

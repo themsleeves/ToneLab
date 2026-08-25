@@ -1,6 +1,6 @@
 # ToneLab Profiles
 
-Version 0.3.0 — application mobile-first pour documenter les essais de profils sonores (amplis + pédales), entièrement pilotée par catalogue.
+Version 1.0.0 — application mobile-first pour documenter les essais de profils sonores (amplis + pédales), entièrement pilotée par catalogue.
 
 ## Fonctionnalités
 

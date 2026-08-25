@@ -2,19 +2,23 @@ import type { AmpTemplate, PedalParam, Amp } from "./types";
 
 const KEY = "tonelab-amp-catalog";
 
-const knob = (name: string, value = "", onlyChannel?: string): PedalParam => (onlyChannel ? { name, kind: "knob", value, onlyChannel } : { name, kind: "knob", value });
+const knob = (name: string, value = "", onlyChannels?: string[]): PedalParam => (onlyChannels && onlyChannels.length ? { name, kind: "knob", value, onlyChannels } : { name, kind: "knob", value });
 
 // Premier modèle du catalogue d'amplis — reprend les réglages actuels du Brunetti XL R-EVO II.
 // "Bright" (knob) n'est disponible que sur le canal "Clean" (onlyChannel).
 export const defaultAmpCatalog: AmpTemplate[] = [
-  {"id":"brunetti-xl-revo2","brand":"Brunetti","model":"XL R-EVO II","channels":["Clean","Boost","XLead"],"params":[{"name":"Gain","kind":"knob","value":""},{"name":"Bass","kind":"knob","value":""},{"name":"Mid","kind":"knob","value":""},{"name":"Edge","kind":"knob","value":""},{"name":"Master","kind":"knob","value":""},{"name":"Bright","kind":"knob","value":"","onlyChannel":"Clean"},{"name":"Focus","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""},{"name":"Depth","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""}]},
+  {"id":"brunetti-xl-revo2","brand":"Brunetti","model":"XL R-EVO II","channels":["Clean","Boost","XLead"],"params":[{"name":"Gain","kind":"knob","value":""},{"name":"Bass","kind":"knob","value":""},{"name":"Mid","kind":"knob","value":""},{"name":"Edge","kind":"knob","value":""},{"name":"Master","kind":"knob","value":""},{"name":"Bright","kind":"knob","value":"","onlyChannels":["Clean"]},{"name":"Focus","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""},{"name":"Depth","kind":"knob","value":""},{"name":"Level","kind":"knob","value":""}]},
   {"id":"gibson-skylark-5T","brand":"Gibson","model":"Skylark 5w","channels":["Principal"],"params":[{"name":"Master","kind":"knob","value":"0"}]},
 ];
 
 export function loadAmpCatalog(): AmpTemplate[] {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as AmpTemplate[]) : defaultAmpCatalog;
+    const catalog = raw ? (JSON.parse(raw) as any[]) : defaultAmpCatalog;
+    return catalog.map(t => ({ ...t, params: t.params.map((p: any) => {
+      if (p.onlyChannel && !p.onlyChannels) { const { onlyChannel, ...rest } = p; return { ...rest, onlyChannels: [onlyChannel] }; }
+      return p;
+    }) }));
   } catch {
     return defaultAmpCatalog;
   }
@@ -48,7 +52,7 @@ export function resyncAmpFromCatalog(amp: Amp, catalog: AmpTemplate[]): Amp {
 }
 
 // Signature structurelle (nom/type/positions/bornes/canal, hors valeur) pour détecter si un catalogue a évolué depuis la liaison de l'ampli.
-const ampParamSignature = (params: PedalParam[]) => params.map(p => `${p.name.trim().toLowerCase()}|${p.kind}|${(p.options || []).join(",")}|${p.min ?? ""}|${p.max ?? ""}|${p.step ?? ""}|${p.onlyChannel ?? ""}`).join(";");
+const ampParamSignature = (params: PedalParam[]) => params.map(p => `${p.name.trim().toLowerCase()}|${p.kind}|${(p.options || []).join(",")}|${p.min ?? ""}|${p.max ?? ""}|${p.step ?? ""}|${(p.onlyChannels || []).slice().sort().join(",")}`).join(";");
 
 export function ampNeedsResync(amp: Amp, catalog: AmpTemplate[]): boolean {
   const tpl = catalog.find(t => t.id === amp.templateId);

@@ -38,7 +38,7 @@ ${r("Cabinet",t.cabinet)}
 | Paramètre | Réglage |
 |---|---:|
 ${r("Canal",t.amp.channel)}
-${t.amp.params.filter(p=>!p.onlyChannel||p.onlyChannel===t.amp.channel).map(p=>r(p.name,p.value)).join("\n")}
+${t.amp.params.filter(p=>!p.onlyChannels||p.onlyChannels.length===0||p.onlyChannels.includes(t.amp.channel)).map(p=>r(p.name,p.value)).join("\n")}
 
 ${t.pedals.map(p=>`## ${p.name} (${p.enabled==="ON"?"Activée":"Désactivée"})
 | Paramètre | Réglage |
