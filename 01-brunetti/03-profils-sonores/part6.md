@@ -2,9 +2,9 @@
 
 ## Navigation
 
-[← Retour à l'index du chapitre Profils sonores](index.md)
-
 [← Partie 5 — Rôle de la Tube Screamer et de l'égalisation](part5.md)
+
+[↑ Retour à l'index du chapitre Profils sonores](index.md)
 
 [→ Partie 7 — Variantes et adaptation](part7.md)
 
@@ -21,17 +21,16 @@
 - [5. Queens of the Stone Age](#part6-qotsa)
 - [6. Refused](#part6-refused)
 - [7. Rage Against The Machine](#part6-ratm)
-- [8. Tool](#part6-tool)
-- [9. Kyuss](#part6-kyuss)
-- [10. Hermano](#part6-hermano)
-- [11. Deftones](#part6-deftones)
-- [12. Biffy Clyro](#part6-biffy)
-- [13. Plusieurs profils pour un même artiste](#part6-multiples)
-- [14. Profil principal et variantes](#part6-principal)
-- [15. Niveau de précision des profils](#part6-precision)
-- [16. Statut des profils](#part6-statut)
-- [17. Méthode de validation](#part6-validation)
-- [18. À retenir](#part6-a-retenir)
+- [8. Kyuss](#part6-kyuss)
+- [9. Hermano](#part6-hermano)
+- [10. Deftones](#part6-deftones)
+- [11. Biffy Clyro](#part6-biffy)
+- [12. Plusieurs tests pour une même référence](#part6-multiples)
+- [13. Profil, variante et configuration matérielle](#part6-configuration)
+- [14. Niveau de précision des profils](#part6-precision)
+- [15. Statut des profils](#part6-statut)
+- [16. Méthode de validation](#part6-validation)
+- [17. À retenir](#part6-a-retenir)
 
 ---
 
@@ -39,27 +38,26 @@
 
 ## 1. Introduction
 
-Les parties précédentes ont permis de construire les bases nécessaires à la création des profils musicaux.
+Les parties précédentes ont permis de construire les bases nécessaires à la création de profils sonores cohérents.
 
 Nous disposons désormais :
 
-- d'une méthode de construction ;
+- d'une méthode de construction des profils ;
 - de profils de référence ;
-- d'une cartographie des territoires sonores ;
-- d'une connaissance de l'influence des différentes guitares ;
-- d'une méthode d'utilisation de la Tube Screamer et du MXR 6 Band EQ.
+- d'une cartographie des principaux territoires sonores ;
+- d'une connaissance du comportement des canaux du Brunetti ;
+- d'une première compréhension de l'influence des guitares et des cabinets ;
+- d'une méthode d'utilisation de la Tube Screamer et des égaliseurs.
 
-La présente partie constitue donc le passage vers les **profils associés aux références musicales du ToneLab**.
+La présente partie constitue le passage vers les **références musicales concrètes du projet**.
 
-L'objectif n'est cependant pas de rechercher immédiatement un réglage définitif pour chaque artiste.
+L'objectif n'est pas de prétendre reproduire exactement le son ou le matériel d'un artiste.
 
-Il s'agit d'abord de déterminer :
+Il s'agit de déterminer comment exploiter le Brunetti XL R-EVO II et le matériel disponible pour construire une configuration cohérente avec le territoire sonore recherché.
 
-- quel territoire sonore est recherché ;
-- quelle configuration du Brunetti constitue le meilleur point de départ ;
-- quelle guitare est la plus pertinente ;
-- quels outils complémentaires sont nécessaires ;
-- quelles caractéristiques doivent être conservées.
+Les références musicales constituent donc des **objectifs d'écoute et de recherche**, et non des presets préétablis.
+
+Les réglages précis seront progressivement construits à partir des expérimentations réalisées dans ToneLab.
 
 ---
 
@@ -67,35 +65,60 @@ Il s'agit d'abord de déterminer :
 
 ## 2. Qu'est-ce qu'un profil musical ?
 
-Un profil musical est un profil sonore construit pour répondre à une référence musicale précise.
+Un profil musical décrit une configuration destinée à répondre à une référence ou à un objectif sonore précis.
 
-Cette référence peut être :
+Il ne se limite pas aux positions des potentiomètres de l'amplificateur.
 
-- un groupe ;
-- un guitariste ;
-- un album ;
-- une période ;
-- un morceau ;
-- ou simplement une esthétique sonore.
+Selon le niveau de précision recherché, il peut prendre en compte :
 
-Un profil musical ne doit donc pas être défini uniquement par son nom.
+- la référence musicale ;
+- le territoire sonore recherché ;
+- le canal du Brunetti ;
+- les réglages de l'amplificateur ;
+- la guitare ;
+- le pickup ;
+- l'accordage ;
+- le cabinet ;
+- les pédales utilisées ;
+- les réglages des pédales ;
+- le contexte dans lequel le profil doit être utilisé.
 
-Il doit également préciser ce que l'on cherche réellement à reproduire.
+Cette approche est importante car deux réglages présentant des positions de potentiomètres proches peuvent produire des résultats sensiblement différents lorsque la guitare, le cabinet ou les pédales changent.
 
-Par exemple :
+### Profil et test
 
-> **Foo Fighters**
+Il faut également distinguer le **profil musical** du **test** réalisé pour le construire.
 
-est une référence trop large pour constituer directement un réglage.
+Le profil correspond à l'objectif sonore recherché.
 
-Il faudra déterminer si l'objectif concerne :
+Le test correspond à une expérimentation particulière permettant d'évaluer une configuration.
 
-- un son Rock ;
-- un son plus Marshall ;
-- un son plus massif ;
-- un son plus moderne ;
-- une période particulière ;
-- ou un morceau précis.
+Une même référence musicale peut donc donner lieu à plusieurs tests.
+
+Par exemple, une recherche autour de Queens of the Stone Age peut être expérimentée avec :
+
+- le canal Boost ;
+- le canal XLead ;
+- une guitare différente ;
+- le Thiele ou le 4x12 ;
+- avec ou sans Tube Screamer ;
+- avec ou sans fuzz.
+
+Ces expérimentations ne constituent pas automatiquement plusieurs profils définitifs.
+
+Elles permettent de déterminer progressivement quelle configuration répond le mieux à l'objectif.
+
+### Le rôle de ToneLab
+
+ToneLab sert à conserver cette distinction.
+
+Le catalogue décrit le matériel disponible.
+
+Le test décrit une configuration expérimentée à un moment donné.
+
+Le profil retenu correspond ensuite à une configuration suffisamment pertinente pour être conservée comme référence.
+
+Cette organisation permet de conserver les essais sans transformer chaque expérimentation en nouveau preset définitif.
 
 ---
 
@@ -103,26 +126,83 @@ Il faudra déterminer si l'objectif concerne :
 
 ## 3. Principe d'adaptation au Brunetti
 
-Le ToneLab ne cherche pas à reproduire exactement la configuration matérielle originale d'un artiste.
+Une référence musicale doit toujours être interprétée à travers les possibilités réelles du Brunetti.
 
-Le principe est différent :
+Le but n'est donc pas de chercher à reproduire exactement :
 
-> partir des caractéristiques sonores recherchées et déterminer comment les obtenir avec le Brunetti et notre matériel.
+> « l'amplificateur utilisé par tel artiste ».
 
-Cette distinction est fondamentale.
+La question pertinente est plutôt :
 
-Le matériel original peut comprendre :
+> **Comment obtenir avec le Brunetti un comportement sonore suffisamment proche du territoire recherché ?**
 
-- plusieurs amplificateurs ;
-- plusieurs cabinets ;
-- plusieurs guitares ;
-- des pédales différentes ;
-- des traitements en studio ;
-- des techniques de prise de son.
+Cette distinction est essentielle.
 
-Le profil ToneLab doit donc être considéré comme une **interprétation adaptée**.
+### Le canal comme point de départ
 
-Il doit rechercher le comportement sonore plutôt que la reproduction littérale du matériel original.
+Le choix du canal constitue généralement le premier élément à déterminer.
+
+Les trois canaux du Brunetti ne doivent pas être considérés comme des équivalents génériques d'amplificateurs différents.
+
+Ils offrent des comportements différents qui peuvent chacun être pertinents selon le territoire recherché.
+
+Le **Clean** pourra être utilisé lorsqu'une base claire et dynamique est nécessaire.
+
+Le **Boost** pourra être particulièrement intéressant lorsque l'on recherche une saturation dynamique, un grain plus organique ou une réponse intermédiaire entre le clean et les sonorités plus fortement saturées.
+
+Le **XLead** constituera naturellement un candidat important pour les territoires nécessitant davantage de gain, de densité ou de contrôle.
+
+Le choix du canal reste cependant une **hypothèse de départ**.
+
+Il ne doit pas être considéré comme une règle absolue.
+
+### L'adaptation plutôt que l'imitation
+
+Une référence peut nécessiter une adaptation importante pour fonctionner avec le Brunetti.
+
+Cette adaptation peut concerner :
+
+- le niveau de Gain ;
+- l'équilibre Bass / Mid / Edge ;
+- le Focus ;
+- le Depth ;
+- le niveau de sortie ;
+- la guitare ;
+- le cabinet ;
+- la Tube Screamer ;
+- le fuzz ;
+- l'égalisation.
+
+Le résultat recherché est donc une **interprétation du territoire sonore**, construite à partir des caractéristiques propres au Brunetti.
+
+### Une même référence peut avoir plusieurs solutions
+
+Il n'existe pas nécessairement une seule bonne manière d'approcher une référence musicale.
+
+Deux configurations différentes peuvent produire des résultats pertinents pour un même objectif.
+
+Par exemple, une saturation obtenue avec le Boost et une saturation obtenue avec le XLead peuvent présenter des différences de comportement tout en restant compatibles avec un même territoire sonore.
+
+C'est précisément pour cette raison que plusieurs tests doivent pouvoir être conservés.
+
+Les essais permettront de déterminer quelle solution présente le meilleur compromis entre :
+
+- caractère sonore ;
+- dynamique ;
+- attaque ;
+- définition ;
+- densité ;
+- interaction avec la guitare ;
+- comportement avec les pédales ;
+- utilisation réelle.
+
+### Les réglages définitifs restent à construire
+
+Les indications données dans cette partie doivent donc être considérées comme des **orientations de recherche** tant qu'elles n'ont pas été confirmées par un test.
+
+Les valeurs précises ne doivent être intégrées comme profils de référence que lorsqu'elles ont été réellement essayées et évaluées.
+
+Cette distinction permet d'éviter de transformer une simple hypothèse sonore en réglage présenté comme établi.
 
 ---
 
@@ -130,36 +210,56 @@ Il doit rechercher le comportement sonore plutôt que la reproduction littérale
 
 ## 4. Foo Fighters
 
-Foo Fighters constitue une référence importante pour le ToneLab.
+Foo Fighters constitue une référence importante pour le projet, notamment pour les sons rock dynamiques, puissants et relativement ouverts.
 
-Le territoire recherché peut notamment s'appuyer sur :
+L'objectif n'est pas de rechercher une saturation extrêmement compressée.
 
-- une forte présence des médiums ;
-- une saturation Rock importante ;
-- une attaque franche ;
-- une sensation de puissance ;
-- une bonne dynamique ;
-- une capacité à fonctionner efficacement dans un mix.
+On recherche plutôt un équilibre entre :
 
-Le Brunetti peut être exploré à partir du **Boost** ou du **XLead**, selon le niveau de saturation recherché.
+- attaque ;
+- médiums présents ;
+- dynamique ;
+- épaisseur ;
+- puissance ;
+- définition.
 
-La Les Paul peut constituer un point de départ intéressant pour les sons recherchant davantage d'épaisseur.
+### Canal de départ
 
-La Gretsch pourra être comparée lorsque davantage d'attaque et de séparation sont recherchées.
+Le **Boost** constitue une piste particulièrement intéressante lorsque l'objectif est de conserver une sensation de dynamique et de réponse au jeu.
 
-### Point de vigilance
+Le **XLead** peut également être pertinent lorsque davantage de densité ou de saturation est nécessaire.
 
-Il ne faut pas chercher à obtenir un son extrêmement saturé uniquement parce que le son final paraît puissant.
+Le choix entre les deux doit donc être déterminé par l'écoute et non par la seule référence artistique.
 
-Une partie de cette sensation peut provenir :
+### Guitare et cabinet
 
-- des médiums ;
-- de l'attaque ;
-- du volume ;
-- du doublage des guitares ;
-- du mixage.
+La guitare peut modifier sensiblement l'équilibre du profil.
 
-Le profil ToneLab devra donc rechercher la sensation globale plutôt que la seule quantité de Gain.
+La Gretsch Broadkaster peut notamment constituer une base intéressante pour conserver une attaque et une présence suffisantes.
+
+Le cabinet intervient également dans la perception finale du profil.
+
+Un même réglage d'amplificateur peut donc nécessiter une adaptation lorsqu'il est transféré du 4x12 au Thiele.
+
+### Pédales
+
+La Tube Screamer peut être utilisée pour modifier la réponse de l'amplificateur plutôt que pour produire elle-même l'essentiel de la saturation.
+
+L'égalisation peut ensuite servir à corriger ou préciser le résultat obtenu.
+
+L'objectif reste de conserver la dynamique caractéristique du territoire recherché.
+
+### Orientation ToneLab
+
+Une recherche Foo Fighters doit donc permettre de comparer notamment :
+
+- Boost seul ;
+- Boost avec Tube Screamer ;
+- XLead avec un niveau de Gain modéré ;
+- différentes guitares ;
+- différentes configurations de cabinet.
+
+Le test `FOO-001` constitue déjà un exemple de recherche dans cette direction, avec une Gretsch, le canal Boost et un objectif de base rock dynamique avec des médiums présents. :contentReference[oaicite:2]{index=2}
 
 ---
 
@@ -167,24 +267,58 @@ Le profil ToneLab devra donc rechercher la sensation globale plutôt que la seul
 
 ## 5. Queens of the Stone Age
 
-Queens of the Stone Age constitue une référence particulièrement intéressante pour l'exploration du territoire Stoner.
+Queens of the Stone Age représente une référence particulièrement importante pour le territoire **Stoner Rock** recherché dans le projet.
 
-Les caractéristiques recherchées peuvent notamment inclure :
+Le résultat recherché peut être caractérisé par :
 
-- densité ;
-- médiums importants ;
-- grave épais ;
-- saturation importante ;
-- caractère massif ;
-- attaque suffisamment présente pour conserver la lisibilité des riffs.
+- une saturation épaisse ;
+- des médiums importants ;
+- une certaine chaleur ;
+- une attaque conservée ;
+- une forte présence dans le bas-médium ;
+- un caractère organique.
 
-Le XLead constitue un point de départ naturel pour cette recherche.
+### Canal de départ
 
-Le Boost pourra également être testé afin de déterminer si une saturation moins compressée permet d'obtenir un résultat plus proche de certains territoires Rock.
+Le **Boost** constitue une piste particulièrement intéressante lorsque l'on recherche une saturation épaisse mais encore dynamique.
 
-La Les Paul pourra notamment être utilisée lorsque l'épaisseur et la densité constituent une priorité.
+Le **XLead** peut apporter davantage de densité et de contrôle.
 
-La Gretsch pourra être intéressante pour les profils nécessitant davantage de définition.
+La comparaison entre les deux est donc particulièrement pertinente pour cette référence.
+
+### Guitare et cabinet
+
+La Gretsch Broadkaster peut constituer une base intéressante pour ce territoire.
+
+Le Thiele équipé du 15 pouces constitue également une configuration importante à expérimenter, notamment lorsqu'on recherche davantage d'ampleur et de bas-médium.
+
+Il ne faut cependant pas considérer cette combinaison comme automatiquement supérieure au 4x12.
+
+Le cabinet fait partie du profil et doit donc être documenté dans chaque test.
+
+### Pédales
+
+La Fender The Pelt peut constituer un élément central lorsqu'on recherche une texture fuzz caractéristique du territoire Stoner.
+
+La Tube Screamer peut quant à elle être utilisée pour modifier l'attaque et la réponse de l'amplificateur.
+
+L'égalisation peut enfin permettre de corriger l'équilibre obtenu avec la combinaison guitare / fuzz / amplificateur / cabinet.
+
+### Premières expérimentations
+
+Les essais ToneLab montrent déjà l'intérêt de comparer différentes approches.
+
+Une première recherche utilise notamment :
+
+> Gretsch + Boost + Thiele + The Pelt
+
+Une autre recherche explore :
+
+> Gretsch + XLead + Thiele + Tube Screamer
+
+Ces deux approches ne doivent pas être considérées comme deux profils définitifs.
+
+Elles constituent des expérimentations permettant de déterminer quelle architecture répond le mieux au territoire recherché.
 
 ---
 
@@ -192,25 +326,64 @@ La Gretsch pourra être intéressante pour les profils nécessitant davantage de
 
 ## 6. Refused
 
-Refused constitue une référence intéressante pour la recherche d'un son agressif mais suffisamment articulé.
+Refused représente un territoire différent.
 
-Le territoire peut combiner :
+La recherche porte davantage sur :
 
-- saturation importante ;
-- médiums présents ;
-- attaque forte ;
-- dynamique ;
-- agressivité ;
-- définition.
+- l'attaque ;
+- l'agressivité ;
+- les médiums ;
+- la dynamique ;
+- la définition ;
+- une saturation suffisamment importante sans perdre le caractère du jeu.
 
-Le profil devra éviter deux extrêmes :
+Le son doit rester énergique et lisible, même lorsque la saturation augmente.
 
-- un son trop propre et trop ouvert ;
-- un son excessivement compressé et dépourvu d'attaque.
+### Canal de départ
 
-Le Boost et le XLead pourront être comparés.
+Le **XLead** constitue naturellement un candidat important lorsque l'on recherche le niveau de saturation et l'agressivité nécessaires.
 
-La Tube Screamer pourra ensuite être introduite pour déterminer si elle permet d'obtenir une attaque plus précise et un grave mieux contrôlé.
+Le **Boost** ne doit cependant pas être écarté.
+
+Il peut être intéressant lorsque la recherche privilégie :
+
+- la dynamique ;
+- l'ouverture du son ;
+- l'attaque ;
+- une saturation moins compressée.
+
+La comparaison entre les deux canaux permet donc de déterminer si le supplément de saturation du XLead apporte réellement un avantage dans le contexte recherché.
+
+### Tube Screamer et égalisation
+
+La Tube Screamer peut être utilisée pour resserrer la réponse et renforcer l'attaque.
+
+L'égalisation permet ensuite de contrôler les fréquences devenues trop présentes ou, au contraire, de renforcer certaines zones nécessaires à la lisibilité.
+
+Il faut toutefois éviter de compenser avec l'EQ un choix de canal ou de guitare qui serait fondamentalement inadapté.
+
+### Guitare et cabinet
+
+Le choix de la guitare doit être intégré au test.
+
+La Gibson et la Gretsch peuvent produire des résultats sensiblement différents dans cette recherche.
+
+Le cabinet doit également être considéré comme une partie intégrante du profil.
+
+Il est donc préférable de comparer les configurations complètes plutôt que de rechercher un réglage d'amplificateur supposé fonctionner indépendamment du reste du matériel.
+
+### Orientation ToneLab
+
+La recherche Refused devra notamment permettre de comparer :
+
+1. Boost seul ;
+2. Boost + Tube Screamer ;
+3. XLead seul ;
+4. XLead + Tube Screamer ;
+5. différentes égalisations ;
+6. différentes configurations guitare / cabinet.
+
+Le réglage retenu ne sera considéré comme profil qu'après comparaison et validation sur le matériel réel.
 
 ---
 
@@ -218,55 +391,48 @@ La Tube Screamer pourra ensuite être introduite pour déterminer si elle permet
 
 ## 7. Rage Against The Machine
 
-Rage Against The Machine constitue une référence particulièrement intéressante pour l'étude d'un son Rock très dynamique et fortement identifiable.
+Rage Against The Machine constitue une référence importante pour le territoire Rock agressif recherché dans le projet.
 
-Le profil recherché devra notamment prendre en compte :
+Le son recherché doit conserver :
 
-- les médiums ;
-- l'attaque ;
-- la dynamique ;
-- la saturation ;
-- la présence du riff ;
-- la capacité du son à rester lisible dans un mix dense.
+- une attaque franche ;
+- des médiums présents ;
+- une saturation agressive ;
+- une bonne dynamique ;
+- une définition suffisante pour les riffs ;
+- une sensation de puissance sans compression excessive.
 
-Le canal Boost constitue un point de départ particulièrement intéressant.
+### Canal de départ
 
-Le XLead pourra également être comparé lorsque davantage de densité est nécessaire.
+Le **XLead** constitue un candidat naturel pour obtenir le niveau d'agressivité nécessaire.
 
-L'objectif ne sera pas de pousser systématiquement le Gain.
+Le **Boost** mérite toutefois d'être comparé lorsque l'objectif est de conserver davantage de dynamique et d'attaque.
 
-La dynamique et l'attaque devront rester des éléments essentiels du profil.
+Le choix entre les deux devra donc être déterminé par l'écoute et les essais réalisés avec la guitare et le cabinet retenus.
 
----
+### Tube Screamer et égalisation
 
-<a id="part6-tool"></a>
+La Tube Screamer peut être utilisée pour renforcer l'attaque et modifier la réponse du canal.
 
-## 8. Tool
+L'égalisation peut ensuite servir à adapter le caractère obtenu, notamment lorsque le résultat devient trop sombre, trop épais ou au contraire trop agressif.
 
-Tool représente un territoire différent des profils Rock précédents.
+L'objectif n'est pas d'accumuler les traitements mais de déterminer quelle combinaison produit le meilleur équilibre.
 
-La recherche devra notamment tenir compte de :
+### Guitare et cabinet
 
-- la précision ;
-- la densité ;
-- la profondeur ;
-- la définition ;
-- la complexité des accords et des riffs ;
-- la capacité à conserver une séparation suffisante dans un son saturé.
+La Gibson Les Paul Classic DC peut constituer une base intéressante pour cette recherche.
 
-Le XLead pourra constituer une base de recherche.
+Le choix du cabinet devra également être documenté, car le 4x12 et le Thiele peuvent modifier sensiblement la perception du grave, des médiums et de l'attaque.
 
-Le réglage devra toutefois éviter un excès de compression ou de saturation qui ferait disparaître les détails du jeu.
-
-La guitare utilisée et l'accordage devront être documentés dans chaque profil concerné.
+Le profil devra donc conserver ces informations afin de rester reproductible.
 
 ---
 
 <a id="part6-kyuss"></a>
 
-## 9. Kyuss
+## 8. Kyuss
 
-Kyuss constitue une référence majeure pour le territoire Stoner.
+Kyuss constitue une référence majeure pour le territoire Stoner du projet.
 
 Le profil recherché pourra privilégier :
 
@@ -277,11 +443,9 @@ Le profil recherché pourra privilégier :
 - une saturation organique ;
 - une sensation de puissance.
 
-Le XLead constitue un point de départ possible.
+Le caractère recherché ne doit toutefois pas être réduit à un niveau de Gain élevé.
 
-Cependant, le Gain ne devra pas être considéré comme le principal outil de création du son.
-
-L'équilibre entre :
+L'équilibre général du système reste déterminant :
 
 - Gain ;
 - Bass ;
@@ -289,263 +453,331 @@ L'équilibre entre :
 - Edge ;
 - guitare ;
 - cabinet ;
-- volume
+- volume.
 
-sera déterminant.
+### Canal de départ
 
-La Les Paul constituera une référence particulièrement intéressante pour cette recherche.
+Le **XLead** constitue un point de départ possible lorsque davantage de densité et de saturation sont nécessaires.
+
+Le **Boost** peut également être intéressant pour rechercher une réponse plus dynamique et moins compressée.
+
+Cette comparaison devra être réalisée sur le matériel réellement utilisé avant de retenir une solution.
+
+### Guitare et cabinet
+
+La Gibson Les Paul Classic DC constitue une référence particulièrement intéressante pour cette recherche.
+
+Le Thiele équipé du Celestion 15 pouces peut également être étudié pour son caractère et sa réponse dans le grave.
+
+Le 4x12 doit cependant rester une possibilité de comparaison.
+
+Il n'est donc pas nécessaire de définir à l'avance une seule combinaison comme étant la bonne.
+
+### Fuzz
+
+La Fender The Pelt constitue un élément particulièrement pertinent pour ce territoire.
+
+Elle peut être utilisée pour produire une texture plus épaisse et plus saturée que celle obtenue avec l'amplificateur seul.
+
+La comparaison avec une saturation produite directement par le Brunetti permettra de déterminer si la fuzz est réellement nécessaire au profil recherché.
 
 ---
 
 <a id="part6-hermano"></a>
 
-## 10. Hermano
+## 9. Hermano
 
-Hermano représente une autre facette du territoire Stoner.
+Hermano représente une autre référence importante du territoire Stoner.
 
-Le profil devra notamment rechercher :
+La référence **The Bottle** constitue notamment un objectif concret du projet.
 
-- épaisseur ;
-- densité ;
-- médiums ;
-- saturation ;
-- sensation de puissance ;
-- caractère organique.
+Le profil recherché devra privilégier :
 
-La Les Paul pourra constituer une base particulièrement pertinente.
+- l'épaisseur ;
+- la densité ;
+- les médiums ;
+- la saturation ;
+- la puissance ;
+- le caractère organique.
 
-Le XLead devra être étudié en priorité, mais le Boost pourra également être comparé.
+### Canal de départ
 
-L'objectif sera de déterminer si la saturation produite naturellement par le Brunetti permet d'obtenir le caractère recherché sans avoir besoin d'une quantité excessive de traitement externe.
+Le **Boost** mérite une attention particulière pour cette référence.
+
+Il permet d'explorer une saturation dynamique et relativement ouverte avant d'envisager une solution plus fortement saturée.
+
+Le **XLead** devra également être comparé afin de déterminer si son niveau de gain et sa densité apportent un avantage réel.
+
+Cette comparaison est importante car le choix du canal peut modifier profondément le caractère du profil.
+
+### Guitare et cabinet
+
+La Gibson Les Paul Classic DC constitue une piste pertinente pour cette recherche.
+
+Le Thiele équipé du Celestion 15 pouces devra également être étudié, notamment pour les recherches orientées vers un son massif et riche dans le bas-médium.
+
+Le choix du cabinet devra rester une donnée explicite du test.
+
+### Fuzz et Tube Screamer
+
+La Fender The Pelt peut être utilisée lorsque la recherche nécessite davantage d'épaisseur et de texture.
+
+La Tube Screamer peut quant à elle être utilisée pour modifier la réponse du canal et renforcer l'attaque.
+
+Ces deux approches ne doivent pas être considérées comme équivalentes.
+
+Elles devront être comparées séparément afin d'identifier leur influence réelle sur le résultat.
+
+### Première expérimentation ToneLab
+
+Le test `TEST-005` constitue déjà une première piste concrète :
+
+- référence : **Hermano** ;
+- morceau : **The Bottle** ;
+- canal : **Boost** ;
+- statut : **À tester**.
+
+Les autres éléments de la configuration restent encore à renseigner.
+
+Ce test doit donc être considéré comme une **expérimentation à poursuivre**, et non comme un profil validé.
+
+Il illustre précisément la méthode retenue pour la Partie 6 :
+
+> **référence musicale → hypothèse de canal → test → observations → comparaison → éventuelle validation**
 
 ---
 
 <a id="part6-deftones"></a>
 
-## 11. Deftones
+## 10. Deftones
 
-Deftones nécessite une approche plus large.
+Deftones constitue une référence intéressante pour étudier les territoires Rock alternatif et les sons lourds qui conservent une certaine ouverture.
 
-Selon la période et le morceau étudié, les sons peuvent évoluer entre :
+La référence doit cependant être utilisée avec prudence : le son du groupe peut varier sensiblement selon les périodes, les morceaux et les configurations utilisées.
 
-- Rock alternatif ;
-- Metal ;
-- textures plus massives ;
-- sons fortement saturés ;
-- passages plus ouverts.
+Il est donc préférable de partir d'une référence musicale précise plutôt que de chercher à définir un unique « son Deftones ».
 
-Le profil ToneLab devra donc toujours préciser la référence exacte utilisée.
+### Canal de départ
 
-Le XLead pourra constituer une base pour les sons lourds.
+Le XLead constitue un candidat naturel pour les configurations nécessitant davantage de saturation et de densité.
 
-Le Boost pourra être plus pertinent lorsque davantage de dynamique est recherchée.
+Le Boost peut également être intéressant lorsque l'objectif est de conserver davantage de dynamique et d'attaque.
 
-La Tube Screamer et le MXR pourront ensuite être utilisés pour ajuster :
+Le choix du canal devra donc dépendre du territoire recherché dans le morceau étudié.
 
-- l'attaque ;
-- le grave ;
-- les médiums ;
-- la définition.
+### Guitare et cabinet
+
+Le choix de la guitare pourra avoir une influence importante sur le résultat.
+
+La Les Paul peut apporter davantage de densité, tandis que la Gretsch peut favoriser une réponse plus ouverte et une attaque différente.
+
+Le cabinet devra également être documenté dans chaque expérimentation.
+
+Il ne faudra donc pas considérer le réglage de l'amplificateur indépendamment du reste de la configuration.
+
+### Pédales
+
+La Tube Screamer pourra être utilisée lorsque davantage de contrôle du grave et d'attaque sera nécessaire.
+
+L'égalisation pourra ensuite servir à corriger ou à orienter le résultat.
+
+La Fender The Pelt pourra également être étudiée pour les recherches nécessitant davantage de texture ou d'épaisseur, mais elle ne devra pas être considérée comme systématiquement nécessaire.
+
+L'objectif restera de déterminer expérimentalement quelle combinaison répond le mieux à la référence choisie.
 
 ---
 
 <a id="part6-biffy"></a>
 
-## 12. Biffy Clyro
+## 11. Biffy Clyro
 
-Biffy Clyro constitue une référence particulièrement intéressante pour l'étude de la polyvalence.
+Biffy Clyro constitue une référence particulièrement intéressante pour étudier la polyvalence du Brunetti.
 
-Les profils peuvent évoluer entre :
+Les sons recherchés peuvent évoluer entre :
 
 - Clean ;
 - Crunch ;
 - Rock ;
-- High Gain.
+- sons plus fortement saturés.
 
-Le Brunetti est donc particulièrement adapté à cette recherche puisque plusieurs canaux peuvent être exploités selon le niveau de saturation recherché.
+Cette diversité permet d'utiliser les différentes possibilités du Brunetti plutôt que de chercher à tout faire avec un seul canal.
 
-Le profil devra accorder une attention particulière à :
+### Canal de départ
 
-- la dynamique ;
-- la transition entre les niveaux de saturation ;
-- l'attaque ;
-- la définition des accords ;
-- la capacité à conserver une forte identité sonore.
+Le Clean peut naturellement être étudié pour les passages nécessitant un son clair.
 
-La Gretsch pourra être particulièrement intéressante pour les profils recherchant davantage d'attaque et de séparation.
+Le Boost peut constituer une base intéressante pour les sons dynamiques et les crunchs.
 
-La Les Paul pourra être privilégiée lorsque davantage de densité est nécessaire.
+Le XLead pourra être privilégié lorsque la saturation et la densité deviennent plus importantes.
+
+Cette référence permet donc de comparer directement les trois canaux dans des contextes musicaux différents.
+
+### Guitare
+
+La Gretsch peut constituer une base intéressante lorsque l'objectif est de conserver de l'attaque et de la séparation.
+
+La Les Paul pourra être privilégiée lorsque davantage de densité est recherchée.
+
+Le choix devra cependant être documenté dans chaque test plutôt que considéré comme une règle générale.
+
+### Pédales
+
+La Tube Screamer pourra être utilisée pour modifier la réponse du canal et renforcer l'attaque.
+
+L'égalisation pourra servir à adapter le profil à la guitare ou au cabinet utilisé.
+
+La fuzz pourra être réservée aux configurations nécessitant une texture plus épaisse ou plus agressive.
+
+L'utilisation des pédales devra donc rester liée à l'objectif précis du profil.
 
 ---
 
 <a id="part6-multiples"></a>
 
-## 13. Plusieurs profils pour un même artiste
+## 12. Plusieurs tests pour une même référence
 
-Un artiste ne doit pas nécessairement correspondre à un seul profil.
+Une référence musicale ne doit pas nécessairement correspondre à un seul test.
 
-Un même groupe peut utiliser :
+Plusieurs expérimentations peuvent être nécessaires pour déterminer la configuration la plus pertinente.
 
-- plusieurs guitares ;
-- plusieurs amplificateurs ;
-- plusieurs niveaux de Gain ;
-- plusieurs configurations selon les morceaux ;
-- plusieurs traitements.
+Elles peuvent notamment différer par :
 
-Il est donc préférable de créer plusieurs profils lorsque les différences sont réellement importantes.
+- la guitare ;
+- le canal ;
+- l'accordage ;
+- le cabinet ;
+- les pédales ;
+- les réglages de l'amplificateur ;
+- le morceau étudié.
 
-Par exemple :
+Il est donc normal qu'une même référence apparaisse plusieurs fois dans ToneLab.
 
-- **Foo Fighters — Rock**
-- **Foo Fighters — High Gain**
-- **Foo Fighters — Clean / Crunch**
+Chaque test conserve ainsi son propre contexte et son propre résultat.
 
-plutôt que de créer un seul profil censé représenter l'ensemble du groupe.
+Le statut permet ensuite de distinguer les pistes encore en cours d'étude des configurations les plus intéressantes.
+
+Cette organisation correspond directement au fonctionnement actuel de ToneLab, dans lequel plusieurs tests indépendants peuvent être associés à une même recherche musicale.
 
 ---
 
-<a id="part6-principal"></a>
+<a id="part6-configuration"></a>
 
-## 14. Profil principal et variantes
+## 13. Profil, variante et configuration matérielle
 
-Lorsque les différences sont limitées, il n'est pas nécessaire de multiplier les profils.
+Un profil ne doit pas nécessairement être considéré comme une configuration figée.
 
-Un profil principal peut être associé à plusieurs variantes.
+Une même base sonore peut nécessiter une adaptation lorsque le matériel change.
 
-Par exemple :
+Par exemple, un profil peut être conservé comme référence tout en disposant de variantes pour :
 
-**Profil principal**
+- une autre guitare ;
+- un autre cabinet ;
+- une autre pédale ;
+- un autre accordage ;
+- un contexte de volume différent.
 
-> QOTSA — Stoner
+La configuration matérielle doit donc faire partie de l'identification du profil lorsqu'elle influence réellement le résultat.
 
-**Variantes**
-
-- Les Paul ;
-- Gretsch ;
-- Tube Screamer ;
-- volume plus faible ;
-- contexte live.
-
-Cette méthode permettra de conserver une bibliothèque de profils lisible.
-
-Elle évitera également la multiplication de réglages presque identiques.
+Cette approche permet d'éviter de créer plusieurs profils presque identiques.
 
 ---
 
 <a id="part6-precision"></a>
 
-## 15. Niveau de précision des profils
+## 14. Niveau de précision des profils
 
-Tous les profils n'auront pas immédiatement le même niveau de précision.
+Tous les profils n'ont pas besoin du même niveau de précision.
 
-Un profil peut commencer comme une simple hypothèse :
+Une première expérimentation peut simplement permettre d'identifier :
 
-> « Le XLead semble être le meilleur point de départ pour ce territoire. »
+- un canal ;
+- une guitare ;
+- une direction sonore.
 
-Il pourra ensuite évoluer vers :
+Un profil plus avancé pourra ensuite préciser :
 
-> « XLead + Tube Screamer, avec un réglage précis du Gain et de l'égalisation. »
+- les réglages de l'amplificateur ;
+- les pédales utilisées ;
+- leurs réglages ;
+- le cabinet ;
+- l'accordage ;
+- les observations réalisées pendant le test.
 
-Puis éventuellement devenir :
+Le niveau de précision doit donc évoluer avec la recherche.
 
-> **Profil validé**, avec l'ensemble des réglages documentés.
-
-Cette progression doit être conservée dans la documentation.
-
-Il est préférable de conserver une hypothèse clairement identifiée plutôt que de présenter comme définitif un réglage qui n'a pas encore été testé.
+Il est préférable de conserver un profil incomplet mais correctement identifié plutôt que d'inventer des valeurs pour donner l'impression qu'il est terminé.
 
 ---
 
 <a id="part6-statut"></a>
 
-## 16. Statut des profils
+## 15. Statut des profils
 
-Chaque profil musical devra disposer d'un statut.
+ToneLab utilise plusieurs statuts permettant de suivre l'évolution des expérimentations :
 
-Les statuts recommandés sont :
+- **À tester** : la configuration constitue une piste de recherche qui n'a pas encore été suffisamment évaluée ;
+- **Prometteur** : le résultat obtenu est intéressant mais nécessite encore des essais ou des comparaisons ;
+- **Validé** : la configuration a été suffisamment testée pour être retenue comme référence ;
+- **Rejeté** : la configuration ne répond pas à l'objectif recherché.
 
-### 📝 Hypothèse
+Ces statuts permettent de conserver l'historique de la recherche sans confondre une hypothèse avec un profil réellement validé.
 
-Le territoire est identifié mais aucun réglage sérieux n'a encore été établi.
-
-### 🧪 Expérimental
-
-Un ou plusieurs réglages ont été testés.
-
-Le résultat reste en cours d'évaluation.
-
-### 🔶 Prometteur
-
-Le profil donne un résultat intéressant mais nécessite encore des comparaisons ou des ajustements.
-
-### ✅ Validé
-
-Le réglage est reproductible et répond correctement à l'objectif défini.
-
-### 📦 Archivé
-
-Le profil a été remplacé ou abandonné mais reste conservé pour référence.
-
-Cette distinction permettra d'éviter de confondre les réglages réellement validés avec les pistes de recherche.
+Un test rejeté reste donc utile : il indique qu'une piste a été explorée et permet d'éviter de refaire inutilement la même expérimentation.
 
 ---
 
 <a id="part6-validation"></a>
 
-## 17. Méthode de validation
+## 16. Méthode de validation
 
-Un profil musical devra être validé progressivement.
+La validation d'un profil doit rester progressive.
 
-La méthode recommandée est :
+Une expérimentation peut commencer par une référence musicale et une hypothèse de configuration.
 
-1. définir précisément la référence musicale ;
-2. identifier le territoire sonore ;
-3. choisir le canal de départ ;
-4. choisir la guitare ;
-5. construire une base sans pédales supplémentaires ;
-6. ajuster le Gain ;
-7. ajuster l'équilibre tonal ;
-8. introduire éventuellement la Tube Screamer ;
-9. introduire éventuellement le MXR ;
-10. comparer plusieurs variantes ;
-11. tester à volume réel ;
-12. vérifier le résultat dans le contexte musical ;
-13. documenter le réglage retenu ;
-14. attribuer un statut au profil.
+Le résultat est ensuite évalué avec le matériel réellement utilisé.
 
-Cette méthode permettra de conserver une progression logique et reproductible.
+Lorsque plusieurs configurations donnent des résultats intéressants, elles peuvent être comparées avant de retenir celle qui répond le mieux à l'objectif.
+
+La validation doit notamment tenir compte :
+
+- du caractère sonore ;
+- de la dynamique ;
+- de l'attaque ;
+- de la définition ;
+- de la cohérence avec le morceau étudié ;
+- de la reproductibilité du résultat.
+
+Un profil ne doit donc pas être considéré comme validé simplement parce qu'il paraît intéressant lors d'un premier essai.
+
+Le statut **Validé** doit correspondre à une configuration suffisamment fiable pour pouvoir être retrouvée et réutilisée.
 
 ---
 
 <a id="part6-a-retenir"></a>
 
-## 18. À retenir
+## 17. À retenir
 
-Les profils musicaux constituent le cœur pratique du chapitre 3.
+Les profils musicaux permettent de transformer les références musicales du projet en configurations concrètes adaptées au Brunetti XL R-EVO II.
 
-Ils doivent permettre de traduire les territoires sonores étudiés précédemment en configurations adaptées au matériel réellement utilisé.
+Ils ne cherchent pas à reproduire exactement le matériel utilisé par les artistes.
 
-Les principales références du ToneLab sont notamment :
+Ils constituent des interprétations adaptées :
 
-- **Foo Fighters**
-- **Queens of the Stone Age**
-- **Refused**
-- **Rage Against The Machine**
-- **Tool**
-- **Kyuss**
-- **Hermano**
-- **Deftones**
-- **Biffy Clyro**
+- au Brunetti ;
+- aux guitares disponibles ;
+- aux cabinets utilisés ;
+- aux pédales disponibles ;
+- aux besoins musicaux du projet.
 
-Un profil musical n'est pas une copie du matériel original d'un artiste.
+Une même référence peut nécessiter plusieurs expérimentations.
 
-Il constitue une **interprétation du territoire sonore recherché avec le Brunetti et notre configuration**.
+ToneLab permet de conserver ces essais séparément et de suivre leur évolution grâce aux statuts **À tester**, **Prometteur**, **Validé** et **Rejeté**.
 
-La méthode doit rester progressive :
+La documentation Markdown peut alors conserver la méthode et les profils retenus, tandis que les expérimentations détaillées restent associées aux données de ToneLab.
 
-> **référence → territoire → canal → guitare → réglage → pédales → comparaison → validation**
+L'objectif final n'est donc pas de constituer une collection de presets figés.
 
-Cette approche permettra de construire une bibliothèque de profils cohérente, compréhensible et réellement exploitable.
+Il s'agit de construire progressivement une bibliothèque de profils cohérents, reproductibles et adaptés au matériel réellement utilisé.
 
 ---
 
