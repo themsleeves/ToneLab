@@ -1,7 +1,7 @@
 {
   "name": "ToneLab Profiles",
   "short_name": "ToneLab",
-  "description": "Laboratoire de réglages d'amplis et pédales de guitare",
+  "description": "Journal de profils sonores (amplis, pédales et guitares)",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

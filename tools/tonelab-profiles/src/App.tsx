@@ -7,7 +7,10 @@ import {TestForm,TestList,PedalCatalogManager,AmpCatalogManager,ListManager,useC
 import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
 import {newTemplate,instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode,resyncPedalFromCatalog} from "./pedalCatalog";
 import {newAmpTemplate,instantiateAmp,loadAmpCatalog,saveAmpCatalog,mergeAmpCatalog,downloadAmpCatalogCode,resyncAmpFromCatalog} from "./ampCatalog";
-function id(t:TestRecord[]){return `TEST-${String(t.length+1).padStart(3,"0")}`}
+function id(t:TestRecord[]){
+ const max=t.reduce((m,x)=>{const n=parseInt(x.id.replace(/^TEST-/,""),10);return isNaN(n)?m:Math.max(m,n)},0);
+ return `TEST-${String(max+1).padStart(3,"0")}`;
+}
 type CategoryField="status"|"artistReference"|"guitar"|"tuning"|"pickup"|"cabinet";
 const CATEGORY_FIELD:Record<ListKey,CategoryField>={status:"status",artist:"artistReference",guitar:"guitar",tuning:"tuning",pickup:"pickup",cabinet:"cabinet"};
 export default function App(){
@@ -20,6 +23,8 @@ export default function App(){
  const [mobileView,setMobileView]=useState<"list"|"form">("list");
  const [menuOpen,setMenuOpen]=useState(false);
  const [settingsOpen,setSettingsOpen]=useState(false);
+ const [appDescription,setAppDescription]=useState("");
+ useEffect(()=>{fetch(`${import.meta.env.BASE_URL}manifest.webmanifest`).then(r=>r.json()).then(m=>setAppDescription(m.description)).catch(()=>{})},[]);
  useEffect(()=>setMenuOpen(false),[selected,mobileView]);
  useCloseOnOutsideClick(menuOpen,()=>setMenuOpen(false));
  useEffect(()=>save(tests),[tests]);
@@ -31,13 +36,17 @@ export default function App(){
  function selectTest(id:string){setSelected(id);setMobileView("form")}
  function settingsFingerprint(t:TestRecord){return JSON.stringify([t.guitar,t.tuning,t.pickup,t.cabinet,t.amp,t.pedals,t.otherPedals,t.objective,t.observations,t.conclusion,t.retained])}
  function update(t:TestRecord){
+  if(current&&t.id!==current.id){
+   if(tests.some(x=>x!==current&&x.id===t.id)){alert("Cet ID existe déjà.");return}
+   setSelected(t.id);
+  }
   const changed=current&&settingsFingerprint(t)!==settingsFingerprint(current);
   const next=changed?{...t,date:new Date().toISOString().slice(0,10)}:t;
-  setTests(a=>a.map(x=>x.id===current?.id?next:x));
+  setTests(a=>a.map(x=>x===current?next:x));
  }
  function newTest(){const t=emptyTest();t.id=id(tests);setTests(a=>[t,...a]);setSelected(t.id);setMobileView("form")}
  function duplicate(sourceId:string){const src=tests.find(t=>t.id===sourceId);if(!src)return;const t=JSON.parse(JSON.stringify(src)) as TestRecord;t.id=id(tests);t.status="À tester";t.retained=false;t.date=new Date().toISOString().slice(0,10);setTests(a=>[t,...a]);setSelected(t.id);setMobileView("form")}
- function remove(id:string){if(!confirm(`Supprimer ${id} ?`))return;const a=tests.filter(x=>x.id!==id);setTests(a);if(current?.id===id){setSelected(a[0]?.id||"");if(!a.length)setMobileView("list")}}
+ function remove(id:string,toList?:boolean){if(!confirm(`Supprimer ${id} ?`))return;const a=tests.filter(x=>x.id!==id);setTests(a);if(current?.id===id){setSelected(a[0]?.id||"");if(!a.length||toList)setMobileView("list")}}
  function rename(id:string){const next=prompt("Nouvel ID",id);if(!next||next===id)return;if(tests.some(t=>t.id===next)){alert("Cet ID existe déjà.");return}setTests(a=>a.map(x=>x.id===id?{...x,id:next}:x));if(current?.id===id)setSelected(next)}
  function renameListItem(cat:ListKey,oldV:string,newV:string){setLists(l=>({...l,[cat]:l[cat].map(x=>x===oldV?newV:x)}));const field=CATEGORY_FIELD[cat];setTests(a=>a.map(t=>t[field]===oldV?{...t,[field]:newV}:t));if(cat==="status")setStatusFilter(f=>{if(!f.has(oldV))return f;const n=new Set(f);n.delete(oldV);n.add(newV);return n})}
  function removeListItem(cat:ListKey,v:string){setLists(l=>({...l,[cat]:l[cat].filter(x=>x!==v)}));if(cat==="status")setStatusFilter(f=>{if(!f.has(v))return f;const n=new Set(f);n.delete(v);return n})}
@@ -64,7 +73,7 @@ export default function App(){
  }
  function removeAmpCatalogTemplate(id:string){setAmpCatalog(c=>c.filter(t=>t.id!==id))}
  function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");const migrated=d.tests.map(migrateTest);setTests(migrated);setSelected(migrated[0]?.id||"");setLists(mergeLists(d.lists));setCatalog(mergeCatalog(d.catalog));setAmpCatalog(mergeAmpCatalog(d.ampCatalog))};i.click()}
- return <main><header><div><div className="eyebrow">TONELAB</div><h1>Profiles</h1><p>Laboratoire de réglages du Brunetti XL R-EVO II</p></div><div className="actions">
+ return <main><header><div><div className="eyebrow">TONELAB</div><h1>Profiles</h1><p>{appDescription}</p></div><div className="actions">
   <button className="primary" onClick={newTest}>+ Nouveau test</button>
   <div className="menu">
    <button className="menu-trigger" onClick={()=>setMenuOpen(o=>!o)} aria-label="Plus d'actions">⋮</button>
@@ -95,5 +104,6 @@ export default function App(){
    <strong>{current.artistReference||"Sans artiste"}</strong>
    <span>{current.song||"—"}{current.status?` (${current.status})`:""}</span>
   </div>}
+  {current&&<button type="button" className="header-delete-btn" onClick={()=>remove(current.id,true)} title="Supprimer ce test" aria-label="Supprimer ce test">🗑</button>}
  </div>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} onSaveAsTemplate={saveAsTemplate} ampCatalog={ampCatalog} onReplaceAmpFromCatalog={replaceAmpFromCatalog} onUpdateAmpParams={updateAmpParams}/>:<div className="empty">Aucun test.</div>}</article></div></main>
 }

@@ -17,7 +17,7 @@ export function useCloseOnOutsideClick(active:boolean,close:()=>void){
 function Field({label,value,onChange}:{label:string,value:string,onChange:(v:string)=>void}){return <label className="field"><span>{label}</span><input value={value} onChange={e=>onChange(e.target.value)}/></label>}
 function ReadOnlyField({label,value}:{label:string,value:string}){return <label className="field"><span>{label}</span><input value={value} disabled/></label>}
 function SelectField({label,value,options,onChange}:{label:string,value:string,options:string[],onChange:(v:string)=>void}){
- const opts=value&&!options.includes(value)?[value,...options]:options;
+ const opts=options.includes(value)?options:[value,...options]; // garantit une option correspondant à value="" pour éviter la fausse pré-sélection du navigateur
  return <label className="field"><span>{label}</span><select value={value} onChange={e=>onChange(e.target.value)}>{opts.map(o=><option key={o} value={o}>{o}</option>)}</select></label>
 }
 function Area({label,value,onChange,autoGrow}:{label?:string,value:string,onChange:(v:string)=>void,autoGrow?:boolean}){
@@ -370,7 +370,7 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
  return <div className="form">
   <datalist id="pedal-param-names">{PEDAL_PARAM_SUGGESTIONS.map(n=><option key={n} value={n}/>)}</datalist>
   <CollapsibleSection title="Identification" defaultOpen><div className="grid">
-   <ReadOnlyField label="ID test" value={test.id}/><SelectField label="Artiste / Référence" value={test.artistReference} options={lists.artist} onChange={v=>set("artistReference",v)}/>
+   <Field label="ID test" value={test.id} onChange={v=>set("id",v)}/><SelectField label="Artiste / Référence" value={test.artistReference} options={lists.artist} onChange={v=>set("artistReference",v)}/>
    <Field label="Morceau / Riff" value={test.song} onChange={v=>set("song",v)}/><Field label="Date" value={test.date} onChange={v=>set("date",v)}/>
    <SelectField label="Statut" value={test.status} options={lists.status} onChange={v=>set("status",v)}/>
   </div></CollapsibleSection>
@@ -416,15 +416,17 @@ export function TestList({tests,selected,onSelect,statusOptions,statusFilter,onT
   <div className="status-filter-bar">
    {statusOptions.map(s=><label key={s} className="status-filter-chip"><input type="checkbox" checked={statusFilter.has(s)} onChange={()=>onToggleStatusFilter(s)}/>{s}</label>)}
   </div>
-  <div className="test-list">{tests.map(t=><div key={t.id} className={selected===t.id?"test-item active":"test-item"}>
-   <button className="test-item-btn" onClick={()=>onSelect(t.id)}><strong>{t.artistReference||"Artiste non défini"}</strong><span>{t.song||"Morceau non défini"}</span><div className="test-item-meta"><small>{t.id}</small><span className="status-badge">{t.status}</span></div></button>
-   <div className="menu test-item-menu">
-    <button type="button" className="menu-trigger" onClick={()=>setOpenMenu(m=>m===t.id?null:t.id)} aria-label="Actions sur ce test">⋮</button>
-    {openMenu===t.id&&<div className="menu-panel">
-     <button type="button" onClick={()=>{setOpenMenu(null);onDuplicate(t.id)}}>Dupliquer</button>
-     <button type="button" onClick={()=>{setOpenMenu(null);onRename(t.id)}}>Renommer</button>
-     <button type="button" className="danger" onClick={()=>{setOpenMenu(null);onRemove(t.id)}}>Supprimer</button>
-    </div>}
+  <div className="test-list">{tests.map(t=><div key={t.id} className={selected===t.id?"test-item active menu":"test-item menu"}>
+   <div className="test-item-row">
+    <button className="test-item-btn" onClick={()=>onSelect(t.id)}><strong>{t.artistReference||"Artiste non défini"}</strong><span>{t.song||"Morceau non défini"}</span><div className="test-item-meta"><small>{t.id}</small><span className="status-badge">{t.status}</span></div></button>
+    <div className="test-item-menu">
+     <button type="button" className="menu-trigger" onClick={()=>setOpenMenu(m=>m===t.id?null:t.id)} aria-label="Actions sur ce test">⋮</button>
+     {openMenu===t.id&&<div className="test-item-menu-panel">
+      <button type="button" title="Dupliquer" onClick={()=>{setOpenMenu(null);onDuplicate(t.id)}}>⧉</button>
+      <button type="button" title="Renommer" onClick={()=>{setOpenMenu(null);onRename(t.id)}}>✎</button>
+      <button type="button" className="danger" title="Supprimer" onClick={()=>{setOpenMenu(null);onRemove(t.id)}}>🗑</button>
+     </div>}
+    </div>
    </div>
   </div>)}</div>
  </div>;
