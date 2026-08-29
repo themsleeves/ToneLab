@@ -1,8 +1,8 @@
 import {useEffect,useMemo,useState} from "react";
 import type {TestRecord,Pedal,PedalTemplate,AmpTemplate,Amp} from "./types";
 import {emptyTest,sampleTests} from "./data";
-import {load,save,migrateTest} from "./storage";
-import {json,markdown} from "./export";
+import {load,save,migrateTest,mergeTests,snapshotIfDue,loadSnapshot} from "./storage";
+import {json,markdown,markdownAll} from "./export";
 import {TestForm,TestList,PedalCatalogManager,AmpCatalogManager,ListManager,useCloseOnOutsideClick} from "./components";
 import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
 import {newTemplate,instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode,resyncPedalFromCatalog} from "./pedalCatalog";
@@ -24,10 +24,17 @@ export default function App(){
  const [menuOpen,setMenuOpen]=useState(false);
  const [settingsOpen,setSettingsOpen]=useState(false);
  const [appDescription,setAppDescription]=useState("");
+ const [theme,setTheme]=useState<string>(()=>localStorage.getItem("tonelab-theme")||"light");
+ const [restoreOpen,setRestoreOpen]=useState(false);
+ const [exportMdOpen,setExportMdOpen]=useState(false); const [mdScope,setMdScope]=useState<"current"|"all">("current");
+ const [exportJsonOpen,setExportJsonOpen]=useState(false); const [jsonParts,setJsonParts]=useState({tests:true,lists:true,catalog:true,ampCatalog:true});
+ const [importOpen,setImportOpen]=useState(false); const [importMode,setImportMode]=useState<"merge"|"replace">("merge");
+ const [devOpen,setDevOpen]=useState(false);
+ useEffect(()=>{document.documentElement.dataset.theme=theme;localStorage.setItem("tonelab-theme",theme)},[theme]);
  useEffect(()=>{fetch(`${import.meta.env.BASE_URL}manifest.webmanifest`).then(r=>r.json()).then(m=>setAppDescription(m.description)).catch(()=>{})},[]);
  useEffect(()=>setMenuOpen(false),[selected,mobileView]);
  useCloseOnOutsideClick(menuOpen,()=>setMenuOpen(false));
- useEffect(()=>save(tests),[tests]);
+ useEffect(()=>{snapshotIfDue();save(tests)},[tests]);
  useEffect(()=>saveLists(lists),[lists]);
  useEffect(()=>savePedalCatalog(catalog),[catalog]);
  useEffect(()=>saveAmpCatalog(ampCatalog),[ampCatalog]);
@@ -72,31 +79,110 @@ export default function App(){
   setTests(a=>a.map(t=>t.amp.templateId===id?{...t,amp:resyncAmpFromCatalog(t.amp,nextCatalog)}:t));
  }
  function removeAmpCatalogTemplate(id:string){setAmpCatalog(c=>c.filter(t=>t.id!==id))}
- function importJson(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{const f=i.files?.[0];if(!f)return;const d=JSON.parse(await f.text());if(!Array.isArray(d.tests))throw new Error("JSON ToneLab invalide");const migrated=d.tests.map(migrateTest);setTests(migrated);setSelected(migrated[0]?.id||"");setLists(mergeLists(d.lists));setCatalog(mergeCatalog(d.catalog));setAmpCatalog(mergeAmpCatalog(d.ampCatalog))};i.click()}
+ // null si aucun export n'a jamais été fait, sinon le nombre de jours écoulés depuis le dernier.
+ function daysSinceLastExport():number|null{const v=localStorage.getItem("tonelab-last-export");if(!v)return null;return Math.floor((Date.now()-new Date(v).getTime())/86400000)}
+ function importJson(mode:"merge"|"replace"){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=async()=>{
+  const f=i.files?.[0];if(!f)return;
+  let d:any;
+  try{d=JSON.parse(await f.text())}catch{alert("Fichier JSON invalide (impossible de le lire).");return}
+  if(d.tests!==undefined&&!Array.isArray(d.tests)){alert("JSON ToneLab invalide (structure inattendue).");return}
+  if(d.tests){
+   const migrated=d.tests.map(migrateTest);
+   const collisions=mode==="merge"?migrated.filter((t:TestRecord)=>tests.some(x=>x.id===t.id)).length:0;
+   const msg=mode==="replace"
+    ?`Remplacer TOUS les tests actuels (${tests.length}) par les ${migrated.length} test(s) importé(s) ?`
+    :`Importer ${migrated.length} test(s) ?\n${collisions?`${collisions} test(s) existant(s) avec le même ID seront remplacés.\n`:""}Les autres tests actuels seront conservés.`;
+   if(!confirm(msg))return;
+   setTests(a=>mode==="replace"?migrated:mergeTests(a,migrated));
+   setSelected(migrated[0]?.id||"");
+  }
+  if(d.lists)setLists(mergeLists(d.lists));
+  if(d.catalog)setCatalog(mergeCatalog(d.catalog));
+  if(d.ampCatalog)setAmpCatalog(mergeAmpCatalog(d.ampCatalog));
+ };i.click()}
  return <main><header><div><div className="eyebrow">TONELAB</div><h1>Profiles</h1><p>{appDescription}</p></div><div className="actions">
   <button className="primary" onClick={newTest}>+ Nouveau test</button>
   <div className="menu">
-   <button className="menu-trigger" onClick={()=>setMenuOpen(o=>!o)} aria-label="Plus d'actions">⋮</button>
-   {menuOpen&&<div className="menu-panel">
-    <button onClick={()=>{current&&markdown(current);setMenuOpen(false)}} disabled={!current}>Exporter Markdown</button>
-    <button onClick={()=>{json(tests,lists,catalog,ampCatalog);setMenuOpen(false)}}>Exporter JSON</button>
-    <button onClick={()=>{importJson();setMenuOpen(false)}}>Importer JSON</button>
-    <button onClick={()=>{downloadListsCode(lists);setMenuOpen(false)}}>Générer les listes par défaut (.ts)</button>
-    <button onClick={()=>{downloadPedalCatalogCode(catalog);setMenuOpen(false)}}>Générer le catalogue de pédales (.ts)</button>
-    <button onClick={()=>{downloadAmpCatalogCode(ampCatalog);setMenuOpen(false)}}>Générer le catalogue d'amplis (.ts)</button>
+   <button className="menu-trigger header-icon-btn" onClick={()=>setMenuOpen(o=>!o)} aria-label="Plus d'actions" aria-haspopup="true" aria-expanded={menuOpen}>⋮</button>
+   {menuOpen&&<div className="menu-panel" role="menu">
+    <div className="menu-info">{(()=>{const d=daysSinceLastExport();return d===null?"Aucun export effectué":`Dernier export : il y a ${d} jour(s)`})()}</div>
+    <button onClick={()=>{setMenuOpen(false);setRestoreOpen(true)}}>Restaurer</button>
+    <button onClick={()=>{setMenuOpen(false);setExportMdOpen(true)}} disabled={!current}>Exporter Markdown</button>
+    <button onClick={()=>{setMenuOpen(false);setExportJsonOpen(true)}}>Exporter JSON</button>
+    <button onClick={()=>{setMenuOpen(false);setImportOpen(true)}}>Importer JSON</button>
+    <button onClick={()=>{setMenuOpen(false);setDevOpen(true)}}>Développeur</button>
    </div>}
   </div>
-  <button type="button" className="settings-trigger" onClick={()=>setSettingsOpen(true)} aria-label="Paramètres" title="Paramètres (listes, catalogue de pédales)">⚙</button>
+  <button type="button" className="header-icon-btn" onClick={()=>setTheme(t=>t==="dark"?"light":"dark")} aria-label={theme==="dark"?"Passer en mode clair":"Passer en mode sombre"} title={theme==="dark"?"Passer en mode clair":"Passer en mode sombre"}>{theme==="dark"?"☀️":"🌙"}</button>
+  <button type="button" className="header-icon-btn" onClick={()=>setSettingsOpen(true)} aria-label="Paramètres" title="Paramètres (listes, catalogue de pédales)">⚙</button>
  </div></header>
  {settingsOpen&&<div className="modal-overlay" onClick={()=>setSettingsOpen(false)}>
-  <div className="modal-panel" onClick={e=>e.stopPropagation()}>
-   <div className="modal-panel-header"><h2>Paramètres</h2><button type="button" className="modal-close" onClick={()=>setSettingsOpen(false)} aria-label="Fermer">✕</button></div>
+  <div className="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title" onClick={e=>e.stopPropagation()}>
+   <div className="modal-panel-header"><h2 id="settings-title">Paramètres</h2><button type="button" className="modal-close" onClick={()=>setSettingsOpen(false)} aria-label="Fermer">✕</button></div>
    <PedalCatalogManager catalog={catalog} onUpdate={updateCatalogTemplate} onAdd={addCatalogTemplate} onRemove={removeCatalogTemplate}/>
    <AmpCatalogManager catalog={ampCatalog} onUpdate={updateAmpCatalogTemplate} onAdd={addAmpCatalogTemplate} onRemove={removeAmpCatalogTemplate}/>
    <ListManager lists={lists} onRename={renameListItem} onRemove={removeListItem} onAdd={addListItem}/>
   </div>
  </div>}
- <div className={`workspace ${mobileView==="form"?"show-form":"show-list"}`}><aside><input className="search" placeholder="Rechercher..." value={q} onChange={e=>setQ(e.target.value)}/>
+ {restoreOpen&&<div className="modal-overlay" onClick={()=>setRestoreOpen(false)}>
+  <div className="modal-panel modal-panel--sm" role="dialog" aria-modal="true" aria-labelledby="restore-title" onClick={e=>e.stopPropagation()}>
+   <div className="modal-panel-header"><h2 id="restore-title">Restaurer une sauvegarde</h2><button type="button" className="modal-close" onClick={()=>setRestoreOpen(false)} aria-label="Fermer">✕</button></div>
+   <p>Une copie de secours de vos tests est conservée automatiquement une fois par jour, avant toute modification, pour permettre de revenir en arrière en cas d'erreur ou de perte de données.</p>
+   {(()=>{const s=loadSnapshot();return s
+    ?<>
+     <p>Sauvegarde disponible : <strong>{s.date}</strong> ({s.tests.length} test(s)).</p>
+     <button type="button" onClick={()=>{if(confirm(`Restaurer la sauvegarde du ${s.date} (${s.tests.length} test(s)) ? Cela remplacera les tests actuels.`)){setTests(s.tests);setRestoreOpen(false)}}}>Restaurer cette sauvegarde</button>
+    </>
+    :<p>Aucune sauvegarde de secours disponible pour le moment.</p>})()}
+  </div>
+ </div>}
+ {exportMdOpen&&<div className="modal-overlay" onClick={()=>setExportMdOpen(false)}>
+  <div className="modal-panel modal-panel--sm" role="dialog" aria-modal="true" aria-labelledby="export-md-title" onClick={e=>e.stopPropagation()}>
+   <div className="modal-panel-header"><h2 id="export-md-title">Exporter en Markdown</h2><button type="button" className="modal-close" onClick={()=>setExportMdOpen(false)} aria-label="Fermer">✕</button></div>
+   <p>Génère un fichier Markdown lisible reprenant le détail d'un ou plusieurs tests (réglages, objectif, observations...).</p>
+   <div className="popup-choice">
+    <label><input type="radio" name="mdScope" checked={mdScope==="current"} onChange={()=>setMdScope("current")} disabled={!current}/> Le test actuellement ouvert</label>
+    <label><input type="radio" name="mdScope" checked={mdScope==="all"} onChange={()=>setMdScope("all")}/> Tous les tests (fichier unique)</label>
+   </div>
+   <button type="button" onClick={()=>{mdScope==="current"?current&&markdown(current):markdownAll(tests);setExportMdOpen(false)}}>Exporter</button>
+  </div>
+ </div>}
+ {exportJsonOpen&&<div className="modal-overlay" onClick={()=>setExportJsonOpen(false)}>
+  <div className="modal-panel modal-panel--sm" role="dialog" aria-modal="true" aria-labelledby="export-json-title" onClick={e=>e.stopPropagation()}>
+   <div className="modal-panel-header"><h2 id="export-json-title">Exporter en JSON</h2><button type="button" className="modal-close" onClick={()=>setExportJsonOpen(false)} aria-label="Fermer">✕</button></div>
+   <p>Génère une sauvegarde complète, réimportable depuis ce même menu. Choisissez ce qu'elle doit contenir :</p>
+   <div className="popup-choice">
+    <label><input type="checkbox" checked={jsonParts.tests} onChange={()=>setJsonParts(p=>({...p,tests:!p.tests}))}/> Tests</label>
+    <label><input type="checkbox" checked={jsonParts.lists} onChange={()=>setJsonParts(p=>({...p,lists:!p.lists}))}/> Listes (artistes, statuts...)</label>
+    <label><input type="checkbox" checked={jsonParts.catalog} onChange={()=>setJsonParts(p=>({...p,catalog:!p.catalog}))}/> Catalogue de pédales</label>
+    <label><input type="checkbox" checked={jsonParts.ampCatalog} onChange={()=>setJsonParts(p=>({...p,ampCatalog:!p.ampCatalog}))}/> Catalogue d'amplis</label>
+   </div>
+   <button type="button" disabled={!Object.values(jsonParts).some(Boolean)} onClick={()=>{json({...(jsonParts.tests&&{tests}),...(jsonParts.lists&&{lists}),...(jsonParts.catalog&&{catalog}),...(jsonParts.ampCatalog&&{ampCatalog})});localStorage.setItem("tonelab-last-export",new Date().toISOString());setExportJsonOpen(false)}}>Exporter</button>
+  </div>
+ </div>}
+ {importOpen&&<div className="modal-overlay" onClick={()=>setImportOpen(false)}>
+  <div className="modal-panel modal-panel--sm" role="dialog" aria-modal="true" aria-labelledby="import-title" onClick={e=>e.stopPropagation()}>
+   <div className="modal-panel-header"><h2 id="import-title">Importer un JSON</h2><button type="button" className="modal-close" onClick={()=>setImportOpen(false)} aria-label="Fermer">✕</button></div>
+   <p>Importe un fichier de sauvegarde ToneLab. Seules les catégories présentes dans le fichier sont modifiées (un export partiel n'efface pas le reste).</p>
+   <div className="popup-choice">
+    <label><input type="radio" name="importMode" checked={importMode==="merge"} onChange={()=>setImportMode("merge")}/> Fusionner (recommandé) — conserve les tests existants</label>
+    <label><input type="radio" name="importMode" checked={importMode==="replace"} onChange={()=>setImportMode("replace")}/> Remplacer tout — supprime les tests actuels</label>
+   </div>
+   <button type="button" onClick={()=>{importJson(importMode);setImportOpen(false)}}>Choisir un fichier…</button>
+  </div>
+ </div>}
+ {devOpen&&<div className="modal-overlay" onClick={()=>setDevOpen(false)}>
+  <div className="modal-panel modal-panel--sm" role="dialog" aria-modal="true" aria-labelledby="dev-title" onClick={e=>e.stopPropagation()}>
+   <div className="modal-panel-header"><h2 id="dev-title">Actions développeur</h2><button type="button" className="modal-close" onClick={()=>setDevOpen(false)} aria-label="Fermer">✕</button></div>
+   <p>Génère du code TypeScript prêt à coller dans le dépôt, pour mettre à jour les valeurs par défaut livrées avec l'application (listes, catalogues de pédales/amplis).</p>
+   <div className="popup-choice">
+    <button type="button" onClick={()=>{downloadListsCode(lists);setDevOpen(false)}}>Générer les listes par défaut (.ts)</button>
+    <button type="button" onClick={()=>{downloadPedalCatalogCode(catalog);setDevOpen(false)}}>Générer le catalogue de pédales (.ts)</button>
+    <button type="button" onClick={()=>{downloadAmpCatalogCode(ampCatalog);setDevOpen(false)}}>Générer le catalogue d'amplis (.ts)</button>
+   </div>
+  </div>
+ </div>}
+ <div className={`workspace ${mobileView==="form"?"show-form":"show-list"}`}><aside><label className="visually-hidden" htmlFor="test-search">Rechercher un test</label><input id="test-search" className="search" placeholder="Rechercher..." value={q} onChange={e=>setQ(e.target.value)}/>
   <TestList tests={filtered} selected={current?.id||""} onSelect={selectTest} statusOptions={lists.status} statusFilter={statusFilter} onToggleStatusFilter={toggleStatusFilter} onRename={rename} onDuplicate={duplicate} onRemove={remove}/>
  </aside><article><div className="mobile-header">
   <button className="back-mobile" onClick={()=>setMobileView("list")} title="Retour à la liste" aria-label="Retour à la liste">←</button>

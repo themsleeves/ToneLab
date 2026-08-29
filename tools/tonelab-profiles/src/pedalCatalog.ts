@@ -1,7 +1,8 @@
 import type {Pedal, PedalParam, PedalTemplate} from "./types";
 
 const KEY = "tonelab-pedal-catalog";
-const newId = () => `pedal-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+let seq = 0;
+const newId = () => `pedal-${Date.now()}-${(seq++).toString(36)}`;
 
 const knob = (name: string, value = ""): PedalParam => ({ name, kind: "knob", value });
 const sel = (name: string, options: string[]): PedalParam => ({ name, kind: "switch", value: options[0], options });
@@ -75,7 +76,7 @@ export function pedalNeedsResync(pedal: Pedal, catalog: PedalTemplate[]): boolea
 }
 
 export function newTemplate(): PedalTemplate {
-  return { id: `tpl-${Date.now()}`, brand: "", model: "", params: [] };
+  return { id: `tpl-${Date.now()}-${(seq++).toString(36)}`, brand: "", model: "", params: [] };
 }
 
 export function defaultPedals(): Pedal[] {

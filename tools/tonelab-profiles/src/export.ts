@@ -10,15 +10,15 @@ function pedalsSummary(pedals:Pedal[]):string {
 function ampSummary(amp:Amp):string {
  return amp.params.map(p=>`${p.name}=${p.value}`).join(", ");
 }
-export function json(tests:TestRecord[],lists:Lists,catalog:PedalTemplate[],ampCatalog:AmpTemplate[]){download("tonelab-data.json",JSON.stringify({version:4,tests,lists,catalog,ampCatalog},null,2),"application/json");}
+export function json(data:{tests?:TestRecord[],lists?:Lists,catalog?:PedalTemplate[],ampCatalog?:AmpTemplate[]}){download("tonelab-data.json",JSON.stringify({version:4,...data},null,2),"application/json");}
 export function csv(tests:TestRecord[]){
  const h=["ID test","Artiste / Référence","Morceau / Riff","Date","Statut","Guitare","Accordage","Micro / Position","Cabinet","Ampli","Canal","Réglages ampli","Pédales d'effets","Autres pédales / chaîne","Objectif du test","Observations","Résultat / Conclusion","Profil retenu"];
  const rows=tests.map(t=>[t.id,t.artistReference,t.song,t.date,t.status,t.guitar,t.tuning,t.pickup,t.cabinet,t.amp.name,t.amp.channel,ampSummary(t.amp),pedalsSummary(t.pedals),t.otherPedals,t.objective,t.observations,t.conclusion,t.retained?"Oui":"Non"]);
  download("tonelab-tests.csv","\uFEFF"+[h,...rows].map(r=>r.map(esc).join(";")).join("\n"),"text/csv;charset=utf-8");
 }
-export function markdown(t:TestRecord){
+function markdownBody(t:TestRecord):string {
  const r=(a:string,b:string)=>`| ${a} | ${b||"—"} |`;
- const md=`# ${t.artistReference||"Test"} — ${t.song||t.id}
+ return `# ${t.artistReference||"Test"} — ${t.song||t.id}
 
 ## Statut
 ${t.status}
@@ -60,5 +60,6 @@ ${t.conclusion||"—"}
 ## Profil retenu
 ${t.retained?"Oui":"Non"}
 `;
- download(`${t.id||"profil-tonelab"}.md`,md,"text/markdown;charset=utf-8");
 }
+export function markdown(t:TestRecord){download(`${t.id||"profil-tonelab"}.md`,markdownBody(t),"text/markdown;charset=utf-8");}
+export function markdownAll(tests:TestRecord[]){download("tonelab-tests.md",tests.map(markdownBody).join("\n\n---\n\n"),"text/markdown;charset=utf-8");}

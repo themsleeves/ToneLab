@@ -37,5 +37,26 @@ export function migrateTest(raw:any):TestRecord {
  return {...rest,pedals,amp} as TestRecord;
 }
 
-export function load():TestRecord[]{try{const x=localStorage.getItem(KEY);const arr=x?JSON.parse(x):[];return Array.isArray(arr)?arr.map(migrateTest):[];}catch{return[];}}
+export function load():TestRecord[]{try{const x=localStorage.getItem(KEY);const arr=x?JSON.parse(x):[];return Array.isArray(arr)?arr.map(migrateTest):[];}catch(e){console.error("ToneLab: données corrompues dans localStorage",e);alert("Impossible de lire vos tests enregistrés (données corrompues). Un tableau vide a été chargé pour éviter toute perte supplémentaire — vérifiez vos sauvegardes/exports.");return[];}}
 export function save(tests:TestRecord[]){localStorage.setItem(KEY,JSON.stringify(tests));}
+
+// Fusionne des tests importés avec les tests existants : l'import gagne en cas de collision d'ID, les autres tests existants sont conservés.
+export function mergeTests(existing:TestRecord[],imported:TestRecord[]):TestRecord[]{
+ const byId=new Map(existing.map(t=>[t.id,t]));
+ for(const t of imported)byId.set(t.id,t);
+ return [...byId.values()];
+}
+
+const SNAP_KEY=KEY+"-snapshot", SNAP_DATE_KEY=KEY+"-snapshot-date";
+// Capture une sauvegarde de secours de l'état de la veille, au plus une fois par jour, avant d'écraser avec les données du jour.
+export function snapshotIfDue(){
+ const today=new Date().toISOString().slice(0,10);
+ if(localStorage.getItem(SNAP_DATE_KEY)===today)return;
+ const prev=localStorage.getItem(KEY);
+ if(prev){localStorage.setItem(SNAP_KEY,prev);localStorage.setItem(SNAP_DATE_KEY,today)}
+}
+export function loadSnapshot():{tests:TestRecord[],date:string}|null{
+ const raw=localStorage.getItem(SNAP_KEY),date=localStorage.getItem(SNAP_DATE_KEY);
+ if(!raw||!date)return null;
+ try{return {tests:(JSON.parse(raw) as any[]).map(migrateTest),date}}catch{return null}
+}

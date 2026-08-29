@@ -1,4 +1,4 @@
-import {useState,useRef,useEffect} from "react";
+import {useState,useRef,useEffect,useId} from "react";
 import type {ReactNode,CSSProperties} from "react";
 import type {TestRecord,Pedal,PedalParam,PedalTemplate,ControlKind,AmpTemplate,Amp} from "./types";
 import {resyncPedalFromCatalog,pedalNeedsResync} from "./pedalCatalog";
@@ -29,6 +29,7 @@ function Area({label,value,onChange,autoGrow}:{label?:string,value:string,onChan
 const LIST_KEYS:ListKey[]=["status","artist","guitar","tuning","pickup","cabinet"];
 const PEDAL_PARAM_SUGGESTIONS=["Drive","Gain","Tone","Level","Volume","Bass","Mid","Treble","Presence","Depth","Bloom","Fuzz","Sustain","Attack","Release","Speed","Rate","Mix","Sensitivity","Output","Blend"];
 function ParamRow({param,onChange,onRemove,removable=true,ampChannels,dragHandle}:{param:PedalParam,onChange:(patch:Partial<PedalParam>)=>void,onRemove:()=>void,removable?:boolean,ampChannels?:string[],dragHandle?:ReactNode}){
+ const configTitleId=useId();
  const [nameEditing,setNameEditing]=useState(false);
  const [nameDraft,setNameDraft]=useState(param.name);
  const commitName=()=>{const v=nameDraft.trim();if(v)onChange({name:v});setNameEditing(false)};
@@ -55,8 +56,8 @@ function ParamRow({param,onChange,onRemove,removable=true,ampChannels,dragHandle
  const configPanel=removable&&<>
   <button type="button" className="switch-config" onClick={()=>setConfigOpen(true)} title="Configurer ce réglage" aria-label="Configurer ce réglage">⚙</button>
   {configOpen&&<div className="param-config-overlay" onClick={()=>setConfigOpen(false)}>
-   <div className="param-config-panel" onClick={e=>e.stopPropagation()}>
-    <div className="param-config-panel-header"><strong>{param.name}</strong><button type="button" className="modal-close" onClick={()=>setConfigOpen(false)} aria-label="Fermer">✕</button></div>
+   <div className="param-config-panel" role="dialog" aria-modal="true" aria-labelledby={configTitleId} onClick={e=>e.stopPropagation()}>
+    <div className="param-config-panel-header"><strong id={configTitleId}>{param.name}</strong><button type="button" className="modal-close" onClick={()=>setConfigOpen(false)} aria-label="Fermer">✕</button></div>
     {param.kind==="switch"?<>
      <div className="param-config-positions-count">
       <button type="button" className={(param.options||["OFF","ON"]).length===2?"switch-toggle-option active":"switch-toggle-option"} onClick={()=>setPositionsCount(2)}>2</button>
@@ -112,8 +113,8 @@ function AddParamMenu({onAdd}:{onAdd:(kind:ControlKind)=>void}){
  useCloseOnOutsideClick(open,()=>setOpen(false));
  const pick=(kind:ControlKind)=>{onAdd(kind);setOpen(false)};
  return <div className="menu param-add-menu">
-  <button type="button" className="menu-trigger" onClick={()=>setOpen(o=>!o)} aria-label="Ajouter un réglage">+</button>
-  {open&&<div className="menu-panel param-add-panel">
+  <button type="button" className="menu-trigger" onClick={()=>setOpen(o=>!o)} aria-label="Ajouter un réglage" aria-haspopup="true" aria-expanded={open}>+</button>
+  {open&&<div className="menu-panel param-add-panel" role="menu">
    <button type="button" onClick={()=>pick("knob")}>+ Potard</button>
    <button type="button" onClick={()=>pick("slider")}>+ Slider</button>
    <button type="button" onClick={()=>pick("switch")}>+ Switch</button>
@@ -125,8 +126,8 @@ function AmpSwitcher({catalog,onPick}:{catalog:AmpTemplate[],onPick:(tpl:AmpTemp
  useCloseOnOutsideClick(open,()=>setOpen(false));
  if(catalog.length===0)return null;
  return <div className="menu amp-switch-menu">
-  <button type="button" className="switch-config" onClick={()=>setOpen(o=>!o)} title="Changer d'ampli" aria-label="Changer d'ampli">⇄</button>
-  {open&&<div className="menu-panel">
+  <button type="button" className="switch-config" onClick={()=>setOpen(o=>!o)} title="Changer d'ampli" aria-label="Changer d'ampli" aria-haspopup="true" aria-expanded={open}>⇄</button>
+  {open&&<div className="menu-panel" role="menu">
    {catalog.map(tpl=><button type="button" key={tpl.id} onClick={()=>{onPick(tpl);setOpen(false)}}>{tpl.brand} — {tpl.model}</button>)}
   </div>}
  </div>;
@@ -420,8 +421,8 @@ export function TestList({tests,selected,onSelect,statusOptions,statusFilter,onT
    <div className="test-item-row">
     <button className="test-item-btn" onClick={()=>onSelect(t.id)}><strong>{t.artistReference||"Artiste non défini"}</strong><span>{t.song||"Morceau non défini"}</span><div className="test-item-meta"><small>{t.id}</small><span className="status-badge">{t.status}</span></div></button>
     <div className="test-item-menu">
-     <button type="button" className="menu-trigger" onClick={()=>setOpenMenu(m=>m===t.id?null:t.id)} aria-label="Actions sur ce test">⋮</button>
-     {openMenu===t.id&&<div className="test-item-menu-panel">
+     <button type="button" className="menu-trigger" onClick={()=>setOpenMenu(m=>m===t.id?null:t.id)} aria-label="Actions sur ce test" aria-haspopup="true" aria-expanded={openMenu===t.id}>⋮</button>
+     {openMenu===t.id&&<div className="test-item-menu-panel" role="menu">
       <button type="button" title="Dupliquer" onClick={()=>{setOpenMenu(null);onDuplicate(t.id)}}>⧉</button>
       <button type="button" title="Renommer" onClick={()=>{setOpenMenu(null);onRename(t.id)}}>✎</button>
       <button type="button" className="danger" title="Supprimer" onClick={()=>{setOpenMenu(null);onRemove(t.id)}}>🗑</button>
