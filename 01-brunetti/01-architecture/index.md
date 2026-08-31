@@ -146,21 +146,6 @@ L'objectif sera notamment de comprendre pourquoi une modification d'un paramètr
 
 ---
 
-# État d'avancement
-
-| Partie | Sujet | État |
-|:------:|-------|:----:|
-| 1 | Architecture générale | ⏳ |
-| 2 | Architecture des canaux | ⏳ |
-| 3 | Architecture et logique des commandes | ⏳ |
-| 4 | Organisation de la chaîne de signal | ⏳ |
-| 5 | Boucle d'effets | ⏳ |
-| 6 | Interactions entre les sections | ⏳ |
-
-> **Remarque :** le contenu provenant de l'ancien fichier `01-Brunetti.md` doit être réorganisé avant d'être considéré comme la Partie 1 définitive. L'ancien document ne constitue donc pas automatiquement la structure de référence de cette partie.
-
----
-
 # Méthode documentaire
 
 Comme pour le reste du ToneLab, les informations seront classées selon leur niveau de certitude.
