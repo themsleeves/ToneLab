@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "/tests/**/*.md"
+      - "tests/**/*.md"
       - "tools/generate-tests-index.py"
       - ".github/workflows/update-tests-index.yml"
 
