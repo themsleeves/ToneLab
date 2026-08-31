@@ -4,14 +4,4 @@
 
 Les fichiers de test sont générés depuis l'application **ToneLab Profiles** et conservés tels quels.
 
-## Autres tests
-
-- [The Darkness — Love on the rocks](TD-001.md)
-
----
-
-## Navigation
-
-[← Retour au chapitre 03 — Construction des profils sonores](../index.md)
-
-[↑ Retour au chapitre Brunetti XL R-EVO II](../index.md)
+Aucun test n'est actuellement disponible.
