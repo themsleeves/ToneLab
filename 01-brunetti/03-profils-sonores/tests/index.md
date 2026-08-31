@@ -1,12 +1,7 @@
 # Tests ToneLab
 
-> Index automatique des tests réalisés avec ToneLab Profiles.
+> Index généré automatiquement à partir des exports Markdown présents dans ce répertoire.
 
-Les tests présents dans ce répertoire sont générés depuis les exports Markdown de l'application **ToneLab Profiles**.
+Les fichiers de test sont générés depuis l'application **ToneLab Profiles** et conservés tels quels.
 
----
-
-## Tests
-
-<!-- TESTS_START -->
-<!-- TESTS_END -->
+Aucun test n'est actuellement disponible.
