@@ -44,6 +44,16 @@ Il rassemble :
 
 ---
 
+## Tests ToneLab
+
+Les expérimentations réalisées avec l'application **ToneLab Profiles** peuvent être exportées au format Markdown et intégrées directement dans le dépôt.
+
+Ces tests sont automatiquement regroupés dans un index maintenu par GitHub Actions.
+
+➡️ **[Accéder à l'index des tests ToneLab](tests/index.md)**
+
+---
+
 # Annexes
 
 Les annexes regroupent les ressources complémentaires utilisées par le projet.

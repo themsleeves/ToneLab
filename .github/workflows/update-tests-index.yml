@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "01-brunetti/03-profils-sonores/tests/**/*.md"
+      - "/tests/**/*.md"
       - "tools/generate-tests-index.py"
       - ".github/workflows/update-tests-index.yml"
 
@@ -43,7 +43,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add 01-brunetti/03-profils-sonores/tests/index.md
+          git add tests/index.md
 
           git commit -m "chore: update ToneLab tests index"
           git push

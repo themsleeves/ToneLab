@@ -29,6 +29,16 @@ La documentation distingue donc :
 
 ---
 
+## Tests et expérimentations
+
+Les tests réalisés avec **ToneLab Profiles** permettent de confronter les hypothèses et profils construits dans cette documentation au comportement réel du matériel.
+
+Les exports Markdown sont intégrés au dépôt et leur index est automatiquement mis à jour.
+
+➡️ **[Accéder à l'index des tests ToneLab](../tests/index.md)**
+
+---
+
 # Organisation de la documentation
 
 La documentation consacrée au Brunetti est actuellement organisée en trois chapitres.

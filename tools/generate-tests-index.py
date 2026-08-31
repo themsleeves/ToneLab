@@ -8,7 +8,7 @@ import re
 ROOT = Path(__file__).resolve().parent.parent
 
 # Répertoire contenant les exports de tests
-TESTS_DIR = ROOT / "01-brunetti" / "03-profils-sonores" / "tests"
+TESTS_DIR = ROOT / "tests"
 
 # Index généré
 INDEX_FILE = TESTS_DIR / "index.md"
