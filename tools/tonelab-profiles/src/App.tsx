@@ -113,7 +113,7 @@ export default function App(){
     <button onClick={()=>{setMenuOpen(false);setDevOpen(true)}}>Développeur</button>
    </div>}
   </div>
-  <button type="button" className="header-icon-btn" onClick={()=>setTheme(t=>t==="dark"?"light":"dark")} aria-label={theme==="dark"?"Passer en mode clair":"Passer en mode sombre"} title={theme==="dark"?"Passer en mode clair":"Passer en mode sombre"}>{theme==="dark"?"☀️":"🌙"}</button>
+  <button type="button" className="header-icon-btn" onClick={()=>setTheme(t=>t==="dark"?"light":"dark")} aria-label={theme==="dark"?"Passer en mode clair":"Passer en mode sombre"} title={theme==="dark"?"Passer en mode clair":"Passer en mode sombre"}>{theme==="dark"?"◐":"◑"}</button>
   <button type="button" className="header-icon-btn" onClick={()=>setSettingsOpen(true)} aria-label="Paramètres" title="Paramètres (listes, catalogue de pédales)">⚙</button>
  </div></header>
  {settingsOpen&&<div className="modal-overlay" onClick={()=>setSettingsOpen(false)}>

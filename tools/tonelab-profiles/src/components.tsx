@@ -291,10 +291,13 @@ export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:Amp
 function CatalogPicker<T extends {id:string,brand:string,model:string}>({catalog,onPick,placeholder="Depuis le catalogue…"}:{catalog:T[],onPick:(tpl:T)=>void,placeholder?:string}){
  const [resetKey,setResetKey]=useState(0);
  if(catalog.length===0)return <select disabled className="catalog-picker-select"><option>Catalogue vide</option></select>;
- return <select key={resetKey} className="catalog-picker-select" defaultValue="" onChange={e=>{const tpl=catalog.find(t=>t.id===e.target.value);if(tpl){onPick(tpl);setResetKey(k=>k+1)}}}>
-  <option value="" disabled>{placeholder}</option>
-  {catalog.map(tpl=><option key={tpl.id} value={tpl.id}>{tpl.brand} — {tpl.model}</option>)}
- </select>;
+ return <label className="field field-inline">
+  <span className="visually-hidden">{placeholder}</span>
+  <select key={resetKey} className="catalog-picker-select" defaultValue="" onChange={e=>{const tpl=catalog.find(t=>t.id===e.target.value);if(tpl){onPick(tpl);setResetKey(k=>k+1)}}}>
+   <option value="" hidden>{placeholder}</option>
+   {catalog.map(tpl=><option key={tpl.id} value={tpl.id}>{tpl.brand} — {tpl.model}</option>)}
+  </select>
+ </label>;
 }
 function Chip({item,onRename,onRemove}:{item:string,onRename:(v:string)=>void,onRemove:()=>void}){
  const [editing,setEditing]=useState(false);
