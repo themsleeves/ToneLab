@@ -1,0 +1,49 @@
+name: Update ToneLab Tests Index
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "01-brunetti/03-profils-sonores/tests/**/*.md"
+      - "tools/generate-tests-index.py"
+      - ".github/workflows/update-tests-index.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-tests-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate tests index
+        run: python tools/generate-tests-index.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit updated index
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add 01-brunetti/03-profils-sonores/tests/index.md
+
+          git commit -m "chore: update ToneLab tests index"
+          git push
