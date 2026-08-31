@@ -1,8 +1,8 @@
 import {useState,useRef,useEffect,useId} from "react";
 import type {ReactNode,CSSProperties} from "react";
 import type {TestRecord,Pedal,PedalParam,PedalTemplate,ControlKind,AmpTemplate,Amp} from "./types";
-import {resyncPedalFromCatalog,pedalNeedsResync} from "./pedalCatalog";
-import {resyncAmpFromCatalog,ampNeedsResync} from "./ampCatalog";
+import {resyncPedalFromCatalog,pedalNeedsResync,defaultPedalCatalog} from "./pedalCatalog";
+import {resyncAmpFromCatalog,ampNeedsResync,defaultAmpCatalog} from "./ampCatalog";
 import {LIST_LABELS} from "./lists";
 import type {ListKey,Lists} from "./lists";
 // Referme un menu ouvert au clic en dehors de tout élément `.menu` (trigger + panneau).
@@ -214,7 +214,7 @@ function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}
   {notesOpen&&<Area value={pedal.notes} onChange={v=>onChange({...pedal,notes:v})} autoGrow/>}
  </section>;
 }
-function PedalTemplateEditor({template,onChange,onRemove}:{template:PedalTemplate,onChange:(tpl:PedalTemplate)=>void,onRemove:()=>void}){
+function PedalTemplateEditor({template,onChange,onRemove,defaultTemplate}:{template:PedalTemplate,onChange:(tpl:PedalTemplate)=>void,onRemove:()=>void,defaultTemplate?:PedalTemplate}){
  return <div className="template-editor">
   <div className="template-editor-header">
    <input value={template.brand} placeholder="Marque" onChange={e=>onChange({...template,brand:e.target.value})}/>
@@ -222,7 +222,8 @@ function PedalTemplateEditor({template,onChange,onRemove}:{template:PedalTemplat
   </div>
   <div className="template-editor-toolbar">
    <AddParamMenu onAdd={kind=>onChange({...template,params:[...template.params,newParam(kind)]})}/>
-   <button type="button" className="danger template-remove-btn" onClick={onRemove}>✕ Supprimer ce modèle</button>
+   {defaultTemplate&&<button type="button" className="template-remove-btn" onClick={()=>{if(confirm(`Synchroniser "${template.brand} ${template.model}" avec les valeurs par défaut de l'application ? Les réglages personnalisés de ce modèle seront perdus.`))onChange(defaultTemplate)}}>↺ Synchroniser</button>}
+   <button type="button" className="danger template-remove-btn" onClick={onRemove}>✕ Supprimer</button>
   </div>
   <ParamListEditor params={template.params} onChange={params=>onChange({...template,params})}/>
  </div>;
@@ -250,10 +251,10 @@ export function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:P
   <div className="catalog-manager-list">
    {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>setSelectedId(tpl.id)}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
   </div>
-  {selected&&<PedalTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}}/>}
+  {selected&&<PedalTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}} defaultTemplate={defaultPedalCatalog.find(t=>t.id===selected.id)}/>}
  </CollapsibleSection>;
 }
-function AmpTemplateEditor({template,onChange,onRemove}:{template:AmpTemplate,onChange:(tpl:AmpTemplate)=>void,onRemove:()=>void}){
+function AmpTemplateEditor({template,onChange,onRemove,defaultTemplate}:{template:AmpTemplate,onChange:(tpl:AmpTemplate)=>void,onRemove:()=>void,defaultTemplate?:AmpTemplate}){
  const [channelDraft,setChannelDraft]=useState("");
  const addChannel=()=>{const v=channelDraft.trim();if(v&&!template.channels.includes(v)){onChange({...template,channels:[...template.channels,v]});setChannelDraft("")}};
  return <div className="template-editor">
@@ -270,7 +271,8 @@ function AmpTemplateEditor({template,onChange,onRemove}:{template:AmpTemplate,on
   </div>
   <div className="template-editor-toolbar">
    <AddParamMenu onAdd={kind=>onChange({...template,params:[...template.params,newParam(kind)]})}/>
-   <button type="button" className="danger template-remove-btn" onClick={onRemove}>✕ Supprimer ce modèle</button>
+   {defaultTemplate&&<button type="button" className="template-remove-btn" onClick={()=>{if(confirm(`Synchroniser "${template.brand} ${template.model}" avec les valeurs par défaut de l'application ? Les réglages personnalisés de ce modèle seront perdus.`))onChange(defaultTemplate)}}>↺ Synchroniser</button>}
+   <button type="button" className="danger template-remove-btn" onClick={onRemove}>✕ Supprimer</button>
   </div>
   <ParamListEditor params={template.params} onChange={params=>onChange({...template,params})} ampChannels={template.channels}/>
  </div>;
@@ -285,7 +287,7 @@ export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:Amp
   <div className="catalog-manager-list">
    {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>setSelectedId(tpl.id)}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
   </div>
-  {selected&&<AmpTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}}/>}
+  {selected&&<AmpTemplateEditor template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}} defaultTemplate={defaultAmpCatalog.find(t=>t.id===selected.id)}/>}
  </CollapsibleSection>;
 }
 function CatalogPicker<T extends {id:string,brand:string,model:string}>({catalog,onPick,placeholder="Depuis le catalogue…"}:{catalog:T[],onPick:(tpl:T)=>void,placeholder?:string}){
