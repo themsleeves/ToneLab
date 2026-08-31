@@ -374,7 +374,7 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
  return <div className="form">
   <datalist id="pedal-param-names">{PEDAL_PARAM_SUGGESTIONS.map(n=><option key={n} value={n}/>)}</datalist>
   <CollapsibleSection title="Identification" defaultOpen><div className="grid">
-   <Field label="ID test" value={test.id} onChange={v=>set("id",v)}/><SelectField label="Artiste / Référence" value={test.artistReference} options={lists.artist} onChange={v=>set("artistReference",v)}/>
+   <ReadOnlyField label="ID test" value={test.id}/><SelectField label="Artiste / Référence" value={test.artistReference} options={lists.artist} onChange={v=>set("artistReference",v)}/>
    <Field label="Morceau / Riff" value={test.song} onChange={v=>set("song",v)}/><Field label="Date" value={test.date} onChange={v=>set("date",v)}/>
    <SelectField label="Statut" value={test.status} options={lists.status} onChange={v=>set("status",v)}/>
   </div></CollapsibleSection>
@@ -412,7 +412,7 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
   </div><label className="check"><input type="checkbox" checked={test.retained} onChange={e=>set("retained",e.target.checked)}/> Profil retenu</label></CollapsibleSection>
  </div>
 }
-export function TestList({tests,selected,onSelect,statusOptions,statusFilter,onToggleStatusFilter,onRename,onDuplicate,onRemove}:{tests:TestRecord[],selected:string,onSelect:(id:string)=>void,statusOptions:string[],statusFilter:Set<string>,onToggleStatusFilter:(s:string)=>void,onRename:(id:string)=>void,onDuplicate:(id:string)=>void,onRemove:(id:string)=>void}){
+export function TestList({tests,selected,onSelect,statusOptions,statusFilter,onToggleStatusFilter,onDuplicate,onRemove}:{tests:TestRecord[],selected:string,onSelect:(id:string)=>void,statusOptions:string[],statusFilter:Set<string>,onToggleStatusFilter:(s:string)=>void,onDuplicate:(id:string)=>void,onRemove:(id:string)=>void}){
  const [openMenu,setOpenMenu]=useState<string|null>(null);
  useEffect(()=>setOpenMenu(null),[selected]);
  useCloseOnOutsideClick(openMenu!==null,()=>setOpenMenu(null));
@@ -427,7 +427,6 @@ export function TestList({tests,selected,onSelect,statusOptions,statusFilter,onT
      <button type="button" className="menu-trigger" onClick={()=>setOpenMenu(m=>m===t.id?null:t.id)} aria-label="Actions sur ce test" aria-haspopup="true" aria-expanded={openMenu===t.id}>⋮</button>
      {openMenu===t.id&&<div className="test-item-menu-panel" role="menu">
       <button type="button" title="Dupliquer" onClick={()=>{setOpenMenu(null);onDuplicate(t.id)}}>⧉</button>
-      <button type="button" title="Renommer" onClick={()=>{setOpenMenu(null);onRename(t.id)}}>✎</button>
       <button type="button" className="danger" title="Supprimer" onClick={()=>{setOpenMenu(null);onRemove(t.id)}}>🗑</button>
      </div>}
     </div>

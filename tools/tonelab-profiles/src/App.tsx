@@ -7,9 +7,19 @@ import {TestForm,TestList,PedalCatalogManager,AmpCatalogManager,ListManager,useC
 import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
 import {newTemplate,instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode,resyncPedalFromCatalog} from "./pedalCatalog";
 import {newAmpTemplate,instantiateAmp,loadAmpCatalog,saveAmpCatalog,mergeAmpCatalog,downloadAmpCatalogCode,resyncAmpFromCatalog} from "./ampCatalog";
-function id(t:TestRecord[]){
- const max=t.reduce((m,x)=>{const n=parseInt(x.id.replace(/^TEST-/,""),10);return isNaN(n)?m:Math.max(m,n)},0);
- return `TEST-${String(max+1).padStart(3,"0")}`;
+// Dérive un préfixe court à partir du nom d'artiste : 1 mot → 5 premières lettres, 2+ mots → initiale de chaque mot.
+function artistPrefix(artist:string):string{
+ const words=artist.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-zA-Z0-9\s]/g,"").trim().split(/\s+/).filter(Boolean);
+ if(words.length===0)return "TEST";
+ const prefix=words.length===1?words[0].slice(0,5):words.map(w=>w[0]).join("");
+ return prefix.toUpperCase()||"TEST";
+}
+// Numéro incrémental scopé par préfixe (indépendant entre artistes).
+function id(artist:string,t:TestRecord[]):string{
+ const prefix=artistPrefix(artist);
+ const re=new RegExp(`^${prefix}-(\\d+)$`);
+ const max=t.reduce((m,x)=>{const match=x.id.match(re);return match?Math.max(m,parseInt(match[1],10)):m},0);
+ return `${prefix}-${String(max+1).padStart(3,"0")}`;
 }
 type CategoryField="status"|"artistReference"|"guitar"|"tuning"|"pickup"|"cabinet";
 const CATEGORY_FIELD:Record<ListKey,CategoryField>={status:"status",artist:"artistReference",guitar:"guitar",tuning:"tuning",pickup:"pickup",cabinet:"cabinet"};
@@ -43,18 +53,19 @@ export default function App(){
  function selectTest(id:string){setSelected(id);setMobileView("form")}
  function settingsFingerprint(t:TestRecord){return JSON.stringify([t.guitar,t.tuning,t.pickup,t.cabinet,t.amp,t.pedals,t.otherPedals,t.objective,t.observations,t.conclusion,t.retained])}
  function update(t:TestRecord){
-  if(current&&t.id!==current.id){
-   if(tests.some(x=>x!==current&&x.id===t.id)){alert("Cet ID existe déjà.");return}
-   setSelected(t.id);
+  let next=t;
+  if(current&&t.artistReference!==current.artistReference){
+   const newId=id(t.artistReference,tests.filter(x=>x!==current));
+   next={...next,id:newId};
+   setSelected(newId);
   }
-  const changed=current&&settingsFingerprint(t)!==settingsFingerprint(current);
-  const next=changed?{...t,date:new Date().toISOString().slice(0,10)}:t;
-  setTests(a=>a.map(x=>x===current?next:x));
+  const changed=current&&settingsFingerprint(next)!==settingsFingerprint(current);
+  const withDate=changed?{...next,date:new Date().toISOString().slice(0,10)}:next;
+  setTests(a=>a.map(x=>x===current?withDate:x));
  }
- function newTest(){const t=emptyTest();t.id=id(tests);setTests(a=>[t,...a]);setSelected(t.id);setMobileView("form")}
- function duplicate(sourceId:string){const src=tests.find(t=>t.id===sourceId);if(!src)return;const t=JSON.parse(JSON.stringify(src)) as TestRecord;t.id=id(tests);t.status="À tester";t.retained=false;t.date=new Date().toISOString().slice(0,10);setTests(a=>[t,...a]);setSelected(t.id);setMobileView("form")}
+ function newTest(){const t=emptyTest();t.id=id(t.artistReference,tests);setTests(a=>[t,...a]);setSelected(t.id);setMobileView("form")}
+ function duplicate(sourceId:string){const src=tests.find(t=>t.id===sourceId);if(!src)return;const t=JSON.parse(JSON.stringify(src)) as TestRecord;t.id=id(t.artistReference,tests);t.status="À tester";t.retained=false;t.date=new Date().toISOString().slice(0,10);setTests(a=>[t,...a]);setSelected(t.id);setMobileView("form")}
  function remove(id:string,toList?:boolean){if(!confirm(`Supprimer ${id} ?`))return;const a=tests.filter(x=>x.id!==id);setTests(a);if(current?.id===id){setSelected(a[0]?.id||"");if(!a.length||toList)setMobileView("list")}}
- function rename(id:string){const next=prompt("Nouvel ID",id);if(!next||next===id)return;if(tests.some(t=>t.id===next)){alert("Cet ID existe déjà.");return}setTests(a=>a.map(x=>x.id===id?{...x,id:next}:x));if(current?.id===id)setSelected(next)}
  function renameListItem(cat:ListKey,oldV:string,newV:string){setLists(l=>({...l,[cat]:l[cat].map(x=>x===oldV?newV:x)}));const field=CATEGORY_FIELD[cat];setTests(a=>a.map(t=>t[field]===oldV?{...t,[field]:newV}:t));if(cat==="status")setStatusFilter(f=>{if(!f.has(oldV))return f;const n=new Set(f);n.delete(oldV);n.add(newV);return n})}
  function removeListItem(cat:ListKey,v:string){setLists(l=>({...l,[cat]:l[cat].filter(x=>x!==v)}));if(cat==="status")setStatusFilter(f=>{if(!f.has(v))return f;const n=new Set(f);n.delete(v);return n})}
  function addListItem(cat:ListKey,v:string){setLists(l=>l[cat].includes(v)?l:{...l,[cat]:[...l[cat],v]});if(cat==="status")setStatusFilter(f=>new Set(f).add(v))}
@@ -183,7 +194,7 @@ export default function App(){
   </div>
  </div>}
  <div className={`workspace ${mobileView==="form"?"show-form":"show-list"}`}><aside><label className="visually-hidden" htmlFor="test-search">Rechercher un test</label><input id="test-search" className="search" placeholder="Rechercher..." value={q} onChange={e=>setQ(e.target.value)}/>
-  <TestList tests={filtered} selected={current?.id||""} onSelect={selectTest} statusOptions={lists.status} statusFilter={statusFilter} onToggleStatusFilter={toggleStatusFilter} onRename={rename} onDuplicate={duplicate} onRemove={remove}/>
+  <TestList tests={filtered} selected={current?.id||""} onSelect={selectTest} statusOptions={lists.status} statusFilter={statusFilter} onToggleStatusFilter={toggleStatusFilter} onDuplicate={duplicate} onRemove={remove}/>
  </aside><article><div className="mobile-header">
   <button className="back-mobile" onClick={()=>setMobileView("list")} title="Retour à la liste" aria-label="Retour à la liste">←</button>
   {current&&<div className="mobile-test-id">
