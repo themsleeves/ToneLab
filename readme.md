@@ -4,6 +4,14 @@
 
 ---
 
+## Documentation
+
+La documentation structurée du projet est accessible depuis l'index principal :
+
+➡️ **[Accéder à l'index de la documentation ToneLab](index.md)**
+
+---
+
 # Volume I
 
 # Le Brunetti XL R-EVO II
@@ -64,10 +72,10 @@ Une phrase comme :
 
 n'a de valeur que si l'on explique :
 
-- ce que signifie réellement "incisif" ;
-- pourquoi ce comportement apparaît ;
-- quelles conséquences cela produit dans un mix ;
-- comment le guitariste peut exploiter cette caractéristique.
+* ce que signifie réellement "incisif" ;
+* pourquoi ce comportement apparaît ;
+* quelles conséquences cela produit dans un mix ;
+* comment le guitariste peut exploiter cette caractéristique.
 
 ---
 
@@ -141,16 +149,16 @@ Marshall 4×12.
 
 Guitares :
 
-- Gibson Les Paul Classic DC (Classic '57)
-- Gretsch Broadkaster John Gourley (Full'Tron USA)
+* Gibson Les Paul Classic DC (Classic '57)
+* Gretsch Broadkaster John Gourley (Full'Tron USA)
 
 Pédales principales :
 
-- Tube Screamer Analogman Silver Mod
-- MXR 6 Band EQ
-- Fender The Pelt
-- TC Electronic Hall of Fame Mini
-- autres éléments décrits dans le volume III.
+* Tube Screamer Analogman Silver Mod
+* MXR 6 Band EQ
+* Fender The Pelt
+* TC Electronic Hall of Fame Mini
+* autres éléments décrits dans le volume III.
 
 Ce choix est volontaire.
 
@@ -162,9 +170,9 @@ Le ToneLab ne cherche pas à produire des conclusions universelles, mais des con
 
 Le ToneLab n'est pas :
 
-- une collection de presets ;
-- une compilation de réglages trouvés sur Internet ;
-- une succession d'avis subjectifs.
+* une collection de presets ;
+* une compilation de réglages trouvés sur Internet ;
+* une succession d'avis subjectifs.
 
 Chaque réglage proposé devra pouvoir être expliqué.
 
@@ -192,8 +200,8 @@ Au cours de cette étude, certaines convictions pourront être remises en questi
 
 Il est par exemple largement admis que :
 
-- le canal Boost serait naturellement destiné aux rythmiques ;
-- le canal XLead serait réservé aux solos.
+* le canal Boost serait naturellement destiné aux rythmiques ;
+* le canal XLead serait réservé aux solos.
 
 Pourtant, la documentation Brunetti ainsi que plusieurs retours d'utilisateurs expérimentés invitent déjà à nuancer fortement cette idée.
 
