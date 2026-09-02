@@ -84,6 +84,10 @@ def build_index() -> str:
         "Les fichiers de test sont générés depuis l'application "
         "**ToneLab Profiles** et conservés tels quels.",
         "",
+        "## 🎛️ ToneLab Profiles",
+        "",
+        "➡️ **[Accéder à l'application ToneLab Profiles](https://themsleeves.github.io/ToneLab)**",
+        "",
     ]
 
     if not artist_sections:
