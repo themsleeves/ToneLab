@@ -214,12 +214,13 @@ function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}
   {notesOpen&&<Area value={pedal.notes} onChange={v=>onChange({...pedal,notes:v})} autoGrow/>}
  </section>;
 }
-function PedalTemplateEditor({template,onChange,onRemove,defaultTemplate,autoFocusBrand}:{template:PedalTemplate,onChange:(tpl:PedalTemplate)=>void,onRemove:()=>void,defaultTemplate?:PedalTemplate,autoFocusBrand?:boolean}){
+function PedalTemplateEditor({template,onChange,onRemove,defaultTemplate,autoFocusBrand,validationMessage}:{template:PedalTemplate,onChange:(tpl:PedalTemplate)=>void,onRemove:()=>void,defaultTemplate?:PedalTemplate,autoFocusBrand?:boolean,validationMessage?:string}){
  return <div className="template-editor">
   <div className="template-editor-header">
-   <input value={template.brand} placeholder="Marque" autoFocus={autoFocusBrand} onChange={e=>onChange({...template,brand:e.target.value})}/>
-   <input value={template.model} placeholder="Modèle" onChange={e=>onChange({...template,model:e.target.value})}/>
+   <input value={template.brand} placeholder="Marque" autoFocus={autoFocusBrand} className={validationMessage?"field-invalid":undefined} onChange={e=>onChange({...template,brand:e.target.value})}/>
+   <input value={template.model} placeholder="Modèle" className={validationMessage?"field-invalid":undefined} onChange={e=>onChange({...template,model:e.target.value})}/>
   </div>
+  {validationMessage&&<p className="template-editor-hint">{validationMessage}</p>}
   <div className="template-editor-toolbar">
    <AddParamMenu onAdd={kind=>onChange({...template,params:[...template.params,newParam(kind)]})}/>
    {defaultTemplate&&<button type="button" className="template-remove-btn" onClick={()=>{if(confirm(`Synchroniser "${template.brand} ${template.model}" avec les valeurs par défaut de l'application ? Les réglages personnalisés de ce modèle seront perdus.`))onChange(defaultTemplate)}}>↺ Synchroniser</button>}
@@ -245,13 +246,15 @@ export function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:P
  const [selectedId,setSelectedId]=useState<string|null>(catalog[0]?.id??null);
  const [draft,setDraft]=useState<PedalTemplate|null>(null);
  const selected=draft??catalog.find(t=>t.id===selectedId)??null;
- // Le brouillon n'est ajouté au vrai catalogue que lorsque Marque ET Modèle sont renseignés ; sinon il disparait sans laisser de trace.
+ // Le brouillon n'est ajouté au vrai catalogue que lorsque Marque ET Modèle sont renseignés et uniques ; sinon il disparait sans laisser de trace.
+ const isDuplicate=(tpl:PedalTemplate)=>catalog.some(t=>t.brand.trim().toLowerCase()===tpl.brand.trim().toLowerCase()&&t.model.trim().toLowerCase()===tpl.model.trim().toLowerCase());
  const handleChange=(tpl:PedalTemplate)=>{
   if(draft&&tpl.id===draft.id){
-   if(tpl.brand.trim()&&tpl.model.trim()){onAdd(tpl);setDraft(null)}
+   if(tpl.brand.trim()&&tpl.model.trim()&&!isDuplicate(tpl)){onAdd(tpl);setDraft(null)}
    else setDraft(tpl);
   } else onUpdate(tpl.id,tpl);
  };
+ const validationMessage=draft&&(!draft.brand.trim()||!draft.model.trim()?"Marque et modèle sont obligatoires pour enregistrer ce nouveau modèle.":isDuplicate(draft)?"Ce modèle existe déjà dans le catalogue.":undefined);
  return <CollapsibleSection title="Gérer le catalogue de pédales">
   <div className="catalog-manager-toolbar">
    <button type="button" className="catalog-add-model" onClick={()=>{const tpl=newTemplate();setDraft(tpl);setSelectedId(tpl.id)}}>+ Nouveau modèle</button>
@@ -262,17 +265,18 @@ export function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:P
   {selected&&<PedalTemplateEditor key={selected.id} template={selected} onChange={handleChange} onRemove={()=>{
     if(draft){setDraft(null);setSelectedId(catalog[0]?.id??null);return}
     if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}
-   }} defaultTemplate={defaultPedalCatalog.find(t=>t.id===selected.id)} autoFocusBrand={!!draft}/>}
+   }} defaultTemplate={defaultPedalCatalog.find(t=>t.id===selected.id)} autoFocusBrand={!!draft} validationMessage={validationMessage}/>}
  </CollapsibleSection>;
 }
-function AmpTemplateEditor({template,onChange,onRemove,defaultTemplate,autoFocusBrand}:{template:AmpTemplate,onChange:(tpl:AmpTemplate)=>void,onRemove:()=>void,defaultTemplate?:AmpTemplate,autoFocusBrand?:boolean}){
+function AmpTemplateEditor({template,onChange,onRemove,defaultTemplate,autoFocusBrand,validationMessage}:{template:AmpTemplate,onChange:(tpl:AmpTemplate)=>void,onRemove:()=>void,defaultTemplate?:AmpTemplate,autoFocusBrand?:boolean,validationMessage?:string}){
  const [channelDraft,setChannelDraft]=useState("");
  const addChannel=()=>{const v=channelDraft.trim();if(v&&!template.channels.includes(v)){onChange({...template,channels:[...template.channels,v]});setChannelDraft("")}};
  return <div className="template-editor">
   <div className="template-editor-header">
-   <input value={template.brand} placeholder="Marque" autoFocus={autoFocusBrand} onChange={e=>onChange({...template,brand:e.target.value})}/>
-   <input value={template.model} placeholder="Modèle" onChange={e=>onChange({...template,model:e.target.value})}/>
+   <input value={template.brand} placeholder="Marque" autoFocus={autoFocusBrand} className={validationMessage?"field-invalid":undefined} onChange={e=>onChange({...template,brand:e.target.value})}/>
+   <input value={template.model} placeholder="Modèle" className={validationMessage?"field-invalid":undefined} onChange={e=>onChange({...template,model:e.target.value})}/>
   </div>
+  {validationMessage&&<p className="template-editor-hint">{validationMessage}</p>}
   <div className="chip-row">
    {template.channels.map(ch=><Chip key={ch} item={ch} onRename={v=>onChange({...template,channels:template.channels.map(c=>c===ch?v:c)})} onRemove={()=>onChange({...template,channels:template.channels.filter(c=>c!==ch)})}/>)}
    <span className="chip chip-add">
@@ -292,12 +296,14 @@ export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:Amp
  const [selectedId,setSelectedId]=useState<string|null>(catalog[0]?.id??null);
  const [draft,setDraft]=useState<AmpTemplate|null>(null);
  const selected=draft??catalog.find(t=>t.id===selectedId)??null;
+ const isDuplicate=(tpl:AmpTemplate)=>catalog.some(t=>t.brand.trim().toLowerCase()===tpl.brand.trim().toLowerCase()&&t.model.trim().toLowerCase()===tpl.model.trim().toLowerCase());
  const handleChange=(tpl:AmpTemplate)=>{
   if(draft&&tpl.id===draft.id){
-   if(tpl.brand.trim()&&tpl.model.trim()){onAdd(tpl);setDraft(null)}
+   if(tpl.brand.trim()&&tpl.model.trim()&&!isDuplicate(tpl)){onAdd(tpl);setDraft(null)}
    else setDraft(tpl);
   } else onUpdate(tpl.id,tpl);
  };
+ const validationMessage=draft&&(!draft.brand.trim()||!draft.model.trim()?"Marque et modèle sont obligatoires pour enregistrer ce nouveau modèle.":isDuplicate(draft)?"Ce modèle existe déjà dans le catalogue.":undefined);
  return <CollapsibleSection title="Gérer le catalogue d'amplis">
   <div className="catalog-manager-toolbar">
    <button type="button" className="catalog-add-model" onClick={()=>{const tpl=newAmpTemplate();setDraft(tpl);setSelectedId(tpl.id)}}>+ Nouveau modèle</button>
@@ -308,7 +314,7 @@ export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:Amp
   {selected&&<AmpTemplateEditor key={selected.id} template={selected} onChange={handleChange} onRemove={()=>{
     if(draft){setDraft(null);setSelectedId(catalog[0]?.id??null);return}
     if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}
-   }} defaultTemplate={defaultAmpCatalog.find(t=>t.id===selected.id)} autoFocusBrand={!!draft}/>}
+   }} defaultTemplate={defaultAmpCatalog.find(t=>t.id===selected.id)} autoFocusBrand={!!draft} validationMessage={validationMessage}/>}
  </CollapsibleSection>;
 }
 function CatalogPicker<T extends {id:string,brand:string,model:string}>({catalog,onPick,placeholder="Depuis le catalogue…"}:{catalog:T[],onPick:(tpl:T)=>void,placeholder?:string}){

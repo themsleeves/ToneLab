@@ -119,6 +119,8 @@ article{padding:16px 16px 40px;overflow:auto}
 .range-row--knob input[type=range]{color:var(--text)}
 .template-editor-header{display:flex;flex-direction:column;gap:8px;margin:10px 0}
 .template-editor-header input{border:1px solid var(--border);border-radius:6px;padding:8px;width:100%}
+.template-editor-header input.field-invalid{border-color:var(--danger)}
+.template-editor-hint{font-size:12px;color:var(--danger);margin:0 0 8px}
 .template-remove-btn{border:none;background:transparent;font-size:12px;padding:4px 8px}
 .catalog-picker-select{border:1px solid var(--border);border-radius:6px;padding:6px 8px;font-size:14px;width:100%;max-width:100%;box-sizing:border-box;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .param-add-panel button{font-size:13px;padding:6px 10px}
