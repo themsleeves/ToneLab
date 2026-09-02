@@ -1,8 +1,8 @@
 import {useState,useRef,useEffect,useId} from "react";
 import type {ReactNode,CSSProperties} from "react";
 import type {TestRecord,Pedal,PedalParam,PedalTemplate,ControlKind,AmpTemplate,Amp} from "./types";
-import {resyncPedalFromCatalog,pedalNeedsResync,defaultPedalCatalog} from "./pedalCatalog";
-import {resyncAmpFromCatalog,ampNeedsResync,defaultAmpCatalog} from "./ampCatalog";
+import {resyncPedalFromCatalog,pedalNeedsResync,defaultPedalCatalog,newTemplate} from "./pedalCatalog";
+import {resyncAmpFromCatalog,ampNeedsResync,defaultAmpCatalog,newAmpTemplate} from "./ampCatalog";
 import {LIST_LABELS} from "./lists";
 import type {ListKey,Lists} from "./lists";
 // Referme un menu ouvert au clic en dehors de tout élément `.menu` (trigger + panneau).
@@ -241,18 +241,28 @@ function CollapsibleSection({title,children,actions,defaultOpen=false}:{title:st
   </div>}
  </div>;
 }
-export function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:PedalTemplate[],onUpdate:(id:string,tpl:PedalTemplate)=>void,onAdd:()=>string,onRemove:(id:string)=>void}){
+export function PedalCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:PedalTemplate[],onUpdate:(id:string,tpl:PedalTemplate)=>void,onAdd:(tpl:PedalTemplate)=>void,onRemove:(id:string)=>void}){
  const [selectedId,setSelectedId]=useState<string|null>(catalog[0]?.id??null);
- const [newId,setNewId]=useState<string|null>(null);
- const selected=catalog.find(t=>t.id===selectedId)??null;
+ const [draft,setDraft]=useState<PedalTemplate|null>(null);
+ const selected=draft??catalog.find(t=>t.id===selectedId)??null;
+ // Le brouillon n'est ajouté au vrai catalogue que lorsque Marque ET Modèle sont renseignés ; sinon il disparait sans laisser de trace.
+ const handleChange=(tpl:PedalTemplate)=>{
+  if(draft&&tpl.id===draft.id){
+   if(tpl.brand.trim()&&tpl.model.trim()){onAdd(tpl);setDraft(null)}
+   else setDraft(tpl);
+  } else onUpdate(tpl.id,tpl);
+ };
  return <CollapsibleSection title="Gérer le catalogue de pédales">
   <div className="catalog-manager-toolbar">
-   <button type="button" className="catalog-add-model" onClick={()=>{const id=onAdd();setSelectedId(id);setNewId(id)}}>+ Nouveau modèle</button>
+   <button type="button" className="catalog-add-model" onClick={()=>{const tpl=newTemplate();setDraft(tpl);setSelectedId(tpl.id)}}>+ Nouveau modèle</button>
   </div>
   <div className="catalog-manager-list">
-   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>{setSelectedId(tpl.id);setNewId(null)}}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
+   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>{setDraft(null);setSelectedId(tpl.id)}}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
   </div>
-  {selected&&<PedalTemplateEditor key={selected.id} template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}} defaultTemplate={defaultPedalCatalog.find(t=>t.id===selected.id)} autoFocusBrand={selected.id===newId}/>}
+  {selected&&<PedalTemplateEditor key={selected.id} template={selected} onChange={handleChange} onRemove={()=>{
+    if(draft){setDraft(null);setSelectedId(catalog[0]?.id??null);return}
+    if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}
+   }} defaultTemplate={defaultPedalCatalog.find(t=>t.id===selected.id)} autoFocusBrand={!!draft}/>}
  </CollapsibleSection>;
 }
 function AmpTemplateEditor({template,onChange,onRemove,defaultTemplate,autoFocusBrand}:{template:AmpTemplate,onChange:(tpl:AmpTemplate)=>void,onRemove:()=>void,defaultTemplate?:AmpTemplate,autoFocusBrand?:boolean}){
@@ -278,18 +288,27 @@ function AmpTemplateEditor({template,onChange,onRemove,defaultTemplate,autoFocus
   <ParamListEditor params={template.params} onChange={params=>onChange({...template,params})} ampChannels={template.channels}/>
  </div>;
 }
-export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:AmpTemplate[],onUpdate:(id:string,tpl:AmpTemplate)=>void,onAdd:()=>string,onRemove:(id:string)=>void}){
+export function AmpCatalogManager({catalog,onUpdate,onAdd,onRemove}:{catalog:AmpTemplate[],onUpdate:(id:string,tpl:AmpTemplate)=>void,onAdd:(tpl:AmpTemplate)=>void,onRemove:(id:string)=>void}){
  const [selectedId,setSelectedId]=useState<string|null>(catalog[0]?.id??null);
- const [newId,setNewId]=useState<string|null>(null);
- const selected=catalog.find(t=>t.id===selectedId)??null;
+ const [draft,setDraft]=useState<AmpTemplate|null>(null);
+ const selected=draft??catalog.find(t=>t.id===selectedId)??null;
+ const handleChange=(tpl:AmpTemplate)=>{
+  if(draft&&tpl.id===draft.id){
+   if(tpl.brand.trim()&&tpl.model.trim()){onAdd(tpl);setDraft(null)}
+   else setDraft(tpl);
+  } else onUpdate(tpl.id,tpl);
+ };
  return <CollapsibleSection title="Gérer le catalogue d'amplis">
   <div className="catalog-manager-toolbar">
-   <button type="button" className="catalog-add-model" onClick={()=>{const id=onAdd();setSelectedId(id);setNewId(id)}}>+ Nouveau modèle</button>
+   <button type="button" className="catalog-add-model" onClick={()=>{const tpl=newAmpTemplate();setDraft(tpl);setSelectedId(tpl.id)}}>+ Nouveau modèle</button>
   </div>
   <div className="catalog-manager-list">
-   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>{setSelectedId(tpl.id);setNewId(null)}}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
+   {catalog.map(tpl=><button type="button" key={tpl.id} className={selectedId===tpl.id?"catalog-manager-item active":"catalog-manager-item"} onClick={()=>{setDraft(null);setSelectedId(tpl.id)}}>{tpl.brand||"?"} {tpl.model||"Nouveau"}</button>)}
   </div>
-  {selected&&<AmpTemplateEditor key={selected.id} template={selected} onChange={tpl=>onUpdate(selected.id,tpl)} onRemove={()=>{if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}}} defaultTemplate={defaultAmpCatalog.find(t=>t.id===selected.id)} autoFocusBrand={selected.id===newId}/>}
+  {selected&&<AmpTemplateEditor key={selected.id} template={selected} onChange={handleChange} onRemove={()=>{
+    if(draft){setDraft(null);setSelectedId(catalog[0]?.id??null);return}
+    if(confirm(`Supprimer le modèle "${selected.brand} ${selected.model}" ?`)){onRemove(selected.id);setSelectedId(catalog.find(t=>t.id!==selected.id)?.id??null)}
+   }} defaultTemplate={defaultAmpCatalog.find(t=>t.id===selected.id)} autoFocusBrand={!!draft}/>}
  </CollapsibleSection>;
 }
 function CatalogPicker<T extends {id:string,brand:string,model:string}>({catalog,onPick,placeholder="Depuis le catalogue…"}:{catalog:T[],onPick:(tpl:T)=>void,placeholder?:string}){

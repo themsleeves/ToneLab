@@ -5,8 +5,8 @@ import {load,save,migrateTest,mergeTests,snapshotIfDue,loadSnapshot} from "./sto
 import {json,markdown,markdownAll} from "./export";
 import {TestForm,TestList,PedalCatalogManager,AmpCatalogManager,ListManager,useCloseOnOutsideClick} from "./components";
 import {loadLists,saveLists,mergeLists,downloadListsCode,type ListKey} from "./lists";
-import {newTemplate,instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode,resyncPedalFromCatalog} from "./pedalCatalog";
-import {newAmpTemplate,instantiateAmp,loadAmpCatalog,saveAmpCatalog,mergeAmpCatalog,downloadAmpCatalogCode,resyncAmpFromCatalog} from "./ampCatalog";
+import {instantiatePedal,loadPedalCatalog,savePedalCatalog,mergeCatalog,downloadPedalCatalogCode,resyncPedalFromCatalog} from "./pedalCatalog";
+import {instantiateAmp,loadAmpCatalog,saveAmpCatalog,mergeAmpCatalog,downloadAmpCatalogCode,resyncAmpFromCatalog} from "./ampCatalog";
 // Dérive un préfixe court à partir du nom d'artiste : 1 mot → 5 premières lettres, 2+ mots → initiale de chaque mot.
 function artistPrefix(artist:string):string{
  const words=artist.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-zA-Z0-9\s]/g,"").trim().split(/\s+/).filter(Boolean);
@@ -74,7 +74,7 @@ export default function App(){
  function updatePedal(id:string,pedal:Pedal){if(!current)return;update({...current,pedals:current.pedals.map(p=>p.id===id?pedal:p)})}
  function removePedal(id:string){if(!current)return;update({...current,pedals:current.pedals.filter(p=>p.id!==id)})}
  function saveAsTemplate(tpl:PedalTemplate){setCatalog(c=>[...c,tpl])}
- function addCatalogTemplate(){const tpl=newTemplate();setCatalog(c=>[...c,tpl]);return tpl.id}
+ function addCatalogTemplate(tpl:PedalTemplate){setCatalog(c=>[...c,tpl])}
  function updateCatalogTemplate(id:string,tpl:PedalTemplate){
   const nextCatalog=catalog.map(t=>t.id===id?tpl:t);
   setCatalog(nextCatalog);
@@ -83,7 +83,7 @@ export default function App(){
  function removeCatalogTemplate(id:string){setCatalog(c=>c.filter(t=>t.id!==id))}
  function replaceAmpFromCatalog(tpl:AmpTemplate){if(!current)return;if(!confirm(`Remplacer l'ampli actuel par "${tpl.brand} ${tpl.model}" ? Les réglages actuels seront perdus.`))return;update({...current,amp:instantiateAmp(tpl)})}
  function updateAmpParams(amp:Amp){if(!current)return;update({...current,amp})}
- function addAmpCatalogTemplate(){const tpl=newAmpTemplate();setAmpCatalog(c=>[...c,tpl]);return tpl.id}
+ function addAmpCatalogTemplate(tpl:AmpTemplate){setAmpCatalog(c=>[...c,tpl])}
  function updateAmpCatalogTemplate(id:string,tpl:AmpTemplate){
   const nextCatalog=ampCatalog.map(t=>t.id===id?tpl:t);
   setAmpCatalog(nextCatalog);
