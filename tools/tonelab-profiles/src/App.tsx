@@ -73,7 +73,6 @@ export default function App(){
  function addPedalFromCatalog(tpl:PedalTemplate){if(!current)return;if(current.pedals.some(p=>p.templateId===tpl.id)){alert(`"${tpl.brand} ${tpl.model}" est déjà présente dans ce test.`);return}update({...current,pedals:[...current.pedals,instantiatePedal(tpl)]})}
  function updatePedal(id:string,pedal:Pedal){if(!current)return;update({...current,pedals:current.pedals.map(p=>p.id===id?pedal:p)})}
  function removePedal(id:string){if(!current)return;update({...current,pedals:current.pedals.filter(p=>p.id!==id)})}
- function saveAsTemplate(tpl:PedalTemplate){setCatalog(c=>[...c,tpl])}
  function addCatalogTemplate(tpl:PedalTemplate){setCatalog(c=>[...c,tpl])}
  function updateCatalogTemplate(id:string,tpl:PedalTemplate){
   const nextCatalog=catalog.map(t=>t.id===id?tpl:t);
@@ -202,5 +201,5 @@ export default function App(){
    <span>{current.song||"—"}{current.status?` (${current.status})`:""}</span>
   </div>}
   {current&&<button type="button" className="header-delete-btn" onClick={()=>remove(current.id,true)} title="Supprimer ce test" aria-label="Supprimer ce test">🗑</button>}
- </div>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} onSaveAsTemplate={saveAsTemplate} ampCatalog={ampCatalog} onReplaceAmpFromCatalog={replaceAmpFromCatalog} onUpdateAmpParams={updateAmpParams}/>:<div className="empty">Aucun test.</div>}</article></div></main>
+ </div>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} ampCatalog={ampCatalog} onReplaceAmpFromCatalog={replaceAmpFromCatalog} onUpdateAmpParams={updateAmpParams}/>:<div className="empty">Aucun test.</div>}</article></div></main>
 }

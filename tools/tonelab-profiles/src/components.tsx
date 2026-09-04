@@ -174,19 +174,14 @@ function ParamListEditor({params,onChange,removable=true,ampChannels}:{params:Pe
   </div>)}
  </div>;
 }
-function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}:{pedal:Pedal,catalog:PedalTemplate[],onChange:(p:Pedal)=>void,onRemove:()=>void,onSaveAsTemplate:(tpl:PedalTemplate)=>void,dragHandle?:ReactNode}){
+function PedalCard({pedal,catalog,onChange,onRemove,dragHandle}:{pedal:Pedal,catalog:PedalTemplate[],onChange:(p:Pedal)=>void,onRemove:()=>void,dragHandle?:ReactNode}){
  const [nameEditing,setNameEditing]=useState(false);
  const [nameDraft,setNameDraft]=useState(pedal.name);
  const [notesOpen,setNotesOpen]=useState(()=>!!pedal.notes);
  const [linking,setLinking]=useState(false);
  const commitName=()=>{const v=nameDraft.trim();if(v)onChange({...pedal,name:v});setNameEditing(false)};
  const tpl=catalog.find(t=>t.id===pedal.templateId);
- const saveAsTemplate=()=>{
-  const brand=prompt("Marque ?","");if(brand===null)return;
-  const model=prompt("Modèle ?",pedal.name);if(model===null)return;
-  onSaveAsTemplate({id:`tpl-${Date.now()}`,brand:brand||"Perso",model:model||pedal.name,params:pedal.params.map(p=>({...p}))});
- };
- const resetParams=()=>{if(!confirm(`Remettre à 0 tous les réglages de "${pedal.name}" ?`))return;onChange({...pedal,params:pedal.params.map(p=>p.kind==="switch"?{...p,value:(p.options||["OFF","ON"])[0]}:{...p,value:String(Math.min(p.max??10,Math.max(p.min??0,0)))})})};
+ const resetParams=()=>{if(!confirm(`Remettre à 0 tous les réglages de "${pedal.name}" ?`))return;onChange({...pedal,params:pedal.params.map(p=>p.kind==="switch"?{...p,value:(p.options||["OFF","ON"])[0]}:{...p,value:String(Math.min(p.max??10,Math.max(p.min??0,0)))})})}
  const needsResync=pedalNeedsResync(pedal,catalog);
  return <section className="pedal-card">
   {tpl
@@ -203,7 +198,6 @@ function PedalCard({pedal,catalog,onChange,onRemove,onSaveAsTemplate,dragHandle}
    </label>
    <span className="pedal-card-actions">
     <button type="button" className="pedal-reset-btn" onClick={resetParams} title="Remettre tous les réglages à 0">⏮</button>
-    <button type="button" className="pedal-save-template" onClick={saveAsTemplate} title="Enregistrer comme modèle du catalogue">☆ Modèle</button>
     <button type="button" className="danger pedal-remove" onClick={()=>{if(confirm(`Supprimer la pédale "${pedal.name}" ?`))onRemove()}}>✕ Supprimer</button>
    </span>
   </h2>
@@ -356,9 +350,9 @@ export function ListManager({lists,onRename,onRemove,onAdd}:{lists:Lists,onRenam
   </div>
  </CollapsibleSection>
 }
-export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUpdatePedal,onRemovePedal,onSaveAsTemplate,ampCatalog,onReplaceAmpFromCatalog,onUpdateAmpParams}:{
+export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUpdatePedal,onRemovePedal,ampCatalog,onReplaceAmpFromCatalog,onUpdateAmpParams}:{
  test:TestRecord,lists:Lists,onChange:(t:TestRecord)=>void,
- catalog:PedalTemplate[],onAddPedalFromCatalog:(tpl:PedalTemplate)=>void,onUpdatePedal:(id:string,pedal:Pedal)=>void,onRemovePedal:(id:string)=>void,onSaveAsTemplate:(tpl:PedalTemplate)=>void,
+ catalog:PedalTemplate[],onAddPedalFromCatalog:(tpl:PedalTemplate)=>void,onUpdatePedal:(id:string,pedal:Pedal)=>void,onRemovePedal:(id:string)=>void,
  ampCatalog:AmpTemplate[],onReplaceAmpFromCatalog:(tpl:AmpTemplate)=>void,onUpdateAmpParams:(amp:Amp)=>void
 }){
  const set=(k:keyof TestRecord,v:unknown)=>onChange({...test,[k]:v});
@@ -432,7 +426,7 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
   </CollapsibleSection>
   <CollapsibleSection title="Pédales d'effets" actions={<CatalogPicker catalog={catalog} onPick={onAddPedalFromCatalog}/>}>
    {test.pedals.map((p,i)=><div key={p.id} ref={el=>{pedalRefs.current[p.id]=el}} className={dragIndex===i?"pedal-drag-wrapper dragging":hoverIndex===i&&dragIndex!==null?"pedal-drag-wrapper drop-target":"pedal-drag-wrapper"}>
-    <PedalCard pedal={p} catalog={catalog} onChange={updated=>onUpdatePedal(p.id,updated)} onRemove={()=>onRemovePedal(p.id)} onSaveAsTemplate={onSaveAsTemplate} dragHandle={<span className="pedal-drag-handle" onPointerDown={e=>{setDragIndex(i);(e.target as HTMLElement).setPointerCapture(e.pointerId)}} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} title="Glisser pour réordonner">⠿</span>}/>
+    <PedalCard pedal={p} catalog={catalog} onChange={updated=>onUpdatePedal(p.id,updated)} onRemove={()=>onRemovePedal(p.id)} dragHandle={<span className="pedal-drag-handle" onPointerDown={e=>{setDragIndex(i);(e.target as HTMLElement).setPointerCapture(e.pointerId)}} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} title="Glisser pour réordonner">⠿</span>}/>
    </div>)}
   </CollapsibleSection>
   <CollapsibleSection title="Notes du test"><div className="grid">
