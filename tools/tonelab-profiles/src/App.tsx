@@ -51,6 +51,8 @@ export default function App(){
  const filtered=useMemo(()=>{const x=q.toLowerCase().trim();return tests.filter(t=>(statusFilter.has(t.status)||!lists.status.includes(t.status))&&(!x||[t.id,t.artistReference,t.song,t.guitar,t.cabinet,t.amp.channel,t.status].join(" ").toLowerCase().includes(x)))},[tests,q,statusFilter,lists.status]);
  const current=tests.find(t=>t.id===selected)||filtered[0]||tests[0];
  function selectTest(id:string){setSelected(id);setMobileView("form")}
+ function nextTest(){if(!current||!filtered.length)return;const idx=filtered.findIndex(t=>t.id===current.id);const nextIdx=(idx+1)%filtered.length;selectTest(filtered[nextIdx].id)}
+ function prevTest(){if(!current||!filtered.length)return;const idx=filtered.findIndex(t=>t.id===current.id);const prevIdx=(idx-1+filtered.length)%filtered.length;selectTest(filtered[prevIdx].id)}
  function settingsFingerprint(t:TestRecord){return JSON.stringify([t.guitar,t.tuning,t.pickup,t.cabinet,t.amp,t.pedals,t.otherPedals,t.objective,t.observations,t.conclusion,t.retained])}
  function update(t:TestRecord){
   let next=t;
@@ -195,11 +197,15 @@ export default function App(){
  <div className={`workspace ${mobileView==="form"?"show-form":"show-list"}`}><aside><label className="visually-hidden" htmlFor="test-search">Rechercher un test</label><input id="test-search" className="search" placeholder="Rechercher..." value={q} onChange={e=>setQ(e.target.value)}/>
   <TestList tests={filtered} selected={current?.id||""} onSelect={selectTest} statusOptions={lists.status} statusFilter={statusFilter} onToggleStatusFilter={toggleStatusFilter} onDuplicate={duplicate} onRemove={remove}/>
  </aside><article><div className="mobile-header">
-  <button className="back-mobile" onClick={()=>setMobileView("list")} title="Retour à la liste" aria-label="Retour à la liste">←</button>
-  {current&&<div className="mobile-test-id">
-   <strong>{current.artistReference||"Sans artiste"}</strong>
-   <span>{current.song||"—"}{current.status?` (${current.status})`:""}</span>
-  </div>}
-  {current&&<button type="button" className="header-delete-btn" onClick={()=>remove(current.id,true)} title="Supprimer ce test" aria-label="Supprimer ce test">🗑</button>}
- </div>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} ampCatalog={ampCatalog} onReplaceAmpFromCatalog={replaceAmpFromCatalog} onUpdateAmpParams={updateAmpParams}/>:<div className="empty">Aucun test.</div>}</article></div></main>
+  <button className="back-mobile" onClick={()=>setMobileView("list")} title="Retour à la liste" aria-label="Retour à la liste">☰</button>
+  {current&&<>
+   <button className="test-nav-btn" onClick={prevTest} title="Test précédent" aria-label="Test précédent">◀</button>
+   <div className="mobile-test-id">
+    <strong>{current.artistReference||"Sans artiste"}</strong>
+    <span>{current.song||"—"}{current.status?` (${current.status})`:""}</span>
+   </div>
+   <button className="test-nav-btn" onClick={nextTest} title="Test suivant" aria-label="Test suivant">▶</button>
+  </>
+  }
+ </div>{current?<TestForm test={current} lists={lists} onChange={update} catalog={catalog} onAddPedalFromCatalog={addPedalFromCatalog} onUpdatePedal={updatePedal} onRemovePedal={removePedal} ampCatalog={ampCatalog} onReplaceAmpFromCatalog={replaceAmpFromCatalog} onUpdateAmpParams={updateAmpParams} onRemoveTest={()=>remove(current.id)}/>:<div className="empty">Aucun test.</div>}</article></div></main>
 }

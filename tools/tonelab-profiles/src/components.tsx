@@ -350,10 +350,10 @@ export function ListManager({lists,onRename,onRemove,onAdd}:{lists:Lists,onRenam
   </div>
  </CollapsibleSection>
 }
-export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUpdatePedal,onRemovePedal,ampCatalog,onReplaceAmpFromCatalog,onUpdateAmpParams}:{
+export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUpdatePedal,onRemovePedal,ampCatalog,onReplaceAmpFromCatalog,onUpdateAmpParams,onRemoveTest}:{
  test:TestRecord,lists:Lists,onChange:(t:TestRecord)=>void,
  catalog:PedalTemplate[],onAddPedalFromCatalog:(tpl:PedalTemplate)=>void,onUpdatePedal:(id:string,pedal:Pedal)=>void,onRemovePedal:(id:string)=>void,
- ampCatalog:AmpTemplate[],onReplaceAmpFromCatalog:(tpl:AmpTemplate)=>void,onUpdateAmpParams:(amp:Amp)=>void
+ ampCatalog:AmpTemplate[],onReplaceAmpFromCatalog:(tpl:AmpTemplate)=>void,onUpdateAmpParams:(amp:Amp)=>void,onRemoveTest:()=>void
 }){
  const set=(k:keyof TestRecord,v:unknown)=>onChange({...test,[k]:v});
  const [dragIndex,setDragIndex]=useState<number|null>(null);
@@ -433,6 +433,7 @@ export function TestForm({test,lists,onChange,catalog,onAddPedalFromCatalog,onUp
    <Area label="Autres pédales / chaîne" value={test.otherPedals} onChange={v=>set("otherPedals",v)}/><Area label="Objectif du test" value={test.objective} onChange={v=>set("objective",v)}/>
    <Area label="Observations" value={test.observations} onChange={v=>set("observations",v)}/><Area label="Résultat / Conclusion" value={test.conclusion} onChange={v=>set("conclusion",v)}/>
   </div><label className="check"><input type="checkbox" checked={test.retained} onChange={e=>set("retained",e.target.checked)}/> Profil retenu</label></CollapsibleSection>
+  <button type="button" className="test-footer-delete" onClick={onRemoveTest} title="Supprimer ce test">🗑 Supprimer</button>
  </div>
 }
 export function TestList({tests,selected,onSelect,statusOptions,statusFilter,onToggleStatusFilter,onDuplicate,onRemove}:{tests:TestRecord[],selected:string,onSelect:(id:string)=>void,statusOptions:string[],statusFilter:Set<string>,onToggleStatusFilter:(s:string)=>void,onDuplicate:(id:string)=>void,onRemove:(id:string)=>void}){
