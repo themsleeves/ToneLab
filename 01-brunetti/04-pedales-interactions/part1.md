@@ -63,51 +63,42 @@ L'objectif n'est pas de trouver un reglage unique qui fonctionnerait avec tous l
 
 La chaine actuellement utilisee est la suivante :
 
+```text
 Guitare
-
-↓
-
+   |
+   v
 George Dennis Wah / Volume
-
-↓
-
+   |
+   v
 Amuzik Mini Tuner
-
-↓
-
+   |
+   v
 Mooer Graphic G
-
-↓
-
+   |
+   v
 Fender The Pelt
-
-↓
-
+   |
+   v
 Maxon Tube Screamer - Analogman Silver Mod
-
-↓
-
+   |
+   v
 MXR 6 Band EQ
-
-↓
-
+   |
+   v
 EHX Nano Pulsar Tremolo
-
-↓
-
+   |
+   v
 Amuzik Delay
-
-↓
-
+   |
+   v
 Amuzik Reverb
-
-↓
-
+   |
+   v
 Mooer A7 Ambiance
-
-↓
-
+   |
+   v
 Entree du Brunetti
+```
 
 Cette organisation permet de distinguer plusieurs fonctions.
 

@@ -629,7 +629,18 @@ Les observations devront porter sur le niveau, la dynamique, le spectre et la r�
 
 Le troisième essai consiste à activer les deux pédales dans leur ordre de référence :
 
-Guitare → The Pelt → Tube Screamer → Brunetti
+```text
+Guitare
+   |
+   v
+The Pelt
+   |
+   v
+Tube Screamer
+   |
+   v
+Brunetti
+```
 
 Cette configuration permettra d'observer comment la Tube Screamer réagit au signal déjà transformé par la fuzz.
 
