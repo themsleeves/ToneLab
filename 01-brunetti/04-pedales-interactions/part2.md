@@ -1,5 +1,7 @@
 # Chapitre 04 - Le pedalboard et ses interactions avec le Brunetti
 
+## Partie 2 - Les pedales de dynamique et de saturation
+
 ## Navigation
 
 [Index du chapitre 4](index.md)  
