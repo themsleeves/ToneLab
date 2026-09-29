@@ -45,7 +45,7 @@ Cette documentation rassemble :
 
 # Structure actuelle
 
-Le Volume I consacré au Brunetti est actuellement organisé autour de trois chapitres.
+Le Volume I consacré au Brunetti est actuellement organisé autour de quatre chapitres.
 
 ### Chapitre 01 — Documentation technique
 
@@ -117,6 +117,27 @@ Les références musicales étudiées dans les profils comprennent :
 ➡️ **[Accéder au Chapitre 03 — Construction des profils sonores](01-brunetti/03-profils-sonores/index.md)**
 
 ---
+
+### Chapitre 04 — Les pédales et leur interaction avec le Brunetti
+
+Ce chapitre étudie le pedalboard comme une extension du Brunetti et analyse la manière dont les pédales modifient le signal, interagissent entre elles et influencent les trois canaux de l'amplificateur.
+
+Il est organisé autour de dix parties :
+
+1. **Philosophie du pedalboard** — complément du Brunetti, logique de placement, façade et boucle FX ;
+2. **Pédales de dynamique et de saturation** — Fender The Pelt, Tube Screamer Analogman Silver Mod et leur complémentarité ;
+3. **Égaliseurs** — Mooer Graphic G, MXR 6 Band EQ, pré-EQ et post-EQ ;
+4. **Modulation** — EHX Nano Pulsar et utilisation comme élément de texture ;
+5. **Delay et réverbération** — Amuzik Delay, Amuzik Reverb, Mooer A7 Ambiance et rôles complémentaires ;
+6. **Wah et contrôle d'expression** — George Dennis Wah / Volume, coloration et interaction avec les saturations ;
+7. **Architecture complète du pedalboard** — chaîne, rôle des blocs, ordre, alimentation, façade et boucle FX ;
+8. **Interaction avec les trois canaux du Brunetti** — Clean, Crunch, XLead, Boost / Focus et influence des pédales ;
+9. **Méthode expérimentale** — tester une pédale, isoler son influence, documenter et exporter un résultat ;
+10. **Vers les profils ToneLab** — réglages reproductibles et lien avec ToneLab Profiles.
+
+Les parties 1 à 3 sont documentées. Les parties suivantes constituent la suite prévue du chapitre.
+
+➡️ **[Accéder au Chapitre 04 — Les pédales et leur interaction avec le Brunetti](01-brunetti/04-pedales-interactions/index.md)**
 
 # Expérimentations
 
@@ -223,6 +244,8 @@ Le projet peut ainsi évoluer progressivement sans remettre en cause les fondati
 ➡️ **[Chapitre 02 — Pourquoi le Brunetti est difficile à classer](01-brunetti/02-pourquoi-le-brunetti/index.md)**
 
 ➡️ **[Chapitre 03 — Construction des profils sonores](01-brunetti/03-profils-sonores/index.md)**
+
+➡️ **[Chapitre 04 — Les pédales et leur interaction avec le Brunetti](01-brunetti/04-pedales-interactions/index.md)**
 
 ➡️ **[Tests expérimentaux](tests/index.md)**
 
