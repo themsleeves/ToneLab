@@ -1,6 +1,6 @@
 # Chapitre 04 - Le pedalboard et ses interactions avec le Brunetti
 
-## Partie 2 - Les pedales de dynamique et de saturation
+## Partie 2 - Les pédales de dynamique et de saturation
 
 ## Navigation
 
@@ -13,623 +13,863 @@
 ## Sommaire
 
 1. [Introduction](#1-introduction)
-2. [Comprendre la dynamique et la saturation](#2-comprendre-la-dynamique-et-la-saturation)
+2. [Comprendre dynamique et saturation](#2-comprendre-dynamique-et-saturation)
 3. [Le Fender The Pelt](#3-le-fender-the-pelt)
 4. [La Tube Screamer Analogman Silver Mod](#4-la-tube-screamer-analogman-silver-mod)
-5. [Comparaison des deux approches](#5-comparaison-des-deux-approches)
+5. [Complémentarité Pelt / Tube Screamer](#5-complémentarité-pelt--tube-screamer)
 6. [Interaction avec le préamplificateur du Brunetti](#6-interaction-avec-le-préamplificateur-du-brunetti)
-7. [Influence du niveau et de l'impédance](#7-influence-du-niveau-et-de-limpédance)
-8. [Conséquences sur le spectre fréquentiel](#8-conséquences-sur-le-spectre-fréquentiel)
-9. [Méthode d'analyse expérimentale](#9-méthode-danalyse-expérimentale)
-10. [À retenir](#10-à-retenir)
+7. [Niveau, impédance et ordre des pédales](#7-niveau-impédance-et-ordre-des-pédales)
+8. [Conséquences spectrales et dynamiques](#8-conséquences-spectrales-et-dynamiques)
+9. [Applications au rig ToneLab](#9-applications-au-rig-tonelab)
+10. [Méthode expérimentale](#10-méthode-expérimentale)
+11. [À retenir](#11-à-retenir)
 
 ---
 
 ## 1. Introduction
 
-Les pédales de saturation constituent une catégorie particulière dans un pedalboard, car elles peuvent modifier simultanément plusieurs propriétés du signal.
+Les pédales de saturation occupent une place particulière dans le pedalboard ToneLab, car elles peuvent transformer simultanément le niveau, la dynamique, le spectre, les transitoires et le contenu harmonique du signal.
 
-Elles peuvent notamment agir sur :
+Deux pédales constituent le cœur de cette partie :
 
-- l'amplitude ;
-- la dynamique ;
-- le contenu harmonique ;
-- l'équilibre fréquentiel ;
-- la réponse aux transitoires ;
-- le niveau envoyé à l'amplificateur.
+- le **Fender The Pelt**, fuzz à transistors au silicium ;
+- la **Tube Screamer modifiée par Analogman avec la Silver Mod**, utilisée dans ToneLab avec un niveau élevé et peu de Drive.
 
-Dans notre configuration, deux approches complémentaires sont représentées :
+Dans la chaîne de référence, elles sont placées dans cet ordre :
 
-- le Fender The Pelt, pédale de fuzz destinée à produire une saturation importante et un caractère propre ;
-- le Maxon Tube Screamer modifié par Analogman, qui peut servir à modifier le signal avant son entrée dans le Brunetti.
+```text
+Guitare
+   |
+   v
+Mooer Graphic G
+   |
+   v
+Fender The Pelt
+   |
+   v
+Tube Screamer Analogman Silver Mod
+   |
+   v
+MXR 6 Band EQ
+   |
+   v
+Brunetti XL R-EVO II
+```
 
-Ces deux pédales ne doivent pas être considérées uniquement comme deux sources de saturation. Leur intérêt réside aussi dans leurs comportements électroniques différents et dans leurs interactions avec le préamplificateur.
+Cette partie ne cherche donc pas seulement à décrire deux pédales. Elle cherche à comprendre :
 
-Cette partie étudie les principes techniques qui permettent de comprendre ces différences.
-
-Les réglages destinés à construire les profils sonores restent documentés dans le chapitre 3. Ici, l'objectif est de comprendre les mécanismes qui expliquent les résultats observés.
+- ce que fait réellement chaque commande ;
+- comment les deux pédales transforment le signal ;
+- pourquoi leur ordre importe ;
+- comment elles réagissent avec Clean, Crunch et XLead ;
+- comment transformer les observations en expériences reproductibles.
 
 ---
 
-## 2. Comprendre la dynamique et la saturation
+## 2. Comprendre dynamique et saturation
 
-### 2.1. Le signal électrique de la guitare
+### 2.1. Gain et non-linéarité
 
-Une guitare électrique équipée de micros magnétiques produit un signal alternatif dont l'amplitude et la forme évoluent avec le mouvement des cordes.
+Dans un système linéaire idéal, augmenter le gain multiplie l'amplitude du signal sans en changer la forme :
 
-Le signal n'est pas une sinusoïde parfaite.
+```text
+y(t) = G x x(t)
+```
 
-Il contient déjà plusieurs composantes fréquentielles, dont les fondamentales et les harmoniques.
+Une pédale de saturation cesse précisément de se comporter comme un système strictement linéaire lorsque certaines parties du signal sont comprimées ou écrêtées.
 
-Son amplitude varie dans le temps, notamment en fonction :
+Le processus peut être représenté simplement :
 
-- de la force d'attaque ;
-- de la position du médiator ;
-- de la corde jouée ;
-- du micro sélectionné ;
-- du type de micro ;
-- de la fréquence des notes ;
-- du jeu du musicien.
+```text
+Signal guitare
+     |
+     v
+Gain / filtrage
+     |
+     v
+Non-linéarité
+     |
+     +--> écrêtage
+     +--> compression
+     +--> nouvelles harmoniques
+     +--> transitoires modifiées
+     |
+     v
+Signal saturé
+```
 
-Une pédale de saturation reçoit donc un signal complexe, variable et dépendant de l'instrument.
+### 2.2. Saturation et dynamique
 
-### 2.2. La notion de gain
+Une saturation peut réduire l'écart entre une attaque faible et une attaque forte. Elle peut donc modifier :
 
-Le gain correspond à l'amplification du signal.
+- la sensation sous les doigts ;
+- l'attaque du médiator ;
+- le sustain apparent ;
+- la densité ;
+- la lisibilité des accords ;
+- la réaction des palm-mutes.
 
-Dans un système linéaire idéal, multiplier l'amplitude d'un signal ne modifie pas sa forme.
+Le résultat final dépend ensuite des autres étages non linéaires de la chaîne, notamment le préamplificateur du Brunetti.
 
-Si le signal d'entrée est noté x(t), un amplificateur linéaire idéal peut être représenté par :
+### 2.3. Deux saturations en série
 
-y(t) = G × x(t)
+Lorsque The Pelt est suivie de la Tube Screamer, la seconde pédale ne reçoit plus directement le signal de la guitare :
 
-où :
+```text
+Guitare
+   |
+   v
+The Pelt
+   |
+   v
+Signal déjà saturé
+   |
+   v
+Tube Screamer
+   |
+   v
+Signal à nouveau transformé
+```
 
-- x(t) représente le signal d'entrée ;
-- y(t) représente le signal de sortie ;
-- G représente le gain.
-
-Lorsque le gain augmente, l'amplitude de sortie augmente proportionnellement, tant que le circuit reste dans sa zone de fonctionnement linéaire.
-
-En pratique, les circuits disposent d'une tension d'alimentation et d'une plage de fonctionnement limitée.
-
-Lorsque le signal devient trop important, certaines parties du circuit ne peuvent plus suivre proportionnellement la variation d'entrée.
-
-C'est notamment dans cette situation que la saturation apparaît.
-
-### 2.3. L'écrêtage
-
-L'écrêtage est une forme de non-linéarité.
-
-Lorsque l'amplitude du signal dépasse les limites de fonctionnement d'un étage, les crêtes peuvent être comprimées ou limitées.
-
-La forme du signal change alors.
-
-Cette déformation génère de nouvelles composantes harmoniques.
-
-Un écrêtage relativement symétrique peut favoriser certaines harmoniques impaires, tandis qu'une déformation asymétrique peut introduire davantage de composantes paires.
-
-Il s'agit toutefois de tendances théoriques : le contenu harmonique réel dépend de la forme exacte de la non-linéarité, du circuit et du signal appliqué.
-
-### 2.4. Compression et dynamique
-
-La compression désigne une réduction de l'écart entre les variations d'amplitude du signal.
-
-Une saturation peut produire une compression progressive : les fortes attaques augmentent moins en sortie que les faibles variations d'entrée.
-
-Cela peut modifier la sensation de jeu.
-
-On peut notamment observer :
-
-- une différence moins importante entre attaque faible et attaque forte ;
-- un sustain apparent plus important ;
-- une sensation de densité accrue ;
-- une modification de la réponse aux palm-mutes ;
-- une évolution de la lisibilité des accords.
-
-Il faut distinguer la compression produite par la pédale de celle qui peut apparaître ensuite dans le préamplificateur ou l'étage de puissance du Brunetti.
-
-Dans une chaîne complète, plusieurs étages non linéaires peuvent contribuer au résultat final.
+C'est cette succession de transformations qui rend leur complémentarité plus intéressante qu'une simple addition de quantités de gain.
 
 ---
 
 ## 3. Le Fender The Pelt
 
-### 3.1. Fonction générale
+### 3.1. Architecture fonctionnelle
 
-Le Fender The Pelt est une pédale de fuzz.
+Fender décrit The Pelt comme une fuzz flexible pilotée par des **transistors au silicium**, allant d'un mur de fuzz à un drive plus doux et riche en harmoniques.
 
-Son rôle est de produire une saturation importante et une texture harmonique caractéristique.
+La pédale propose :
 
-Contrairement à une pédale utilisée principalement comme boost, la fuzz intervient directement dans la transformation non linéaire du signal.
+- **Level** ;
+- **Tone** ;
+- **Bloom** ;
+- **Fuzz** ;
+- un commutateur **Thick** ;
+- un commutateur **Mid à trois positions**.
 
-Elle peut donc devenir une source majeure du caractère sonore, indépendamment du canal choisi sur l'amplificateur.
+Ces commandes ne sont pas de simples variantes d'un même réglage. Elles permettent d'agir sur plusieurs dimensions différentes : quantité de saturation, niveau de sortie, aigus, attaque, médiums et contenu grave.
 
-Dans notre configuration, elle est placée avant la Tube Screamer.
+### 3.2. Fuzz : quantité de saturation
 
-Cette position permet notamment d'étudier la manière dont une saturation déjà produite est ensuite modifiée par une autre pédale.
+Fender indique que le contrôle **Fuzz** règle le niveau de fuzz et augmente la saturation lorsqu'il est tourné dans le sens horaire.
 
-### 3.2. Commandes disponibles
+Il faut le distinguer du Level :
 
-Le Fender The Pelt dispose des commandes suivantes :
+```text
+FUZZ
+   |
+   +--> quantité / intensité de saturation
 
-| Commande | Fonction générale |
-|---|---|
-| Level | Niveau de sortie de la pédale |
-| Tone | Équilibre tonal |
-| Bloom | Contrôle associé à l'évolution du caractère de la fuzz |
-| Fuzz | Quantité de saturation |
-| Mid | Commutateur de comportement dans les médiums |
-| Thick | Commutateur de densité ou de caractère tonal |
+LEVEL
+   |
+   +--> niveau de sortie de la pédale
+```
 
-La fonction générale de ces commandes peut être décrite, mais leur comportement électrique exact ne doit pas être déduit uniquement de leur nom.
+Augmenter Fuzz ne revient donc pas simplement à rendre la pédale plus forte.
 
-Pour documenter précisément le circuit, il faudrait disposer du schéma électronique ou d'une documentation technique suffisamment détaillée.
+Dans ToneLab, ce contrôle est à observer sur :
 
-Il faut notamment éviter d'attribuer une fréquence de coupure précise ou une topologie de filtre à une commande sans confirmation.
-
-### 3.3. Le contrôle Fuzz
-
-Le contrôle Fuzz agit sur l'intensité de la saturation.
-
-Sur une fuzz, cette commande peut modifier le gain de certains étages et donc la manière dont le signal atteint les zones non linéaires du circuit.
-
-Selon l'architecture retenue, elle peut également influencer le comportement dynamique et la forme du signal écrêté.
-
-Il faut distinguer :
-
-- le gain électrique interne ;
-- l'intensité de la saturation ;
-- le niveau de sortie ;
-- la perception de densité.
-
-Ces grandeurs sont liées, mais elles ne sont pas interchangeables.
-
-Une augmentation du Fuzz ne garantit pas une augmentation proportionnelle du niveau sonore.
-
-### 3.4. Le contrôle Level
-
-Le Level détermine le niveau de sortie de la pédale.
-
-Il permet d'ajuster le signal transmis à l'étage suivant.
-
-Dans notre chaîne, cet étage est la Tube Screamer.
-
-Le niveau de sortie du The Pelt peut donc influencer le comportement de la Tube Screamer, en particulier si celle-ci est utilisée avec un gain interne significatif.
-
-Il peut également modifier la manière dont la pédale suivante réagit aux attaques et aux variations du signal.
-
-Le Level doit ainsi être étudié indépendamment du contrôle Fuzz.
-
-Deux réglages peuvent produire une saturation comparable mais des niveaux de sortie différents.
-
-### 3.5. Le contrôle Tone
-
-Le contrôle Tone permet de modifier l'équilibre tonal de la fuzz.
-
-Il agit sur la répartition des fréquences présentes dans le signal de sortie.
-
-L'effet perçu dépend notamment :
-
-- du contenu harmonique généré par la saturation ;
-- du signal d'origine ;
-- de la position du contrôle ;
-- de la réponse fréquentielle de la pédale suivante ;
-- de la réponse du préamplificateur ;
-- du haut-parleur utilisé.
-
-Il est important de distinguer la modification du spectre avant saturation de celle qui intervient après saturation.
-
-Si un filtre agit avant un étage non linéaire, il peut modifier la manière dont les différentes fréquences participent à la saturation.
-
-S'il agit après cet étage, il modifie surtout le spectre déjà déformé.
-
-Sans schéma confirmé, il ne faut pas conclure à la position exacte de chaque filtre interne du The Pelt.
-
-### 3.6. Le contrôle Bloom
-
-Bloom fait partie des commandes caractéristiques du The Pelt.
-
-Son rôle doit être étudié en relation avec le comportement général de la fuzz, notamment la sensation de densité et l'évolution du son.
-
-Il serait toutefois prématuré d'affirmer qu'il contrôle un paramètre électronique précis sans documentation du circuit.
-
-Pour notre étude, il sera donc considéré comme une variable expérimentale indépendante.
-
-On cherchera à déterminer son influence sur :
-
-- l'attaque ;
-- le sustain ;
 - la densité harmonique ;
-- la stabilité du son ;
-- la réponse aux notes graves ;
-- la perception de compression.
+- la compression ;
+- la définition des accords ;
+- la réaction des notes graves ;
+- la sensation de sustain.
 
-Ces observations devront être comparées à niveau de sortie équivalent afin de limiter les biais d'écoute.
+### 3.3. Level : niveau envoyé à l'étage suivant
 
-### 3.7. Les commutateurs Mid et Thick
+**Level** règle le niveau de sortie lorsque la fuzz est engagée.
 
-Les commutateurs Mid et Thick permettent de modifier le caractère de la fuzz.
+Dans notre chaîne, l'étage suivant est la Tube Screamer :
 
-Ils constituent deux variables discrètes, à étudier séparément des potentiomètres.
+```text
+The Pelt
+[Level]
+   |
+   v
+Tube Screamer
+```
 
-Leur intérêt expérimental est important : un commutateur peut modifier le comportement du circuit de manière plus structurante qu'un petit déplacement de potentiomètre.
+Cela signifie qu'un changement de Level peut avoir deux conséquences à distinguer :
 
-Pour comprendre leur effet, il faudra comparer chaque position en conservant les autres réglages identiques.
+1. modifier le volume du signal ;
+2. modifier le niveau avec lequel la Tube Screamer est attaquée.
 
-Les observations devront notamment porter sur :
+Si la Tube Screamer est active, le Level de The Pelt devient donc une variable d'interaction entre les deux circuits.
 
-- la répartition des médiums ;
-- le poids des bas-médiums ;
-- la présence des aigus ;
-- la perception de l'attaque ;
-- la lisibilité des accords ;
-- la réponse dans le grave.
+### 3.4. Tone : contrôle des hautes fréquences
 
-Il faudra éviter de conclure qu'un commutateur agit exclusivement sur une seule bande de fréquences sans mesure ou schéma à l'appui.
+La documentation Fender est explicite : **Tone contrôle les hautes fréquences présentes dans le signal**.
+
+Fender indique également que :
+
+- en position haute, la plage fréquentielle complète de l'instrument est conservée ;
+- en réduisant Tone, les aigus sont adoucis.
+
+On peut donc représenter son rôle ainsi :
+
+```text
+Tone élevé
+    |
+    +--> davantage de contenu aigu conservé
+
+Tone réduit
+    |
+    +--> aigus adoucis
+```
+
+Tone doit être évalué en contexte. Une position adaptée avec The Pelt seule peut ne plus être optimale lorsque la Tube Screamer, le MXR ou un autre canal du Brunetti est ajouté.
+
+### 3.5. Bloom : contrôle de l'attaque
+
+**Bloom est l'une des commandes les plus caractéristiques de The Pelt.**
+
+Fender indique qu'elle contrôle **l'attaque de l'effet de fuzz**.
+
+Son axe est décrit de **Soft** vers **Hard** :
+
+```text
+                 BLOOM
+                   |
+        +----------+----------+
+        |                     |
+        v                     v
+      SOFT                   HARD
+        |                     |
+        v                     v
+attaque plus douce       attaque plus abrupte
+et progressive           saturation plus éclatée
+```
+
+Fender décrit le côté Soft comme produisant une attaque plus lisse, proche d'une attaque de violon, tandis que le côté Hard produit un caractère plus abrupt et plus "splattered".
+
+Cette commande mérite donc d'être étudiée indépendamment de Fuzz.
+
+Deux réglages produisant une quantité de fuzz proche peuvent présenter des sensations de jeu très différentes selon Bloom.
+
+#### Expériences utiles autour de Bloom
+
+À réglage identique des autres commandes :
+
+- comparer Soft, centre et Hard ;
+- jouer des notes isolées ;
+- comparer des accords ;
+- tester des palm-mutes ;
+- écouter la première fraction de seconde de chaque note ;
+- observer si l'effet reste aussi perceptible lorsque le Brunetti est déjà saturé.
+
+### 3.6. Thick : laisser passer davantage de grave
+
+Fender précise que le commutateur **Thick laisse davantage de fréquences graves traverser le circuit** afin d'épaissir le son de fuzz.
+
+```text
+THICK OFF
+    |
+    v
+référence
+
+THICK ON
+    |
+    v
+davantage de grave traverse le circuit
+    |
+    v
+fuzz potentiellement plus épaisse
+```
+
+Le point important pour ToneLab est de ne pas transformer immédiatement cette fonction en jugement de valeur.
+
+Avec le Drop C#, davantage de grave peut :
+
+- apporter la masse recherchée ;
+- ou réduire la définition selon les autres réglages.
+
+La question expérimentale devient donc :
+
+> Thick améliore-t-il la masse sans détériorer la lisibilité dans cette configuration précise ?
+
+La documentation publique Fender décrit l'effet général mais ne donne pas, dans la source utilisée ici, de fréquence de coupure précise. ToneLab ne lui attribue donc pas de fréquence arbitraire.
+
+### 3.7. Mid : Cut / Flat / Boost
+
+Le commutateur **Mid** possède trois positions.
+
+Fender indique qu'il agit sur les médiums en permettant de les renforcer ou de les réduire, tandis que la position centrale les laisse inchangés.
+
+```text
+                  MID
+                   |
+          +--------+--------+
+          |        |        |
+          v        v        v
+         CUT      FLAT     BOOST
+          |        |        |
+          v        v        v
+       médiums   médiums   médiums
+       réduits   inchangés renforcés
+```
+
+Fender associe ce réglage au **punch** et à la **présence**.
+
+Cette commande est particulièrement intéressante au regard d'une observation déjà faite dans ToneLab : The Pelt seule sur Clean peut sembler manquer de présence, alors que l'ajout de la Tube Screamer apporte davantage de présence.
+
+Avant d'attribuer cette différence à une seule cause, il est donc pertinent de comparer :
+
+```text
+Pelt seule
+Mid CUT / FLAT / BOOST
+        |
+        v
+comparaison
+```
+
+puis :
+
+```text
+Pelt + Tube Screamer
+        |
+        v
+comparaison
+```
+
+La documentation Fender utilisée ici ne fournit pas de fréquence centrale ni de valeur de boost/cut pour Mid. Ces valeurs ne doivent donc pas être inventées.
+
+### 3.8. Interaction entre Bloom, Thick et Mid
+
+Ces trois fonctions travaillent sur des dimensions différentes :
+
+```text
+Bloom
+  |
+  +--> attaque
+
+Thick
+  |
+  +--> quantité de grave traversant le circuit
+
+Mid
+  |
+  +--> forme générale des médiums
+```
+
+Elles peuvent donc être combinées.
+
+Mais pour comprendre leurs interactions, ToneLab doit d'abord les étudier séparément.
+
+Une expérience pertinente consiste par exemple à fixer Fuzz, Tone et Level, puis à modifier uniquement Mid. On revient ensuite à la référence avant de tester Thick, puis Bloom.
+
+Ce n'est qu'après cette étape que des combinaisons comme **Thick ON + Mid Boost + Bloom Hard** deviennent réellement interprétables.
 
 ---
 
 ## 4. La Tube Screamer Analogman Silver Mod
 
-### 4.1. Fonction générale
+### 4.1. Identifier précisément l'objet étudié
 
-La Tube Screamer est une pédale d'overdrive conçue autour d'un circuit d'amplification et d'une transformation non linéaire du signal.
+La pédale de ToneLab est une **Tube Screamer Maxon modifiée par Analogman avec la Silver Mod**.
 
-Dans notre configuration, elle est modifiée par Analogman avec la Silver Mod.
+Il faut distinguer trois niveaux d'information :
 
-Elle est utilisée principalement pour modifier le signal transmis au Brunetti, mais elle peut également participer directement à la saturation.
+```text
+Famille Tube Screamer
+        |
+        +--> comportement général
 
-Son comportement dépend du niveau d'entrée, du réglage du Drive, du Tone et du Level, ainsi que de la charge électrique présentée par l'étage suivant.
+Modèle Maxon de base
+        |
+        +--> caractéristiques du modèle concerné
 
-### 4.2. Architecture fonctionnelle générale
+Analogman Silver Mod
+        |
+        +--> modifications / intention documentées par Analogman
+```
 
-Une Tube Screamer classique peut être décrite à l'aide de plusieurs fonctions électroniques :
+Cette distinction est importante : les affirmations relatives à une TS9 Ibanez standard ne doivent pas être transférées automatiquement à l'exemplaire ToneLab.
 
-1. adaptation du signal d'entrée ;
-2. amplification ;
-3. création de saturation ;
-4. filtrage fréquentiel ;
-5. réglage du niveau de sortie.
+### 4.2. Les trois commandes
 
-Cette description est fonctionnelle.
+La Tube Screamer utilisée dans ToneLab expose trois commandes principales :
 
-Elle ne constitue pas un schéma exact de la version Analogman Silver Mod utilisée ici.
+- **Drive** ;
+- **Tone** ;
+- **Level**.
 
-Les modifications précises de composants et leurs conséquences quantitatives devront être documentées à partir d'une source technique spécifique à cette version.
+Dans l'usage de référence actuellement documenté :
 
-### 4.3. Le contrôle Drive
+```text
+Drive : environ 8 h
+Tone  : environ 11 h
+Level : environ 14 à 15 h
+```
 
-Le Drive agit sur la quantité de saturation produite par la pédale.
+Cette configuration suggère un usage dans lequel la saturation interne n'est pas poussée au maximum et où le niveau de sortie joue un rôle important.
 
-Son effet dépend de la structure du circuit et du niveau du signal d'entrée.
+Il ne faut toutefois pas réduire la pédale à un simple "boost de volume" : son circuit transforme également le signal.
 
-Lorsque le Drive est faible, la pédale peut être utilisée principalement pour modifier le signal envoyé au Brunetti.
+### 4.3. Drive
 
-Lorsque le Drive augmente, la contribution de la saturation interne devient plus importante.
+Drive agit sur la contribution de l'overdrive propre à la pédale.
 
-La distinction entre boost et overdrive dépend donc du comportement réel de l'ensemble :
+Lorsqu'il est faible, la pédale peut être utilisée principalement pour transformer le signal et augmenter le niveau envoyé à l'étage suivant.
 
-- niveau d'entrée ;
-- gain interne ;
-- seuil et forme de la non-linéarité ;
-- filtrage ;
-- niveau de sortie.
+Lorsqu'il augmente, la contribution de sa saturation interne devient plus importante.
 
-Le Drive ne représente pas directement une quantité de distorsion exprimée en pourcentage.
+Dans ToneLab, il faut donc distinguer :
 
-Il s'agit d'une commande qui modifie le fonctionnement du circuit.
+```text
+Drive faible
+    |
+    +--> faible contribution de saturation interne
+    +--> rôle du Level particulièrement important
 
-### 4.4. Le contrôle Tone
+Drive plus élevé
+    |
+    +--> contribution plus importante de l'overdrive
+```
 
-Le Tone modifie l'équilibre spectral de la pédale.
+### 4.4. Tone
 
-Il faut le comprendre comme une commande de coloration fréquentielle, et non comme un simple réglage d'aigus indépendant du reste du circuit.
+Tone contrôle la coloration fréquentielle de la Tube Screamer.
 
-Le spectre final dépend de la réponse de la pédale et du contenu harmonique présent à son entrée.
+Dans notre chaîne, cette commande reçoit parfois un signal déjà transformé par The Pelt :
 
-Lorsque le signal est déjà saturé par le The Pelt, le Tone de la Tube Screamer intervient sur un signal qui contient déjà de nombreuses harmoniques.
+```text
+The Pelt
+   |
+   v
+Signal riche en harmoniques
+   |
+   v
+Tube Screamer [Tone]
+```
 
-La perception du réglage peut donc différer de celle obtenue avec une guitare branchée directement dans la Tube Screamer.
+Le même réglage de Tone peut donc être perçu différemment selon que The Pelt est active ou non.
 
-### 4.5. Le contrôle Level
+### 4.5. Level
 
-Le Level règle le niveau de sortie.
+Level règle le niveau transmis à l'étage suivant.
 
-Il détermine en grande partie l'amplitude du signal transmis à l'étage suivant.
+Dans la chaîne de référence :
 
-Dans notre configuration, la Tube Screamer est placée avant l'entrée du Brunetti.
+```text
+Tube Screamer
+   |
+   v
+MXR 6 Band EQ
+   |
+   v
+Brunetti
+```
 
-Le niveau transmis peut donc influencer le comportement du préamplificateur.
+Avec un Level assez élevé, la pédale peut modifier le niveau présenté au préamplificateur du Brunetti.
 
-Il ne faut pas confondre le Level de la pédale avec le Gain du Brunetti.
+Cela doit être distingué du Gain du Brunetti :
 
-Le premier modifie le niveau électrique en entrée de l'ampli ; le second modifie le fonctionnement du préamplificateur.
+```text
+Level Tube Screamer
+      |
+      +--> niveau envoyé au préampli
 
-Le résultat dépend de leur combinaison.
+Gain Brunetti
+      |
+      +--> comportement du préampli lui-même
+```
 
-### 4.6. Particularités de la Silver Mod
+### 4.6. Ce qu'Analogman documente sur la Silver Mod
 
-La Silver Mod doit être traitée comme une version spécifique de la Tube Screamer.
+Analogman présente la Silver Mod comme une modification ajoutée à sa modification TS-808 / Brown habituelle.
 
-Il ne faut pas supposer que toutes les caractéristiques de la version standard s'appliquent intégralement à cette modification.
+L'objectif annoncé est de conserver le drive et la chaleur d'une Tube Screamer tout en **colorant moins le signal**.
 
-Pour établir une description technique fiable, il faudra identifier :
+Analogman indique notamment que la Silver Mod présente **moins de bosse dans les médiums qu'une Tube Screamer normale** et décrit le résultat comme plus transparent.
 
-- les composants modifiés ;
-- les valeurs d'origine et les valeurs de remplacement ;
-- les étages concernés ;
-- les changements de filtrage éventuels ;
-- les changements de gain éventuels ;
-- les conséquences mesurables sur le signal.
+C'est particulièrement important pour ToneLab : la Tube Screamer utilisée ici ne doit donc pas être décrite exactement comme une TS standard dont le caractère serait uniquement une forte accentuation des médiums.
 
-En l'absence de ces informations, les observations auditives pourront être documentées, mais elles ne devront pas être présentées comme la preuve d'une modification électronique précise.
+La logique devient plutôt :
+
+```text
+Tube Screamer classique
+        |
+        +--> caractère médium marqué
+
+Silver Mod
+        |
+        +--> bosse médium moins prononcée
+        +--> transformation annoncée comme plus transparente
+```
+
+Analogman indique également que la modification utilise plusieurs composants différents, mais la documentation publique consultée ne fournit pas une nomenclature complète permettant de reconstruire précisément notre exemplaire. ToneLab doit donc rester au niveau des modifications explicitement documentées plutôt que d'inventer des valeurs de composants.
+
+### 4.7. Conséquence pour l'utilisation ToneLab
+
+La combinaison actuelle :
+
+```text
+Drive bas
+Tone modéré
+Level élevé
+```
+
+est particulièrement intéressante à étudier avec la Silver Mod, car elle permet de rechercher une transformation du signal et une interaction avec l'étage suivant sans chercher nécessairement à produire l'essentiel de la saturation dans la Tube Screamer elle-même.
+
+Il faut toutefois le vérifier expérimentalement avec notre exemplaire plutôt que de transformer ce principe en règle générale.
 
 ---
 
-## 5. Comparaison des deux approches
+## 5. Complémentarité Pelt / Tube Screamer
 
-Le The Pelt et la Tube Screamer peuvent tous deux produire de la saturation, mais ils occupent des rôles différents dans notre chaîne.
+### 5.1. Deux fonctions différentes
 
-| Critère | Fender The Pelt | Tube Screamer Silver Mod |
-|---|---|---|
-| Fonction principale | Fuzz | Overdrive et modification du signal |
-| Saturation interne | Importante selon le réglage | Variable selon le Drive et le niveau d'entrée |
-| Commande de niveau | Level | Level |
-| Commande de saturation | Fuzz | Drive |
-| Contrôle tonal | Tone, Mid et Thick | Tone |
-| Commande complémentaire | Bloom | Aucune commande équivalente identifiée ici |
-| Position dans la chaîne | Avant la Tube Screamer | Après le The Pelt |
-| Interaction étudiée | Production de saturation | Transformation du signal déjà saturé ou du signal de guitare |
+The Pelt et la Tube Screamer sont toutes deux capables de produire de la saturation, mais leur place dans ToneLab n'est pas identique.
 
-La différence fondamentale à étudier n'est pas simplement la quantité de saturation.
+```text
+THE PELT
+   |
+   +--> texture de fuzz
+   +--> attaque via Bloom
+   +--> médiums via Mid
+   +--> grave via Thick
 
-Il faut examiner la manière dont chaque circuit transforme le signal et la manière dont les deux circuits réagissent lorsqu'ils sont associés.
+TUBE SCREAMER SILVER MOD
+   |
+   +--> overdrive
+   +--> niveau envoyé en aval
+   +--> coloration fréquentielle
+   +--> Silver Mod moins marquée dans les médiums qu'une TS normale
+```
 
-### 5.1. Saturation successive
+### 5.2. Pelt puis Tube Screamer
 
-Lorsque deux pédales de saturation sont placées en série, la première fournit à la seconde un signal déjà modifié.
+La chaîne de référence est :
 
-La seconde ne reçoit donc plus le signal original de la guitare.
+```text
+The Pelt
+   |
+   v
+Tube Screamer
+```
 
-Elle reçoit un signal dont :
+La Tube Screamer traite donc un signal déjà saturé et coloré par The Pelt.
 
-- l'amplitude a été transformée ;
-- la dynamique peut être réduite ;
-- le contenu harmonique a été enrichi ;
-- le spectre fréquentiel peut avoir changé ;
-- les transitoires peuvent avoir été modifiés.
+Elle peut alors modifier :
 
-La saturation successive peut donc produire un résultat très différent de celui obtenu avec chaque pédale seule.
+- le niveau transmis au Brunetti ;
+- l'équilibre spectral du signal de fuzz ;
+- la quantité totale de saturation ;
+- la dynamique du signal combiné.
 
-### 5.2. Effet de l'ordre
+### 5.3. Pourquoi l'ordre compte
 
-Dans un système linéaire idéal, deux filtres linéaires peuvent parfois être permutés sans modifier leur réponse globale, sous certaines conditions.
+L'ordre inverse répondrait à une autre question :
 
-En revanche, les pédales de saturation sont des systèmes non linéaires.
+```text
+Tube Screamer
+   |
+   v
+The Pelt
+```
 
-L'ordre des étages devient alors particulièrement important.
+Dans ce cas, The Pelt recevrait un signal déjà transformé par la Tube Screamer.
 
-En général :
+Les deux ordres ne doivent donc pas être considérés comme deux façons équivalentes d'obtenir "Pelt + TS".
 
-- une fuzz suivie d'un overdrive transforme un signal déjà saturé ;
-- un overdrive suivi d'une fuzz présente à la fuzz un signal déjà amplifié et filtré ;
-- les deux ordres peuvent produire des spectres et des réponses dynamiques différents.
+### 5.4. L'observation de présence
 
-Cette différence constitue un axe majeur de l'étude du pedalboard.
+Une observation déjà notée dans ToneLab est que The Pelt seule sur Clean peut sembler manquer de présence, alors que l'activation de la Tube Screamer apporte une présence supplémentaire.
+
+Cette observation doit maintenant être décomposée plutôt que simplement répétée.
+
+Plusieurs variables peuvent être testées :
+
+```text
+Pelt seule - Mid FLAT
+Pelt seule - Mid BOOST
+Pelt seule - variation Tone
+Pelt + TS - Level égalisé
+Pelt + TS - niveau réel d'usage
+```
+
+Le but est de distinguer autant que possible :
+
+- l'effet du commutateur Mid de The Pelt ;
+- l'effet de Tone ;
+- la coloration de la Silver Mod ;
+- l'effet du Level de la Tube Screamer ;
+- la réaction du canal du Brunetti au niveau supplémentaire.
 
 ---
 
 ## 6. Interaction avec le préamplificateur du Brunetti
 
-### 6.1. Le préamplificateur comme étage de traitement
+### 6.1. Le Brunetti est un étage supplémentaire
 
-Le Brunetti reçoit le signal provenant du pedalboard.
+Le pedalboard ne produit pas un son "terminé" avant d'entrer dans l'ampli.
 
-Son préamplificateur amplifie et transforme ce signal selon le canal sélectionné et les réglages appliqués.
+```text
+The Pelt
+   |
+   v
+Tube Screamer
+   |
+   v
+EQ
+   |
+   v
+Préampli Brunetti
+```
 
-Le résultat dépend notamment :
+Le canal sélectionné constitue donc un nouvel étage de transformation.
 
-- du niveau d'entrée ;
-- du Gain ;
-- de l'égalisation ;
-- du canal ;
-- des caractéristiques internes du préamplificateur.
+### 6.2. Clean
 
-Lorsqu'une pédale de saturation est activée avant l'ampli, le signal transmis peut déjà être fortement transformé.
+Clean est particulièrement utile pour entendre le caractère propre des pédales et comparer :
 
-Le préamplificateur reçoit alors un signal différent de celui produit directement par la guitare.
+```text
+Brunetti Clean
 
-### 6.2. Accumulation des non-linéarités
+Pelt -> Clean
 
-Si une pédale et le préamplificateur fonctionnent tous deux dans une zone non linéaire, leurs effets s'additionnent au sens où chaque étage transforme le signal déjà modifié par le précédent.
+TS -> Clean
 
-Le résultat n'est pas nécessairement une simple augmentation de saturation.
+Pelt -> TS -> Clean
+```
 
-Il peut également entraîner :
+Il ne faut cependant pas supposer que le comportement observé sur Clean sera identique sur Crunch ou XLead.
 
-- une réduction supplémentaire de la dynamique ;
-- une évolution du contenu harmonique ;
-- une modification des transitoires ;
-- une variation de la lisibilité des notes ;
-- une modification de la sensation de réponse sous les doigts.
+### 6.3. Crunch
 
-La perception dépend du signal, du niveau, des réglages et du système de diffusion.
+Avec Crunch, le signal issu des pédales rencontre un préampli dont le comportement de saturation est déjà plus important.
 
-### 6.3. Différences entre les canaux
+Il faut alors surveiller :
 
-Les canaux Clean, Crunch et XLead ne doivent pas être considérés comme trois entrées identiques.
+- l'accumulation de gain ;
+- la compression ;
+- la lisibilité ;
+- la conservation de l'attaque ;
+- la manière dont Bloom reste perceptible ou non.
 
-Leur comportement dépend de leur architecture et de leurs réglages respectifs.
+### 6.4. XLead
 
-Une même pédale peut donc produire des résultats différents selon le canal utilisé.
+XLead constitue le contexte où le risque d'accumulation de saturation est le plus évident.
 
-Il faudra notamment distinguer :
+L'objectif ne doit donc pas être automatiquement :
 
-- une pédale qui produit elle-même l'essentiel de la saturation ;
-- une pédale qui pousse un préamplificateur déjà proche de la saturation ;
-- une pédale qui modifie surtout le spectre et l'attaque du signal ;
-- une combinaison dans laquelle plusieurs étages contribuent simultanément au résultat.
+```text
+Fuzz + OD + beaucoup de Gain = son plus massif
+```
 
-L'objectif n'est pas de supposer à l'avance quelle combinaison sera la plus intéressante, mais d'identifier les différences réelles entre les configurations.
+Une approche plus utile consiste à rechercher :
 
----
+```text
+Texture
+  +
+Attaque
+  +
+Densité
+  +
+Définition
+  =
+Son exploitable
+```
 
-## 7. Influence du niveau et de l'impédance
-
-### 7.1. Niveau électrique et niveau perçu
-
-Le niveau électrique correspond à l'amplitude du signal.
-
-Le niveau sonore perçu dépend ensuite de nombreux facteurs, notamment du système d'amplification et du haut-parleur.
-
-Deux configurations peuvent présenter des amplitudes électriques différentes sans que leur différence de volume perçue soit directement proportionnelle.
-
-Pour comparer des pédales, il est donc utile de distinguer :
-
-- le niveau électrique en sortie ;
-- le niveau sonore perçu ;
-- la quantité de saturation ;
-- la dynamique ;
-- la réponse fréquentielle.
-
-Une comparaison d'écoute doit idéalement être réalisée à niveau sonore comparable.
-
-Sinon, une configuration légèrement plus forte peut être perçue comme plus présente ou plus détaillée, même si la différence provient surtout du niveau.
-
-### 7.2. Impédance d'entrée et de sortie
-
-L'impédance est une propriété électrique qui influence le transfert du signal entre deux appareils.
-
-Une pédale possède notamment :
-
-- une impédance d'entrée ;
-- une impédance de sortie.
-
-L'interaction entre l'impédance de sortie d'un appareil et l'impédance d'entrée du suivant peut modifier le niveau transmis et, dans certains cas, la réponse fréquentielle.
-
-Cette interaction est particulièrement importante avec les micros passifs de guitare, dont le comportement dépend aussi de la charge électrique.
-
-L'ordre des pédales peut donc avoir des conséquences qui ne sont pas uniquement liées à leur fonction audio.
-
-### 7.3. Les câbles et les capacités parasites
-
-Un câble possède une capacité électrique répartie entre ses conducteurs.
-
-Avec une source présentant une impédance significative, cette capacité peut contribuer à modifier la réponse fréquentielle.
-
-La longueur des câbles et leur capacité peuvent donc influencer le signal, notamment lorsque la guitare est reliée à une entrée à haute impédance.
-
-Dans notre chaîne, les buffers et les circuits d'entrée des pédales peuvent modifier cette interaction.
-
-Pour mesurer précisément ce phénomène, il faudrait connaître les caractéristiques électriques des pédales et des câbles utilisés.
+La Tube Screamer peut alors être testée comme élément de transformation et de niveau plutôt que comme simple source de gain supplémentaire.
 
 ---
 
-## 8. Conséquences sur le spectre fréquentiel
+## 7. Niveau, impédance et ordre des pédales
 
-### 8.1. Le spectre du signal
+### 7.1. Niveau électrique et perception
 
-Un signal complexe peut être analysé comme une combinaison de composantes fréquentielles.
+Une configuration légèrement plus forte peut être perçue comme plus présente ou plus détaillée.
 
-Le spectre représente la répartition de l'énergie du signal en fonction de la fréquence.
+Les comparaisons critiques doivent donc distinguer :
 
-Une pédale peut modifier ce spectre de plusieurs manières :
+- différence de volume ;
+- différence de saturation ;
+- différence de dynamique ;
+- différence de spectre.
 
-- amplification de certaines zones ;
-- atténuation de certaines zones ;
-- génération d'harmoniques ;
-- modification de la dynamique selon la fréquence ;
-- transformation des transitoires.
+Lorsque l'objectif est de comparer deux timbres, une comparaison à niveau perçu proche peut être utile.
 
-Une pédale de saturation peut donc modifier simultanément le spectre par filtrage et par génération de nouvelles composantes.
+Lorsque l'objectif est au contraire d'étudier l'effet du Level sur le Brunetti, il faut conserver la différence de niveau, puisqu'elle constitue précisément la variable testée.
 
-### 8.2. Fréquences fondamentales et harmoniques
+### 7.2. Impédance
 
-Une note jouée sur la guitare contient généralement une fondamentale et plusieurs harmoniques.
+Les pédales présentent une impédance d'entrée et une impédance de sortie. Leur position peut donc avoir des conséquences électriques en plus de leur fonction musicale apparente.
 
-La saturation peut générer des composantes supplémentaires et modifier l'amplitude relative des harmoniques existantes.
+Dans ToneLab, l'impédance doit surtout être considérée comme une variable technique à documenter lorsqu'elle explique un comportement réel. Elle ne doit pas servir à fabriquer une explication sans mesure ou documentation adaptée.
 
-La perception du timbre dépend notamment de cette répartition.
+### 7.3. Une chaîne, pas une collection
 
-Il faut donc éviter de décrire une fuzz uniquement comme un appareil qui augmente les aigus ou les médiums.
+Le point fondamental reste :
 
-Son caractère dépend aussi de la manière dont elle transforme le signal dans le domaine temporel.
+```text
+étage A
+   |
+   v
+transforme le signal
+   |
+   v
+étage B reçoit ce nouveau signal
+   |
+   v
+étage C reçoit le résultat de A + B
+```
 
-### 8.3. Les notes graves et la saturation
-
-Les notes graves présentent une difficulté particulière lorsqu'elles sont fortement saturées.
-
-Le signal peut contenir une énergie importante dans le grave et des harmoniques nombreuses.
-
-La saturation peut rendre le son plus dense, mais aussi réduire la séparation perceptive entre certaines composantes.
-
-Dans notre accordage en Drop C#, il sera intéressant d'observer :
-
-- la stabilité des notes graves ;
-- la définition des attaques ;
-- la séparation des cordes ;
-- la lisibilité des accords ;
-- la sensation de compression ;
-- l'évolution du grave lorsque plusieurs pédales sont activées.
-
-Il faudra distinguer les effets du circuit de saturation de ceux de l'égalisation, du canal du Brunetti et du cabinet.
+C'est pourquoi l'ordre des pédales est une partie du réglage sonore lui-même.
 
 ---
 
-## 9. Méthode d'analyse expérimentale
+## 8. Conséquences spectrales et dynamiques
 
-### 9.1. Principe
+### 8.1. Génération d'harmoniques
 
-L'analyse doit permettre d'identifier les contributions respectives des pédales.
+La saturation modifie la forme du signal et génère de nouvelles composantes harmoniques.
 
-Pour cela, les comparaisons doivent conserver autant que possible les mêmes conditions de jeu et de matériel.
+Cela explique pourquoi une correction d'EQ avant la saturation ne produit pas le même résultat qu'une correction après saturation.
 
-Les variables à documenter sont notamment :
+Cette question est développée dans la Partie 3 consacrée aux égaliseurs.
 
-- guitare ;
-- micro sélectionné ;
-- accordage ;
-- volume et tonalité de la guitare ;
-- canal du Brunetti ;
-- réglages de l'ampli ;
-- pédales activées ;
-- réglages de chaque pédale ;
-- ordre des pédales ;
-- niveau sonore de comparaison ;
-- cabinet utilisé.
+### 8.2. Grave et Drop C#
 
-### 9.2. Comparaison du The Pelt seul
+Le Drop C# rend particulièrement importante l'observation du registre grave.
 
-Le premier essai consiste à comparer le Brunetti seul avec le Brunetti précédé du The Pelt.
+Avec The Pelt, plusieurs paramètres peuvent agir sur sa perception :
 
-Il faut conserver les mêmes réglages d'ampli et le même passage musical.
+- Fuzz ;
+- Thick ;
+- Tone ;
+- Bloom, via la perception de l'attaque ;
+- le pré-EQ ;
+- la Tube Screamer ;
+- le post-EQ ;
+- le canal du Brunetti.
 
-On peut ensuite observer :
+Le but n'est donc pas simplement d'avoir "plus de grave", mais de chercher un compromis entre :
 
-- l'évolution de la saturation ;
-- le contenu harmonique ;
-- l'attaque ;
-- le sustain ;
-- la compression ressentie ;
-- la définition des notes graves.
+```text
+Masse
+  +
+Séparation
+  +
+Attaque
+  +
+Lisibilité
+```
 
-Le niveau sonore doit être pris en compte pour éviter de confondre augmentation de volume et modification du timbre.
+### 8.3. Attaque et Bloom
 
-### 9.3. Comparaison de la Tube Screamer seule
+Bloom rend particulièrement visible une idée importante : la sensation de précision n'est pas uniquement une question d'EQ.
 
-Le deuxième essai consiste à comparer le Brunetti seul avec le Brunetti précédé de la Tube Screamer.
+Une attaque plus progressive ou plus abrupte peut modifier fortement la perception du son sans que l'on ait simplement "ajouté des aigus".
 
-Il faut ensuite distinguer deux situations :
+Cette distinction sera utile pour éviter de demander à l'EQ de corriger un problème qui relève en réalité de l'enveloppe ou de la dynamique.
 
-- la pédale utilisée principalement pour modifier le niveau transmis ;
-- la pédale utilisée avec une contribution plus importante de sa saturation interne.
+---
 
-Les observations devront porter sur le niveau, la dynamique, le spectre et la réponse du préamplificateur.
+## 9. Applications au rig ToneLab
 
-### 9.4. Comparaison des deux pédales ensemble
+### 9.1. Gibson Les Paul Classic DC
 
-Le troisième essai consiste à activer les deux pédales dans leur ordre de référence :
+Les essais doivent chercher à conserver le caractère propre de la Gibson plutôt qu'à appliquer automatiquement un réglage conçu pour la Gretsch.
+
+Avec The Pelt, les variables les plus intéressantes à comparer seront notamment :
+
+- Mid ;
+- Thick ;
+- Bloom ;
+- interaction avec la Tube Screamer ;
+- réaction des trois canaux du Brunetti.
+
+### 9.2. Gretsch John Gourley Broadkaster
+
+La Gretsch doit également conserver son identité propre.
+
+Avec le Drop C#, l'attention portera notamment sur :
+
+- la tenue du grave ;
+- la définition des accords ;
+- Thick ON / OFF ;
+- la relation Bloom / attaque ;
+- le rôle de la Tube Screamer dans la présence et la définition.
+
+### 9.3. Ne pas corriger trop tôt
+
+Si une combinaison semble trop sombre, trop dense ou trop floue, ToneLab doit éviter de modifier immédiatement plusieurs éléments.
+
+La séquence de questionnement peut être :
+
+1. Le problème apparaît-il avec The Pelt seule ?
+2. Dépend-il de Mid ?
+3. Dépend-il de Thick ?
+4. Dépend-il de Bloom ?
+5. Apparaît-il seulement lorsque la Tube Screamer est activée ?
+6. Est-il lié au niveau transmis au Brunetti ?
+7. Faut-il finalement intervenir avec le pré-EQ ou le post-EQ ?
+
+Cette approche permet de chercher la cause avant la correction.
+
+---
+
+## 10. Méthode expérimentale
+
+### 10.1. Construire une référence
+
+Commencer par une configuration clairement identifiée :
+
+```text
+Guitare
+   |
+   v
+Brunetti
+```
+
+Puis introduire les éléments progressivement.
+
+### 10.2. Étudier The Pelt seule
+
+```text
+Guitare
+   |
+   v
+The Pelt
+   |
+   v
+Brunetti
+```
+
+Fixer d'abord Fuzz, Tone et Level, puis étudier séparément :
+
+1. Bloom ;
+2. Mid ;
+3. Thick.
+
+Ensuite seulement, tester leurs interactions.
+
+### 10.3. Étudier la Tube Screamer seule
+
+```text
+Guitare
+   |
+   v
+Tube Screamer
+   |
+   v
+Brunetti
+```
+
+Comparer au minimum :
+
+- réglage de référence ToneLab ;
+- Level ramené vers l'unité ;
+- variation du Drive ;
+- variation du Tone.
+
+Le but est de distinguer la contribution de la pédale de l'effet du simple changement de niveau.
+
+### 10.4. Combiner Pelt et Tube Screamer
 
 ```text
 Guitare
@@ -644,80 +884,107 @@ Tube Screamer
 Brunetti
 ```
 
-Cette configuration permettra d'observer comment la Tube Screamer réagit au signal déjà transformé par la fuzz.
+Comparer :
 
-Il faudra comparer :
+- Pelt seule ;
+- TS seule ;
+- Pelt + TS ;
+- si l'expérience le justifie, ordre inverse.
 
-1. The Pelt seule ;
-2. Tube Screamer seule ;
-3. The Pelt puis Tube Screamer ;
-4. éventuellement Tube Screamer puis The Pelt, si l'on souhaite étudier l'influence de l'ordre.
+### 10.5. Documenter le test
 
-Les différences pourront être analysées à l'écoute et, si possible, à l'aide d'enregistrements comparables.
+Les données détaillées peuvent être conservées dans ToneLab Profiles et les exports de tests.
 
-### 9.5. Mesures possibles
+Une expérience utile doit conserver au minimum :
 
-Avec un enregistrement direct ou une interface audio, plusieurs observations sont envisageables :
+```text
+Guitare :
+Micro :
+Accordage :
 
-| Mesure ou analyse | Ce qu'elle permet d'étudier |
-|---|---|
-| Forme d'onde | Écrêtage et évolution temporelle |
-| Niveau crête | Amplitude maximale |
-| Niveau RMS | Niveau moyen énergétique |
-| Spectre fréquentiel | Répartition des composantes |
-| Analyse harmonique | Évolution des harmoniques |
-| Comparaison temporelle | Attaque et décroissance |
-| Comparaison à niveau égal | Différences de timbre moins biaisées par le volume |
+Canal Brunetti :
+Gain :
+Bass :
+Mid :
+Edge :
+Master :
+Bright / Focus :
 
-Ces analyses ne remplacent pas l'écoute.
+The Pelt :
+Level :
+Tone :
+Bloom :
+Fuzz :
+Mid : CUT / FLAT / BOOST
+Thick : OFF / ON
 
-Elles permettent cependant de mieux distinguer certaines transformations électriques des impressions subjectives.
+Tube Screamer :
+Drive :
+Tone :
+Level :
 
-### 9.6. Limites de l'analyse
+EQ actifs :
+Baffle :
+Niveau de test :
 
-Les mesures doivent être interprétées avec prudence.
+Observation :
+Interprétation :
+Décision :
+```
 
-Un spectre ne permet pas, à lui seul, de décrire la sensation de jeu ou la qualité musicale d'un son.
-
-De même, une forme d'onde visuellement plus écrêtée ne suffit pas à déterminer si une configuration sera plus lisible ou plus expressive.
-
-L'analyse doit donc associer :
-
-- mesures ;
-- écoute ;
-- contexte musical ;
-- répétabilité ;
-- observations du musicien.
+La documentation Markdown conserve ensuite les principes, les résultats reproductibles et les conclusions suffisamment solides pour être utiles au reste de ToneLab.
 
 ---
 
-## 10. À retenir
+## 11. À retenir
 
-Le Fender The Pelt et la Tube Screamer Analogman Silver Mod sont deux circuits de saturation qui peuvent jouer des rôles différents dans le pedalboard.
+The Pelt et la Tube Screamer Silver Mod ne doivent pas être réduites à deux quantités de saturation mises en série.
 
-Le The Pelt constitue une source de fuzz et de transformation harmonique importante.
+The Pelt possède plusieurs leviers distincts :
 
-La Tube Screamer peut modifier le signal transmis au Brunetti et contribuer elle-même à la saturation.
+```text
+Fuzz  -> quantité de saturation
+Level -> niveau de sortie
+Tone  -> hautes fréquences
+Bloom -> attaque Soft <-> Hard
+Mid   -> Cut / Flat / Boost des médiums
+Thick -> davantage de grave dans le circuit
+```
 
-Lorsque les deux pédales sont utilisées successivement, leur interaction dépend notamment du niveau, du spectre et de la dynamique du signal produit par la première.
+La Silver Mod documentée par Analogman vise de son côté une Tube Screamer moins colorée et présentant une bosse dans les médiums moins prononcée qu'une Tube Screamer normale.
 
-L'ordre des pédales est donc une variable essentielle.
+Dans la chaîne ToneLab :
 
-La compréhension technique de ces interactions repose sur plusieurs notions :
+```text
+Guitare
+   |
+   v
+PRE-EQ
+   |
+   v
+THE PELT
+texture / attaque / médiums / grave
+   |
+   v
+TUBE SCREAMER SILVER MOD
+transformation / niveau / overdrive
+   |
+   v
+POST-EQ
+   |
+   v
+BRUNETTI
+```
 
-- gain ;
-- non-linéarité ;
-- écrêtage ;
-- compression ;
-- filtrage ;
-- spectre harmonique ;
-- niveau électrique ;
-- impédance ;
-- réponse temporelle.
+L'objectif n'est donc pas de chercher le maximum de gain, mais de comprendre comment répartir les transformations pour obtenir un son massif, défini et reproductible.
 
-Il faudra enfin distinguer les caractéristiques électroniques documentées des observations réalisées avec notre propre matériel.
+---
 
-Les résultats des essais pourront ensuite être utilisés pour enrichir les profils ToneLab, sans confondre les explications générales de fonctionnement avec les réglages validés dans une configuration précise.
+## Sources techniques
+
+- Fender, **The Pelt** : manuel constructeur. Il documente les transistors au silicium et les fonctions de Level, Tone, Bloom, Fuzz, Thick et du commutateur Mid trois positions.
+- Analogman, **Tube Screamer Silver Mod** : documentation officielle de la modification. Analogman la décrit comme plus transparente et présentant moins de bosse dans les médiums qu'une Tube Screamer normale.
+- Maxon, **OD9** : documentation constructeur utilisée comme référence générale pour les commandes Drive, Tone et Level et le comportement du modèle de base lorsque cela correspond à l'exemplaire concerné.
 
 ---
 
