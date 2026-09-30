@@ -1,11 +1,11 @@
 # Chapitre 04 - Le pedalboard et ses interactions avec le Brunetti
 
-## Partie 3 - Les egaliseurs
+## Partie 3 - Les égaliseurs
 
 ## Navigation
 
 [Index du chapitre 4](index.md)  
-[Partie 2 - Pedales de dynamique et de saturation](part2.md)  
+[Partie 2 - Pédales de dynamique et de saturation](part2.md)  
 [Partie 4 - Modulation](part4.md)
 
 ---
@@ -13,31 +13,26 @@
 ## Sommaire
 
 1. [Introduction](#1-introduction)
-2. [Comprendre le role d'un egaliseur](#2-comprendre-le-role-dun-egaliseur)
+2. [Comprendre ce que fait un égaliseur graphique](#2-comprendre-ce-que-fait-un-égaliseur-graphique)
 3. [Le Mooer Graphic G](#3-le-mooer-graphic-g)
-4. [Le MXR 6 Band EQ](#4-le-mxr-6-band-eq)
-5. [Pourquoi utiliser deux egaliseurs](#5-pourquoi-utiliser-deux-egaliseurs)
-6. [Pre-EQ : egaliser avant la saturation](#6-pre-eq--egaliser-avant-la-saturation)
-7. [Post-EQ : egaliser apres la saturation](#7-post-eq--egaliser-apres-la-saturation)
-8. [Interaction avec le Brunetti](#8-interaction-avec-le-brunetti)
-9. [Applications dans ToneLab](#9-applications-dans-tonelab)
-10. [Methode experimentale](#10-methode-experimentale)
-11. [A retenir](#11-a-retenir)
+4. [Le MXR M-109 Six Band EQ](#4-le-mxr-m-109-six-band-eq)
+5. [Pourquoi deux égaliseurs](#5-pourquoi-deux-égaliseurs)
+6. [Le Graphic G comme pré-EQ](#6-le-graphic-g-comme-pré-eq)
+7. [Le MXR comme post-EQ des saturations](#7-le-mxr-comme-post-eq-des-saturations)
+8. [Interaction avec The Pelt et la Tube Screamer](#8-interaction-avec-the-pelt-et-la-tube-screamer)
+9. [Interaction avec le Brunetti](#9-interaction-avec-le-brunetti)
+10. [Gibson, Gretsch et Drop C#](#10-gibson-gretsch-et-drop-c)
+11. [Méthode expérimentale](#11-méthode-expérimentale)
+12. [À retenir](#12-à-retenir)
+13. [Sources techniques](#13-sources-techniques)
 
 ---
 
 ## 1. Introduction
 
-Les egaliseurs occupent une position particuliere dans le pedalboard ToneLab.
+Les deux égaliseurs du pedalboard ToneLab ne sont pas présents pour effectuer deux fois la même correction.
 
-Contrairement a une fuzz, une overdrive, un tremolo ou une reverb, leur fonction premiere n'est pas de produire un effet immediatement identifiable. Ils permettent de modifier l'equilibre frequentiel du signal et, selon leur emplacement dans la chaine, d'influencer la maniere dont les autres etages vont reagir.
-
-Deux egaliseurs sont actuellement presents dans le pedalboard :
-
-- le Mooer Graphic G ;
-- le MXR 6 Band EQ.
-
-Leur presence ne doit pas etre comprise comme une duplication de la meme fonction. Ils sont places a deux endroits differents :
+Ils interviennent à deux endroits différents de la chaîne :
 
 ```text
 Guitare
@@ -52,168 +47,434 @@ Fender The Pelt
 Tube Screamer Analogman Silver Mod
    |
    v
-MXR 6 Band EQ
+MXR M-109 Six Band EQ
    |
    v
 Brunetti XL R-EVO II
 ```
 
-Le Mooer agit donc avant les principaux etages de saturation, tandis que le MXR agit sur le signal qui en ressort.
+Le Graphic G est placé **avant** les principales saturations. Le MXR est placé **après** The Pelt et la Tube Screamer, mais reste en façade du Brunetti.
 
-Cette distinction constitue le point central de cette partie.
+La question centrale de cette partie est donc double :
 
-L'objectif n'est pas de definir des courbes d'egalisation universelles, mais de comprendre comment le placement des deux EQ permet d'agir sur des etapes differentes de la construction du son.
+> Que change une égalisation appliquée avant une saturation ?
+
+et :
+
+> Que change une égalisation appliquée au signal déjà saturé avant son entrée dans le Brunetti ?
+
+Pour répondre correctement, il faut d'abord documenter précisément les deux machines, puis seulement étudier leur rôle musical dans le rig.
 
 ---
 
-## 2. Comprendre le role d'un egaliseur
+## 2. Comprendre ce que fait un égaliseur graphique
 
-### 2.1. Modifier l'equilibre frequentiel
+### 2.1. Une bande agit autour d'une fréquence déterminée
 
-Un egaliseur permet d'augmenter ou d'attenuer certaines zones du spectre.
+Un égaliseur graphique regroupe plusieurs filtres dont chacun agit autour d'une fréquence définie par le constructeur.
 
-Dans un egaliseur graphique, plusieurs bandes sont accessibles independamment. Chaque curseur agit autour d'une zone frequentielle determinee par la conception de la pedale.
+Le curseur ne représente donc pas un instrument ni une qualité subjective comme « chaleur », « boue » ou « présence ». Il représente avant tout une **zone fréquentielle sur laquelle une correction est appliquée**.
 
-Le principe peut etre represente simplement :
+ToneLab évitera ainsi les équivalences trop simplistes du type :
 
 ```text
-Signal d'entree
-      |
-      v
- Egalisation
-      |
-      +--> certaines zones attenuees
-      |
-      +--> certaines zones renforcees
-      |
-      v
-Signal reequilibre
+400 Hz = boue
+800 Hz = nasal
+3.2 kHz = agressif
 ```
 
-Un egaliseur ne doit donc pas etre considere uniquement comme un outil permettant d'ajouter des graves, des mediums ou des aigus.
+Ces termes peuvent décrire une observation dans un contexte donné, mais ils ne sont pas des propriétés universelles des fréquences.
 
-Dans un pedalboard comportant des etages non lineaires, il peut egalement modifier le signal que ces etages vont recevoir.
+### 2.2. Boost et cut
 
-### 2.2. Boost et attenuation
-
-Lorsque l'on augmente une bande, davantage de cette zone frequentielle est presente dans le signal transmis a l'etage suivant.
+Un curseur placé au centre correspond à la position de référence à 0 dB.
 
 ```text
-Bande renforcee
-      |
-      v
-Davantage de cette zone
-transmise a l'etage suivant
+        BOOST
+          ^
+          |
+0 dB  ----+----  référence
+          |
+          v
+         CUT
 ```
 
-Lorsqu'on la reduit :
+Sur le Graphic G comme sur le MXR M-109, chaque bande offre une plage annoncée de ±18 dB.
+
+Une correction aussi importante est disponible techniquement, mais ToneLab n'a aucune raison de l'utiliser systématiquement. Pour comprendre un comportement, de petites variations sont souvent plus faciles à interpréter.
+
+### 2.3. Niveau global et égalisation ne sont pas la même chose
+
+Le Graphic G possède un **Level général**. Le MXR M-109 n'en possède pas.
 
 ```text
-Bande attenuee
+MOOER GRAPHIC G
       |
-      v
-Moins de cette zone
-transmise a l'etage suivant
+      +--> cinq bandes fréquentielles
+      |
+      +--> Level général
+
+MXR M-109
+      |
+      +--> six bandes fréquentielles
+      |
+      +--> pas de Level général dédié
 ```
 
-La consequence depend donc fortement de ce que l'on trouve apres l'EQ.
+Avec le Graphic G, il est donc possible de distinguer plus facilement :
 
-### 2.3. Le placement change la fonction
+- la modification du spectre ;
+- la modification du niveau global envoyé à la pédale suivante.
 
-Cette distinction est fondamentale :
+### 2.4. Pré-EQ et post-EQ
 
 ```text
-EQ
- |
- v
+PRE-EQ
+   |
+   v
 Saturation
 ```
 
-ne remplit pas exactement la meme fonction que :
+agit sur **ce qui va être saturé**.
 
 ```text
 Saturation
     |
     v
-   EQ
+POST-EQ
 ```
 
-Dans le premier cas, l'EQ modifie le signal qui va entrer dans l'etage de saturation.
+agit sur **un signal dont le contenu harmonique et la dynamique ont déjà été transformés**.
 
-Dans le second, l'EQ modifie un signal dont le contenu harmonique et la dynamique ont deja ete transformes.
-
-C'est cette difference qui justifie l'etude separee du Mooer Graphic G et du MXR 6 Band EQ.
+Il s'agit de la distinction fondamentale de cette partie.
 
 ---
 
 ## 3. Le Mooer Graphic G
 
-### 3.1. Fonction generale
+### 3.1. Architecture et commandes
 
-Le Mooer Graphic G est un egaliseur graphique cinq bandes avec controle general de niveau.
+Le Mooer Graphic G est un égaliseur graphique cinq bandes disposant d'un réglage général de niveau.
 
-Dans le pedalboard ToneLab, il est place avant le Fender The Pelt :
+Ses commandes sont :
+
+- cinq sliders d'égalisation ;
+- un potentiomètre **Level** ;
+- un footswitch true bypass.
+
+Les cinq centres de fréquence sont :
+
+```text
+100 Hz   250 Hz   630 Hz   1.6 kHz   4 kHz
+```
+
+Chaque bande dispose d'une plage de ±18 dB.
+
+### 3.2. Level : agir sur le niveau envoyé à The Pelt
+
+Le manuel indique que **Level ajuste le niveau de sortie** de la pédale.
+
+Dans notre chaîne :
+
+```text
+Graphic G
+ [Level]
+    |
+    v
+The Pelt
+```
+
+Level peut donc modifier le niveau présenté à l'entrée de The Pelt indépendamment de la forme générale de l'EQ.
+
+Cela ouvre deux expériences distinctes :
+
+```text
+EXPERIENCE A
+EQ modifiée
+Level compensé
+```
+
+pour comparer principalement le changement spectral, et :
+
+```text
+EXPERIENCE B
+EQ identique
+Level modifié
+```
+
+pour observer l'influence du niveau envoyé à la fuzz.
+
+### 3.3. 100 Hz
+
+Le premier slider est centré sur **100 Hz**.
+
+Dans ToneLab, cette bande est particulièrement intéressante pour les expériences concernant le bas du spectre et le Drop C#.
+
+La démarche peut être :
+
+```text
+100 Hz à 0
+    |
+    v
+référence
+
+100 Hz légèrement réduit
+    |
+    v
+comparaison
+
+100 Hz légèrement augmenté
+    |
+    v
+comparaison
+```
+
+Observer ensuite : masse, comportement des graves, attaque et lisibilité.
+
+### 3.4. 250 Hz
+
+La deuxième bande est centrée sur **250 Hz**.
+
+Elle fournit une variable différente de 100 Hz pour explorer le registre grave / médium inférieur du signal envoyé aux saturations.
+
+Les critères d'écoute peuvent inclure :
+
+- densité ;
+- séparation des notes ;
+- équilibre entre masse et définition ;
+- réaction de The Pelt lorsque Thick est activé ou désactivé.
+
+### 3.5. 630 Hz
+
+La troisième bande est centrée sur **630 Hz**.
+
+Elle permet d'agir dans une autre zone médium avant la fuzz.
+
+Cette bande peut notamment être utilisée pour étudier la relation entre :
+
+```text
+Graphic G 630 Hz
+       |
+       v
+The Pelt Mid
+       |
+       v
+Tube Screamer Silver Mod
+```
+
+Ces trois fonctions ne sont pas équivalentes. Elles interviennent à des endroits différents et doivent être comparées expérimentalement.
+
+### 3.6. 1,6 kHz
+
+La quatrième bande est centrée sur **1,6 kHz**.
+
+Elle peut être utilisée comme variable lorsqu'on étudie la définition du jeu et la manière dont le signal attaque les saturations.
+
+Une modification avant la fuzz ne doit pas être confondue avec la même fréquence corrigée après celle-ci par le MXR.
+
+### 3.7. 4 kHz
+
+La dernière bande du Graphic G est centrée sur **4 kHz**.
+
+Elle permet d'expérimenter le contenu supérieur envoyé à The Pelt avant que celle-ci ne génère son propre contenu harmonique.
+
+L'effet réel doit être évalué avec le rig plutôt que résumé par un adjectif prédéfini.
+
+### 3.8. True bypass et caractéristiques électriques
+
+Le Graphic G est documenté comme **true bypass**.
+
+Les caractéristiques publiées indiquent :
+
+```text
+Impédance d'entrée : 470 kOhm
+Impédance de sortie : 1 kOhm
+Alimentation         : 9 V DC centre négatif
+Consommation         : 7 mA
+```
+
+Ces données caractérisent la machine. Elles ne suffisent pas, à elles seules, à prédire une différence audible dans notre chaîne.
+
+### 3.9. Fonction ToneLab
 
 ```text
 Guitare
    |
    v
-Mooer Graphic G
+GRAPHIC G
+   |
+   +--> façonner le spectre avant saturation
+   |
+   +--> ajuster le niveau global via Level
    |
    v
-Fender The Pelt
+The Pelt
 ```
 
-Cette position lui donne principalement un role de **pre-EQ**.
-
-Il peut modifier le signal provenant de la guitare avant que celui-ci ne rencontre les principaux etages de saturation.
-
-### 3.2. Bandes disponibles
-
-Les cinq centres de frequence du Graphic G sont :
-
-- 100 Hz ;
-- 250 Hz ;
-- 630 Hz ;
-- 1,6 kHz ;
-- 4 kHz.
-
-Chaque bande permet une correction allant jusqu'a +/-18 dB. La pedale dispose egalement d'un controle de niveau general.
-
-On peut visualiser la repartition des bandes ainsi :
-
-```text
-100 Hz   250 Hz   630 Hz   1.6 kHz   4 kHz
-  |         |        |         |        |
-  +---------+--------+---------+--------+
-              spectre guitare
-```
-
-Cette representation sert uniquement a visualiser l'ordre des frequences. Elle ne doit pas etre interpretee comme une separation stricte entre graves, mediums et aigus.
-
-### 3.3. Role dans ToneLab
-
-Le Graphic G peut etre utilise pour preparer le signal avant saturation.
-
-Il peut notamment servir a experimenter :
-
-- l'influence du grave envoye dans la fuzz ;
-- l'influence des bas-mediums sur la densite ;
-- la reaction des saturations aux mediums ;
-- la perception des attaques ;
-- l'adaptation ponctuelle d'une guitare ou d'un accordage a un profil donne.
-
-Son utilisation ne doit cependant pas devenir automatique.
-
-L'objectif n'est pas de corriger systematiquement la personnalite de la guitare, mais d'utiliser l'EQ lorsqu'un besoin sonore a ete identifie.
+Son rôle est donc plus large qu'une simple correction finale du son.
 
 ---
 
-## 4. Le MXR 6 Band EQ
+## 4. Le MXR M-109 Six Band EQ
 
-### 4.1. Fonction generale
+### 4.1. Identifier précisément la version ToneLab
 
-Le MXR 6 Band EQ est place apres le Fender The Pelt et la Tube Screamer Analogman Silver Mod.
+Le modèle utilisé dans ToneLab est le **MXR M-109 noir à LEDs rouges**.
+
+Il ne doit pas être confondu avec le **M109S gris à LEDs bleues**, qui constitue une révision matérielle différente.
+
+Le M-109 documenté ici possède :
+
+- un boîtier noir ;
+- des LEDs rouges sur les sliders ;
+- six bandes d'égalisation ;
+- un bypass **Hardwire** ;
+- une consommation annoncée de **3 mA**.
+
+Le M109S plus récent conserve les six fréquences et la plage ±18 dB, mais Dunlop le décrit comme une version améliorée utilisant un circuit de réduction de bruit, un true bypass, des LEDs plus lumineuses et un boîtier aluminium plus léger.
+
+ToneLab doit donc toujours utiliser les spécifications du **M-109**, et non celles du M109S.
+
+### 4.2. Architecture et commandes
+
+Le M-109 possède six sliders et un footswitch.
+
+Ses fréquences sont :
+
+```text
+100 Hz   200 Hz   400 Hz   800 Hz   1.6 kHz   3.2 kHz
+```
+
+Chaque slider permet un cut ou un boost allant jusqu'à ±18 dB.
+
+Il ne possède pas de potentiomètre général de Level.
+
+### 4.3. 100 Hz
+
+La première bande est centrée sur **100 Hz**.
+
+C'est une fréquence directement commune aux deux EQ :
+
+```text
+Graphic G : 100 Hz
+     |
+     v
+AVANT saturation
+
+MXR M-109 : 100 Hz
+     |
+     v
+APRES Pelt + TS
+```
+
+Même fréquence centrale, mais fonction différente dans la chaîne.
+
+### 4.4. 200 Hz
+
+La deuxième bande est centrée sur **200 Hz**.
+
+Elle peut servir à explorer la densité du registre inférieur après la fuzz et la Tube Screamer.
+
+On pourra notamment observer si une modification à cet endroit produit un résultat différent d'un travail réalisé à 250 Hz sur le Graphic G avant saturation.
+
+### 4.5. 400 Hz
+
+La troisième bande est centrée sur **400 Hz**.
+
+ToneLab l'utilisera comme variable expérimentale sans lui attribuer automatiquement une qualité sonore négative ou positive.
+
+```text
+400 Hz : 0
+400 Hz : léger cut
+400 Hz : léger boost
+```
+
+Puis comparer densité, lisibilité et intégration dans le contexte musical.
+
+### 4.6. 800 Hz
+
+La quatrième bande est centrée sur **800 Hz**.
+
+Elle constitue une zone médium différente de celle disponible sur le Graphic G à 630 Hz.
+
+Elle permettra notamment d'observer les réactions dans une chaîne déjà saturée et d'étudier l'évolution du caractère et de la lisibilité.
+
+### 4.7. 1,6 kHz
+
+La cinquième bande est centrée sur **1,6 kHz**.
+
+Il s'agit de la seconde fréquence exactement commune aux deux égaliseurs.
+
+```text
+Graphic G 1.6 kHz
+      |
+      v
+avant saturation
+
+MXR M-109 1.6 kHz
+      |
+      v
+après les saturations
+```
+
+Cette fréquence constitue donc un excellent point de comparaison pour étudier le rôle du placement.
+
+### 4.8. 3,2 kHz
+
+La dernière bande est centrée sur **3,2 kHz**.
+
+Elle permet de modifier une zone supérieure du signal déjà transformé par The Pelt et la Tube Screamer.
+
+On observera notamment l'évolution de la définition des attaques et toute agressivité éventuelle, sans supposer que ces effets apparaîtront systématiquement.
+
+### 4.9. Caractéristiques électriques du M-109 noir
+
+Le manuel du M-109 indique :
+
+```text
+Impédance d'entrée  : 470 kOhm
+Impédance de sortie : 5 kOhm
+Niveau d'entrée max : 0 dBV
+Niveau de sortie max: 0 dBV
+Noise floor         : -95 dBV (pondéré A)
+Bypass              : Hardwire
+Consommation        : 3 mA
+Alimentation        : 9 V DC
+```
+
+Ces valeurs sont celles à utiliser pour le matériel ToneLab.
+
+En particulier, les valeurs nettement différentes publiées pour le M109S ne doivent pas être reportées sur le M-109 noir.
+
+### 4.10. Hardwire n'est pas documenté ici comme True Bypass
+
+Le manuel du M-109 utilise explicitement le terme **Hardwire** pour décrire son bypass.
+
+ToneLab conservera donc cette formulation.
+
+Il ne faut pas remplacer automatiquement « Hardwire » par « True Bypass » sans source propre au M-109 qui établisse cette équivalence.
+
+### 4.11. Pas de Level général
+
+Le M-109 n'a pas de commande dédiée équivalente au Level du Graphic G.
+
+Cela ne signifie pas que les positions des bandes sont sans effet sur le niveau résultant.
+
+La distinction fonctionnelle est plutôt :
+
+```text
+Graphic G
+   |
+   +--> cinq bandes
+   +--> Level général explicite
+
+MXR M-109
+   |
+   +--> six bandes
+   +--> pas de Level général dédié
+```
+
+### 4.12. Fonction ToneLab
 
 ```text
 The Pelt
@@ -222,230 +483,75 @@ The Pelt
 Tube Screamer
    |
    v
-MXR 6 Band EQ
+MXR M-109
+   |
+   +--> façonner le signal déjà saturé
    |
    v
 Brunetti
 ```
 
-Il recoit donc un signal qui peut deja avoir subi :
-
-- de l'ecretage ;
-- de la compression ;
-- une modification du contenu harmonique ;
-- une modification de la dynamique ;
-- une coloration frequentielle.
-
-Son role est ainsi different de celui du Graphic G.
-
-### 4.2. Bandes disponibles
-
-Les six bandes du MXR sont :
-
-- 100 Hz ;
-- 200 Hz ;
-- 400 Hz ;
-- 800 Hz ;
-- 1,6 kHz ;
-- 3,2 kHz.
-
-Chaque curseur permet une correction allant jusqu'a +/-18 dB.
-
-```text
-100    200    400    800    1.6k    3.2k
- |      |      |      |       |       |
- +------+------+------+-------+-------+
-            six bandes de correction
-```
-
-Il est important de conserver les frequences reelles du modele utilise dans ToneLab et de ne pas leur substituer celles d'un autre egaliseur.
-
-### 4.3. Role dans ToneLab
-
-Dans sa position actuelle, le MXR intervient principalement comme **post-EQ par rapport aux pedales de saturation**.
-
-Cela signifie qu'il ne change pas ce que The Pelt et la Tube Screamer ont deja fait au signal.
-
-Il permet en revanche de remodeler le signal resultant avant son entree dans le Brunetti.
-
-Il peut donc etre utilise pour observer l'influence de differentes zones sur :
-
-- la densite generale ;
-- la lisibilite ;
-- la presence ;
-- le comportement des attaques ;
-- l'equilibre du grave et des bas-mediums ;
-- l'integration du son dans le contexte musical.
+Le M-109 est donc principalement un **post-EQ par rapport aux saturations**, même s'il reste placé avant le préamplificateur du Brunetti.
 
 ---
 
-## 5. Pourquoi utiliser deux egaliseurs
+## 5. Pourquoi deux égaliseurs
 
-La presence de deux egaliseurs devient coherente lorsqu'on considere leur emplacement plutot que leur seule fonction apparente.
+Les deux pédales diffèrent à la fois par leurs bandes, leurs commandes et leur position.
 
 ```text
-              PRE-EQ
-                 |
-                 v
-Guitare -> Graphic G
-                 |
-                 v
-              The Pelt
-                 |
-                 v
-           Tube Screamer
-                 |
-                 v
-           MXR 6 Band EQ
-                 |
-                 v
-              POST-EQ
-                 |
-                 v
-              Brunetti
+MOOER GRAPHIC G              MXR M-109
+
+100 Hz        <----------->  100 Hz
+250 Hz        <----------->  200 Hz
+630 Hz        <----------->  400 / 800 Hz
+1.6 kHz       <----------->  1.6 kHz
+4 kHz         <----------->  3.2 kHz
+
+Level général               pas de Level dédié
+True bypass                 bypass : Hardwire
+
+AVANT saturation            APRES Pelt + TS
 ```
 
-Le premier agit sur **ce qui va etre sature**.
+L'intérêt principal n'est donc pas de disposer de onze curseurs.
 
-Le second agit sur **le resultat des saturations avant son entree dans le Brunetti**.
+Il est de pouvoir intervenir à **deux moments différents de la construction du signal**.
 
-On peut resumer leur fonction de travail ainsi :
+---
+
+## 6. Le Graphic G comme pré-EQ
+
+### 6.1. Préparer ce qui entre dans The Pelt
 
 ```text
+Guitare
+   |
+   v
 Graphic G
    |
    v
-PREPARER le signal
+signal préparé
    |
    v
-Saturations
-   |
-   v
-MXR 6 Band
-   |
-   v
-SCULPTER le resultat
+The Pelt
 ```
 
-Cette distinction ne signifie pas que chaque EQ doit toujours etre actif.
+Une bande boostée avant la fuzz signifie qu'une quantité plus importante de cette zone est présentée au circuit suivant.
 
-Une configuration peut utiliser :
+C'est différent d'un boost appliqué au résultat de la fuzz.
 
-- aucun EQ ;
-- uniquement le Graphic G ;
-- uniquement le MXR ;
-- les deux simultanement.
+### 6.2. Séparer spectre et niveau
 
-Le choix depend du profil et du probleme que l'on cherche a resoudre.
+Grâce au Level, une expérience peut chercher à compenser le niveau global lorsqu'une courbe est modifiée.
+
+Cela permet d'éviter, autant que possible, de confondre changement de timbre et changement de niveau d'entrée de The Pelt.
+
+À l'inverse, Level peut volontairement devenir la variable étudiée lorsqu'on souhaite observer la réaction de la fuzz à un signal plus ou moins fort.
 
 ---
 
-## 6. Pre-EQ : egaliser avant la saturation
-
-### 6.1. Principe
-
-Le Graphic G est place avant The Pelt.
-
-Lorsqu'une bande est modifiee, la fuzz recoit donc un signal different.
-
-```text
-Signal guitare
-     |
-     v
-Graphic G
-     |
-     v
-Spectre modifie
-     |
-     v
-The Pelt
-     |
-     v
-Signal sature
-```
-
-Le pre-EQ ne consiste donc pas uniquement a modifier le timbre entendu avant la fuzz.
-
-Il peut modifier la maniere dont les differentes composantes du signal participent a la transformation non lineaire.
-
-### 6.2. Exemple conceptuel sur le grave
-
-Prenons volontairement une seule bande comme variable d'experience : 100 Hz.
-
-Reference :
-
-```text
-Graphic G : 100 Hz a 0
-        |
-        v
-The Pelt
-```
-
-Comparaison :
-
-```text
-Graphic G : 100 Hz attenue
-        |
-        v
-The Pelt
-```
-
-Il faut ensuite observer le resultat sans supposer a l'avance qu'il sera meilleur.
-
-Les criteres peuvent etre :
-
-- definition des notes graves ;
-- comportement des palm-mutes ;
-- densite ;
-- attaque ;
-- lisibilite des accords ;
-- sensation de compression.
-
-### 6.3. Application au Drop C#
-
-L'accordage en Drop C# constitue un contexte particulierement interessant pour le pre-EQ.
-
-Le but n'est pas de partir du principe qu'il faut automatiquement reduire le grave.
-
-Il faut plutot determiner si le contenu transmis aux saturations permet d'obtenir le compromis recherche entre :
-
-```text
-Masse
-  +
-Definition
-  +
-Attaque
-  +
-Lisibilite
-```
-
-Une correction ne doit etre conservee que si elle produit un resultat utile avec le rig reel.
-
-### 6.4. Adapter sans uniformiser les guitares
-
-Le Graphic G peut egalement servir a adapter ponctuellement le signal provenant des deux guitares principales de ToneLab.
-
-Mais l'objectif n'est pas :
-
-```text
-Gretsch -> faire ressembler a la Gibson
-```
-
-ou :
-
-```text
-Gibson -> faire ressembler a la Gretsch
-```
-
-Il est preferable de conserver leur identite et d'utiliser le pre-EQ pour atteindre un objectif sonore determine lorsque cela est necessaire.
-
----
-
-## 7. Post-EQ : egaliser apres la saturation
-
-### 7.1. Principe
-
-Le MXR est place apres The Pelt et la Tube Screamer.
+## 7. Le MXR comme post-EQ des saturations
 
 ```text
 The Pelt
@@ -454,310 +560,88 @@ The Pelt
 Tube Screamer
    |
    v
-Signal sature
+signal saturé
    |
    v
-MXR 6 Band EQ
+MXR M-109
    |
    v
 Brunetti
 ```
 
-Il travaille donc sur un signal dont le spectre et la dynamique ont deja ete profondement modifies.
+Le MXR agit sur un signal dont :
 
-Une correction appliquee ici ne peut pas annuler la transformation produite en amont.
+- la dynamique a pu être comprimée ;
+- des harmoniques ont été générées ;
+- l'équilibre fréquentiel a déjà été modifié ;
+- les transitoires ont été transformées.
 
-Elle permet en revanche de modifier l'equilibre du signal qui sera presente au preamplificateur du Brunetti.
-
-### 7.2. Zones d'observation du MXR
-
-Les bandes du MXR constituent autant de variables experimentales.
-
-#### 100 Hz
-
-Observer principalement l'influence sur le bas du spectre, la masse et la tenue des notes graves.
-
-#### 200 Hz
-
-Observer l'influence sur la densite du grave et du bas-medium ainsi que sur la lisibilite lorsque le son est deja tres dense.
-
-#### 400 Hz
-
-Observer les modifications de densite et de lisibilite dans le registre medium inferieur.
-
-#### 800 Hz
-
-Observer les changements de caractere dans les mediums et leur influence sur la perception du son dans un mix.
-
-#### 1,6 kHz
-
-Observer notamment l'influence sur la presence, la definition et la perception des attaques.
-
-#### 3,2 kHz
-
-Observer l'influence sur la definition, le tranchant et une eventuelle agressivite des attaques.
-
-Ces descriptions constituent des **zones d'observation**, et non des conclusions definitives.
-
-La reaction reelle dependra de la guitare, des saturations actives, du canal du Brunetti, du baffle et du niveau d'ecoute.
+Il peut donc sculpter le résultat, mais ne peut pas annuler le processus de saturation déjà réalisé.
 
 ---
 
-## 8. Interaction avec le Brunetti
+## 8. Interaction avec The Pelt et la Tube Screamer
 
-### 8.1. Le MXR reste avant le preamplificateur
+### 8.1. Graphic G et The Pelt
 
-L'expression "post-EQ" utilisee dans cette partie signifie **apres les pedales de saturation**.
+Le Graphic G précède directement The Pelt.
 
-Elle ne signifie pas "apres l'amplificateur".
+Il doit donc être étudié en relation avec :
 
-Dans l'architecture actuelle :
+- Fuzz ;
+- Tone ;
+- Bloom ;
+- Mid ;
+- Thick ;
+- Level de The Pelt.
 
-```text
-Graphic G
-   |
-   v
-Saturations
-   |
-   v
-MXR
-   |
-   v
-PREAMPLIFICATEUR BRUNETTI
-```
+Par exemple, une modification du grave avant The Pelt peut être comparée à l'action de Thick, sans supposer que les deux fonctions sont équivalentes.
 
-Le MXR modifie donc encore le signal qui va attaquer le preamplificateur.
+### 8.2. M-109 après Pelt + TS
 
-Le resultat dependra du canal selectionne.
+Le MXR reçoit le résultat combiné des deux saturations.
 
-### 8.2. Clean
-
-Sur Clean, les EQ peuvent etre etudies avec une contribution plus faible de la saturation du preamplificateur.
-
-Ce contexte peut etre utile pour isoler plus clairement :
-
-- le caractere des guitares ;
-- l'action du Graphic G ;
-- l'action de The Pelt ;
-- l'action de la Tube Screamer ;
-- l'action du MXR.
-
-### 8.3. Crunch
-
-Sur Crunch, le signal egalise rencontre un preamplificateur dont le fonctionnement est deja plus marque par le gain.
-
-La question devient alors :
-
-> Comment le pre-EQ, les saturations et le post-EQ interagissent-ils avec le caractere propre du canal Crunch ?
-
-Il faudra notamment observer si les corrections conservent la dynamique et la lisibilite recherchees.
-
-### 8.4. XLead
-
-Sur XLead, l'accumulation possible des saturations devient particulierement importante.
-
-Le but n'est pas necessairement d'ajouter davantage de gain.
-
-Les EQ peuvent devenir des outils permettant d'etudier :
-
-- la precision du grave ;
-- la definition des attaques ;
-- la presence ;
-- la densite ;
-- la lisibilite des accords ;
-- le comportement du Drop C#.
-
-Pour les profils modernes recherches dans ToneLab, le critere reste musical : obtenir un son massif tout en conservant suffisamment de definition pour fonctionner dans le groupe.
-
-### 8.5. Une autre position experimentale possible pour le MXR
-
-Le MXR 6 Band EQ peut egalement etre utilise dans une boucle d'effets d'amplificateur.
-
-Cette possibilite ouvre une experience differente de sa position actuelle :
+Une observation comme « le son manque de présence » peut donc mener à plusieurs expériences :
 
 ```text
-CONFIGURATION A
-
-MXR
- |
- v
-Entree Brunetti
-```
-
-contre :
-
-```text
-CONFIGURATION B
-
-Preampli Brunetti
-       |
-       v
-Boucle FX -> MXR
-       |
-       v
-Suite de l'amplification
-```
-
-Ces deux positions ne doivent pas etre considerees comme equivalentes.
-
-ToneLab pourra les comparer si un besoin sonore precis justifie cette experimentation. La configuration de reference reste toutefois celle documentee dans le pedalboard actuel.
-
----
-
-## 9. Applications dans ToneLab
-
-### 9.1. Corriger un probleme, pas une theorie
-
-L'egalisation doit partir d'une observation.
-
-Exemple :
-
-```text
-Observation
+Pelt Mid
     |
+    ou
     v
-Le grave perd en definition
-avec cette combinaison
+Tube Screamer Tone / Level
     |
+    ou
     v
-Hypothese
-    |
-    v
-Tester une modification ciblee
-    |
-    v
-Comparer
+MXR M-109
 ```
 
-Il faut eviter la demarche inverse : appliquer une correction simplement parce qu'une recette generale affirme qu'une guitare accordee bas devrait etre egalisee d'une certaine maniere.
+ToneLab doit essayer d'identifier **où apparaît le problème** avant de choisir l'outil de correction.
 
-### 9.2. Conserver l'identite des guitares
+### 8.3. Fréquences communes comme expérience
 
-Les deux guitares principales doivent pouvoir conserver leurs differences.
-
-```text
-Gibson Les Paul Classic DC
-          |
-          +--> identite propre
-
-Gretsch John Gourley Broadkaster
-          |
-          +--> identite propre
-```
-
-L'EQ devient un moyen d'adaptation, pas un outil d'uniformisation.
-
-### 9.3. Construire un son massif mais lisible
-
-Pour les sons lourds, plusieurs objectifs peuvent entrer en tension :
-
-```text
-Masse <----------> Definition
-
-Densite <--------> Dynamique
-
-Grave <----------> Lisibilite
-```
-
-L'interet des deux EQ est de pouvoir agir a deux moments differents du processus sans supposer qu'une seule courbe pourra resoudre tous les problemes.
-
-### 9.4. Quelques questions utiles
-
-Lorsqu'une correction semble necessaire, ToneLab peut poser successivement les questions suivantes :
-
-1. Le probleme existe-t-il deja avec la guitare branchee directement dans le Brunetti ?
-2. Apparait-il lorsque The Pelt est activee ?
-3. Apparait-il lorsque la Tube Screamer est ajoutee ?
-4. Faut-il agir avant la saturation ou sur son resultat ?
-5. La correction fonctionne-t-elle toujours au niveau sonore utilise en repetition ?
-6. Fonctionne-t-elle avec le baffle et le canal concernes ?
-7. Le resultat reste-t-il interessant dans le contexte du groupe ?
-
-Ces questions permettent de choisir l'EQ en fonction de sa position et non simplement en fonction du nombre de bandes disponibles.
-
----
-
-## 10. Methode experimentale
-
-### 10.1. Commencer a plat
-
-La position de reference doit etre simple :
-
-```text
-Graphic G : toutes les bandes a 0
-MXR       : toutes les bandes a 0
-```
-
-Cette reference permet de comparer les modifications suivantes.
-
-### 10.2. Tester le pre-EQ seul
-
-```text
-Graphic G : une seule bande modifiee
-MXR       : plat
-```
-
-Conserver :
-
-- la meme guitare ;
-- le meme micro ;
-- le meme passage joue ;
-- les memes saturations ;
-- le meme canal ;
-- les memes commandes du Brunetti ;
-- le meme baffle ;
-- un niveau d'ecoute comparable.
-
-L'objectif est d'observer la consequence de la modification **avant saturation**.
-
-### 10.3. Tester le post-EQ seul
-
-Revenir a la reference puis modifier une bande du MXR :
-
-```text
-Graphic G : plat
-MXR       : une seule bande modifiee
-```
-
-Cela permet d'observer plus clairement l'action de l'EQ sur le signal deja transforme par les saturations.
-
-### 10.4. Comparer pre-EQ et post-EQ
-
-Une experience importante consiste a comparer une correction dans une zone proche avant et apres les saturations.
-
-Par exemple :
+100 Hz et 1,6 kHz sont présents sur les deux EQ.
 
 ```text
 TEST A
-Graphic G modifie
-      |
-      v
-Saturations
-      |
-      v
-MXR a plat
+Graphic G 1.6 kHz modifié
+MXR 1.6 kHz à 0
 ```
 
 puis :
 
 ```text
 TEST B
-Graphic G a plat
-      |
-      v
-Saturations
-      |
-      v
-MXR modifie
+Graphic G 1.6 kHz à 0
+MXR 1.6 kHz modifié
 ```
 
-Les frequences disponibles n'etant pas identiques entre les deux pedales, cette comparaison ne constitue pas necessairement une comparaison mathematique exacte.
+L'objectif n'est pas de démontrer une égalité mathématique, mais d'entendre comment le **placement** change le résultat.
 
-Elle permet cependant d'etudier la difference fonctionnelle entre une correction appliquee avant et apres les saturations.
+---
 
-### 10.5. Combiner les deux EQ
+## 9. Interaction avec le Brunetti
 
-Ce n'est qu'apres avoir compris leur effet separement qu'il devient pertinent de construire une combinaison :
+### 9.1. Le MXR reste en façade
 
 ```text
 Graphic G
@@ -766,39 +650,192 @@ Graphic G
 Saturations
    |
    v
-MXR
+MXR M-109
+   |
+   v
+PREAMPLIFICATEUR BRUNETTI
 ```
 
-L'objectif doit rester identifiable.
+Le préamplificateur reçoit donc le signal égalisé et peut à son tour le transformer.
 
-Par exemple :
+### 9.2. Clean
+
+Clean constitue un contexte utile pour comparer les EQ avec une contribution moindre de la saturation du préamplificateur.
+
+Il permet d'isoler plus facilement :
+
+- le comportement propre des deux guitares ;
+- le résultat des saturations ;
+- le pré-EQ ;
+- le post-EQ.
+
+### 9.3. Crunch
+
+Sur Crunch, l'égalisation en façade conditionne le signal envoyé à un canal qui possède déjà son propre caractère et son propre comportement de gain.
+
+Une courbe efficace sur Clean doit donc être revalidée sur Crunch.
+
+### 9.4. XLead
+
+Avec XLead, l'enjeu est particulièrement important pour les sons modernes et lourds recherchés dans ToneLab.
+
+L'objectif est d'étudier le compromis entre :
 
 ```text
-Graphic G
-   |
-   +--> preparer le signal pour la fuzz
-
-MXR
-   |
-   +--> ajuster le resultat avant le Brunetti
+Masse
+  +
+Définition
+  +
+Attaque
+  +
+Lisibilité
 ```
 
-### 10.6. Documenter le resultat
+### 9.5. MXR dans la boucle : expérience à valider sur le M-109
 
-Lorsqu'une combinaison semble interessante, les informations suivantes doivent etre conservees :
+Le constructeur du M109S actuel documente explicitement son utilisation possible dans une boucle d'effets. Cette indication ne sera pas transférée automatiquement au M-109 noir comme caractéristique constructeur de notre modèle.
+
+Une expérience du M-109 dans la boucle du Brunetti reste néanmoins envisageable comme **expérience ToneLab**, sous réserve de la traiter comme telle :
+
+```text
+CONFIGURATION DE REFERENCE
+
+MXR M-109
+   |
+   v
+Entrée Brunetti
+```
+
+contre :
+
+```text
+EXPERIENCE TONELAB
+
+Préampli Brunetti
+       |
+       v
+Boucle FX -> MXR M-109
+```
+
+---
+
+## 10. Gibson, Gretsch et Drop C#
+
+### 10.1. Préserver deux identités
+
+Les égaliseurs ne doivent pas servir automatiquement à uniformiser :
+
+```text
+Gibson Les Paul Classic DC
+          |
+          +--> identité propre
+
+Gretsch John Gourley Broadkaster
+          |
+          +--> identité propre
+```
+
+Une correction n'est justifiée que par un objectif identifié.
+
+### 10.2. Drop C#
+
+Le Drop C# rend l'étude du bas du spectre particulièrement intéressante.
+
+Mais la méthode ToneLab reste :
+
+> observer d'abord, corriger ensuite.
+
+Il faut éviter des règles comme « accordage bas = couper systématiquement 100 Hz ».
+
+L'expérience doit déterminer si le problème vient :
+
+- du signal de la guitare ;
+- du pré-EQ ;
+- de Thick sur The Pelt ;
+- des saturations ;
+- du post-EQ ;
+- du canal du Brunetti ;
+- du contexte de diffusion.
+
+---
+
+## 11. Méthode expérimentale
+
+### 11.1. Référence
+
+Commencer avec les deux EQ à plat :
+
+```text
+Graphic G : 5 bandes à 0
+MXR M-109 : 6 bandes à 0
+```
+
+Pour le Graphic G, documenter également le Level.
+
+### 11.2. Une bande à la fois
+
+```text
+Référence
+    |
+    v
+modifier UNE bande
+    |
+    v
+écouter
+    |
+    v
+comparer
+    |
+    v
+revenir à la référence
+```
+
+### 11.3. Pré-EQ seul
+
+```text
+Graphic G : une bande modifiée
+MXR M-109 : plat
+```
+
+Noter fréquence, amplitude de correction, Level, pédales actives, canal, guitare, micro et observation.
+
+### 11.4. Post-EQ seul
+
+```text
+Graphic G : plat
+MXR M-109 : une bande modifiée
+```
+
+Comparer dans les mêmes conditions.
+
+### 11.5. Comparer les fréquences communes
+
+Les expériences à 100 Hz et 1,6 kHz permettent de comparer directement deux positions différentes de la chaîne.
+
+### 11.6. Construire ensuite une courbe
+
+```text
+Comprendre une bande
+       |
+       v
+Comprendre la suivante
+       |
+       v
+Associer deux corrections
+       |
+       v
+Comparer
+       |
+       v
+Construire progressivement une courbe
+```
+
+### 11.7. Documenter dans ToneLab Profiles
 
 ```text
 Guitare :
 Micro :
 Accordage :
-
-Canal Brunetti :
-Gain :
-Bass :
-Mid :
-Edge :
-Master :
-Bright / Focus :
 
 Graphic G :
 100 Hz :
@@ -809,12 +846,12 @@ Graphic G :
 Level :
 
 The Pelt :
-Reglages :
+réglages :
 
 Tube Screamer :
-Reglages :
+réglages :
 
-MXR 6 Band :
+MXR M-109 :
 100 Hz :
 200 Hz :
 400 Hz :
@@ -822,69 +859,77 @@ MXR 6 Band :
 1.6 kHz :
 3.2 kHz :
 
+Canal Brunetti :
+Gain :
+Bass :
+Mid :
+Edge :
+Master :
+Bright / Focus :
+
 Baffle :
 Niveau de test :
 
 Observation :
-Interpretation :
-Decision :
+Interprétation :
+Décision :
 ```
 
-La documentation Markdown n'a pas vocation a conserver chaque essai intermediaire.
-
-Les tests detailles peuvent rester dans les outils de suivi prevus a cet effet. La documentation doit surtout conserver les connaissances acquises, les comportements reproductibles et les configurations retenues.
+La documentation Markdown conserve ensuite les principes et résultats reproductibles plutôt que chaque tentative intermédiaire.
 
 ---
 
-## 11. A retenir
+## 12. À retenir
 
-Les deux egaliseurs du pedalboard ToneLab ne remplissent pas exactement la meme fonction.
-
-Le Mooer Graphic G est place avant The Pelt et agit principalement comme pre-EQ.
-
-Le MXR 6 Band EQ est place apres The Pelt et la Tube Screamer et agit principalement comme post-EQ par rapport a ces saturations.
-
-La logique generale peut etre resumee ainsi :
+Le Graphic G et le MXR M-109 ne sont pas deux exemplaires interchangeables d'une même fonction.
 
 ```text
 Guitare
    |
    v
-Mooer Graphic G
+MOOER GRAPHIC G
+5 bandes + Level
    |
    v
 PREPARER
-le signal
+le spectre et le niveau
    |
    v
-The Pelt
+THE PELT
    |
    v
-Tube Screamer
+TUBE SCREAMER
    |
    v
-MXR 6 Band EQ
+MXR M-109
+6 bandes / LEDs rouges
    |
    v
 SCULPTER
-le signal resultant
+le signal déjà saturé
    |
    v
-Brunetti
+BRUNETTI
 ```
 
-Le premier EQ participe donc a determiner **ce qui entre dans les saturations**.
+Le Graphic G agit principalement comme **pré-EQ** et possède un Level permettant d'agir explicitement sur son niveau de sortie.
 
-Le second participe a determiner **l'equilibre du signal qui en ressort avant son entree dans le Brunetti**.
+Le MXR M-109 noir utilisé dans ToneLab agit comme **post-EQ par rapport aux saturations**, tout en restant placé avant le préamplificateur du Brunetti. Ses spécifications de référence sont celles du M-109 à LEDs rouges, pas celles du M109S gris actuel.
 
-Cette architecture permet d'experimenter avec davantage de precision sans imposer de correction permanente a la guitare ou au profil sonore.
+ToneLab ne cherche donc pas une « bonne courbe » universelle. Il cherche à comprendre **quelle correction, à quel endroit de la chaîne, répond à quel problème sonore**.
 
-Dans ToneLab, une egalisation ne devra donc pas etre retenue parce qu'elle correspond a une recette theorique, mais parce qu'elle repond a un besoin identifie et produit un resultat reproductible avec le rig reel.
+---
+
+## 13. Sources techniques
+
+- Mooer Audio, **Graphic G** : cinq bandes centrées sur 100 Hz, 250 Hz, 630 Hz, 1,6 kHz et 4 kHz ; ±18 dB par bande ; Level général ; true bypass ; entrée 470 kOhm ; sortie 1 kOhm ; alimentation 9 V DC centre négatif.
+- Manuel du **MXR M-109 Six Band Graphic EQ** : six bandes, ±18 dB ; LEDs rouges ; entrée 470 kOhm ; sortie 5 kOhm ; entrée max. 0 dBV ; sortie max. 0 dBV ; noise floor -95 dBV pondéré A ; bypass Hardwire ; consommation 3 mA ; alimentation 9 V DC.
+- Dunlop, **M109S Six Band EQ** : utilisé uniquement pour documenter les différences avec la génération suivante, notamment circuit de réduction de bruit, true bypass, LEDs plus lumineuses et boîtier aluminium plus léger.
 
 ---
 
 ## Navigation
 
 [Index du chapitre 4](index.md)  
-[Partie 2 - Pedales de dynamique et de saturation](part2.md)  
+[Partie 2 - Pédales de dynamique et de saturation](part2.md)  
 [Partie 4 - Modulation](part4.md)
