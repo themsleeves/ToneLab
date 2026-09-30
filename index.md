@@ -10,12 +10,6 @@ Le projet cherche à comprendre **pourquoi un réglage fonctionne**, comment les
 
 ---
 
-## Fil d'Ariane
-
-**ToneLab**
-
----
-
 # Documentation
 
 La documentation est organisée autour de plusieurs niveaux.
